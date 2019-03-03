@@ -4,3 +4,11 @@
     - answer: Ja
     - answer: Ich gehe in den Wald
     - answer: Wir machen uns keinen Hel draus
+
+- question: Ordne folgenden Gedankengang eines Statistikers in die richtige Reihenfolge.
+  hint: Das stimmt noch nicht ganz. Denke weiter drüber nach.
+  answers:
+    - answer: Ich möchte ein statistisches Modell für die Größe von Personen erstellen
+    - answer: Ich brauche genug Parameter, um den Fehler substantiell zu reduzieren, sollte aber nicht zu viele Parameter verwenden.
+    - answer: Ein guter Parameter wäre die Größe der Eltern, da die Größe von Menschen hocherblich ist.
+    - answer: Mein Modell hat daher zwei Parameter. 

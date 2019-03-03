@@ -21,3 +21,24 @@
     - answer: Vogel
       correct: False
 
+- question: Welches dieser Beispiele ist kein statistisches Modell?
+  hint: Überlege dir, welches dieser Kennwerte mehrere Daten nicht zusammen fasst. 
+  answers:
+    - answer: Der Mittelwert einer Verteilung
+      correct: False
+    - answer: Der Modus einer Verteilung
+      correct: False
+    - answer: Die Einzelwerte einer Verteilung
+      correct: True
+    - answer: Die Standardabweichung einer Verteilung
+      correct: False
+
+- question: Welche der folgenden Parameter würde den Fehler vermutlich substantiell reduzieren und wären es daher Wert, in das Modell aufgenommen zu werden?
+  hint: Denke nochmal genauer nach. Überlege dir, was ein schlechter Parameter wäre. Sind die vorliegenden Parameter schlecht? 
+  answers:
+    - answer: Die Größe des Vaters
+      correct: True
+    - answer: Der ethnische Hintergrund einer Person
+      correct: True
+    - answer: Unterernährung während der Kinder- und Jugendzeit
+      correct: True

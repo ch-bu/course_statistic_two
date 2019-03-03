@@ -9,3 +9,31 @@
     - answer: Ganz im Gegenteil. Digitale Medien fördern das Lernen, da die heutige Generation Digital Natives sind und produktiv mit digitalen Medien umgehen können.
       correct: False
       hint: Das ist so nicht haltbar. Die Idee der Digital Natives ist mittlerweile überholt. Nur weil Menschen mit digitalen Medien aufwachsen, sind sie nicht per se besser im Umgang. Ob ein digitales Gerät lernförderlich ist, hängt sehr stark von der Nutzung ab. Zwar finden sich viele Studien, die negative Einflüsse auf das Lernen finden, allerdings spielen auch Lernenmerkmale wie die Fähigkeit zur Selbstregulation eine Rolle.
+- question: Wie groß ist der Fehler für Mareike? 
+  answers:
+    - answer: "-2"
+      correct: True
+      hint: Sehr gut. Der Fehler ist ERROR = DATA - MODEL. Also ERROR = 84 - 86 = -2
+    - answer: "2"
+      correct: False
+      hint: Nicht ganz. Erinnere dich daran das der Fehler ERROR = DATA - MODEL ist
+    - answer: "19"
+      correct: False
+      hint: Nicht ganz. Erinnere dich daran das der Fehler ERROR = DATA - MODEL ist
+    - answer: "-19"
+      correct: False
+      hint: Nicht ganz. Erinnere dich daran das der Fehler ERROR = DATA - MODEL ist
+    - answer: "4"
+      correct: False
+      hint: Nicht ganz. Erinnere dich daran das der Fehler ERROR = DATA - MODEL ist
+- question: Warum ist der Fehler beim erweiterten Modell kleiner als beim kompakten Modell? 
+  answers:
+    - answer: Da jeder weitere Parameter DATA besser erklären kann, unabhängig von der Größe des Einflusses.
+      hint: Sehr gut. Das ist richtig.
+      correct: True
+    - answer: Da das erweiterte Modell Parameter hat, die Fehler stärker reduzieren als beim kompakten Modell
+      hint: Nicht ganz. Es ist möglich, dass der Mittelwert beim kompakten Modell den Fehler bereits sehr klein hält und ein weiterer Parameter den Fehler nur minimal verkleinert.
+      correct: False
+    - answer: Da die Parameter im erweiterten Modell den Fehler substantiell reduzieren.
+      hint: Nein. Die Größe der Fehlerreduzierung ist irrelevant für die Frage. Entscheidend ist, warum der Fehler beim erweiterten Modell immer kleiner ist. 
+      correct: False
