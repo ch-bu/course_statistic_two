@@ -350,6 +350,13 @@ const Main = styled.div`
     margin-bottom: 2rem;
   }
 
+  .gatsby-resp-image-link {
+    margin: 40px 0;
+    box-shadow: none;
+    border: none;
+    box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+  }
+
   a {
     color: #000;
     text-decoration: none;

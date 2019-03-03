@@ -2,7 +2,7 @@
 moduleTitle: "Digitale Medien und Lernen"
 unitTitle: Einführung
 title: "Was ist ein digitales Medium?"
-module: 1
+module: 3
 unit: 0
 subunit: 2
 type: information

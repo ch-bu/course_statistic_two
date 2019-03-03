@@ -2,7 +2,7 @@
 moduleTitle: "Digitale Medien und Lernen"
 unitTitle: Einführung
 title: "Was denkst du?"
-module: 1
+module: 3
 unit: 0
 subunit: 1
 type: question

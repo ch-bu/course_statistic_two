@@ -2,7 +2,7 @@
 moduleTitle: "Digitale Medien und Lernen"
 unitTitle: Einführung
 title: "Ziele dieses Moduls"
-module: 1
+module: 3
 unit: 0
 subunit: 30
 type: video

@@ -2,7 +2,7 @@
 moduleTitle: "Digitale Medien und Lernen"
 unitTitle: Lesen und Schreiben mit digitalen Medien
 title: "Weiterführende Literatur"
-module: 1
+module: 3
 unit: 2
 subunit: 5
 ---

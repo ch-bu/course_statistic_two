@@ -2,7 +2,7 @@
 moduleTitle: "Digitale Medien und Lernen"
 unitTitle: Einführung
 title: Einführung
-module: 1
+module: 3
 unit: 0
 subunit: 0
 type: instruction

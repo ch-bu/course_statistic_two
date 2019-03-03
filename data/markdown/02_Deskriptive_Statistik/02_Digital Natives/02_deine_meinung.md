@@ -2,7 +2,7 @@
 moduleTitle: Digitale Medien und Lernen
 unitTitle: Digital Natives
 title: "Deine Meinung zu Digital Natives"
-module: 1
+module: 3
 unit: 1
 subunit: 10
 type: exercise
