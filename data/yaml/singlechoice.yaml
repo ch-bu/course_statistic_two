@@ -37,3 +37,25 @@
     - answer: Da die Parameter im erweiterten Modell den Fehler substantiell reduzieren.
       hint: Nein. Die Größe der Fehlerreduzierung ist irrelevant für die Frage. Entscheidend ist, warum der Fehler beim erweiterten Modell immer kleiner ist. 
       correct: False
+- question: Was ist die Hauptstadt von Frankreich?
+  answers:
+    - answer: Paris
+      hint: Richtig.
+      correct: True
+    - answer: London
+      hint: Schau dir nochmal die Karten an.
+      correct: False
+- question: Welche Größe wird laut dem Modell für eine Person eingeschätzt, deren Fußgröße 0 ist und dessen Vater 0 cm groß ist?
+  answers:
+    - answer: "-78.545"
+      hint: Richtig. Der Wert ist zwar unmöglich, aber niemand hat gesagt, dass das Modell die Wirklichkeit genau abbildet. 
+      correct: True
+    - answer: "0"
+      hint: Nein, versuche einmal die Werte in das Modell einzugeben
+      correct: False
+    - answer: "Dieser Wert kann nicht berechnet werden"
+      hint: Doch, verusche einmal die Werte in das Modell einzugeben und schaue was rauskommt.
+      correct: False
+    - answer: "183.45"
+      hint: Falsch. versuche einmal die Werte in das Modell einzugeben
+      correct: False 
