@@ -57,7 +57,7 @@ persp(x = x1,
       z = y,
       theta = 30, phi = 20, expand = 0.6, shade = 0.3) -->
 
-Aber welche Fläche? Wir könnten im Prinzip unendliche viele Flächen überlegen. Das Modell, welches am besten ist, reduziert den Fehler maximal. Oder anders ausgedrückt, SSE sollte bei diesem Modell am kleinsten sein. Oder im Bilde unserer Grafik gesprochen, sollte der Abstand der Einzelpunkte so klein wie möglich von der Fläche sein. 
+Aber welche Fläche? Wir könnten uns m Prinzip unendliche viele Flächen ausdenken. Das Modell, welches am besten ist, reduziert den Fehler maximal. Oder anders ausgedrückt, SSE sollte bei diesem Modell am kleinsten sein. Oder im Bilde unserer Grafik gesprochen, sollte der Abstand der Einzelpunkte so klein wie möglich zu der Fläche sein. 
 
 $
 SSE = \sum (Y_i - \hat{Y}_i)^2

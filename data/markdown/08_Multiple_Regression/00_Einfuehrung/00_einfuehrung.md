@@ -100,10 +100,10 @@ $
 \hat{Y}_i = -78.545 + 0.615 * X_{i1} + 1.318 * X_{i2}
 $
 
-Bei einer Person mit einer Fußgröße von 30 und deren Vater 180 groß ist, würden wir annehmen, dass sie 177.15cm groß ist.
+Bei einer Person, die eine Fußgröße von 30 cm hat und deren Vater 180cm groß ist, würden wir annehmen, dass die Person 177.15cm groß ist.
 
 $
 \hat{Y}_i = -78.545 + 0.615 * 30 + 1.318 * 180 = 177.15
 $
 
-Wir könnten unendlich viele Parameter in das Modell aufnehmen. Erinner dich aber daran, dass wir als Regel so wenige Parameter wie möglich und so viele wie nötig in das Modell integrieren wollen. Mit jedem Parameter den wir hinzunehmen, reduziert sich der Fehler zum kompakten Modell. Für uns entscheidend ist, ob der Fehler groß genug ist, um zu rechtfertigen, den Parameter in das Modell hinzu zu nehmen, oder ob nicht das kompakte Modell die Körpergröße gut genug erklärt. 
+Wir könnten unendlich viele Parameter in das Modell aufnehmen. Erinnere dich aber daran, dass wir als Regel so wenige Parameter wie möglich und so viele wie nötig in das Modell integrieren wollen. Mit jedem Parameter den wir hinzunehmen, reduziert sich der Fehler im Vergleich zum kompakten Modell. Für uns entscheidend ist, ob der Fehler groß genug ist, um zu rechtfertigen, den Parameter in das Modell hinzu zu nehmen, oder ob nicht das kompakte Modell die Körpergröße gut genug erklärt. 

@@ -36,7 +36,7 @@ Der zweite Koeffizient gibt in diesem Modell an, um wie viel sich die Körpergr�
 
 > Steigt die Fußgröße um den Wert 1, dann steigt die Körpergröße um 0.615 cm. 
 
-Wenn wir dementsprechend den realen Wert von $X_{i1}$ angeben, können wir berechnen, wie um viel viel Punkte die sich die Körpergröße der Person in Abhängigkeit ihrer Fußgröße ändert. Zum Beispiel: $0.615 * 30 = 18.45$. Wenn eine Person eine Fußgröße von 30 hat, dann justieren wir die Körpergröße im Relation zum Y-Achsenabschnitt um 18.45 Zentimeter nach oben. 
+Wenn wir dementsprechend den realen Wert von $X_{i1}$ angeben, können wir berechnen, um wie viel Punkte sich die Körpergröße der Person in Abhängigkeit ihrer Fußgröße ändert. Zum Beispiel: $0.615 * 30 = 18.45$. Wenn eine Person eine Fußgröße von 30 hat, dann justieren wir die Körpergröße im Relation zum Y-Achsenabschnitt um 18.45 Zentimeter nach oben. 
 
 ## $\beta_2$ - Der Einfluss der Körpergröße des Vaters
 

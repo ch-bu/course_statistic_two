@@ -59,3 +59,34 @@
     - answer: "183.45"
       hint: Falsch. versuche einmal die Werte in das Modell einzugeben
       correct: False 
+- question: Welchen Wert würde der gleiche Regressionskoeffizient annehmen, wenn wir den Prädiktor Körpergröße des Vaters aus dem Modell entfernen würden?
+  answers:
+    - answer: "-0.14"
+      hint: Tatsächlich nicht. Der Grund ist, dass die Prädiktoren korrelieren. 
+      correct: False
+    - answer: "1.58"
+      hint: Nein. Das ist der Koeffizient für den anderen Prädiktor Körpergröße des Vaters
+      correct: False
+    - answer: "1.36"
+      hint: Richtig. Der Wert ist ein anderer als in der Multiplen Regression. Der Grund ist, dass die Prädiktoren miteinander korrelieren und der Koeffizient dadurch dein Einfluss der Fußgröße zeigt, wenn wir für die Körpergröße des Vaters kontrollieren. Wer dazu gleich.
+      correct: True
+    - answer: "-106.144"
+      hint: Das ist nicht richtig. Dieser Wert ist der Y-Achsenabschnitt und nicht der Regressionskoeffizient des Prädiktors Fußlänge des Vaters.
+      correct: False
+- question: Welchen Wert würde der gleiche Regressionskoeffizient beim gleichen Modell annehmen, wenn beide Prädiktoren gar nicht miteinander korrelieren?
+  answers:
+    - answer: "-0.14"
+      hint: Genau richtig. Der Koeffizient bliebe gleich.
+      correct: True
+    - answer: "0"
+      hint: Nein. Denke nochmal drüber nach, was wir über die Redundanz gesagt haben.
+      correct: False
+    - answer: "1.36"
+      hint: Tatsächlich nicht. Die Antwort hat mit der Korrelation zu tun. 
+      correct: False
+    - answer: "1.58"
+      hint: Falsch, das ist der Koeffizient für den anderen Prädiktor. 
+      correct: False
+    - answer: "-106.144"
+      hint: Das ist nicht richtig. Dieser Wert ist der Y-Achsenabschnitt und nicht der Regressionskoeffizient des Prädiktors Fußlänge des Vaters.
+      correct: False
