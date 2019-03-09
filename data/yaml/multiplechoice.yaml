@@ -42,3 +42,17 @@
       correct: True
     - answer: Unterernährung während der Kinder- und Jugendzeit
       correct: True
+
+- question: Kreuze alle Antworten an, die für diesen Modellvergleich zutreffen würden. Zwei sind richtig.
+  hint: Das stimmt noch nicht. Denke weiter drüber nach.
+  answers:
+    - answer: Ein signifikantes Ergebnis würde bedeuten, dass das Hinzufügen aller Parameter den Fehler mehr reduziert als man annehmen würde, wenn man willkürliche Parameter hinzufügen würde.
+      correct: True
+    - answer: Wir können auf Grundlage eines signifikanten Ergebnisses nicht sagen, welcher Parameter den Fehler überdurchschnittlich reduziert.
+      correct: True
+    - answer: Bei einem signifikanten Ergebnis reduzieren alle Parameter den Fehler mehr, als man durchschnittlich erwarten würde.
+      correct: False
+    - answer: So ein Modell kann man nicht inferenzparametrisch testen, da das kompakte Modell und das erweiterte Modell sich immer nur in einem Parameter unterscheiden dürfen.
+      correct: False
+    - answer: Ein solcher Vergleich liefert immer ein signifikantes Ergebnis, da mehrere Parameter den Fehler immer überdurchschnittlich reduzieren. 
+      correct: False
