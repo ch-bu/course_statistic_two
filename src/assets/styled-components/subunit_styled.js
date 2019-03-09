@@ -17,7 +17,7 @@ const Container = styled.div`
   transition: width 0.2s;
 
   @media only screen and (min-width: ${props => props.theme.breakpointOne}) {
-    grid-template-areas: ". main"
+    grid-template-areas: ". ."
                          ". main";
     width: ${props => props.showAsideLeft ? "100%" : "60vw"};
     margin: 0 auto;
@@ -68,7 +68,6 @@ const Aside = styled.div`
   transition: bottom 0.2s;
   padding: 0px 0 80px 0;
   overflow-x: hidden;
-  border-right: 1px solid ${props => props.theme.darkColor};
 
   @media only screen and (min-width: ${props => props.theme.breakpointOne}) {
     padding: 70px 0 20px 0;
@@ -145,6 +144,7 @@ const UlAside = styled.ul`
           padding-right: 6px;
           filter: sepia(0.4);
           height: 18px;
+          z-index: 1;
         }
 
         /* img {
@@ -167,7 +167,9 @@ const ButtonLerneinheiten = styled.div`
   transition: background-color 0.4s;
   font-size: 0.9rem;
   font-style: italic;
-
+  box-shadow: 5px 10px 25px 0 rgba(46,61,73,.2);
+  z-index: 99;
+  
   div:first-child {
     width: 100vw;
     display: flex;
@@ -269,12 +271,14 @@ const VideoMain = styled.div`
   top: -41px;
   grid-area: main;
   width: 100%;
+  padding-top: 20vh;
   height: 100%;
   overflow-y: hidden;
   background-color: #000;
 
   @media only screen and (min-width: ${props => props.theme.breakpointOne}) {
     top: 0px;
+    padding-top: 0;
     /* width: ${props => props.showAsideLeft ? "75vw" : "100vw"}; */
   }
 
@@ -316,7 +320,7 @@ const Main = styled.div`
   @media only screen and (min-width: ${props => props.theme.breakpointOne}) {
     width: 80%;
     font-size: 1rem;
-    padding-top: 90px;
+    padding-top: 50px;
 
     p, li {
       font-size: 1.1rem;
@@ -350,13 +354,6 @@ const Main = styled.div`
     margin-bottom: 2rem;
   }
 
-  .gatsby-resp-image-link {
-    margin: 40px 0;
-    box-shadow: none;
-    border: none;
-    box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
-  }
-
   a {
     color: #000;
     text-decoration: none;
@@ -369,6 +366,13 @@ const Main = styled.div`
       background: ${props => props.theme.primaryColorLight};
       border-radius: 5px;
     }
+  }
+
+  .gatsby-resp-image-link {
+    margin: 40px 0;
+    box-shadow: none;
+    border: none;
+    box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
   }
 
   blockquote {
@@ -410,7 +414,7 @@ const PreviousButton = styled.div`
       align-self: center;
       height: 60px;
       pointer-events: none;
-      width: 100px;
+      width: 300px;
       color: #ccc;
     }
   }
@@ -436,7 +440,7 @@ const NextButton = styled.div`
       align-self: center;
       height: 60px;
       pointer-events: none;
-      width: 100px;
+      width: 300px;
       color: #ccc;
     }
   }

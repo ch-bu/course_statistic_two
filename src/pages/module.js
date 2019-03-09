@@ -6,8 +6,6 @@ import { graphql } from "gatsby"
 import Helmet from 'react-helmet';
 import Url from 'url-parse';
 import queryString from 'query-string';
-import prism from "prismjs/themes/prism-okaidia.css";
-import katex from "katex/dist/katex.min.css"
 
 // Markdown components
 import Video from "../components/video";
@@ -15,6 +13,7 @@ import Audio from "../components/audio";
 import SingleChoice from "../components/questions/singlechoice";
 import MultipleChoice from "../components/questions/multiplechoice";
 import OrderQuestion from "../components/questions/orderquestion";
+import Flipcard from "../components/questions/flipcard";
 
 // Icons 
 import { FaChevronLeft, FaChevronRight, FaRunning, FaFolderPlus, FaLightbulb, FaQuestion, FaVideo, FaInfo, FaFolderMinus, FaAngleRight, FaBookOpen, FaAngleLeft } from "react-icons/fa";
@@ -377,7 +376,8 @@ const renderAst = new rehypeReact({
     "audio": Audio,
     "singlechoice": SingleChoice,
     "multiplechoice": MultipleChoice,
-    "orderquestion": OrderQuestion
+    "orderquestion": OrderQuestion,
+    "flipcard": Flipcard
   },
 }).Compiler
 
