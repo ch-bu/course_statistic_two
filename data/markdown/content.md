@@ -1,5 +1,5 @@
 
-# Dateset for first chapters
+# Dataset for first chapters
 
 ```
 data <- read_delim("C:/Users/ChristianEZW/repositories/statistik_2_online_kurs/data/markdown/daten_intelligenz.csv", ";", escape_double = FALSE, trim_ws = TRUE)
@@ -565,15 +565,16 @@ $$
 
 # R-Übung
 
+> Ziel der Übung: PRE auf Grundlage des eben beschriebenen erweiterten Modells und des kompakten Modells hervorzusagen.
+
 Lade dir für diese Übung den Datensatz von folgendem Link (TODO) herunter. Benenne den Datensatz mit der Variable `intelligence`. 
+
 
 Zunächst laden wir wie immer das Paket tidyverse:
 
 ```
 library(tidyverse)
 ```
-
-Unser Ziel ist es in dieser Übung PRE auf Grundlage des eben beschriebenen erweiterten Modells und des kompakten Modells hervorzusagen. 
 
 Zu Beginn ist es immer sinnvoll, sich den Datensatz anzuschauen:
 
@@ -593,7 +594,7 @@ $ group             <dbl> 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 
 $ intelligence_pre  <dbl> 82.73580, 142.02978, 74.73800, 74.46222, 87.28627, 84.25262, 85.76944, 88.25152, 89.63045, 83...
 ```
 
-Der Datensatz hat 7 Variablen. Uns interessieren die Variablen `intelligence_pre`, `books_per_year` und `age`. Beachte, dass das Modell, welches wir gleich erstellen erst später in diesem Kurs dran kommt. Bei dem Modell handelt es sich um ein Regressionsmodell mit zwei Prädiktoren. Dieses Modell hatten wir vorhin folgendermaßen beschrieben:
+Der Datensatz hat 7 Variablen. Uns interessieren die Variablen `intelligence_pre`, `books_per_year` und `age`. Beachte, dass das Modell, welches wir gleich erstellen erst später in diesem Kurs erklärt wird. Bei diesem Modell handelt es sich um ein Regressionsmodell mit zwei Prädiktoren. Dieses erweiterte Modell hatten wir vorhin folgendermaßen beschrieben:
 
 
 $$
@@ -608,18 +609,18 @@ $$
 $$
 
 
-Wie wir das erweiterte Modell berechnen, erfahren wir später im Kurs. Jetzt genügt es uns zu wissen, dass wir ein erweitertes Modell mit zwei Parametern berechnet haben. 
+Wie wir das erweiterte Modell berechnen, erfahren wir später im Kurs. Jetzt genügt es zu wissen, dass wir ein erweitertes Modell mit zwei Parametern berechnet haben.
 
 Im nächsten Schritt möchten wir die quadrierten Abweichungen der tatsächlichen Werte und den geschätzen Werten beider Modelle berechnen:
 
 ```
-intelligence %>% 
+(errors <- intelligence %>% 
   mutate(
-    compact = mean(intelligence_pre),
-    augmented = predict(model, newdata = .),
-    res_compact = (compact - intelligence_pre)^2,
+    compact       = mean(intelligence_pre),
+    augmented     = predict(model, newdata = .),
+    res_compact   = (compact - intelligence_pre)^2,
     res_augmented = (augmented - intelligence_pre)^2
-  )
+  ))
 ``` 
 
 ```
@@ -651,13 +652,6 @@ $$
 Wir speichern daher unseren neuen Datensatz in einer Variable und berechnen die Summe dieser beiden Variablen:
 
 ```
-errors <- intelligence %>% 
-  mutate(
-    compact = mean(intelligence_pre),
-    augmented = predict(model, newdata = .),
-    res_compact = (compact - intelligence_pre)^2,
-    res_augmented = (augmented - intelligence_pre)^2
-  )
 sum(errors$res_compact)   # 11661.2
 sum(errors$res_augmented) # 11341.38
 ```
@@ -673,7 +667,7 @@ Erneut erhalten wir einen Fehler von 2.7%. Das erweiterte Modell ist demnach in 
 
 # Stichprobenkennwertverteilungen
 
-Wir haben im letzten Kapitel häufiger davon gesprochen, dass wir die Nullhypothese verwerfen, wenn der Fehler, welcher durch das erweiterte Modell verringert wird, substantiell kleiner ist. Aber bedeutet es, dass ein Fehler substantiell kleiner ist? Hierfür benötigen wir **Stichprobenkennwertverteilungen**. Das Wort Stichprobenkennwertverteilung gibt uns bereits einige Hinweise.
+Wir haben im letzten Kapitel häufiger davon gesprochen, dass wir die Nullhypothese verwerfen, wenn der Fehler des kompakten Modells, durch das erweiterte Modell substantiell verkleinert wird. Aber was bedeutet es, dass ein Fehler substantiell verkleinert wird?  Um diese Frage beantworten zu können, verwenden wir **Stichprobenkennwertverteilungen**. Das Wort Stichprobenkennwertverteilung gibt uns bereits einige Hinweise, um zu verstehen, was dieses Wort bedeutet.
 
 1. Stichprobe
 2. Kennwert
@@ -681,15 +675,15 @@ Wir haben im letzten Kapitel häufiger davon gesprochen, dass wir die Nullhypoth
 
 ## Stichprobe
 
-Eine Stichprobe ist eine Teilmenge aus einer Grundgesamtheit. Wahlvorhersagen werden auf Grundlage von Stichproben gezogen, da es zu mühselig wäre, alle Menschen eines Landes (die Grundgesamtheit) zu befragen. Probanden in einem Experiment sind eine Population, ebenso aus dem Grund, dass es zu viel Aufwand wäre beispielsweise eine didaktische Methode an allen Studierenden eines Landes zu testen.
+Eine Stichprobe ist eine Teilmenge aus einer Grundgesamtheit. Wahlvorhersagen werden auf Grundlage von Stichproben gezogen, da es mühselig wäre, alle Menschen eines Landes (die Grundgesamtheit) zu befragen. Daher erheben wir immer nur einen kleinen Anteil der Population und versuchen auf Grundlage dieser Stichprobe auf die Population zu schließen.
 
 ## Kennwert
 
-Statistische Kennwerte fassen mehrere Datenpunkte zusammen. Du kennst bereits mehrere dieser Kennwerte: Der Mittelwert, der z-Wert, die Standardabweichung oder die Varianz. Jeder dieser Kennwerte fasst Daten zusammen. Der Mittelwert gibt den typischen Wert einer Verteilung an, die Varianz gibt an, wie weit Werte um einen Mittelwert streuen. In den nächsten Wochen werden wir uns vor allem mit dem Mittelwert, PRE, dem t-Wert und dem F-Wert beschäftigen.
+Statistische Kennwerte fassen mehrere Datenpunkte zusammen. Du kennst bereits mehrere dieser Kennwerte: Der Mittelwert, der z-Wert, die Standardabweichung oder die Varianz. Jeder dieser Kennwerte fasst Daten zusammen. Der Mittelwert gibt den typischen Wert einer Verteilung an, die Varianz gibt an, wie weit Werte um einen Mittelwert streuen. In den nächsten Wochen werden wir uns vor allem mit dem Mittelwert, PRE, dem t-Wert und dem F-Wert beschäftigen. All diese Werte sind statistische Kennwerte.
 
 ## Verteilung
 
-Eine Verteilung ist eine grafische Darstellung über das Auftreten einzelner Ausprägung einer Variable. Beispielsweise kennst du eine unimodale Verteilung mit nur einem Gipfel:
+Eine Verteilung ist eine grafische Darstellung des Auftretens einzelner Ausprägung einer Variable. Beispielsweise kennst du unimodale Verteilungen mit nur einem Gipfel:
 
 ```
 ggplot(NULL, aes(x = c(-3, 3))) +
@@ -722,22 +716,26 @@ hist(sims)
 
 ## Stichprobenkennwertverteilung revisited
 
-Eine Stichprobenkennwertverteilung ist daher eine Verteilung von Kennwerten, die aus einer Stichprobe gewonnen werden. 
+Eine Stichprobenkennwertverteilung ist daher eine Verteilung von Kennwerten, die aus einer Stichprobe gewonnen werden. Beispielsweise:
 
 * Die Verteilung von Mittelwerten, die aus mehreren Stichproben berechnet werden.
 * Die Verteilung von PRE, die aus mehreren Stichproben berechnet werden.
-* Die Verteilung von Varianzen, die aus mehreren Stichproben berechnet werden. 
+* Die Verteilung von Varianzen, die aus mehreren Stichproben berechnet werden.
 
 # Simulation einer Stichprobenkennwertverteilung in R
 
-Um zu verstehen, was eine Stichprobenkennwertverteilung ist, hilft es, diese zu simulieren. Stell dir vor, es gibt eine Population von 200.000 Menschen. Jeder dieser Personen hat einen bestimmten Intelligenzquotienten, den wir allerdings nicht kennen:
+Um Stichprobenkennwertverteilungen besser zu verstehen, hilft es, diese zu simulieren. Stell dir vor, es gibt eine Population von 200.000 Menschen. Jede dieser Personen hat einen bestimmten Intelligenzquotienten, den wir allerdings nicht kennen:
+
+Simulieren wir diese Population in R:
 
 ```
 set.seed(123)
 population <- rnorm(200000, mean = 100, sd = 15)
 head(population) # 91.59287  96.54734 123.38062 101.05763 101.93932 125.72597
 ```
-Die Funktion [rnorm](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html) erzeugt willkürliche Werte aus einer Normalverteilung, die ich vorgebe. Hier gebe ich einen Mittelwert von 100 mit einer Standardabweichung von 15 an. Als Wissenschaftler kennen wir diese Werte nicht, wir verwenden lediglich Stichproben, um auf diese Population zu schließen. 
+
+* Durch die [set.seed Funktion](https://www.rdocumentation.org/packages/simEd/versions/1.0.3/topics/set.seed) sorgen wir dafür, dass immer die gleichen Werte erzeugt werden, wenn wir willkürliche Daten generieren. In diesem Fall generieren wir eine Populuation von 200.000 Menschen.
+* Die Funktion [rnorm](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html) erzeugt willkürliche Werte aus einer Normalverteilung. Die Funktion hat mehrere Argumente. Das erste Argument ist die Anzahl der Werte (hier 200000), das zweite Argument ist der Mittelwert der Normalverteilung (hier 100), das dritte Argument ist die Standardabweichung dieser Verteilung (hier 15). Bedenke, dass wir als Wissenschaftler diese Werte nie kennen. Würden wir sie kennen, müssten wir keine Inferenzstatistik betreiben, um auf diese Population zu schließen.
 
 Nehmen wir nun an, dass wir 20 Personen aus dieser Stichprobe ziehen:
 
@@ -748,15 +746,18 @@ set.seed(456)
 # [13]  99.19620  91.27975  69.54343  97.14558 122.12985 109.88017 105.40160 103.11018
 ``` 
 
+* Mit der Funktion [sample](https://stat.ethz.ch/R-manual/R-devel/library/base/html/sample.html) können wir n-beliebige Werte aus unserer Population ziehen.
+* Durch die Klammer um die Variable `my_sample` sagen wir R, dass die Werte, welchein `my_sample` gespeichert sind, direkt ausgegeben werden.
+
 Nun können wir den Mittelwert dieser Stichprobe berechnen:
 
 ```
-mean(my_sample) 97.88391
+mean(my_sample) # 97.88391
 ```
 
-Aha, unser Mittelwert ist also 97.88. Der Mittelwert entspricht nicht ganz dem tatsächlichen Mittelwert von 100. 
+Unser Mittelwert ist also 97.88. Der Mittelwert entspricht nicht ganz dem tatsächlichen Mittelwert von 100, da wir die Daten simuliert haben.
 
-Um nun zu einer Stichprobenkennwertverteilung zu kommen, benötigen wir sehr viele dieser Stichprobenkennwerte. Versuchen wir einmal 10 solcher Mittelwerte zu berechnen (den R-Code musst du an dieser Stelle nicht verstehen, er dient eher zur Generierung der Werte):
+Um nun eine Stichprobenkennwertverteilung zu generieren, benötigen wir *sehr viele* dieser Stichprobenkennwerte. Versuchen wir einmal 10 solcher Mittelwerte aus der Population zu berechnen (den R-Code musst du an dieser Stelle nicht verstehen, er dient eher zur Generierung der Werte):
 
 ```
 (five_samples <- c(1:5) %>% map_dbl(~ sample(population, 20) %>% mean))
@@ -772,7 +773,6 @@ ggplot(NULL, aes(x = five_samples)) +
 ![](./images/skv_fuenf.png)
 
 Die Stichprobenkennwerteverteilung bei 5 Stichproben sieht noch ziemlich unimodal aus. Was passiert, wenn wir 100 Stichproben aus der Population ziehen und die Mittelwerte anhand einer Verteilung darstellen:
-
 
 ```
 (hundred_samples <- c(1:100) %>% map_dbl(~ sample(population, 20) %>% mean))
@@ -801,51 +801,217 @@ ggplot(NULL, aes(x = tenthousand_samples)) +
     title = "Stichprobenkennwertverteilung 10.000 Personen"
   )
 ```
+
 ![](./images/tenthousand.png)
 
 Nun erhalten wir eine unimodale Verteilung. Selten haben Stichproben einen Mittelwert von unter 93, selten haben Stichproben einen Mittelwert von über 103. Diese Werte sind ungewöhnliche Ereignisse. Was du siehst ist eine Stichprobenkennwertverteilung des Mittelwerts.
 
+# Eigenschaften von Stichprobenkennwertverteilungen
+
+## Je größer die Stichprobe, desto kleiner die Standardabweichung der Normalverteilung
+
+```R
+(twenty <- c(1:10000) %>% 
+    map_dbl(~ sample(population, 20) %>% mean))
+
+(fivty <- c(1:10000) %>% 
+    map_dbl(~ sample(population, 50) %>% mean))
+
+(hundred <- c(1:10000) %>% 
+    map_dbl(~ sample(population, 100) %>% mean))
+
+tibble(
+  twenty = twenty,
+  fivty = fivty,
+  hundred = hundred
+) %>% 
+  gather(sample, value) %>% 
+  ggplot(aes(x = value, fill = sample)) +
+  geom_density(aes(fill = sample), alpha = .7) +
+  labs(
+    title = "Stichprobenkennwertverteilungen bei unterschiedlichen Stichprobengrößen",
+    fill = "Stichprobe",
+    x = "Mittelwert der Intelligenz",
+    y = "Dichte"
+  )
+```
+
+![](./images/kennwertverteilungen_stichproben.png)
+
+Die rote Stichprobenkennwertverteilung zeigt eine Stichprobenkennwertverteilung an, die aus Stichproben mit 50 Personen generiert wurde. Die blaue Stichprobenkennwertverteilung wurde anhand einer Stichprobengröße von 20 Personen generiert. Die grüne Stichprobenkennwertverteilung wurde anhand einer Stichprobe von 100 Personen generiert. 
+
+Du siehst, dass die Verteilung mit einer steigenden Stichprobengröße eine geringe Varianz aufweißt und *steiler* wird. Ein Grund hierfür ist, dass der Kennwert durch eine größere Stichprobe akkurater geschätzt wird. Stell dir das Extrem vor: Deine Stichproben sind fast so groß wie die ganze Population. Als Folge wirst du fasst immer Werte erhalten, die fast exakt dem Mittelwert entsprechen. Die Stichprobenkennwertverteilung wird daher sehr schmal sein. Bei einer geringen Stichprobe erhälst du den gegenteiligen Effekt. Deine Schätzungen des Kennwertes werden sehr variieren, daher ist deine Stichprobenkennwertverteilung breiter.
+
+## Die Standardabweichung der Stichprobenkennwertverteilung nennt man Standardfehler
+
+Jede Verteilung hat einen Mittelwert und eine Standardabweichung. Die Stichprobenkennwertverteilung ist keine Ausnahme. Auch sie hat eine Standardabweichung. Diese nennen wir **Standardfehler**. Der Standardfehler wird folgendermaßen schätzen:
+
+$$
+SE = \frac{\sigma}{sqrt{N}}
+$$
+
+Wir müssen den Standardfehler schätzen, da wir die Standardabweichung der Population in der Regel nicht kennen. Daher nehmen wir die Standardabweichung der Stichprobe, um den Standardfehler der Stichprobenkennwertverteilung zu schätzen.
+
+Durch diese Formel lässt sich auch erklären, weshalb der Standardfehler bei einer größeren Stichprobe kleiner wird. Stell dir eine Stichprobe von 20 vor. Die Standardabweichung der Verteilung der Stichprobe ist 100:
+
+$$
+SE = \frac{100}{sqrt{20}} = 5
+$$
+
+Hätten wir eine Stichprobe von 50 Personen, wäre der Standardfehler:
+
+$$
+SE = \frac{100}{sqrt{50}} = 2
+$$
+
+
+## Die Streuung in der Population ist immer größer als die Streuung in der Stichprobenkennwertverteilung
+
+Der Grund für dieses Phänomen liegt darin, dass eine Stichprobe eines Kennwertes weniger wahrscheinlich extreme Werte einer Verteilung generiert als die tatsächlichen Werte. Stell dir vor, es gibt eine Person mit einem Intelligenzquotienten von 140. Dies ist ein seltenes Ereignis. Da ein Kennwert immer eine Aggregierung mehrerer Werte ist, wird dieser hohe Intelligenzquotient zwar mit hinein gerechnet, aber immer durch weniger extreme Werte angeglichen. Hierduch ist die Streuung in der Population größer als in der Stichprobe.
+
+## Der Mittelwert der Stichprobenkennwertverteilung ist der gleiche Mittelwert der Population
+
+Zwar ist die Streuung der Stichprobenkennwertverteilung, deren Mittelwert ist allerdings der gleiche.
+
+
 # Normalverteilung
 
-![](./images/tenthousand.png)
+Normalverteilungen sind besondere Verteilungen, die häufig in der Natur anzutreffen sind. Beispielsweise entspricht die Intelligenz von Personen in der Regel einer Normalverteilung. Ebenso entspricht die Größe von Personen oder der Blutdruck von Personen. 
 
-Diese Verteilung nennt man auch Normalverteilung. Meistens werden Normalverteilung nicht anhand eines Histograms, sondern anhand einer Dichteverteilung dargestellt:
+Eine Normalverteilung sieht immer so aus:
 
-![](./images/normalverteilung.png)
+```R
+ggplot(NULL, aes(x = c(-3, 3))) +
+     stat_function(fun = dnorm,
+                   geom = "area", fill = "steelblue") + 
+      labs(title = "Normalverteilung", x = "Kennwerte", y = "Dichte")
+```
 
-Eine Normalverteilung kennzeichnet sich durch zwei Tatsachen:
+![](./images/normal_distribution.png)
 
-1. Sie ist unimodal. Es gibt nur einen Gipfel
-2. Sie ist symmetrisch. 
+Normalverteilungen zeichen sich durch folgende Eigenschaften aus:
 
-Dabei ist es unerheblich, wie breit oder wie spitz die Verteilung ist. Es genügt, dass die Bedingungen der unimodalität und der Symmetrie erfüllt sind. 
+1. Sie ist unimodal. Es gibt nur einen Gipfel.
+2. Sie ist symmetrisch vom Zentrum der Verteilung.
+3. Der Mittelwert, der Modus und der Median sind gleich.
+4. Die gesamte Fläche der Verteilung hat den Wert 1.
 
-## Standardnormalverteilung
+Zusätzlich hat die Normalverteilung einige wichtige statistiche Eigenschaften:
 
-## Wahrscheinlichkeiten aus der Standardnormalverteilung ablesen (z-Werte)
+* 68% der Werte fallen eine Standardabweichung vom Mittelwert.
+* 95% der Werte fallen zwei Standardabweichungen vom Mittelwert.
+* 99.7% der Werte fallen innerhalb von drei Standardabweichungen vom Mittelwert.
+
+```R
+ggplot(NULL, aes(x = c(-3, 3))) +
+  stat_function(fun = dnorm,
+                geom = "line",
+                xlim = c(-5, 5)) +
+  stat_function(fun = dnorm,
+                geom = "area",
+                fill = "red",
+                alpha = .4,
+                xlim = c(-3, 3)) +
+  stat_function(fun = dnorm,
+                geom = "area",
+                fill = "steelblue",
+                alpha = .4,
+                xlim = c(-2, 2)) +
+  stat_function(fun = dnorm,
+                geom = "area",
+                fill = "yellow",
+                alpha = .7,
+                xlim = c(-1, 1)) +
+  annotate("text", x = 0, y = 0.2, label = "68%") +
+  annotate("text", x = -1.5, y = 0.08, label = "95%") +
+  annotate("text", x = -2.4, y = 0.01, label = "97.5%") +
+  xlim(-5, 5) +
+  labs(
+    title = "68-95-97.7 Regel der Normalverteilung",
+    x = "Kennwert",
+    y = "Dichte"
+  )
+```
+
+![](./images/normalverteilung_prozent.png)
+
+## Zusätzliche Informationen
+
+* [Explaining the 68-95-99.7 rule for a normal distribution](https://towardsdatascience.com/understanding-the-68-95-99-7-rule-for-a-normal-distribution-b7b7cbf760c2)
+* [Normal distributions - Statistics How To](https://www.statisticshowto.datasciencecentral.com/probability-and-statistics/normal-distributions/)
+
+
+# Standardnormalverteilung
+
+Die Standardnormalverteilung ist eine besondere Normalverteilung, für die folgendes gilt:
+
+* Der Mittelwert der Standardnormalverteilung ist immer 0.
+* Die Standardabweichung der Standardnormalverteilung ist immer 1.
+
+![](./images/standardnormalverteilung.png)
+
+## Standardisierung durch die z-Transformation
+
+Um aus einer Normalverteilung eine Standardnormalverteilung zu erhalten, kann man die Normalverteilung durch eine z-Transformation in eine Standardnormalverteilung überführen.
+
+Hier die Formel aufbrechen (TODO): ERst $Y - \mu$, dann durch $\sigma$ teilen. Dadurch kann man sehen, was mit einer Verteliung passiert, wenn man z-transformiert.
+
+ #  Wahrscheinlichkeiten aus der Standardnormalverteilung ablesen (z-Werte)
+
+Durch z-Werte und Wahrscheinlichktein
 
 68% der WErte, ... mu = 0, sigma = 1
 
 Z-Wert berechnen. 
 
+```
+ggplot(NULL, aes(x = c(-100, 150))) +
+  stat_function(fun = dnorm,
+                geom = "area",
+                fill = "steelblue",
+                args = list(
+                  mean = 100,
+                  sd = 15)
+                ) +
+  stat_function(fun = dnorm,
+                geom = "area",
+                fill = "red",
+                args = list(
+                  mean = 0,
+                  sd = 15)
+  ) +
+  stat_function(fun = dnorm,
+                geom = "area",
+                fill = "green",
+                args = list(
+                  mean = 0,
+                  sd = 1)
+  ) +
+  labs(
+    title = "Standardnormalverteilung",
+    subtitle = "Mittelwert = 0, Standardabweichung = 1",
+    x = "z-Wert",
+    y = "Dichte"
+  )
+```
+
 !Stichprobenkennwertverteilung besser mit Fehler verbinden!
 
 
+## Zusätzliche Informationen
+
+* Z-Tabellen LInks
+
 # Zentrales Grenzwerttheorem
 
+Das zentrale Grenzwerttheorem ist eine interessanter Tatsache der Stichprobenkennwertverteilungen des Mittelwerts. Das Theorem besagt folgendes:
+
+> Unabhängig, welche Verteilung (bimodel, unimodal, stetig) eine Population hat, die Stichprobenkennwertverteilung des Mittelwerts entspricht immer einer Normalverteilung. 
 
 
+# Stichprobenkennwertverteilung von PRE
 
 
-
-
-Hier sollte ich zunächst das Konzept der Stichprobenkennwertverteilung einfügen. 
-
-1. Was sind Samples?
-2. Was passiert, wenn ich einen Kennwert aus diesen WErten berechne? Er wird meistens nicht korrekt sein. Vorzeigen
-3. Was passiert, wenn ich ganz viele dieser Samples nehme, den Kennwert berichte und visualisiere? 
-4. Es entsteht beim Mittelwert beispielsweise eine Normalverteilung.
-5. Central Limit Theorem
 6. Danach die Verteilung von PRE beschreiben. 
-7. Prozentwerte erklären. Beispielsweise durch z-Tabellen. Intelligenz hat immer einen Mittelwert von 100 und eine Standardabweichung von 15. Welchen z-Wert hast du, wenn du einen Intelligenzwert von 120 hast? 
+
 
