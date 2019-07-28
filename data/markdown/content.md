@@ -665,6 +665,8 @@ Zuletzt können wir aus diesen Fehlern PRE berechnen:
 Erneut erhalten wir einen Fehler von 2.7%. Das erweiterte Modell ist demnach in der Lage die Fehler des kompakten Modells um 2.7% zu reduzieren. Um nun zu bestimmen, ob diese Reduzierung gut genug ist, um das erweiterte Modell bzw. die Alternativhypothese anzunehmen, müssen wir als nächstes verstehen, wie wir bestimmen können, ob ein Fehler substantiell reduziert wird. Mehr dazu im nächsten Teil.
 
 
+ 
+
 # Stichprobenkennwertverteilungen
 
 Wir haben im letzten Kapitel häufiger davon gesprochen, dass wir die Nullhypothese verwerfen, wenn der Fehler des kompakten Modells, durch das erweiterte Modell substantiell verkleinert wird. Aber was bedeutet es, dass ein Fehler substantiell verkleinert wird?  Um diese Frage beantworten zu können, verwenden wir **Stichprobenkennwertverteilungen**. Das Wort Stichprobenkennwertverteilung gibt uns bereits einige Hinweise, um zu verstehen, was dieses Wort bedeutet.
@@ -755,7 +757,7 @@ Nun können wir den Mittelwert dieser Stichprobe berechnen:
 mean(my_sample) # 97.88391
 ```
 
-Unser Mittelwert ist also 97.88. Der Mittelwert entspricht nicht ganz dem tatsächlichen Mittelwert von 100, da wir die Daten simuliert haben.
+Unser Mittelwert ist 97.88. Der Mittelwert entspricht nicht ganz dem tatsächlichen Mittelwert von 100, da wir die Daten simuliert haben.
 
 Um nun eine Stichprobenkennwertverteilung zu generieren, benötigen wir *sehr viele* dieser Stichprobenkennwerte. Versuchen wir einmal 10 solcher Mittelwerte aus der Population zu berechnen (den R-Code musst du an dieser Stelle nicht verstehen, er dient eher zur Generierung der Werte):
 
@@ -844,7 +846,7 @@ Du siehst, dass die Verteilung mit einer steigenden Stichprobengröße eine geri
 
 ## Die Standardabweichung der Stichprobenkennwertverteilung nennt man Standardfehler
 
-Jede Verteilung hat einen Mittelwert und eine Standardabweichung. Die Stichprobenkennwertverteilung ist keine Ausnahme. Auch sie hat eine Standardabweichung. Diese nennen wir **Standardfehler**. Der Standardfehler wird folgendermaßen schätzen:
+Jede Verteilung hat einen Mittelwert und eine Standardabweichung. Die Stichprobenkennwertverteilung ist keine Ausnahme. Auch sie hat eine Standardabweichung. Diese nennen wir **Standardfehler**. Der Standardfehler der Stichprobenverteilung des Mittelwerts können wir folgendermaßen folgendermaßen schätzen:
 
 $$
 SE = \frac{\sigma}{sqrt{N}}
@@ -858,7 +860,7 @@ $$
 SE = \frac{100}{sqrt{20}} = 5
 $$
 
-Hätten wir eine Stichprobe von 50 Personen, wäre der Standardfehler:
+Hätten wir eine Stichprobe von 50 Personen bei einer gleichen Standardabweichung, wäre der Standardfehler:
 
 $$
 SE = \frac{100}{sqrt{50}} = 2
@@ -950,68 +952,173 @@ Die Standardnormalverteilung ist eine besondere Normalverteilung, für die folge
 
 ![](./images/standardnormalverteilung.png)
 
-## Standardisierung durch die z-Transformation
+
+# Zentrales Grenzwerttheorem
+
+Die Stichprobenkennwertverteilung des Mittelwerts (und des Medians) hat eine besondere Eigenschaft. 
+
+> Unabhängig davon, welche Verteilung (z.B. bimodel, unimodal, stetig) eine Population hat, die Stichprobenkennwertverteilung des Mittelwerts entspricht immer einer Normalverteilung. 
+
+
+
+
+# z-Transformation
 
 Um aus einer Normalverteilung eine Standardnormalverteilung zu erhalten, kann man die Normalverteilung durch eine z-Transformation in eine Standardnormalverteilung überführen.
 
-Hier die Formel aufbrechen (TODO): ERst $Y - \mu$, dann durch $\sigma$ teilen. Dadurch kann man sehen, was mit einer Verteliung passiert, wenn man z-transformiert.
+Um den Mittelwert der Normalverteilung auf 0 zu siehen, verschieben wir die Verteilung um den Wert jedes Datenpunktes ($Y$) um den Mittelwert der Verteilung ($\mu$): $Y - \mu$. Im nächsten Schritt teilen wir diesen Wert durch die Standardabweichung ($\sigma$) und erhalten hierdurch eine Standardabweichung von 1:
 
- #  Wahrscheinlichkeiten aus der Standardnormalverteilung ablesen (z-Werte)
+$$
+z = \frac{Y - \mu}{\sigma}
+$$
 
-Durch z-Werte und Wahrscheinlichktein
 
-68% der WErte, ... mu = 0, sigma = 1
+#  Wahrscheinlichkeiten aus Stichprobenkennwertverteilungen berechnen
 
-Z-Wert berechnen. 
+Stichprobenkennwertverteilungen können uns Auskunft darüber geben, wie wahrscheinlich ein Ereignis ist. Stellen wir uns erneut die Verteilung der Intelligenz von Personen vor. Der Intelligenzquotient in der Population hat immer einen Mittelwert von 100 und eine Standardabweichung von 15. Wie wahrscheinlich ist dann beispielsweise, einen Intelligenzquotienten von über 115 zu haben? Gehen wir das Problem Schritt für Schritt durch:
+
+Zunächst berechnen wir den z-Wert dieses Intelligenzquotienten:
+
+$$
+z = \frac{115 - 100}{15} = 1
+$$
+
+Diesen z-Wert können wir in der Standardnormalverteilung abbilden. 
 
 ```
-ggplot(NULL, aes(x = c(-100, 150))) +
-  stat_function(fun = dnorm,
-                geom = "area",
-                fill = "steelblue",
-                args = list(
-                  mean = 100,
-                  sd = 15)
-                ) +
-  stat_function(fun = dnorm,
-                geom = "area",
-                fill = "red",
-                args = list(
-                  mean = 0,
-                  sd = 15)
+z_score <- (115 - 100) / 15
+
+ggplot(NULL, aes(x = c(-3, 3))) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
   ) +
-  stat_function(fun = dnorm,
-                geom = "area",
-                fill = "green",
-                args = list(
-                  mean = 0,
-                  sd = 1)
+  geom_vline(xintercept = z_score,
+             color = "red",
+             size = 2) +
+  annotate("text", x = z_score + 0.5,
+           y = 0.3, label = "z-score der Person mit\neinem IQ von 115")
+```
+
+![](./images/z_score_intelligence.png)
+
+
+Wir hatten bereits erklärt, dass die Fläche von Stichprobenkennwertverteilungen immer 1 ist. Dieser Wert ist gleichzeitig die Wahrscheinlichkeit eines Ereignisses. Der blaue Bereich zeigt an, wie wahrscheinlich es ist, einen willkürlichen Intelligenzquotienten zu besitzen. Die Wahrscheinlichkeit liegt bei 100%.
+
+Wie wahrscheinlich ist es, einen Intelligenzquotienten von über 100 zu besitzen? 50%. Warum? Da wir wissen, das die Standardnormalverteilung symmetrisch ist und der Mittelwert der Standardnormalverteilung dem standardisierten Mittelwert der Verteilung der Intelligenz entspricht. Im folgenden Bild sind diese 50% als Fläche dargestellt:
+
+```
+ggplot(NULL, aes(x = c(-3, 3))) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "#b44682",
+    xlim = c(0, 3)
   ) +
   labs(
-    title = "Standardnormalverteilung",
-    subtitle = "Mittelwert = 0, Standardabweichung = 1",
-    x = "z-Wert",
+    title = "Rot dargestellt die Wahrscheinlichkeit einen IQ von über 100 zu haben",
+    x = "Intelligenz als z-Wert",
     y = "Dichte"
   )
 ```
 
-!Stichprobenkennwertverteilung besser mit Fehler verbinden!
+![](./images/iq_50_percent.png)
 
 
-## Zusätzliche Informationen
+In R können wir diese Wahrscheinlichkeit mit der Funktion [pnorm](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html) berechnen:
 
-* Z-Tabellen LInks
+```R
+pnorm(0, mean = 0, sd = 1) # 0.50
+```
 
-# Zentrales Grenzwerttheorem
+Der erste Argument der Funktion ist der Wert auf der x-Achse der Normalverteilung (hier der z-Wert). Das zweite Argument ist der Mittelwert der Verteilung (hier 0). Das dritte Argument ist die Standardabweichung der Verteilung (hier 1). Wir wissen also, dass 50% der Menschen einen Intelligenzquotienten über 100 haben. Wie viele Menschen haben nun einen Intelligenzquotienten von über 115? Schauen wir uns die Verteilung dieser Werte zunächst grafisch an:
 
-Das zentrale Grenzwerttheorem ist eine interessanter Tatsache der Stichprobenkennwertverteilungen des Mittelwerts. Das Theorem besagt folgendes:
+```
+z_score <- (115 - 100) / 15
 
-> Unabhängig, welche Verteilung (bimodel, unimodal, stetig) eine Population hat, die Stichprobenkennwertverteilung des Mittelwerts entspricht immer einer Normalverteilung. 
+ggplot(NULL, aes(x = c(-3, 3))) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "#b44682",
+    xlim = c(1, 3)
+  ) +
+  labs(
+    title = "Wahrscheinlichkeit einen IQ über 15 zu haben",
+    x = "Intelligenz als z-Wert",
+    y = "Dichte"
+  ) +
+  geom_vline(xintercept = z_score,
+             color = "red",
+             size = 2) 
+```
+
+![](./images/iq_above_115.png)
+
+Die rote Fläche kennzeichnet nun die Wahrscheinlichkeit einen Intelligenzquotienten über 115 zu haben. Berechnen wir diese Wahrscheinlichkeit in R:
+
+```R
+1 - pnorm(1, mean = 0, sd = 1) # 0.1586553 -> 15.87%
+```
+
+Warum ziehen wir die Wahrscheinlichkeit von 1 ab? Da pnorm uns immer die Fläche links der Verteilung zurück gibt, in diesem Fall also die blaue Fläche. Da wir wissen, dass die Wahrscheinlichkeit einer Stichprobenkennwertverteilung immer 1 ist, können wir diese Wahrscheinlichkeit von 1 abziehen und erhalten dadurch den Komplement. Nur 15.87% der Menschen haben also einen Intelligenzquotienten von über 115. 
+
+# Generalisierung der Wahrscheinlichkeitsberechnung aus Stichprobenkennwertverteilungen
+
+## Die Wahrscheinlichkeit eines einzelnen Ereignisses ist bei stetigen Variablen immer gleich 0
+
+Wie wahrscheinlich ist es, einen Intelligenzquotienten von 98,564 zu haben? Diese Frage muss bei stetigen Verteilungen wie der Intelligenz, in der es unendlich viele Zwischenwerte gibt immer mit 0 beantwortet werden. Einzelne Ereignisse sind so unwahrscheinlich, da stetige Variablen unendliche genau sein können. Es wird keine zwei Personen geben, die einen Intelligenzquotienten von genau 98,564 haben. Was wir aber berechnen können ist die Wahrscheinlichkeit mindestens höchsten ein Ereignis zu haben, zu berechnen. Genausogut können wir die Wahrscheinlichkeit zwischen zwei Ereignissen berechnen. Beispielsweise, wie wahrscheinlich ist es, einen IQ von über 90 und von unter 105 zu haben? 
+
+
+```
+z_score_90 <- (90 - 100) / 15
+z_score_105 <- (105 - 100) / 15
+
+ggplot(NULL, aes(x = c(-3, 3))) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "#b44682",
+    xlim = c(z_score_90, z_score_105)
+  ) +
+  labs(
+    title = "Wahrscheinlichkeit einen IQ über über 90 und unter 105 zu haben",
+    x = "Intelligenz als z-Wert",
+    y = "Dichte"
+  ) +
+  annotate("text", x = -0.3,
+           y = 0.2, label = "37.8%")
+```
+
+![](./images/iq_90_105.png)
+
+
+Die Wahrscheinlichkeit einen IQ über 90 und unter 105 zu haben, ist in der Grafik rot dargestellt. Erneut können wir diese Wahrscheinlichkeit in R berechnen:
+
+```R
+pnorm(z_score_105) - pnorm(z_score_90) # 0.3780661
+```
+
+# Statistisches Hypothesentesten auf Grundlage von Stichprobenkennwertverteilungen
+
 
 
 # Stichprobenkennwertverteilung von PRE
-
-
-6. Danach die Verteilung von PRE beschreiben. 
 
 
