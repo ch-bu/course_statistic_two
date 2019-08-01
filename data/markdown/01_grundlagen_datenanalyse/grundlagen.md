@@ -109,7 +109,7 @@ Um mehrere Zeilen ausführen, musst die alle Zeilen selektieren und dann erneut 
 
 ### Pakete Überblick
 
-Pakete sind eine Sammlung an Funktionen und Code, welcher gebündet und herunter geladen werden kann, um die Funktionalität von R zu erweitern. R hat bereits viele Funktionen, die wir für die Datenanalyse verwenden können. Beispielsweise umfasst R die Funktion [mean](https://www.rdocumentation.org/packages/base/versions/3.6.1/topics/mean), mit der wir Mittelwerte aus einer Variablen berechnen können. Selbst wenn R hunderte Funktionen hat, die mit R [mitgeliefert werden](https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html), brauchen wir häufig weitere Funktionen, um unsere Daten zu analysieren. Wir verwenden in diesem Seminar folgende Pakete:
+Pakete sind eine Sammlung an Funktionen und Code, welche gebündet  herunter geladen werden können, um die Funktionalität von R zu erweitern. R hat bereits viele Funktionen, die wir für die Datenanalyse verwenden können. Beispielsweise umfasst R die Funktion [mean](https://www.rdocumentation.org/packages/base/versions/3.6.1/topics/mean), mit der wir Mittelwerte aus einer Variablen berechnen können. Selbst wenn R hunderte Funktionen hat, die mit R [mitgeliefert werden](https://stat.ethz.ch/R-manual/R-devel/library/base/html/00Index.html), brauchen wir häufig weitere Funktionen, um unsere Daten zu analysieren. Wir verwenden in diesem Seminar folgende Pakete:
 
 * [tidyverse](https://www.tidyverse.org/): Tidyverse umfasst eine Vielzahl an Paketen zur Analyse und Verarbeitung von Daten. Die Pakete haben eine einheitliche Philosophy und arbeite daher sehr gut miteinander.
 * [janitor](https://github.com/sfirke/janitor): Viele Daten, die wir erhalten sind unstrukturiert und haben seltsame Variablennamen. Mit dem Paket janitor können wir diese bereinigen.
@@ -275,7 +275,7 @@ Gleichzeitig kannst du im Panel **Environment** sehen, ob dein Datensatz geladen
 
 Der Output zeigt uns an, dass der Datensatz 1470 Reihen und 17 Variablen hat. 
 
-> Der Name des Datensatzes ist im Übrigen willkürlich. Wir haben in diesem Fall den Datensatz `hr_cleaned` genannt, er hätte genausogut `human_resources` oder `hr` heißen können.
+> Der Name des Datensatzes ist im Übrigen willkürlich. Wir haben in diesem Fall den Datensatz `human_resources` genannt, er hätte genausogut `h_resources` oder `hr` heißen können.
 
 # R
 
@@ -441,7 +441,7 @@ x <- "Mein Text" # falsch -> Was bedeutet x?
 text_probanden <- "Mein Text" # richtig
 ```
 
-Variablennamen sollten nicht zu lange sein:
+Variablennamen sollten nicht zu lang sein:
 
 ```R
 meine_ganz_lange_variable_mit_inhalt <- 3 # falsch
@@ -461,3 +461,203 @@ Zeilen sollten nicht länger als 80 Zeichen haben. Sind die Zeilen zu lang, wird
 #### Weitere Informationen
 
 * [The tidyverse style guide](https://style.tidyverse.org/)
+
+
+## Grundlegende Befehle
+
+Es gibt ein paar wenige Befehle, die du immer wieder in R benötigst. Gehen wir sie einzeln durch:
+
+Mit [View](https://www.rdocumentation.org/packages/utils/versions/3.6.1/topics/View) kannst du dir den Datensatz in einem Excel-ähnlichen Format betrachten:
+
+```R
+View(human_resources)
+```
+
+![](view.PNG)
+
+Datensätze lassen sich ebenso mit der Funktion [glimpse]() betrachten. Glimpse stammt aus dem Paket **tidyverse**. Um diese Funktion auszuführen, solltest du zunächst tidyverse geladen haben:
+
+```R
+> glimpse(human_resources)
+```
+
+```
+Observations: 1,470
+Variables: 17
+$ id                         <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15...
+$ age                        <dbl> 41, 49, 37, 33, 27, 32, 59, 30, 38, 36, 35, 29, 3...
+$ department                 <chr> "Sales", "Research & Development", "Research & De...
+$ distance_from_home         <dbl> 1, 8, 2, 3, 2, 2, 3, 24, 23, 27, 16, 15, 26, 19, ...
+$ education                  <chr> "College", "Below College", "College", "Master", ...
+$ employee_count             <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+$ gender                     <chr> "Female", "Male", "Male", "Female", "Male", "Male...
+$ job_role                   <chr> "Sales Executive", "Research Scientist", "Laborat...
+$ job_satisfaction           <chr> "Very High", "Medium", "High", "High", "Medium", ...
+$ marital_status             <chr> "Single", "Married", "Single", "Married", "Marrie...
+$ monthly_income             <dbl> 5993, 5130, 2090, 2909, 3468, 3068, 2670, 2693, 9...
+$ num_companies_worked       <dbl> 8, 1, 6, 1, 9, 0, 4, 1, 0, 6, 0, 0, 1, 0, 5, 1, 0...
+$ performance_rating         <chr> "Excellent", "Outstanding", "Excellent", "Excelle...
+$ total_working_years        <dbl> 8, 10, 7, 8, 6, 8, 12, 1, 10, 17, 6, 10, 5, 3, 6,...
+$ work_life_balance          <chr> "Bad", "Better", "Better", "Better", "Better", "G...
+$ years_at_company           <dbl> 6, 10, 0, 8, 2, 7, 1, 1, 9, 7, 5, 9, 5, 2, 4, 10,...
+$ years_since_last_promotion <dbl> 0, 1, 0, 3, 2, 3, 0, 0, 1, 7, 0, 0, 4, 1, 0, 8, 0...
+> 
+```
+
+Links siehst du die Variablen, rechts, die ersten Werte der einzelnen Variablen des Datensatzes.
+
+Du kannst dir genausogut die Variablennamen mit der Funktion [colnames](https://stat.ethz.ch/R-manual/R-devel/library/base/html/colnames.html) ausgeben lassen:
+
+```R
+colnames(human_resources)
+```
+
+```
+ [1] "id"                         "age"                       
+ [3] "department"                 "distance_from_home"        
+ [5] "education"                  "employee_count"            
+ [7] "gender"                     "job_role"                  
+ [9] "job_satisfaction"           "marital_status"            
+[11] "monthly_income"             "num_companies_worked"      
+[13] "performance_rating"         "total_working_years"       
+[15] "work_life_balance"          "years_at_company"          
+[17] "years_since_last_promotion"
+```
+
+Manchmal möchte man wissen, wie viele Reihen in einem Datensatz stecken. Hierfür kannst du die Funktion [nrow](https://www.rdocumentation.org/packages/base/versions/3.6.1/topics/nrow) verwenden:
+
+```R
+nrow(human_resources) # [1] 1470
+```
+
+Genausogut lassen sich die Anzahl der Variablen (bzw. Spalten) in einem Datensatz mit der Funktion [ncol](https://www.rdocumentation.org/packages/base/versions/3.6.1/topics/nrow) ausgeben lassen:
+
+```R
+ncol(human_resources) # [1] 17
+```
+
+## Datentypen in R
+
+### Vektoren
+
+Datentypen sind ein seltsames Konzept, wenn man noch nicht programmiert hat. Datentypen sagen, in welcher Art Daten vorliegen. Hier ein Beispiel: R hat den Datentyp [Vector](https://www.statmethods.net/input/datatypes.html). Vektoren sind eine Sammlung mehrerer Werte, die miteinander gespeichert werden:
+
+```R
+c(3, 4, 5)
+# oder
+c(3, "hallo", 3.5)
+# oder
+c(9)
+```
+
+Wir sind vorhin bereits Vektoren begegnet als wir die Wurzel aus 9 berechnet haben:
+
+```R
+sqrt(c(9)) # 3
+```
+Jede einzelne Zahl ist bereit ein Vektor, eben ein Vektor mit nur einem Element. Vektoren enthalten gewöhnlich die gleiche Art von Daten:
+
+```R
+c(3, 3, 4) # atomarer numerischer Vektor
+c(3, "hallo") # nicht-atomarer gemischter Vektor - werden wir nicht verwenden in diesem Kurs
+```
+
+Die Werte in Vektoren können in unterschiedlichen Formen vorliegen:
+
+```R
+c("Ich", "bin", "ein", "Berliner") # character vector (char) Textabschnitte mit " umrundet
+c(3, 4, 5, 6) # numeric integer vector (dbl) - Zahlen
+c(4.1, 4, 6.8) # numeric double vector (dbl) -  Zahlen mit Nachkommastellen
+c(TRUE, FALSE, TRUE) # logical vector (lgl)
+```
+
+Diese verschiedenen Vektorformen siehst du, wenn du dir einen Datensatz mit der Funktion `glimpse` betrachtest:
+
+```R
+> glimpse(human_resources)
+```
+
+```
+Observations: 1,470
+Variables: 17
+$ id                         <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15...
+$ age                        <dbl> 41, 49, 37, 33, 27, 32, 59, 30, 38, 36, 35, 29, 3...
+$ department                 <chr> "Sales", "Research & Development", "Research & De...
+$ distance_from_home         <dbl> 1, 8, 2, 3, 2, 2, 3, 24, 23, 27, 16, 15, 26, 19, ...
+$ education                  <chr> "College", "Below College", "College", "Master", ...
+$ employee_count             <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1...
+$ gender                     <chr> "Female", "Male", "Male", "Female", "Male", "Male...
+$ job_role                   <chr> "Sales Executive", "Research Scientist", "Laborat...
+$ job_satisfaction           <chr> "Very High", "Medium", "High", "High", "Medium", ...
+$ marital_status             <chr> "Single", "Married", "Single", "Married", "Marrie...
+$ monthly_income             <dbl> 5993, 5130, 2090, 2909, 3468, 3068, 2670, 2693, 9...
+$ num_companies_worked       <dbl> 8, 1, 6, 1, 9, 0, 4, 1, 0, 6, 0, 0, 1, 0, 5, 1, 0...
+$ performance_rating         <chr> "Excellent", "Outstanding", "Excellent", "Excelle...
+$ total_working_years        <dbl> 8, 10, 7, 8, 6, 8, 12, 1, 10, 17, 6, 10, 5, 3, 6,...
+$ work_life_balance          <chr> "Bad", "Better", "Better", "Better", "Better", "G...
+$ years_at_company           <dbl> 6, 10, 0, 8, 2, 7, 1, 1, 9, 7, 5, 9, 5, 2, 4, 10,...
+$ years_since_last_promotion <dbl> 0, 1, 0, 3, 2, 3, 0, 0, 1, 7, 0, 0, 4, 1, 0, 8, 0...
+> 
+```
+
+Du siehst beispielsweise, dass die Variable `education` als **chr**, das bedeutet als Text gespeichert ist.
+
+Vektoren sind der grundlegende Datentyp aus dem andere Datentypen entstehen. Beispielsweise sind Dataframes nur besondere Arten von Vektoren.
+
+### Dataframes
+
+Dataframes sind diejenigen Datentypen mit denen wir uns am meisten beschäftigen werden. Dataframes sind Daten, welche in einem Excel-ähnlichem Format vorliegen:
+
+```R
+my_data_frame <- data.frame(x = c(1, 3, 4),
+                            y = c(4, 5, 6))
+```
+
+Wir können auf einzelne Variablen eines Dataframes zugreifen, indem wir den `$`-Operator verwenden:
+
+```R
+human_resources$age # [1] 41 49 37 33 27 32 ...
+```
+
+Dieser Operator ist wichtig, um beispielsweise den Mittelwert einer Variblen zu berechnen:
+
+```R
+mean(human_resources$age) # 36.92381
+```
+
+Oder auch um die Standardabweichung einer Variable zu berechnen:
+
+```R
+sd(human_resources$age) # 9.135373
+```
+
+### Weitere Informationen
+
+* [Quick-R Data Types](https://www.statmethods.net/input/datatypes.html)
+* [R for Data Science - Vectors](https://r4ds.had.co.nz/vectors.html)
+
+
+## Pipe-Operator
+
+Häufig führen wir nur eine Funktion aus und schauen uns den Output an. Was passiert allerdings, wenn wir mehrere Funktionen gleichzeitig ausführen müssen. Hier ein Beispiel: Stell dir vor, du möchtest aus einem Vektor den Mittelwert berechnen, aus dem Mittelwert anschließend die Wurzel ziehen und diese Wert mit der Zahl 5 addieren. Dies wäre ein möglicher Lösungsweg:
+
+```R
+sum(sqrt(mean(c(4, 5, 6))), 5) # 7.236068
+```
+
+Das sieht nicht nur kompliziert aus, es ist auch kompliziert. Alternativ könnten wir die Daten in Variablen speichern:
+
+```R
+mittelwert <- mean(c(4, 5, 6))
+wurzel <- sqrt(mittelwert)
+sum(wurzel, 5)
+```
+
+Die Lösung ist bereits eleganter, aber immer noch perfekt, da wir Variablen einführen, die wir später gar nicht mehr benötigen. Wir möchten nur das Ergebnis wissen. Eine Alternative, dieses Problem zu lösen, ist der [Pipe-Operator](https://r4ds.had.co.nz/pipes.html). Das Problem von eben können wir durch diesen Operator folgendermaßen lösen:
+
+```R
+mean(c(4, 5, 6)) %>%
+  sqrt(.) %>%
+  sum(., 5)
+```
+
