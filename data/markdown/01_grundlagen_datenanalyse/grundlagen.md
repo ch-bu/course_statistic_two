@@ -536,6 +536,27 @@ Genausogut lassen sich die Anzahl der Variablen (bzw. Spalten) in einem Datensat
 ncol(human_resources) # [1] 17
 ```
 
+Zuletzt benötigen wir noch die Funktion [head](https://www.rdocumentation.org/packages/utils/versions/3.6.1/topics/head). Mit Hilfe von `head` können wir uns die ersten Reihen eines Datensatzes ansehen:
+
+```R
+head(human_resources)
+```
+
+```
+# A tibble: 6 x 17
+     id   age department distance_from_h~ education employee_count gender job_role job_satisfaction
+  <dbl> <dbl> <chr>                 <dbl> <chr>              <dbl> <chr>  <chr>    <chr>           
+1     1    41 Sales                     1 College                1 Female Sales E~ Very High       
+2     2    49 Research ~                8 Below Co~              1 Male   Researc~ Medium          
+3     3    37 Research ~                2 College                1 Male   Laborat~ High            
+4     4    33 Research ~                3 Master                 1 Female Researc~ High            
+5     5    27 Research ~                2 Below Co~              1 Male   Laborat~ Medium          
+6     6    32 Research ~                2 College                1 Male   Laborat~ Very High       
+# ... with 8 more variables: marital_status <chr>, monthly_income <dbl>, num_companies_worked <dbl>,
+#   performance_rating <chr>, total_working_years <dbl>, work_life_balance <chr>, years_at_company <dbl>,
+#   years_since_last_promotion <dbl>
+```
+
 ## Datentypen in R
 
 ### Vektoren
@@ -639,13 +660,13 @@ sd(human_resources$age) # 9.135373
 
 ## Pipe-Operator
 
-Häufig führen wir nur eine Funktion aus und schauen uns den Output an. Was passiert allerdings, wenn wir mehrere Funktionen gleichzeitig ausführen müssen. Hier ein Beispiel: Stell dir vor, du möchtest aus einem Vektor den Mittelwert berechnen, aus dem Mittelwert anschließend die Wurzel ziehen und diese Wert mit der Zahl 5 addieren. Dies wäre ein möglicher Lösungsweg:
+Häufig führen wir nur eine Funktion aus. Was passiert allerdings, wenn wir mehrere Funktionen gleichzeitig ausführen müssen. Hier ein Beispiel: Stell dir vor, du möchtest aus einem Vektor den Mittelwert berechnen, aus dem Mittelwert anschließend die Wurzel ziehen und diesen Wert mit der Zahl 5 addieren. Dies wäre ein möglicher Lösungsweg:
 
 ```R
 sum(sqrt(mean(c(4, 5, 6))), 5) # 7.236068
 ```
 
-Das sieht nicht nur kompliziert aus, es ist auch kompliziert. Alternativ könnten wir die Daten in Variablen speichern:
+Das sieht nicht nur kompliziert aus, es ist auch kompliziert. Es ist nur schwer zu erkennen, welche Klammer zu welcher Funktion gehört. Alternativ könnten wir die Daten in Variablen speichern:
 
 ```R
 mittelwert <- mean(c(4, 5, 6))
@@ -660,4 +681,56 @@ mean(c(4, 5, 6)) %>%
   sqrt(.) %>%
   sum(., 5)
 ```
+
+Was passiert hier? Die Idee ist folgende: Jede Funktion nimmt Daten auf, verarbeitet diese und gibt diese weiter. Eine Analogie wären erneut Fabriken. Die erste Fabrik fällt Holz und fertigt aus diesem Holz Bretter an. Holz ist der Input der Fabrik, Bretter der Output. Diese Bretter werden nun an die nächste Fabrik geschickt, welche anschließend die Bretter schleift. Diese geschliiffenen Bretter gehen anschließen an den Gitarrenbauer, der aus den geschliffenen Brettern eine Gitarre baut. Das Prinzip ist folgendes: Es gibt eine serielle Verarbeitung der Produkte. 
+
+Genauso funktioniert der Pipe-Operator. Er übergibt den Output einer Funktion in die nächste Funktion. Hier ein einfaches Beispiel:
+
+```R
+mean(c(9, 10, 8)) %>%
+  sqrt(.) # 3
+```
+
+Die Funktion `mean(c(9, 10, 8))` berechnet den Mittelwert aus dem Vektor mit den Zahlen 9, 10, 8 (= 9). Diese Zahl 9 wird an die Funktion `sqrt` übergeben. Du siehst, dass in der Funktion `sqrt(.)` ein Punkt notiert ist. Dieser Punkt steht für den Output der vorherigen Funktion (hier `mean`). Wir könnten diesen Punkt auch weglassen:
+
+```R
+mean(c(9, 10, 8)) %>%
+  sqrt() # 3
+```
+
+Ein anderes Beispiel: Wir berechnen die Summe aus zwei Zahlen mit der Funktion `sum`. Die erste Zahl der Summe übergeben wir allerdings mit Hilfe des Pipe-Operators:
+
+```R
+3 %>% sum(., 3) # 6
+# oder
+3 %>% sum(3) # 6
+```
+
+Dies ist äquivalent zu:
+
+```R
+sum(3, 3) # 6
+```
+
+Der Vorteil des Pipe-Operators wird erst im Verlaufe des Kurses deutlich, wenn wir mehrere Manipulationen an Daten vornehmen. Hier nur ein komplexeres Beispiel, welches wir mit unserem aktuellen Wissen lösen können:
+
+```R
+human_resources %>%
+  head %>%
+  glimpse
+```
+
+Folgendes passiert in diesem Beispiel: Wir geben uns den Output unseres Datensatzes aus (`human_resources`). Diesen Output überführen wir in die Funktion `head`, welche uns nur die ersten Reihen des Datensatzes anzeigt. Für diesen verkürzten Datensatz führen wir anschließend die Funktion `glimpse` aus, um uns die Variablen des Datensatzes anzusehen.
+
+> Der Pipe Operator ist häufig schwierig mit der Tastatur zu schreiben. In R-Studio gibt es einen Shortcut: **STRG + Umschalt + M**. Dies ist ein Shortcut, den es sich lohnt zu lernen.
+
+### Weiteführende Informationen
+
+* [Magrittr - Pipe](https://magrittr.tidyverse.org/reference/pipe.html)
+* [Pipes in R Tutorial For Beginners](https://www.datacamp.com/community/tutorials/pipe-r-tutorial)
+
+
+## Tidyverse
+
+### Was ist tidyverse?
 
