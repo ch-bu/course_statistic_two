@@ -1,0 +1,1471 @@
+id,age,department,distance_from_home,education,employee_count,gender,job_role,job_satisfaction,marital_status,monthly_income,num_companies_worked,performance_rating,total_working_years,work_life_balance,years_at_company,years_since_last_promotion
+1,41,Sales,1,College,1,Female,Sales Executive,Very High,Single,5993,8,Excellent,8,Bad,6,0
+2,49,Research & Development,8,Below College,1,Male,Research Scientist,Medium,Married,5130,1,Outstanding,10,Better,10,1
+3,37,Research & Development,2,College,1,Male,Laboratory Technician,High,Single,2090,6,Excellent,7,Better,0,0
+4,33,Research & Development,3,Master,1,Female,Research Scientist,High,Married,2909,1,Excellent,8,Better,8,3
+5,27,Research & Development,2,Below College,1,Male,Laboratory Technician,Medium,Married,3468,9,Excellent,6,Better,2,2
+6,32,Research & Development,2,College,1,Male,Laboratory Technician,Very High,Single,3068,0,Excellent,8,Good,7,3
+7,59,Research & Development,3,Bachelor,1,Female,Laboratory Technician,Low,Married,2670,4,Outstanding,12,Good,1,0
+8,30,Research & Development,24,Below College,1,Male,Laboratory Technician,High,Divorced,2693,1,Outstanding,1,Better,1,0
+9,38,Research & Development,23,Bachelor,1,Male,Manufacturing Director,High,Single,9526,0,Outstanding,10,Better,9,1
+10,36,Research & Development,27,Bachelor,1,Male,Healthcare Representative,High,Married,5237,6,Excellent,17,Good,7,7
+11,35,Research & Development,16,Bachelor,1,Male,Laboratory Technician,Medium,Married,2426,0,Excellent,6,Better,5,0
+12,29,Research & Development,15,College,1,Female,Laboratory Technician,High,Single,4193,0,Excellent,10,Better,9,0
+13,31,Research & Development,26,Below College,1,Male,Research Scientist,High,Divorced,2911,1,Excellent,5,Good,5,4
+14,34,Research & Development,19,College,1,Male,Laboratory Technician,Very High,Divorced,2661,0,Excellent,3,Better,2,1
+15,28,Research & Development,24,Bachelor,1,Male,Laboratory Technician,High,Single,2028,5,Excellent,6,Better,4,0
+16,29,Research & Development,21,Master,1,Female,Manufacturing Director,Low,Divorced,9980,1,Excellent,10,Better,10,8
+17,32,Research & Development,5,College,1,Male,Research Scientist,Medium,Divorced,3298,0,Excellent,7,Good,6,0
+18,22,Research & Development,16,College,1,Male,Laboratory Technician,Very High,Divorced,2935,1,Excellent,1,Good,1,0
+19,53,Sales,2,Master,1,Female,Manager,Very High,Married,15427,2,Excellent,31,Better,25,3
+20,38,Research & Development,2,Bachelor,1,Male,Research Scientist,Very High,Single,3944,5,Excellent,6,Better,3,1
+21,24,Research & Development,11,College,1,Female,Manufacturing Director,High,Divorced,4011,0,Excellent,5,Good,4,1
+22,36,Sales,9,Master,1,Male,Sales Representative,Low,Single,3407,7,Outstanding,10,Better,5,0
+23,34,Research & Development,7,Master,1,Female,Research Director,Medium,Single,11994,0,Excellent,13,Better,12,2
+24,21,Research & Development,15,College,1,Male,Research Scientist,Very High,Single,1232,1,Excellent,0,Better,0,0
+25,34,Research & Development,6,Below College,1,Male,Research Scientist,Low,Single,2960,2,Excellent,8,Better,4,1
+26,53,Research & Development,5,Bachelor,1,Female,Manager,High,Divorced,19094,4,Excellent,26,Good,14,4
+27,32,Research & Development,16,Below College,1,Female,Research Scientist,Low,Single,3919,1,Outstanding,10,Better,10,6
+28,42,Sales,8,Master,1,Male,Sales Executive,Medium,Married,6825,0,Excellent,10,Better,9,4
+29,44,Research & Development,7,Master,1,Female,Healthcare Representative,Very High,Married,10248,3,Excellent,24,Better,22,5
+30,46,Sales,2,Master,1,Female,Manager,Low,Single,18947,3,Excellent,22,Good,2,2
+31,33,Research & Development,2,Bachelor,1,Male,Laboratory Technician,Very High,Single,2496,4,Excellent,7,Better,1,0
+32,44,Research & Development,10,Master,1,Male,Healthcare Representative,Very High,Married,6465,2,Excellent,9,Best,4,1
+33,30,Research & Development,9,College,1,Male,Laboratory Technician,High,Single,2206,1,Excellent,10,Better,10,1
+34,39,Sales,5,Bachelor,1,Male,Sales Representative,Very High,Married,2086,3,Excellent,19,Best,1,0
+35,24,Research & Development,1,Bachelor,1,Male,Research Scientist,Very High,Married,2293,2,Excellent,6,Good,2,2
+36,43,Research & Development,2,College,1,Female,Research Scientist,High,Divorced,2645,1,Excellent,6,Good,5,1
+37,50,Sales,3,College,1,Male,Sales Representative,High,Married,2683,1,Excellent,3,Better,3,0
+38,35,Sales,2,Bachelor,1,Female,Sales Representative,Very High,Married,2014,1,Excellent,2,Better,2,2
+39,36,Research & Development,5,Master,1,Female,Research Scientist,Low,Married,3419,9,Excellent,6,Best,1,0
+40,33,Sales,1,Bachelor,1,Female,Sales Executive,Low,Married,5376,2,Excellent,10,Better,5,1
+41,35,Research & Development,4,College,1,Male,Laboratory Technician,Very High,Divorced,1951,1,Excellent,1,Better,1,0
+42,27,Research & Development,2,Master,1,Female,Laboratory Technician,Low,Divorced,2341,1,Excellent,1,Better,1,0
+43,26,Research & Development,25,Bachelor,1,Male,Laboratory Technician,High,Single,2293,1,Excellent,1,Good,1,0
+44,27,Sales,8,Bachelor,1,Male,Sales Executive,High,Single,8726,1,Excellent,9,Better,9,1
+45,30,Research & Development,1,College,1,Female,Laboratory Technician,Very High,Single,4011,1,Outstanding,12,Better,12,3
+46,41,Research & Development,12,Bachelor,1,Female,Research Director,High,Married,19545,1,Excellent,23,Better,22,15
+47,34,Sales,23,Master,1,Male,Sales Executive,High,Single,4568,0,Outstanding,10,Better,9,8
+48,37,Research & Development,19,College,1,Male,Research Scientist,Medium,Married,3022,4,Outstanding,8,Better,1,0
+49,46,Sales,5,Master,1,Male,Sales Executive,Very High,Single,5772,4,Outstanding,14,Better,9,0
+50,35,Research & Development,8,Below College,1,Male,Laboratory Technician,Very High,Married,2269,1,Excellent,1,Better,1,0
+51,48,Research & Development,1,College,1,Male,Laboratory Technician,High,Single,5381,9,Excellent,23,Better,1,0
+52,28,Research & Development,5,Master,1,Male,Laboratory Technician,High,Single,3441,1,Excellent,2,Good,2,2
+53,44,Sales,1,Doctor,1,Female,Sales Executive,Low,Divorced,5454,5,Outstanding,9,Good,4,1
+54,35,Research & Development,11,College,1,Male,Healthcare Representative,Low,Married,9884,2,Excellent,10,Better,4,2
+55,26,Sales,23,Bachelor,1,Female,Sales Executive,Very High,Married,4157,7,Excellent,5,Good,2,0
+56,33,Research & Development,1,College,1,Female,Research Director,Very High,Single,13458,1,Excellent,15,Better,15,8
+57,35,Sales,18,Doctor,1,Male,Sales Executive,Low,Married,9069,1,Outstanding,9,Good,9,1
+58,35,Research & Development,23,Master,1,Female,Laboratory Technician,Low,Married,4014,3,Excellent,4,Better,2,2
+59,31,Research & Development,7,Master,1,Male,Laboratory Technician,Very High,Divorced,5915,3,Outstanding,10,Good,7,1
+60,37,Research & Development,1,Master,1,Male,Manufacturing Director,High,Divorced,5993,1,Excellent,7,Best,7,0
+61,32,Research & Development,1,Bachelor,1,Male,Manufacturing Director,Very High,Married,6162,1,Outstanding,9,Better,9,7
+62,38,Research & Development,29,Doctor,1,Female,Laboratory Technician,Very High,Single,2406,1,Excellent,10,Better,10,9
+63,50,Research & Development,7,College,1,Female,Research Director,High,Divorced,18740,5,Excellent,29,Good,27,13
+64,59,Sales,25,Bachelor,1,Female,Sales Executive,Low,Single,7637,7,Excellent,28,Good,21,7
+65,36,Research & Development,8,Bachelor,1,Female,Healthcare Representative,High,Divorced,10096,1,Excellent,17,Better,17,12
+66,55,Research & Development,8,Bachelor,1,Female,Manager,High,Divorced,14756,2,Excellent,21,Better,5,0
+67,36,Research & Development,11,Bachelor,1,Male,Manufacturing Director,Medium,Single,6499,1,Excellent,6,Better,6,0
+68,45,Research & Development,7,Bachelor,1,Male,Research Scientist,Low,Divorced,9724,2,Excellent,25,Better,1,0
+69,35,Research & Development,1,Bachelor,1,Male,Research Scientist,Low,Married,2194,4,Excellent,5,Good,3,1
+70,36,Research & Development,9,Bachelor,1,Male,Research Scientist,High,Married,3388,0,Excellent,2,Good,1,0
+71,59,Sales,1,Below College,1,Female,Sales Executive,High,Single,5473,7,Excellent,20,Good,4,1
+72,29,Research & Development,2,Bachelor,1,Male,Research Scientist,Medium,Married,2703,0,Outstanding,6,Better,5,0
+73,31,Research & Development,1,Master,1,Male,Research Scientist,Medium,Single,2501,1,Excellent,1,Better,1,1
+74,32,Research & Development,1,Bachelor,1,Male,Research Scientist,Medium,Married,6220,1,Excellent,10,Better,10,0
+75,36,Research & Development,6,Bachelor,1,Female,Laboratory Technician,Very High,Married,3038,3,Excellent,5,Better,1,0
+76,31,Research & Development,8,Master,1,Female,Manufacturing Director,Very High,Single,4424,1,Outstanding,11,Better,11,1
+77,35,Sales,1,Master,1,Male,Sales Executive,Low,Single,4312,0,Excellent,16,Better,15,2
+78,45,Research & Development,6,Master,1,Male,Research Director,Low,Married,13245,4,Excellent,17,Best,0,0
+79,37,Research & Development,7,Master,1,Male,Research Director,High,Single,13664,4,Excellent,16,Best,5,0
+80,46,Human Resources,5,College,1,Male,Human Resources,Medium,Divorced,5021,8,Outstanding,16,Better,4,0
+81,30,Research & Development,1,Below College,1,Male,Laboratory Technician,Very High,Married,5126,1,Excellent,10,Good,10,3
+82,35,Research & Development,1,Bachelor,1,Male,Research Scientist,High,Single,2859,1,Excellent,6,Better,6,0
+83,55,Sales,1,College,1,Male,Sales Executive,Very High,Married,10239,3,Excellent,24,Better,1,1
+84,38,Research & Development,6,Bachelor,1,Female,Research Scientist,Very High,Divorced,5329,7,Excellent,17,Better,13,1
+85,34,Research & Development,1,College,1,Male,Manufacturing Director,Medium,Married,4325,1,Excellent,5,Better,5,1
+86,56,Research & Development,7,Bachelor,1,Male,Manufacturing Director,Very High,Single,7260,4,Excellent,37,Good,6,0
+87,23,Sales,2,Below College,1,Male,Sales Representative,Low,Divorced,2322,3,Excellent,3,Better,0,0
+88,51,Research & Development,9,Master,1,Male,Laboratory Technician,Very High,Married,2075,3,Outstanding,10,Better,4,0
+89,30,Research & Development,2,Bachelor,1,Male,Healthcare Representative,Very High,Married,4152,1,Excellent,11,Better,11,10
+90,46,Sales,9,College,1,Male,Sales Executive,Very High,Single,9619,1,Excellent,9,Better,9,4
+91,40,Research & Development,1,Master,1,Male,Healthcare Representative,Medium,Married,13503,1,Outstanding,22,Good,22,11
+92,51,Sales,21,Master,1,Male,Sales Executive,Very High,Single,5441,0,Outstanding,11,Bad,10,1
+93,30,Sales,4,College,1,Female,Sales Executive,Medium,Divorced,5209,1,Excellent,11,Good,11,2
+94,46,Research & Development,1,Bachelor,1,Male,Healthcare Representative,Low,Married,10673,2,Excellent,21,Good,10,9
+95,32,Sales,6,Master,1,Male,Sales Executive,High,Single,5010,1,Excellent,12,Better,11,5
+96,54,Research & Development,2,Master,1,Female,Research Director,High,Married,13549,9,Excellent,16,Bad,4,0
+97,24,Sales,3,College,1,Female,Sales Executive,High,Married,4999,0,Outstanding,4,Good,3,0
+98,28,Sales,4,Bachelor,1,Male,Sales Executive,High,Married,4221,1,Excellent,5,Best,5,0
+99,58,Sales,10,Master,1,Male,Sales Executive,High,Single,13872,0,Excellent,38,Good,37,1
+100,44,Research & Development,23,Bachelor,1,Male,Laboratory Technician,Medium,Married,2042,4,Excellent,17,Best,3,1
+101,37,Human Resources,6,Master,1,Male,Human Resources,Low,Divorced,2073,4,Outstanding,7,Better,3,0
+102,32,Research & Development,1,Below College,1,Male,Research Scientist,Low,Single,2956,1,Excellent,1,Better,1,0
+103,20,Research & Development,6,Bachelor,1,Female,Laboratory Technician,Very High,Single,2926,1,Excellent,1,Better,1,1
+104,34,Research & Development,6,Master,1,Female,Research Scientist,High,Single,4809,1,Excellent,16,Better,16,2
+105,37,Research & Development,2,College,1,Male,Healthcare Representative,Very High,Divorced,5163,5,Excellent,17,Best,1,0
+106,59,Human Resources,2,Master,1,Female,Manager,Very High,Married,18844,9,Outstanding,30,Better,3,2
+107,50,Research & Development,1,Bachelor,1,Female,Research Director,Medium,Married,18172,3,Excellent,28,Good,8,0
+108,25,Sales,5,Bachelor,1,Male,Sales Executive,High,Single,5744,1,Excellent,6,Better,6,0
+109,25,Research & Development,7,Below College,1,Male,Research Scientist,Very High,Married,2889,1,Excellent,2,Better,2,2
+110,22,Research & Development,15,Bachelor,1,Female,Laboratory Technician,Very High,Single,2871,1,Excellent,1,Better,0,0
+111,51,Research & Development,1,Master,1,Female,Healthcare Representative,Low,Single,7484,3,Outstanding,23,Good,13,12
+112,34,Research & Development,7,Bachelor,1,Male,Laboratory Technician,High,Single,6074,1,Outstanding,9,Better,9,0
+113,54,Human Resources,26,Bachelor,1,Female,Manager,Very High,Single,17328,2,Excellent,23,Better,5,4
+114,24,Research & Development,18,Below College,1,Male,Laboratory Technician,High,Married,2774,0,Excellent,6,Better,5,1
+115,34,Research & Development,6,Master,1,Female,Research Scientist,Medium,Divorced,4505,6,Excellent,12,Better,1,0
+116,37,Sales,3,Bachelor,1,Male,Sales Executive,Very High,Single,7428,2,Excellent,12,Better,5,1
+117,34,Research & Development,5,Bachelor,1,Female,Manager,Low,Single,11631,2,Excellent,14,Better,11,5
+118,36,Sales,11,College,1,Female,Sales Executive,Very High,Married,9738,0,Excellent,10,Better,9,2
+119,36,Research & Development,3,College,1,Female,Laboratory Technician,Very High,Divorced,2835,5,Outstanding,7,Better,1,0
+120,43,Sales,26,College,1,Male,Manager,Very High,Married,16959,1,Excellent,25,Best,25,4
+121,30,Research & Development,23,Bachelor,1,Male,Research Scientist,High,Divorced,2613,1,Outstanding,10,Good,10,0
+122,33,Sales,22,College,1,Male,Sales Executive,Medium,Married,6146,0,Excellent,8,Best,7,0
+123,56,Research & Development,14,Master,1,Female,Research Scientist,Medium,Married,4963,9,Excellent,7,Better,5,4
+124,51,Research & Development,6,Bachelor,1,Male,Research Director,High,Single,19537,7,Excellent,23,Better,20,15
+125,31,Sales,6,Master,1,Male,Sales Executive,High,Married,6172,4,Excellent,12,Good,7,7
+126,26,Research & Development,6,Bachelor,1,Female,Research Scientist,Medium,Married,2368,1,Excellent,5,Good,5,4
+127,58,Research & Development,23,Master,1,Female,Healthcare Representative,Very High,Married,10312,1,Excellent,40,Good,40,15
+128,19,Sales,22,Below College,1,Male,Sales Representative,High,Single,1675,1,Excellent,0,Good,0,0
+129,22,Research & Development,2,Below College,1,Male,Laboratory Technician,Very High,Married,2523,0,Excellent,3,Better,2,2
+130,49,Research & Development,20,Master,1,Female,Manufacturing Director,Low,Married,6567,1,Excellent,16,Good,15,5
+131,43,Research & Development,28,Bachelor,1,Female,Research Scientist,High,Single,4739,4,Excellent,18,Better,3,1
+132,50,Sales,12,Bachelor,1,Female,Sales Executive,Very High,Single,9208,4,Excellent,16,Better,2,2
+133,31,Sales,20,Bachelor,1,Female,Sales Executive,High,Married,4559,3,Excellent,4,Better,2,2
+134,41,Sales,9,Below College,1,Male,Sales Executive,High,Divorced,8189,3,Excellent,12,Better,9,0
+135,26,Human Resources,25,Below College,1,Female,Human Resources,High,Married,2942,1,Outstanding,8,Better,8,5
+136,36,Research & Development,6,College,1,Male,Manufacturing Director,Medium,Divorced,4941,6,Outstanding,7,Better,3,0
+137,51,Research & Development,8,Master,1,Male,Manufacturing Director,Very High,Single,10650,2,Excellent,18,Better,4,0
+138,39,Sales,4,Master,1,Female,Sales Executive,High,Married,5902,4,Excellent,17,Best,15,5
+139,25,Sales,28,Bachelor,1,Male,Sales Executive,High,Married,8639,2,Excellent,6,Better,2,2
+140,30,Human Resources,9,Bachelor,1,Male,Human Resources,Very High,Married,6347,0,Excellent,12,Bad,11,4
+141,32,Research & Development,9,Bachelor,1,Female,Laboratory Technician,Low,Single,4200,7,Outstanding,10,Best,5,0
+142,45,Research & Development,29,Bachelor,1,Male,Research Scientist,Very High,Single,3452,5,Excellent,9,Good,6,0
+143,38,Research & Development,3,Doctor,1,Female,Research Scientist,High,Single,4317,3,Outstanding,19,Better,3,2
+144,30,Research & Development,18,Bachelor,1,Female,Research Scientist,High,Single,2632,1,Excellent,5,Good,5,0
+145,32,Sales,9,College,1,Male,Sales Executive,Very High,Divorced,4668,0,Excellent,9,Best,8,0
+146,30,Research & Development,5,Bachelor,1,Female,Research Scientist,Low,Divorced,3204,5,Excellent,8,Better,3,2
+147,30,Research & Development,2,Below College,1,Male,Laboratory Technician,Very High,Single,2720,0,Excellent,6,Better,5,1
+148,41,Research & Development,10,Bachelor,1,Male,Manager,Low,Divorced,17181,4,Excellent,21,Good,7,7
+149,41,Research & Development,9,Master,1,Male,Laboratory Technician,Low,Married,2238,2,Outstanding,7,Better,5,1
+150,19,Research & Development,3,Below College,1,Female,Laboratory Technician,Medium,Single,1483,1,Excellent,1,Better,1,0
+151,40,Research & Development,26,Bachelor,1,Female,Research Scientist,Medium,Divorced,5605,1,Excellent,20,Better,20,2
+152,35,Sales,1,Doctor,1,Male,Sales Executive,Medium,Married,7295,1,Excellent,10,Better,10,0
+153,53,Sales,6,College,1,Male,Sales Representative,High,Married,2306,2,Outstanding,13,Bad,7,4
+154,45,Research & Development,9,Bachelor,1,Male,Laboratory Technician,Medium,Divorced,2348,8,Excellent,20,Bad,17,0
+155,32,Sales,8,Bachelor,1,Female,Sales Executive,Very High,Single,8998,1,Excellent,9,Better,9,3
+156,29,Research & Development,1,Below College,1,Male,Manufacturing Director,High,Married,4319,1,Excellent,10,Better,10,0
+157,51,Research & Development,7,Master,1,Male,Manufacturing Director,High,Married,6132,2,Excellent,10,Better,1,0
+158,58,Research & Development,9,Bachelor,1,Female,Research Scientist,Medium,Married,3346,4,Outstanding,9,Good,1,0
+159,40,Sales,4,Master,1,Male,Sales Executive,Very High,Married,10855,7,Excellent,15,Good,12,2
+160,34,Sales,2,Master,1,Female,Sales Representative,High,Married,2231,6,Excellent,6,Better,4,1
+161,22,Research & Development,19,Below College,1,Male,Research Scientist,Very High,Married,2323,1,Outstanding,2,Better,2,2
+162,27,Research & Development,9,Bachelor,1,Male,Research Scientist,Medium,Divorced,2024,6,Excellent,6,Bad,2,2
+163,28,Research & Development,21,Bachelor,1,Male,Research Scientist,Very High,Married,2713,1,Excellent,5,Bad,5,0
+164,57,Research & Development,24,College,1,Male,Healthcare Representative,Very High,Divorced,9439,3,Excellent,12,Bad,5,1
+165,27,Research & Development,3,Bachelor,1,Male,Research Scientist,High,Divorced,2566,1,Excellent,1,Good,1,0
+166,50,Research & Development,11,Bachelor,1,Female,Manager,Medium,Single,19926,3,Excellent,21,Better,5,4
+167,41,Research & Development,14,Bachelor,1,Male,Research Scientist,High,Divorced,2451,4,Excellent,13,Better,9,1
+168,30,Sales,5,Bachelor,1,Female,Sales Executive,Very High,Married,9419,2,Excellent,12,Better,10,7
+169,38,Sales,1,Master,1,Female,Sales Executive,Very High,Single,8686,4,Outstanding,12,Best,8,0
+170,32,Research & Development,6,Doctor,1,Male,Research Scientist,High,Single,3038,3,Outstanding,8,Better,5,1
+171,27,Research & Development,17,Bachelor,1,Male,Research Scientist,Medium,Married,3058,0,Excellent,6,Good,5,1
+172,19,Sales,1,Below College,1,Female,Sales Representative,Low,Single,2325,0,Outstanding,1,Best,0,0
+173,36,Research & Development,3,College,1,Male,Laboratory Technician,Medium,Single,2088,4,Excellent,13,Good,8,7
+174,30,Research & Development,9,Bachelor,1,Male,Laboratory Technician,Low,Divorced,3072,1,Excellent,12,Better,12,6
+175,45,Sales,4,College,1,Female,Sales Executive,Low,Divorced,5006,4,Excellent,9,Best,5,0
+176,56,Research & Development,8,Bachelor,1,Female,Research Scientist,Low,Divorced,4257,4,Excellent,19,Better,2,2
+177,33,Research & Development,2,Bachelor,1,Male,Research Scientist,Very High,Single,2500,0,Excellent,4,Best,3,0
+178,19,Research & Development,2,Bachelor,1,Male,Laboratory Technician,Very High,Single,1102,1,Outstanding,1,Good,1,1
+179,46,Sales,1,College,1,Female,Sales Executive,Low,Divorced,10453,1,Outstanding,24,Better,24,15
+180,38,Research & Development,9,College,1,Female,Laboratory Technician,Very High,Single,2288,1,Excellent,2,Better,2,2
+181,31,Research & Development,12,Below College,1,Female,Research Scientist,Very High,Married,3929,8,Outstanding,7,Better,4,0
+182,34,Research & Development,27,College,1,Female,Research Scientist,Medium,Single,2311,2,Excellent,9,Better,3,1
+183,41,Sales,20,College,1,Female,Sales Representative,Medium,Single,3140,1,Outstanding,4,Good,4,0
+184,50,Research & Development,1,Bachelor,1,Male,Laboratory Technician,High,Married,3690,2,Excellent,5,Good,3,0
+185,53,Research & Development,13,College,1,Female,Manufacturing Director,Low,Divorced,4450,1,Excellent,5,Better,4,1
+186,33,Research & Development,14,Bachelor,1,Female,Research Scientist,Medium,Married,2756,1,Excellent,8,Better,8,1
+187,40,Research & Development,4,Below College,1,Female,Manager,High,Married,19033,1,Excellent,21,Better,20,9
+188,55,Research & Development,14,Master,1,Male,Research Director,Medium,Single,18722,8,Excellent,36,Better,24,2
+189,34,Research & Development,2,Below College,1,Male,Manufacturing Director,High,Married,9547,1,Excellent,10,Good,10,1
+190,51,Research & Development,3,Bachelor,1,Female,Healthcare Representative,Medium,Single,13734,3,Excellent,21,Better,7,1
+191,52,Research & Development,1,Master,1,Male,Manager,High,Married,19999,0,Excellent,34,Better,33,11
+192,27,Research & Development,9,Bachelor,1,Female,Research Scientist,Medium,Single,2279,1,Excellent,7,Good,7,0
+193,35,Research & Development,23,College,1,Male,Manufacturing Director,High,Married,5916,3,Excellent,8,Better,1,0
+194,43,Research & Development,7,Bachelor,1,Male,Research Scientist,Very High,Divorced,2089,4,Excellent,7,Best,5,2
+195,45,Research & Development,2,College,1,Male,Manager,Very High,Married,16792,9,Outstanding,22,Better,20,11
+196,37,Research & Development,21,Bachelor,1,Male,Research Scientist,Low,Married,3564,1,Excellent,8,Good,8,1
+197,35,Research & Development,2,Bachelor,1,Female,Laboratory Technician,Medium,Single,4425,5,Excellent,10,Better,6,1
+198,42,Research & Development,21,College,1,Female,Manufacturing Director,High,Divorced,5265,2,Excellent,11,Better,5,0
+199,38,Research & Development,2,Master,1,Male,Manufacturing Director,High,Married,6553,9,Excellent,14,Better,1,0
+200,38,Research & Development,29,Bachelor,1,Male,Manufacturing Director,Very High,Married,6261,3,Excellent,9,Bad,7,1
+201,27,Research & Development,1,Below College,1,Male,Manufacturing Director,Low,Married,4298,5,Excellent,6,Better,2,2
+202,49,Research & Development,18,Master,1,Male,Manufacturing Director,Very High,Divorced,6804,1,Excellent,7,Better,7,1
+203,34,Research & Development,10,Master,1,Male,Research Scientist,High,Divorced,3815,1,Excellent,5,Best,5,2
+204,40,Research & Development,19,College,1,Male,Laboratory Technician,Very High,Married,2741,8,Excellent,15,Best,7,3
+205,38,Research & Development,29,Below College,1,Male,Healthcare Representative,Low,Married,6673,7,Excellent,17,Better,1,0
+206,29,Sales,27,Bachelor,1,Female,Sales Executive,Very High,Married,7639,1,Outstanding,10,Good,10,1
+207,22,Research & Development,5,Bachelor,1,Male,Research Scientist,Medium,Divorced,2328,1,Excellent,4,Good,4,2
+208,36,Research & Development,18,Below College,1,Female,Laboratory Technician,Very High,Single,2153,1,Excellent,8,Better,8,1
+209,40,Research & Development,9,Doctor,1,Male,Healthcare Representative,Very High,Married,4876,9,Excellent,5,Bad,3,0
+210,46,Research & Development,1,Master,1,Male,Healthcare Representative,Low,Divorced,9396,7,Excellent,17,Better,4,0
+211,32,Sales,4,Master,1,Male,Sales Executive,Very High,Married,10400,1,Excellent,14,Good,14,9
+212,30,Research & Development,1,Below College,1,Male,Manufacturing Director,High,Single,8474,1,Outstanding,12,Better,11,5
+213,27,Sales,20,Bachelor,1,Female,Sales Executive,High,Single,9981,1,Excellent,7,Better,7,0
+214,51,Research & Development,8,Master,1,Male,Research Director,Medium,Married,12490,5,Excellent,16,Bad,10,4
+215,30,Research & Development,3,Bachelor,1,Female,Research Scientist,Low,Single,2657,5,Excellent,8,Better,5,0
+216,41,Sales,6,Bachelor,1,Female,Manager,Very High,Single,13591,3,Excellent,16,Better,1,0
+217,30,Sales,26,Master,1,Female,Sales Executive,Low,Single,6696,5,Excellent,9,Good,6,0
+218,29,Research & Development,1,Bachelor,1,Male,Research Scientist,High,Single,2058,0,Excellent,7,Good,6,1
+219,45,Sales,6,Bachelor,1,Female,Sales Executive,Very High,Single,8865,6,Excellent,23,Better,19,12
+220,54,Sales,3,Bachelor,1,Female,Sales Executive,Low,Married,5940,2,Excellent,16,Better,6,0
+221,36,Research & Development,5,College,1,Male,Laboratory Technician,Medium,Single,5914,8,Excellent,16,Best,13,3
+222,33,Research & Development,4,Master,1,Female,Research Scientist,Medium,Married,2622,6,Outstanding,7,Better,3,1
+223,37,Research & Development,11,Bachelor,1,Male,Research Director,Very High,Divorced,12185,1,Excellent,10,Better,10,0
+224,38,Sales,3,Bachelor,1,Male,Sales Executive,High,Divorced,10609,0,Excellent,17,Good,16,5
+225,31,Research & Development,1,Master,1,Male,Manufacturing Director,High,Married,4345,0,Excellent,6,Better,5,1
+226,59,Research & Development,3,Bachelor,1,Male,Research Scientist,Very High,Married,2177,3,Excellent,7,Better,1,0
+227,37,Sales,4,Master,1,Male,Sales Representative,Very High,Divorced,2793,4,Excellent,13,Better,9,5
+228,29,Sales,1,Below College,1,Female,Sales Executive,Very High,Married,7918,1,Excellent,11,Better,11,4
+229,35,Sales,1,Bachelor,1,Female,Sales Executive,High,Single,8789,1,Excellent,10,Best,10,0
+230,29,Research & Development,18,Below College,1,Male,Research Scientist,Very High,Single,2389,1,Excellent,4,Good,4,0
+231,52,Research & Development,2,Bachelor,1,Female,Laboratory Technician,Very High,Single,3212,7,Excellent,6,Good,2,2
+232,42,Research & Development,4,College,1,Male,Manager,Very High,Married,19232,1,Excellent,22,Better,22,11
+233,59,Human Resources,6,College,1,Male,Human Resources,High,Married,2267,8,Excellent,7,Good,2,2
+234,50,Sales,1,Master,1,Female,Manager,Very High,Divorced,19517,3,Excellent,32,Good,7,0
+235,33,Research & Development,14,Bachelor,1,Male,Laboratory Technician,Very High,Married,2436,5,Excellent,8,Bad,5,0
+236,43,Sales,16,Bachelor,1,Female,Manager,Very High,Married,16064,5,Outstanding,22,Better,17,1
+237,33,Research & Development,2,College,1,Female,Laboratory Technician,Low,Married,2707,7,Outstanding,13,Best,9,1
+238,52,Sales,2,Master,1,Male,Manager,High,Single,19068,1,Excellent,33,Best,33,15
+239,32,Sales,4,College,1,Female,Sales Representative,Medium,Married,3931,2,Excellent,6,Better,4,1
+240,32,Research & Development,1,Bachelor,1,Male,Laboratory Technician,High,Single,3730,0,Excellent,4,Bad,3,1
+241,39,Research & Development,1,Master,1,Female,Laboratory Technician,High,Divorced,2232,7,Excellent,7,Better,3,1
+242,32,Sales,26,Master,1,Male,Sales Executive,Very High,Married,4465,0,Excellent,4,Better,3,2
+243,41,Research & Development,19,College,1,Male,Research Scientist,Low,Divorced,3072,2,Excellent,17,Good,1,0
+244,40,Research & Development,24,College,1,Male,Research Scientist,Very High,Divorced,3319,1,Excellent,9,Better,9,4
+245,45,Research & Development,1,Bachelor,1,Male,Manager,Very High,Married,19202,0,Excellent,25,Better,24,1
+246,31,Research & Development,3,Master,1,Male,Research Director,High,Divorced,13675,9,Excellent,9,Better,2,2
+247,33,Research & Development,5,Master,1,Female,Research Scientist,Very High,Married,2911,1,Excellent,2,Good,2,0
+248,34,Research & Development,2,Master,1,Male,Manufacturing Director,Low,Married,5957,6,Excellent,13,Better,11,5
+249,37,Research & Development,1,College,1,Female,Research Scientist,Low,Married,3920,2,Excellent,17,Good,3,0
+250,45,Research & Development,7,Master,1,Male,Manufacturing Director,High,Married,6434,4,Excellent,9,Better,3,0
+251,37,Research & Development,10,Bachelor,1,Male,Manufacturing Director,High,Divorced,10048,6,Excellent,17,Better,1,0
+252,39,Research & Development,2,Master,1,Female,Healthcare Representative,High,Single,10938,0,Outstanding,20,Better,19,11
+253,29,Research & Development,15,Bachelor,1,Male,Research Scientist,Very High,Single,2340,1,Excellent,6,Better,6,1
+254,42,Research & Development,17,College,1,Female,Research Scientist,Low,Single,6545,3,Excellent,10,Better,3,0
+255,29,Sales,20,College,1,Male,Sales Executive,Very High,Divorced,6931,2,Excellent,10,Better,3,0
+256,25,Research & Development,1,Bachelor,1,Female,Manufacturing Director,High,Married,4898,0,Excellent,5,Better,4,1
+257,42,Research & Development,2,Bachelor,1,Female,Laboratory Technician,Low,Divorced,2593,0,Excellent,10,Better,9,7
+258,40,Research & Development,2,College,1,Male,Research Director,High,Divorced,19436,0,Excellent,22,Better,21,3
+259,51,Research & Development,1,Bachelor,1,Male,Research Scientist,Very High,Married,2723,1,Excellent,1,Good,1,0
+260,31,Research & Development,29,College,1,Male,Laboratory Technician,Medium,Single,3479,0,Excellent,6,Best,5,1
+261,32,Research & Development,7,Bachelor,1,Male,Laboratory Technician,Medium,Married,2794,1,Outstanding,5,Bad,5,0
+262,38,Sales,2,College,1,Male,Sales Executive,Very High,Married,5249,3,Excellent,13,Better,8,7
+263,32,Research & Development,2,Below College,1,Male,Laboratory Technician,Low,Single,2176,4,Excellent,9,Better,6,0
+264,46,Sales,2,Bachelor,1,Female,Manager,Medium,Married,16872,3,Excellent,28,Good,7,7
+265,28,Research & Development,2,Master,1,Male,Laboratory Technician,High,Single,3485,2,Excellent,5,Bad,0,0
+266,29,Sales,2,Bachelor,1,Male,Sales Executive,Medium,Married,6644,2,Excellent,10,Better,0,0
+267,31,Research & Development,23,Bachelor,1,Male,Healthcare Representative,Very High,Married,5582,0,Outstanding,10,Better,9,7
+268,25,Research & Development,5,College,1,Male,Healthcare Representative,Low,Divorced,4000,1,Excellent,6,Better,6,1
+269,45,Research & Development,20,College,1,Male,Healthcare Representative,Very High,Married,13496,0,Excellent,21,Better,20,4
+270,36,Research & Development,6,Bachelor,1,Male,Laboratory Technician,Very High,Married,3210,0,Excellent,16,Better,15,10
+271,55,Research & Development,1,Bachelor,1,Male,Manager,Low,Single,19045,0,Excellent,37,Better,36,4
+272,47,Research & Development,29,Master,1,Male,Manager,Medium,Married,11849,1,Excellent,10,Good,10,9
+273,28,Research & Development,9,Bachelor,1,Male,Research Scientist,Very High,Married,2070,1,Outstanding,5,Good,5,0
+274,37,Sales,6,Master,1,Male,Sales Executive,Very High,Married,6502,4,Excellent,7,Best,5,0
+275,21,Research & Development,3,College,1,Male,Research Scientist,High,Single,3230,1,Excellent,3,Best,3,1
+276,37,Research & Development,1,Master,1,Female,Research Director,Very High,Divorced,13603,2,Excellent,15,Better,5,0
+277,35,Research & Development,22,Bachelor,1,Female,Manager,Medium,Divorced,11996,7,Excellent,10,Good,7,6
+278,38,Sales,7,College,1,Female,Sales Executive,Low,Divorced,5605,1,Outstanding,8,Better,8,7
+279,26,Research & Development,1,Bachelor,1,Female,Manufacturing Director,Medium,Divorced,6397,1,Outstanding,6,Bad,6,1
+280,50,Research & Development,4,Below College,1,Male,Research Director,Medium,Divorced,19144,3,Excellent,28,Good,10,1
+281,53,Research & Development,3,Master,1,Male,Research Director,High,Married,17584,3,Excellent,21,Good,5,1
+282,42,Sales,1,Below College,1,Male,Sales Executive,High,Married,4907,1,Outstanding,20,Better,20,11
+283,29,Sales,2,College,1,Male,Sales Executive,Very High,Single,4554,1,Excellent,10,Good,10,0
+284,55,Research & Development,20,College,1,Male,Laboratory Technician,Very High,Married,5415,3,Excellent,12,Better,10,0
+285,26,Research & Development,11,College,1,Male,Healthcare Representative,Low,Married,4741,1,Excellent,5,Better,5,3
+286,37,Research & Development,1,Bachelor,1,Female,Research Scientist,Very High,Single,2115,1,Excellent,17,Better,17,5
+287,44,Research & Development,24,Bachelor,1,Male,Laboratory Technician,High,Divorced,3161,3,Outstanding,19,Bad,1,0
+288,38,Research & Development,23,Master,1,Male,Healthcare Representative,Very High,Divorced,5745,9,Excellent,10,Better,2,1
+289,26,Research & Development,16,Master,1,Male,Laboratory Technician,Medium,Divorced,2373,2,Excellent,5,Better,3,0
+290,28,Research & Development,8,College,1,Female,Research Scientist,Very High,Single,3310,1,Outstanding,5,Better,5,0
+291,49,Research & Development,10,Master,1,Female,Research Director,Low,Single,18665,9,Excellent,22,Better,3,1
+292,36,Research & Development,3,Bachelor,1,Male,Research Scientist,Medium,Single,4485,4,Excellent,10,Better,8,7
+293,31,Sales,5,Bachelor,1,Female,Sales Representative,Medium,Divorced,2789,1,Excellent,2,Good,2,2
+294,26,Sales,4,Master,1,Male,Sales Executive,Very High,Single,5828,1,Excellent,8,Better,8,7
+295,37,Research & Development,9,Bachelor,1,Male,Research Scientist,Very High,Married,2326,1,Excellent,4,Good,4,1
+296,42,Sales,26,Bachelor,1,Female,Sales Executive,Medium,Married,13525,5,Excellent,23,Best,20,4
+297,18,Research & Development,3,Bachelor,1,Male,Laboratory Technician,High,Single,1420,1,Excellent,0,Better,0,0
+298,35,Sales,16,Bachelor,1,Male,Sales Executive,Medium,Married,8020,0,Excellent,12,Good,11,6
+299,36,Research & Development,18,Master,1,Male,Laboratory Technician,Very High,Married,3688,4,Excellent,4,Better,1,0
+300,51,Research & Development,2,Bachelor,1,Male,Manufacturing Director,Medium,Divorced,5482,5,Excellent,13,Better,4,1
+301,41,Sales,2,Master,1,Male,Manager,Medium,Single,16015,1,Excellent,22,Better,22,0
+302,18,Sales,10,Bachelor,1,Female,Sales Representative,High,Single,1200,1,Excellent,0,Better,0,0
+303,28,Research & Development,16,College,1,Male,Healthcare Representative,Low,Single,5661,0,Excellent,9,Better,8,0
+304,31,Sales,7,Bachelor,1,Male,Sales Executive,Very High,Married,6929,4,Excellent,10,Good,8,7
+305,39,Research & Development,1,Bachelor,1,Male,Healthcare Representative,Very High,Divorced,9613,0,Excellent,19,Good,18,3
+306,36,Research & Development,24,Master,1,Female,Laboratory Technician,Medium,Married,5674,7,Excellent,11,Better,9,0
+307,32,Sales,7,Bachelor,1,Male,Sales Executive,High,Married,5484,1,Excellent,13,Good,13,4
+308,38,Research & Development,25,College,1,Female,Research Director,Medium,Married,12061,3,Excellent,19,Better,10,0
+309,58,Research & Development,1,Master,1,Male,Healthcare Representative,High,Divorced,5660,2,Excellent,12,Better,5,1
+310,31,Research & Development,5,Master,1,Male,Research Scientist,Very High,Married,4821,0,Excellent,6,Better,5,0
+311,31,Human Resources,2,Bachelor,1,Male,Human Resources,Low,Married,6410,3,Excellent,9,Better,2,1
+312,45,Research & Development,7,Bachelor,1,Male,Laboratory Technician,Low,Divorced,5210,1,Excellent,24,Better,24,9
+313,31,Research & Development,2,Master,1,Male,Research Scientist,Very High,Divorced,2695,0,Excellent,3,Bad,2,2
+314,33,Research & Development,5,Master,1,Female,Manager,Medium,Married,11878,6,Excellent,12,Better,10,8
+315,39,Research & Development,10,Below College,1,Male,Manager,Low,Married,17068,1,Excellent,21,Better,21,11
+316,43,Research & Development,10,Master,1,Female,Laboratory Technician,Very High,Single,2455,0,Excellent,9,Better,8,1
+317,49,Research & Development,1,College,1,Female,Healthcare Representative,High,Single,13964,7,Excellent,25,Better,7,0
+318,52,Research & Development,8,Master,1,Male,Research Scientist,Medium,Married,4941,2,Excellent,11,Good,8,7
+319,27,Research & Development,5,Bachelor,1,Female,Research Scientist,Medium,Single,2478,1,Excellent,4,Good,4,1
+320,32,Sales,8,College,1,Female,Sales Executive,Medium,Married,5228,1,Excellent,13,Better,13,11
+321,27,Sales,2,Bachelor,1,Male,Sales Executive,High,Single,4478,1,Excellent,5,Better,5,0
+322,31,Sales,7,Bachelor,1,Male,Sales Executive,Very High,Divorced,7547,4,Excellent,13,Better,7,1
+323,32,Research & Development,2,Master,1,Female,Research Scientist,Very High,Single,5055,7,Excellent,10,Good,7,0
+324,28,Research & Development,2,Master,1,Male,Research Scientist,Very High,Married,3464,5,Excellent,5,Good,3,2
+325,30,Research & Development,28,College,1,Female,Research Scientist,Very High,Married,5775,1,Excellent,11,Better,10,1
+326,31,Research & Development,7,College,1,Female,Manufacturing Director,High,Married,8943,1,Outstanding,10,Better,10,8
+327,39,Research & Development,7,College,1,Male,Manager,Very High,Married,19272,1,Excellent,21,Better,21,13
+328,39,Sales,3,College,1,Female,Sales Executive,High,Married,5238,4,Excellent,12,Good,1,0
+329,33,Sales,10,Bachelor,1,Male,Sales Executive,Very High,Single,4682,3,Excellent,9,Good,7,0
+330,47,Research & Development,5,Doctor,1,Male,Research Director,High,Married,18300,4,Excellent,21,Better,3,1
+331,43,Research & Development,10,Master,1,Female,Laboratory Technician,High,Divorced,5257,1,Excellent,9,Best,9,0
+332,27,Sales,1,Below College,1,Male,Sales Executive,Medium,Married,6349,0,Excellent,6,Better,5,1
+333,54,Research & Development,20,Master,1,Female,Research Scientist,High,Single,4869,3,Excellent,20,Good,4,0
+334,43,Research & Development,7,Bachelor,1,Female,Healthcare Representative,Low,Married,9985,8,Excellent,10,Good,1,0
+335,45,Research & Development,8,Master,1,Male,Research Scientist,Very High,Married,3697,9,Excellent,12,Better,10,9
+336,40,Sales,1,College,1,Male,Sales Executive,Very High,Married,7457,2,Outstanding,6,Good,4,0
+337,29,Research & Development,8,Master,1,Male,Laboratory Technician,Low,Married,2119,1,Excellent,7,Good,7,0
+338,29,Research & Development,9,Doctor,1,Male,Laboratory Technician,Very High,Single,3983,0,Excellent,4,Better,3,2
+339,30,Sales,5,Bachelor,1,Female,Sales Executive,High,Divorced,6118,1,Excellent,10,Better,10,1
+340,27,Sales,8,Master,1,Female,Sales Executive,Medium,Married,6214,1,Excellent,8,Better,8,0
+341,37,Research & Development,5,College,1,Male,Manufacturing Director,Very High,Divorced,6347,7,Excellent,8,Good,6,0
+342,38,Research & Development,15,College,1,Male,Research Director,Very High,Divorced,11510,0,Excellent,12,Better,11,2
+343,31,Research & Development,7,Master,1,Female,Manufacturing Director,Very High,Single,7143,1,Excellent,11,Good,11,4
+344,29,Sales,10,Below College,1,Female,Sales Executive,Medium,Divorced,8268,1,Excellent,7,Better,7,1
+345,35,Research & Development,5,Master,1,Male,Manufacturing Director,Medium,Single,8095,0,Excellent,17,Better,16,0
+346,23,Research & Development,26,Below College,1,Male,Research Scientist,Very High,Divorced,2904,1,Excellent,4,Good,4,0
+347,41,Research & Development,6,Bachelor,1,Male,Manufacturing Director,Medium,Single,6032,6,Excellent,8,Better,5,1
+348,47,Sales,4,Below College,1,Male,Sales Representative,High,Single,2976,3,Excellent,5,Better,0,0
+349,42,Research & Development,23,Doctor,1,Female,Research Director,Very High,Single,15992,2,Excellent,16,Better,1,0
+350,29,Sales,2,Bachelor,1,Male,Sales Executive,High,Married,4649,1,Excellent,4,Good,4,0
+351,42,Human Resources,2,Below College,1,Male,Human Resources,High,Divorced,2696,0,Excellent,4,Better,3,1
+352,32,Research & Development,2,Bachelor,1,Female,Laboratory Technician,Medium,Married,2370,1,Excellent,8,Better,8,0
+353,48,Sales,29,Below College,1,Female,Manager,High,Married,12504,3,Outstanding,15,Bad,0,0
+354,37,Research & Development,6,Bachelor,1,Male,Research Scientist,Low,Divorced,5974,4,Excellent,13,Better,7,6
+355,30,Sales,25,College,1,Female,Sales Executive,High,Married,4736,7,Excellent,4,Best,2,2
+356,26,Sales,1,Bachelor,1,Male,Sales Executive,High,Married,5296,1,Excellent,8,Better,8,7
+357,42,Research & Development,2,Master,1,Male,Healthcare Representative,Very High,Single,6781,3,Outstanding,14,Better,1,0
+358,21,Sales,1,Below College,1,Female,Sales Representative,Medium,Single,2174,1,Excellent,3,Better,3,1
+359,36,Sales,1,Doctor,1,Female,Sales Executive,Very High,Single,6653,4,Excellent,7,Better,1,0
+360,36,Sales,3,Master,1,Male,Sales Executive,Very High,Married,9699,4,Excellent,16,Better,13,1
+361,57,Research & Development,1,Master,1,Male,Healthcare Representative,High,Married,6755,2,Excellent,15,Better,3,1
+362,40,Research & Development,10,Master,1,Female,Laboratory Technician,High,Married,2213,3,Excellent,10,Better,7,1
+363,21,Sales,9,College,1,Male,Sales Representative,Very High,Single,2610,1,Outstanding,3,Good,3,2
+364,33,Sales,5,Bachelor,1,Female,Sales Representative,High,Single,2851,1,Excellent,1,Better,1,0
+365,37,Research & Development,10,Bachelor,1,Female,Laboratory Technician,Low,Married,3452,6,Outstanding,17,Better,5,0
+366,46,Research & Development,7,Master,1,Female,Manufacturing Director,High,Married,5258,2,Excellent,7,Best,1,0
+367,41,Sales,4,Bachelor,1,Male,Sales Executive,Medium,Single,9355,1,Excellent,8,Better,8,7
+368,50,Research & Development,10,Bachelor,1,Male,Healthcare Representative,Very High,Single,10496,6,Excellent,20,Better,4,1
+369,40,Sales,22,College,1,Male,Sales Executive,High,Married,6380,2,Excellent,8,Better,6,1
+370,31,Research & Development,9,Master,1,Male,Research Scientist,Medium,Single,2657,0,Excellent,3,Better,2,2
+371,21,Sales,12,Bachelor,1,Female,Sales Representative,Medium,Single,2716,1,Excellent,1,Better,1,0
+372,29,Research & Development,23,Bachelor,1,Male,Research Scientist,Very High,Single,2201,9,Excellent,6,Better,3,1
+373,35,Research & Development,9,Master,1,Male,Healthcare Representative,Medium,Single,6540,9,Excellent,10,Better,1,0
+374,27,Research & Development,1,College,1,Male,Laboratory Technician,Medium,Divorced,3816,1,Excellent,5,Better,5,0
+375,28,Sales,9,Master,1,Male,Sales Executive,Very High,Single,5253,1,Excellent,7,Better,7,0
+376,49,Research & Development,7,Bachelor,1,Male,Healthcare Representative,High,Single,10965,8,Outstanding,26,Better,5,0
+377,51,Sales,14,College,1,Female,Sales Executive,Very High,Married,4936,4,Excellent,18,Good,7,0
+378,36,Research & Development,2,Bachelor,1,Female,Research Scientist,High,Married,2543,4,Excellent,6,Better,2,2
+379,34,Sales,19,Bachelor,1,Male,Sales Executive,Very High,Single,5304,8,Excellent,9,Good,5,0
+380,55,Research & Development,2,Bachelor,1,Female,Manager,Very High,Single,16659,2,Excellent,30,Better,5,1
+381,24,Sales,10,Master,1,Female,Sales Executive,High,Divorced,4260,1,Excellent,5,Best,5,0
+382,30,Sales,2,Below College,1,Male,Sales Representative,Medium,Married,2476,1,Excellent,1,Better,1,0
+383,26,Research & Development,3,Below College,1,Male,Research Scientist,Low,Single,3102,0,Outstanding,7,Better,6,0
+384,22,Research & Development,11,Bachelor,1,Female,Research Scientist,Medium,Married,2244,1,Excellent,2,Better,2,1
+385,36,Sales,2,College,1,Male,Sales Executive,High,Married,7596,1,Excellent,10,Better,10,9
+386,30,Research & Development,4,Bachelor,1,Male,Research Scientist,Very High,Single,2285,9,Outstanding,3,Better,1,0
+387,37,Research & Development,14,Bachelor,1,Female,Laboratory Technician,Low,Divorced,3034,1,Excellent,18,Good,18,12
+388,40,Sales,2,College,1,Female,Sales Executive,Medium,Divorced,5715,7,Excellent,8,Better,5,1
+389,42,Research & Development,1,Master,1,Female,Laboratory Technician,Low,Divorced,2576,3,Excellent,8,Better,5,1
+390,37,Research & Development,10,Master,1,Male,Manufacturing Director,Medium,Single,4197,2,Excellent,18,Good,1,0
+391,43,Research & Development,12,Bachelor,1,Male,Research Director,Medium,Divorced,14336,1,Excellent,25,Better,25,3
+392,40,Research & Development,2,Bachelor,1,Female,Laboratory Technician,High,Married,3448,6,Outstanding,20,Better,1,0
+393,54,Research & Development,5,College,1,Male,Research Director,Low,Married,19406,4,Excellent,24,Good,4,1
+394,34,Sales,4,Master,1,Female,Sales Executive,High,Married,6538,9,Excellent,6,Better,3,1
+395,31,Research & Development,7,College,1,Female,Manufacturing Director,Low,Married,4306,1,Excellent,13,Bad,13,3
+396,43,Research & Development,21,Bachelor,1,Male,Laboratory Technician,Very High,Married,2258,7,Outstanding,8,Better,3,1
+397,43,Research & Development,8,Master,1,Female,Healthcare Representative,High,Divorced,4522,4,Excellent,8,Better,5,0
+398,25,Sales,4,College,1,Female,Sales Executive,Very High,Single,4487,1,Excellent,5,Better,5,1
+399,37,Research & Development,25,Doctor,1,Female,Research Scientist,High,Married,4449,3,Excellent,15,Better,13,10
+400,31,Research & Development,1,College,1,Male,Laboratory Technician,Low,Married,2218,1,Excellent,4,Better,4,3
+401,39,Research & Development,1,Below College,1,Male,Manager,High,Divorced,19197,1,Excellent,21,Better,21,1
+402,56,Sales,6,Bachelor,1,Female,Sales Executive,Low,Married,13212,9,Excellent,36,Good,7,7
+403,30,Sales,12,Bachelor,1,Female,Sales Executive,High,Single,6577,0,Excellent,6,Better,5,4
+404,41,Sales,1,Bachelor,1,Male,Sales Executive,Low,Married,8392,1,Excellent,10,Better,10,0
+405,28,Research & Development,17,College,1,Male,Laboratory Technician,Low,Divorced,4558,1,Excellent,10,Better,10,1
+406,25,Research & Development,3,Bachelor,1,Male,Laboratory Technician,Low,Married,4031,5,Excellent,6,Better,2,0
+407,52,Research & Development,3,Bachelor,1,Male,Manufacturing Director,High,Married,7969,2,Excellent,28,Better,5,0
+408,45,Research & Development,10,College,1,Male,Research Scientist,Very High,Married,2654,3,Outstanding,8,Good,2,0
+409,52,Research & Development,4,College,1,Female,Manager,Very High,Married,16555,2,Excellent,31,Bad,5,1
+410,42,Research & Development,29,College,1,Female,Research Scientist,High,Divorced,4556,2,Excellent,19,Better,5,0
+411,30,Research & Development,2,Bachelor,1,Female,Manufacturing Director,Very High,Single,6091,2,Outstanding,11,Better,5,0
+412,60,Research & Development,7,Bachelor,1,Female,Manager,Low,Married,19566,5,Excellent,33,Bad,29,11
+413,46,Research & Development,18,Bachelor,1,Female,Manufacturing Director,High,Divorced,4810,2,Excellent,19,Good,10,0
+414,42,Research & Development,28,Master,1,Female,Healthcare Representative,Very High,Married,4523,0,Excellent,7,Best,6,0
+415,24,Sales,1,Below College,1,Female,Sales Representative,Medium,Single,3202,1,Excellent,6,Better,5,1
+416,34,Sales,6,College,1,Female,Sales Representative,High,Divorced,2351,0,Excellent,3,Good,2,1
+417,38,Research & Development,2,College,1,Male,Laboratory Technician,Very High,Married,1702,1,Outstanding,1,Better,1,0
+418,40,Sales,2,Master,1,Female,Manager,High,Married,18041,0,Excellent,21,Better,20,1
+419,26,Research & Development,23,Bachelor,1,Female,Research Scientist,Very High,Divorced,2886,1,Outstanding,3,Bad,3,0
+420,30,Research & Development,3,Bachelor,1,Male,Laboratory Technician,Very High,Married,2097,4,Excellent,9,Bad,5,1
+421,29,Research & Development,3,Master,1,Male,Research Director,High,Married,11935,1,Excellent,10,Better,10,0
+422,29,Research & Development,25,Doctor,1,Female,Research Scientist,Medium,Married,2546,5,Excellent,6,Best,2,1
+423,19,Human Resources,2,College,1,Male,Human Resources,Very High,Single,2564,1,Excellent,1,Best,1,0
+424,30,Sales,22,Master,1,Female,Sales Executive,Low,Married,8412,0,Excellent,10,Better,9,7
+425,57,Sales,29,Bachelor,1,Male,Manager,Very High,Divorced,14118,3,Excellent,32,Good,1,0
+426,50,Research & Development,29,Master,1,Male,Manager,High,Married,17046,0,Excellent,28,Better,27,15
+427,30,Research & Development,2,Bachelor,1,Female,Laboratory Technician,Very High,Single,2564,0,Excellent,12,Good,11,6
+428,60,Sales,28,Bachelor,1,Female,Sales Executive,Low,Married,10266,4,Excellent,22,Best,18,13
+429,47,Research & Development,2,College,1,Female,Manufacturing Director,Very High,Divorced,5070,5,Excellent,20,Better,5,0
+430,46,Research & Development,2,Bachelor,1,Male,Research Director,High,Married,17861,6,Excellent,26,Bad,3,0
+431,35,Research & Development,22,Bachelor,1,Male,Laboratory Technician,High,Single,4230,0,Excellent,6,Better,5,4
+432,54,Research & Development,8,Master,1,Female,Laboratory Technician,High,Single,3780,7,Excellent,19,Better,1,0
+433,34,Research & Development,2,Master,1,Male,Research Scientist,High,Divorced,2768,3,Excellent,14,Better,7,5
+434,46,Sales,10,Bachelor,1,Female,Sales Executive,Very High,Married,9071,2,Excellent,15,Better,3,1
+435,31,Research & Development,9,Below College,1,Male,Manufacturing Director,Medium,Divorced,10648,1,Outstanding,13,Best,13,0
+436,33,Research & Development,15,Below College,1,Male,Manager,High,Married,13610,7,Excellent,15,Best,7,7
+437,33,Research & Development,10,Below College,1,Male,Laboratory Technician,Very High,Divorced,3408,7,Excellent,8,Better,4,1
+438,30,Sales,7,Below College,1,Male,Sales Representative,Medium,Single,2983,0,Excellent,4,Better,3,1
+439,35,Research & Development,16,Bachelor,1,Male,Healthcare Representative,High,Married,7632,4,Excellent,10,Better,8,0
+440,31,Research & Development,20,Bachelor,1,Male,Healthcare Representative,High,Married,9824,3,Excellent,12,Better,1,0
+441,34,Human Resources,23,Bachelor,1,Female,Human Resources,Low,Divorced,9950,9,Excellent,11,Better,3,0
+442,42,Research & Development,5,College,1,Male,Laboratory Technician,High,Married,2093,4,Excellent,8,Better,2,2
+443,36,Sales,10,Master,1,Male,Sales Executive,Very High,Single,9980,1,Excellent,10,Good,10,9
+444,22,Research & Development,4,Below College,1,Male,Laboratory Technician,High,Single,3894,5,Excellent,4,Better,2,1
+445,48,Sales,2,Doctor,1,Female,Sales Executive,Very High,Married,4051,2,Excellent,14,Better,9,6
+446,55,Sales,18,Doctor,1,Female,Manager,Medium,Single,16835,3,Outstanding,37,Better,10,7
+447,41,Sales,10,College,1,Male,Sales Executive,Very High,Single,6230,7,Excellent,16,Better,14,1
+448,35,Sales,1,Bachelor,1,Male,Sales Executive,High,Married,4717,9,Excellent,15,Better,11,6
+449,40,Research & Development,6,Bachelor,1,Female,Manufacturing Director,High,Single,13237,7,Excellent,22,Better,20,5
+450,39,Research & Development,8,Below College,1,Female,Laboratory Technician,High,Married,3755,1,Excellent,8,Better,8,0
+451,31,Sales,2,Below College,1,Male,Sales Executive,Very High,Single,6582,4,Excellent,10,Best,6,0
+452,42,Research & Development,24,Bachelor,1,Male,Manufacturing Director,Low,Married,7406,1,Outstanding,10,Good,10,5
+453,45,Sales,2,Bachelor,1,Male,Sales Executive,Medium,Married,4805,0,Excellent,9,Best,8,3
+454,26,Human Resources,17,Master,1,Female,Human Resources,High,Divorced,2741,0,Excellent,8,Good,7,1
+455,29,Research & Development,19,Bachelor,1,Male,Manufacturing Director,Very High,Divorced,4262,4,Excellent,8,Best,3,1
+456,33,Research & Development,1,Doctor,1,Female,Research Director,High,Divorced,16184,4,Excellent,10,Better,6,0
+457,31,Sales,7,Bachelor,1,Male,Manager,Very High,Divorced,11557,9,Outstanding,10,Good,5,0
+458,18,Sales,5,Bachelor,1,Male,Sales Representative,Medium,Single,1878,1,Excellent,0,Better,0,0
+459,40,Sales,28,Bachelor,1,Male,Sales Executive,Low,Divorced,10932,3,Excellent,20,Better,1,0
+460,41,Research & Development,2,Master,1,Female,Healthcare Representative,High,Single,6811,2,Excellent,10,Better,8,0
+461,26,Sales,29,College,1,Male,Sales Executive,High,Divorced,4306,5,Excellent,8,Better,0,0
+462,35,Sales,1,Bachelor,1,Female,Sales Executive,High,Single,4859,1,Excellent,5,Better,5,0
+463,34,Sales,21,Master,1,Male,Sales Executive,Very High,Single,5337,1,Excellent,10,Better,10,5
+464,26,Research & Development,24,Bachelor,1,Male,Laboratory Technician,Very High,Single,2340,1,Excellent,1,Bad,1,0
+465,37,Research & Development,1,Bachelor,1,Female,Manufacturing Director,Very High,Single,7491,4,Excellent,12,Best,6,1
+466,46,Research & Development,18,Below College,1,Female,Healthcare Representative,High,Married,10527,5,Excellent,28,Good,2,1
+467,41,Sales,2,Doctor,1,Female,Manager,Low,Married,16595,7,Excellent,22,Better,18,11
+468,37,Sales,9,Master,1,Male,Sales Executive,Medium,Divorced,8834,1,Excellent,9,Better,9,7
+469,52,Research & Development,6,College,1,Male,Research Scientist,Low,Divorced,5577,3,Excellent,18,Better,10,6
+470,32,Sales,11,Master,1,Male,Sales Executive,High,Married,4707,8,Excellent,6,Better,4,1
+471,24,Sales,24,Bachelor,1,Male,Sales Representative,Very High,Married,2400,0,Excellent,3,Better,2,2
+472,38,Research & Development,10,Bachelor,1,Female,Healthcare Representative,High,Married,9824,3,Excellent,18,Better,1,0
+473,37,Research & Development,1,Master,1,Female,Manufacturing Director,Medium,Married,6447,6,Excellent,8,Good,6,4
+474,49,Research & Development,18,Master,1,Male,Research Director,High,Divorced,19502,1,Excellent,31,Better,31,0
+475,24,Research & Development,23,Bachelor,1,Male,Research Scientist,Very High,Married,2725,1,Excellent,6,Better,6,1
+476,26,Sales,28,College,1,Male,Sales Executive,Medium,Married,6272,1,Outstanding,6,Best,5,1
+477,24,Research & Development,17,College,1,Male,Laboratory Technician,Medium,Married,2127,1,Outstanding,1,Better,1,0
+478,50,Human Resources,3,Bachelor,1,Male,Manager,Medium,Married,18200,1,Excellent,32,Better,32,10
+479,25,Sales,13,Below College,1,Male,Sales Representative,High,Married,2096,1,Excellent,7,Better,7,0
+480,24,Research & Development,7,Bachelor,1,Female,Laboratory Technician,High,Married,2886,1,Excellent,6,Better,6,1
+481,30,Sales,12,Master,1,Male,Sales Representative,Low,Married,2033,1,Excellent,1,Best,1,0
+482,34,Research & Development,1,College,1,Male,Research Scientist,Very High,Married,3622,1,Excellent,6,Better,6,1
+483,31,Sales,13,Master,1,Male,Sales Executive,Low,Divorced,4233,2,Excellent,9,Bad,3,1
+484,35,Research & Development,25,College,1,Male,Laboratory Technician,Very High,Single,3681,4,Excellent,9,Better,3,0
+485,31,Sales,6,Master,1,Male,Sales Executive,Very High,Divorced,5460,4,Outstanding,13,Best,7,5
+486,27,Research & Development,6,Master,1,Female,Research Scientist,High,Divorced,2187,0,Excellent,6,Good,5,0
+487,37,Sales,2,Bachelor,1,Male,Sales Executive,High,Married,9602,4,Excellent,17,Good,3,1
+488,20,Research & Development,1,Bachelor,1,Female,Research Scientist,Medium,Single,2836,1,Excellent,1,Best,1,0
+489,42,Research & Development,2,Master,1,Female,Healthcare Representative,Very High,Married,4089,1,Excellent,10,Better,10,2
+490,43,Research & Development,6,Master,1,Male,Research Director,Very High,Divorced,16627,4,Excellent,21,Good,1,0
+491,38,Research & Development,1,Below College,1,Female,Research Scientist,Low,Single,2619,3,Excellent,8,Good,0,0
+492,43,Research & Development,9,Doctor,1,Male,Laboratory Technician,High,Divorced,5679,3,Excellent,10,Better,8,4
+493,48,Research & Development,1,Master,1,Female,Manager,Low,Married,15402,7,Excellent,21,Bad,3,0
+494,44,Human Resources,1,Master,1,Female,Human Resources,High,Single,5985,4,Excellent,10,Best,2,0
+495,34,Sales,14,Bachelor,1,Female,Sales Representative,High,Divorced,2579,1,Excellent,8,Better,8,0
+496,27,Sales,2,Below College,1,Male,Sales Representative,Low,Divorced,3041,0,Excellent,5,Better,4,0
+497,21,Sales,22,Below College,1,Male,Sales Representative,High,Single,3447,1,Excellent,3,Better,3,1
+498,44,Research & Development,3,Master,1,Male,Manager,Very High,Married,19513,4,Excellent,26,Best,2,0
+499,22,Research & Development,6,Below College,1,Male,Research Scientist,High,Married,2773,0,Outstanding,3,Better,2,2
+500,33,Sales,8,Master,1,Male,Sales Executive,High,Divorced,7104,0,Excellent,6,Better,5,1
+501,32,Research & Development,9,Master,1,Female,Research Scientist,Very High,Married,6322,1,Excellent,6,Good,6,0
+502,30,Research & Development,3,Bachelor,1,Female,Research Scientist,High,Divorced,2083,1,Outstanding,1,Better,1,0
+503,53,Sales,1,Below College,1,Female,Sales Executive,Low,Single,8381,7,Outstanding,18,Best,14,8
+504,34,Research & Development,1,Doctor,1,Male,Research Scientist,Very High,Married,2691,1,Excellent,10,Good,10,8
+505,45,Sales,26,Master,1,Female,Sales Executive,Low,Married,4286,2,Excellent,5,Better,1,0
+506,26,Research & Development,6,Bachelor,1,Female,Laboratory Technician,Very High,Married,2659,1,Excellent,3,Better,3,0
+507,37,Research & Development,3,Bachelor,1,Male,Manufacturing Director,High,Married,9434,1,Excellent,10,Better,10,7
+508,29,Sales,3,College,1,Female,Sales Executive,High,Married,5561,1,Excellent,6,Good,6,1
+509,35,Research & Development,6,Master,1,Male,Research Scientist,Very High,Single,6646,1,Excellent,17,Better,17,11
+510,33,Research & Development,6,Bachelor,1,Male,Healthcare Representative,Very High,Divorced,7725,3,Outstanding,15,Bad,13,4
+511,54,Human Resources,19,Master,1,Male,Human Resources,Medium,Married,10725,2,Excellent,16,Best,9,7
+512,36,Research & Development,9,College,1,Male,Manufacturing Director,Medium,Divorced,8847,2,Excellent,13,Better,3,0
+513,27,Research & Development,3,Master,1,Male,Research Scientist,Very High,Single,2045,0,Excellent,5,Better,4,1
+514,20,Research & Development,10,Below College,1,Male,Research Scientist,High,Single,1009,1,Excellent,1,Better,1,1
+515,33,Research & Development,3,Bachelor,1,Male,Research Scientist,Low,Single,3348,1,Excellent,10,Better,10,9
+516,35,Research & Development,3,Bachelor,1,Male,Laboratory Technician,High,Married,1281,1,Excellent,1,Better,1,0
+517,23,Research & Development,4,Bachelor,1,Male,Research Scientist,Low,Married,2819,2,Excellent,5,Best,3,0
+518,25,Sales,8,Bachelor,1,Male,Sales Executive,Medium,Married,4851,0,Outstanding,4,Better,3,1
+519,38,Sales,7,Master,1,Female,Sales Executive,Very High,Single,4028,0,Outstanding,8,Better,7,0
+520,29,Research & Development,1,Master,1,Male,Research Scientist,Very High,Divorced,2720,1,Excellent,10,Better,10,2
+521,48,Sales,2,Below College,1,Male,Sales Executive,Medium,Married,8120,3,Excellent,12,Better,2,2
+522,27,Sales,3,Below College,1,Female,Sales Executive,Very High,Divorced,4647,1,Outstanding,6,Better,6,0
+523,37,Research & Development,10,College,1,Male,Research Scientist,Very High,Single,4680,3,Excellent,4,Better,1,0
+524,50,Research & Development,28,Below College,1,Male,Laboratory Technician,High,Married,3221,1,Excellent,20,Better,20,3
+525,34,Research & Development,9,Bachelor,1,Female,Healthcare Representative,Medium,Single,8621,1,Excellent,9,Best,8,7
+526,24,Sales,3,College,1,Female,Sales Executive,High,Single,4577,9,Excellent,4,Better,2,2
+527,39,Research & Development,2,Master,1,Female,Healthcare Representative,High,Single,4553,1,Excellent,20,Better,20,11
+528,32,Sales,10,Bachelor,1,Male,Sales Executive,Very High,Single,5396,1,Excellent,10,Good,10,0
+529,50,Sales,8,College,1,Male,Sales Executive,High,Married,6796,3,Excellent,18,Better,4,1
+530,38,Research & Development,1,Master,1,Female,Healthcare Representative,Very High,Single,7625,0,Excellent,10,Good,9,1
+531,27,Research & Development,1,College,1,Female,Manufacturing Director,Low,Married,7412,1,Excellent,9,Better,9,0
+532,32,Research & Development,3,College,1,Female,Research Director,Very High,Single,11159,3,Excellent,10,Better,7,7
+533,47,Sales,14,Master,1,Male,Sales Executive,Low,Single,4960,2,Excellent,20,Better,7,1
+534,40,Sales,5,Master,1,Male,Sales Executive,Low,Married,10475,5,Outstanding,20,Better,18,1
+535,53,Research & Development,7,Bachelor,1,Male,Research Director,High,Married,14814,3,Excellent,32,Better,5,1
+536,41,Human Resources,10,Master,1,Male,Manager,Very High,Divorced,19141,3,Excellent,23,Good,21,12
+537,60,Sales,16,Master,1,Male,Sales Executive,Low,Single,5405,8,Excellent,10,Better,2,2
+538,27,Research & Development,10,College,1,Male,Manufacturing Director,Low,Divorced,8793,1,Outstanding,9,Good,9,1
+539,41,Human Resources,1,Bachelor,1,Male,Manager,High,Married,19189,1,Excellent,22,Better,22,2
+540,50,Sales,8,Master,1,Male,Sales Representative,Medium,Married,3875,7,Excellent,4,Better,2,2
+541,28,Research & Development,1,College,1,Female,Research Scientist,Medium,Single,2216,7,Excellent,10,Better,7,3
+542,36,Research & Development,8,Bachelor,1,Female,Research Director,Low,Married,11713,9,Excellent,10,Better,8,0
+543,38,Research & Development,1,Bachelor,1,Female,Manufacturing Director,High,Single,7861,4,Excellent,10,Best,1,0
+544,44,Research & Development,24,Bachelor,1,Male,Laboratory Technician,High,Single,3708,2,Excellent,9,Better,5,1
+545,47,Sales,3,Bachelor,1,Female,Sales Executive,High,Divorced,13770,9,Excellent,28,Good,22,11
+546,30,Sales,27,Doctor,1,Male,Sales Executive,Very High,Divorced,5304,7,Outstanding,10,Good,8,7
+547,29,Sales,10,Bachelor,1,Male,Sales Representative,High,Single,2642,1,Excellent,1,Better,1,0
+548,42,Research & Development,19,Bachelor,1,Male,Research Scientist,High,Divorced,2759,6,Excellent,7,Better,2,2
+549,43,Sales,15,Bachelor,1,Male,Sales Executive,Very High,Married,6804,3,Excellent,7,Better,2,2
+550,34,Research & Development,8,College,1,Female,Healthcare Representative,High,Single,6142,3,Excellent,10,Better,5,4
+551,23,Research & Development,9,Below College,1,Male,Laboratory Technician,Low,Married,2500,1,Excellent,5,Best,4,0
+552,39,Human Resources,3,Bachelor,1,Female,Human Resources,Medium,Married,6389,9,Excellent,12,Bad,8,3
+553,56,Research & Development,9,Bachelor,1,Male,Healthcare Representative,Very High,Married,11103,7,Excellent,30,Good,10,1
+554,40,Research & Development,2,Below College,1,Female,Research Scientist,Very High,Single,2342,0,Outstanding,5,Good,4,2
+555,27,Research & Development,7,Bachelor,1,Female,Healthcare Representative,Low,Single,6811,8,Excellent,9,Bad,7,0
+556,29,Sales,10,Bachelor,1,Male,Sales Representative,Medium,Divorced,2297,1,Excellent,2,Better,2,2
+557,53,Research & Development,6,Bachelor,1,Male,Laboratory Technician,Very High,Single,2450,2,Excellent,19,Better,2,2
+558,35,Research & Development,2,Master,1,Female,Healthcare Representative,Low,Divorced,5093,2,Excellent,16,Best,1,0
+559,32,Research & Development,24,Master,1,Male,Laboratory Technician,Very High,Married,5309,1,Excellent,10,Better,10,4
+560,38,Research & Development,2,Doctor,1,Male,Research Scientist,High,Married,3057,6,Excellent,6,Bad,1,0
+561,34,Research & Development,8,Doctor,1,Female,Manufacturing Director,Low,Divorced,5121,3,Excellent,7,Better,0,0
+562,52,Sales,3,Master,1,Male,Manager,Low,Married,16856,1,Excellent,34,Best,34,1
+563,33,Research & Development,1,Master,1,Male,Research Scientist,Very High,Single,2686,1,Excellent,10,Good,10,7
+564,25,Sales,26,Below College,1,Female,Sales Executive,Very High,Single,6180,1,Outstanding,6,Good,6,1
+565,45,Sales,2,College,1,Male,Sales Representative,High,Single,6632,0,Excellent,9,Better,8,3
+566,23,Research & Development,10,Below College,1,Male,Research Scientist,High,Single,3505,1,Excellent,2,Better,2,0
+567,47,Sales,27,College,1,Female,Sales Executive,High,Single,6397,4,Excellent,8,Better,5,1
+568,34,Sales,2,Bachelor,1,Male,Sales Executive,Very High,Single,6274,1,Outstanding,6,Better,6,1
+569,55,Research & Development,2,Bachelor,1,Male,Manager,Low,Married,19859,5,Excellent,24,Better,5,1
+570,36,Sales,8,Master,1,Male,Sales Executive,Low,Single,7587,1,Excellent,10,Better,10,0
+571,52,Research & Development,19,Master,1,Male,Research Scientist,Very High,Married,4258,0,Excellent,5,Better,4,1
+572,26,Research & Development,1,College,1,Female,Laboratory Technician,Very High,Divorced,4364,3,Excellent,5,Better,2,2
+573,29,Research & Development,27,Bachelor,1,Female,Healthcare Representative,High,Married,4335,4,Excellent,11,Good,8,1
+574,26,Sales,8,Bachelor,1,Male,Sales Executive,Low,Single,5326,6,Excellent,6,Good,4,1
+575,34,Research & Development,1,Master,1,Female,Research Scientist,Very High,Single,3280,2,Excellent,10,Better,4,1
+576,54,Research & Development,19,Master,1,Female,Manufacturing Director,Low,Divorced,5485,9,Excellent,9,Better,5,1
+577,27,Sales,8,Below College,1,Male,Sales Executive,Very High,Married,4342,0,Excellent,5,Better,4,1
+578,37,Research & Development,10,Below College,1,Female,Research Scientist,Low,Divorced,2782,0,Excellent,6,Good,5,4
+579,38,Research & Development,2,Master,1,Female,Manufacturing Director,Low,Single,5980,6,Excellent,17,Better,15,4
+580,34,Research & Development,2,Master,1,Female,Research Scientist,Low,Single,4381,1,Excellent,6,Better,6,1
+581,35,Sales,8,Master,1,Female,Sales Representative,Very High,Married,2572,1,Excellent,3,Good,3,0
+582,30,Research & Development,1,Bachelor,1,Male,Laboratory Technician,High,Married,3833,3,Outstanding,7,Better,2,0
+583,40,Research & Development,2,College,1,Female,Healthcare Representative,Medium,Married,4244,1,Outstanding,8,Better,8,3
+584,34,Sales,8,College,1,Female,Sales Executive,Low,Married,6500,5,Excellent,6,Better,3,1
+585,42,Research & Development,8,Bachelor,1,Male,Manager,Very High,Divorced,18430,1,Excellent,24,Good,24,14
+586,23,Research & Development,6,Bachelor,1,Male,Laboratory Technician,Low,Married,1601,1,Outstanding,1,Better,0,0
+587,24,Research & Development,9,Bachelor,1,Male,Laboratory Technician,Medium,Divorced,2694,1,Excellent,1,Better,1,0
+588,52,Research & Development,11,Master,1,Female,Laboratory Technician,High,Married,3149,8,Outstanding,9,Better,5,1
+589,50,Research & Development,2,Bachelor,1,Male,Research Director,High,Married,17639,5,Excellent,30,Better,4,0
+590,29,Research & Development,1,College,1,Female,Laboratory Technician,Low,Married,2319,1,Excellent,1,Better,1,0
+591,33,Research & Development,7,Bachelor,1,Male,Research Director,High,Married,11691,0,Excellent,14,Best,13,3
+592,33,Sales,16,Bachelor,1,Female,Sales Executive,Low,Single,5324,5,Excellent,6,Better,3,0
+593,47,Research & Development,2,College,1,Female,Manager,Very High,Married,16752,1,Excellent,26,Good,26,3
+594,36,Research & Development,1,Bachelor,1,Female,Manufacturing Director,Medium,Married,5228,0,Excellent,10,Better,9,0
+595,29,Research & Development,23,College,1,Male,Research Scientist,High,Married,2700,1,Outstanding,10,Better,10,0
+596,58,Research & Development,2,Master,1,Male,Research Director,Medium,Single,19246,7,Excellent,40,Better,31,13
+597,35,Research & Development,1,Master,1,Female,Research Scientist,High,Single,2506,3,Excellent,7,Better,2,2
+598,42,Research & Development,1,College,1,Female,Manufacturing Director,Very High,Married,6062,9,Excellent,8,Better,4,0
+599,28,Research & Development,2,Master,1,Male,Research Scientist,High,Single,4382,6,Excellent,5,Good,2,2
+600,36,Human Resources,13,Bachelor,1,Male,Human Resources,Medium,Married,2143,4,Excellent,8,Better,5,0
+601,32,Research & Development,4,Bachelor,1,Female,Manufacturing Director,High,Married,6162,1,Excellent,14,Better,14,6
+602,40,Research & Development,16,Master,1,Male,Laboratory Technician,High,Single,5094,6,Excellent,10,Better,1,0
+603,30,Research & Development,2,Bachelor,1,Female,Manufacturing Director,Very High,Single,6877,5,Outstanding,12,Good,0,0
+604,45,Research & Development,2,Bachelor,1,Female,Research Scientist,High,Single,2274,1,Excellent,1,Better,1,0
+605,42,Research & Development,29,Bachelor,1,Male,Manufacturing Director,Medium,Married,4434,1,Excellent,10,Good,9,7
+606,38,Research & Development,12,Bachelor,1,Male,Healthcare Representative,Low,Divorced,6288,2,Excellent,13,Good,4,1
+607,34,Research & Development,16,Master,1,Female,Research Scientist,Very High,Single,2553,1,Excellent,6,Better,5,1
+608,49,Sales,11,Bachelor,1,Female,Sales Executive,Very High,Married,7654,1,Excellent,9,Best,9,7
+609,55,Sales,2,Below College,1,Male,Sales Executive,Very High,Single,5160,4,Excellent,12,Good,9,7
+610,43,Research & Development,14,College,1,Male,Research Director,Low,Married,17159,6,Outstanding,22,Better,4,1
+611,27,Research & Development,5,Below College,1,Male,Research Director,Very High,Divorced,12808,1,Excellent,9,Better,9,0
+612,35,Research & Development,7,Bachelor,1,Male,Manufacturing Director,High,Single,10221,3,Outstanding,17,Best,8,1
+613,28,Sales,2,Master,1,Female,Sales Executive,Medium,Married,4779,1,Outstanding,8,Better,8,7
+614,34,Human Resources,3,College,1,Male,Human Resources,Very High,Married,3737,0,Excellent,4,Bad,3,0
+615,26,Research & Development,5,College,1,Female,Research Scientist,High,Married,2366,1,Excellent,8,Better,8,1
+616,27,Research & Development,3,Bachelor,1,Male,Research Scientist,Very High,Married,1706,1,Excellent,0,Good,0,0
+617,51,Sales,26,Master,1,Female,Manager,High,Married,16307,2,Excellent,29,Good,20,4
+618,44,Research & Development,4,Bachelor,1,Male,Healthcare Representative,Medium,Single,5933,9,Excellent,10,Good,5,2
+619,25,Research & Development,2,Below College,1,Male,Research Scientist,Low,Single,3424,7,Excellent,6,Good,4,0
+620,33,Sales,1,Bachelor,1,Male,Sales Executive,Low,Divorced,4037,1,Outstanding,9,Better,9,0
+621,35,Research & Development,27,Below College,1,Female,Research Scientist,Low,Single,2559,1,Excellent,6,Good,6,1
+622,36,Sales,1,College,1,Male,Sales Executive,Very High,Married,6201,1,Excellent,18,Good,18,4
+623,32,Sales,13,Master,1,Male,Sales Executive,Very High,Divorced,4403,2,Excellent,8,Good,5,0
+624,30,Research & Development,5,Master,1,Male,Research Scientist,Very High,Divorced,3761,9,Excellent,10,Good,5,0
+625,53,Sales,7,College,1,Female,Sales Executive,Very High,Married,10934,7,Excellent,35,Better,5,0
+626,45,Sales,9,Bachelor,1,Male,Sales Executive,Low,Divorced,10761,4,Excellent,18,Better,5,0
+627,32,Research & Development,8,College,1,Female,Research Scientist,High,Married,5175,5,Excellent,9,Good,5,1
+628,52,Research & Development,25,Master,1,Female,Manufacturing Director,Very High,Married,13826,3,Outstanding,31,Better,9,0
+629,37,Sales,16,Master,1,Male,Sales Executive,High,Divorced,6334,4,Excellent,9,Better,1,0
+630,28,Human Resources,8,College,1,Male,Human Resources,Very High,Divorced,4936,1,Excellent,6,Better,5,0
+631,22,Research & Development,1,College,1,Male,Manufacturing Director,Very High,Married,4775,6,Outstanding,4,Bad,2,2
+632,44,Research & Development,8,Master,1,Male,Laboratory Technician,Very High,Married,2818,2,Outstanding,10,Good,3,0
+633,42,Research & Development,2,Below College,1,Male,Research Scientist,Very High,Single,2515,5,Excellent,8,Better,2,2
+634,36,Human Resources,8,Bachelor,1,Male,Human Resources,Low,Married,2342,0,Outstanding,6,Better,5,0
+635,25,Sales,3,Below College,1,Male,Sales Executive,Low,Married,4194,1,Excellent,5,Better,5,0
+636,35,Research & Development,9,Bachelor,1,Female,Manufacturing Director,High,Married,10685,1,Outstanding,17,Better,17,5
+637,35,Research & Development,25,Master,1,Female,Research Scientist,Medium,Divorced,2022,1,Excellent,10,Good,10,7
+638,32,Research & Development,1,Bachelor,1,Male,Laboratory Technician,Very High,Divorced,2314,0,Excellent,4,Better,3,0
+639,25,Sales,4,Below College,1,Male,Sales Executive,Low,Married,4256,1,Excellent,5,Best,5,0
+640,49,Research & Development,1,Bachelor,1,Female,Research Scientist,Low,Married,3580,2,Excellent,7,Better,4,0
+641,24,Research & Development,4,Below College,1,Male,Laboratory Technician,Very High,Married,3162,0,Excellent,6,Good,5,3
+642,32,Sales,5,College,1,Male,Sales Executive,Medium,Married,6524,1,Excellent,10,Better,10,5
+643,38,Sales,9,Bachelor,1,Male,Sales Representative,Medium,Married,2899,0,Excellent,3,Better,2,1
+644,42,Research & Development,3,Bachelor,1,Female,Laboratory Technician,Very High,Married,5231,2,Excellent,17,Good,5,1
+645,31,Research & Development,11,Master,1,Male,Research Scientist,Very High,Married,2356,3,Excellent,8,Better,6,0
+646,29,Sales,1,Bachelor,1,Female,Sales Representative,High,Divorced,2800,6,Excellent,5,Better,3,0
+647,53,Sales,8,Bachelor,1,Male,Sales Executive,Very High,Married,11836,5,Excellent,28,Better,2,2
+648,35,Research & Development,25,Bachelor,1,Male,Manufacturing Director,Medium,Married,10903,3,Excellent,16,Better,13,4
+649,37,Sales,21,College,1,Female,Sales Representative,Very High,Married,2973,5,Excellent,10,Better,5,0
+650,53,Research & Development,23,Master,1,Female,Research Director,Very High,Single,14275,6,Excellent,33,Better,12,3
+651,43,Research & Development,1,Bachelor,1,Female,Healthcare Representative,Very High,Married,5562,4,Excellent,12,Good,5,2
+652,47,Sales,2,College,1,Female,Sales Executive,Very High,Married,4537,0,Outstanding,8,Better,7,7
+653,37,Sales,19,College,1,Male,Sales Executive,Medium,Single,7642,1,Excellent,10,Better,10,0
+654,50,Research & Development,2,Master,1,Male,Manager,Low,Divorced,17924,1,Excellent,31,Better,31,14
+655,39,Human Resources,2,Bachelor,1,Female,Human Resources,Very High,Married,5204,8,Excellent,13,Better,5,0
+656,33,Human Resources,3,College,1,Male,Human Resources,Medium,Divorced,2277,3,Excellent,7,Best,4,0
+657,32,Research & Development,25,Master,1,Male,Laboratory Technician,Very High,Single,2795,1,Outstanding,1,Bad,1,0
+658,29,Research & Development,7,Below College,1,Female,Laboratory Technician,Very High,Divorced,2532,6,Excellent,8,Better,4,0
+659,44,Research & Development,9,College,1,Male,Research Scientist,Low,Married,2559,1,Excellent,8,Better,8,7
+660,28,Sales,5,Master,1,Male,Sales Executive,Very High,Single,4908,1,Excellent,4,Better,4,0
+661,58,Research & Development,2,Below College,1,Male,Laboratory Technician,Very High,Divorced,2380,9,Excellent,3,Good,1,0
+662,43,Research & Development,8,Bachelor,1,Female,Manufacturing Director,Medium,Divorced,4765,4,Outstanding,4,Best,1,0
+663,20,Sales,2,Bachelor,1,Female,Sales Representative,High,Single,2044,1,Excellent,2,Good,2,0
+664,21,Research & Development,18,Below College,1,Female,Research Scientist,Very High,Single,2693,1,Excellent,1,Good,1,0
+665,36,Research & Development,14,Below College,1,Male,Healthcare Representative,Very High,Married,6586,0,Excellent,17,Good,16,4
+666,47,Sales,2,Master,1,Female,Sales Representative,Very High,Single,3294,1,Excellent,3,Good,3,1
+667,22,Research & Development,3,Below College,1,Female,Manufacturing Director,High,Married,4171,0,Excellent,4,Best,3,0
+668,41,Research & Development,2,Master,1,Female,Laboratory Technician,Very High,Divorced,2778,4,Excellent,10,Good,7,1
+669,28,Research & Development,9,Bachelor,1,Female,Research Scientist,High,Divorced,2377,5,Excellent,6,Better,2,2
+670,39,Research & Development,6,Bachelor,1,Male,Laboratory Technician,Low,Married,2404,7,Outstanding,8,Bad,2,2
+671,27,Research & Development,4,Bachelor,1,Female,Research Scientist,High,Single,2318,1,Excellent,1,Better,1,0
+672,34,Research & Development,10,Bachelor,1,Male,Laboratory Technician,Medium,Divorced,2008,1,Excellent,1,Better,1,1
+673,42,Sales,14,College,1,Female,Sales Executive,High,Single,6244,7,Excellent,10,Better,5,0
+674,33,Research & Development,1,Master,1,Male,Research Scientist,Low,Single,2799,3,Excellent,6,Better,3,0
+675,58,Research & Development,5,Bachelor,1,Female,Healthcare Representative,Medium,Divorced,10552,2,Excellent,24,Better,6,0
+676,31,Sales,7,Master,1,Male,Sales Representative,High,Married,2329,3,Excellent,13,Best,7,5
+677,35,Research & Development,21,Below College,1,Female,Healthcare Representative,Very High,Married,4014,1,Outstanding,10,Bad,10,0
+678,49,Research & Development,8,College,1,Female,Laboratory Technician,Medium,Married,7403,4,Excellent,29,Good,26,1
+679,48,Research & Development,20,Master,1,Male,Research Scientist,High,Married,2259,4,Excellent,13,Good,0,0
+680,31,Sales,20,College,1,Female,Sales Executive,High,Married,6932,1,Excellent,9,Good,9,0
+681,36,Research & Development,7,Master,1,Male,Research Scientist,Very High,Single,4678,2,Excellent,8,Better,6,0
+682,38,Research & Development,1,Bachelor,1,Female,Research Director,Low,Married,13582,1,Excellent,15,Better,15,5
+683,32,Research & Development,1,Bachelor,1,Female,Laboratory Technician,Medium,Married,2332,6,Outstanding,5,Better,3,0
+684,25,Sales,19,College,1,Male,Sales Representative,Medium,Married,2413,1,Excellent,1,Better,1,0
+685,40,Sales,10,Master,1,Male,Sales Executive,Medium,Divorced,9705,2,Excellent,11,Good,1,0
+686,26,Sales,1,Bachelor,1,Male,Sales Executive,Low,Single,4294,1,Excellent,7,Better,7,0
+687,41,Research & Development,6,Bachelor,1,Male,Laboratory Technician,Low,Single,4721,2,Excellent,20,Better,18,2
+688,36,Research & Development,2,Master,1,Male,Laboratory Technician,High,Single,2519,4,Outstanding,16,Better,11,3
+689,19,Sales,21,Bachelor,1,Male,Sales Representative,Medium,Single,2121,1,Excellent,1,Best,1,0
+690,20,Research & Development,4,Bachelor,1,Male,Laboratory Technician,Low,Single,2973,1,Excellent,1,Better,1,0
+691,31,Research & Development,12,Bachelor,1,Female,Healthcare Representative,Very High,Married,5855,0,Excellent,10,Bad,9,8
+692,40,Research & Development,9,Master,1,Male,Research Scientist,Medium,Divorced,3617,8,Excellent,3,Better,1,0
+693,32,Research & Development,3,Master,1,Female,Manufacturing Director,Low,Married,6725,1,Excellent,8,Best,8,6
+694,36,Sales,3,Below College,1,Male,Sales Executive,Very High,Married,10325,1,Excellent,16,Better,16,3
+695,33,Research & Development,1,Bachelor,1,Female,Healthcare Representative,Very High,Single,6949,0,Excellent,6,Better,5,1
+696,37,Sales,1,Master,1,Male,Sales Executive,High,Married,10609,5,Excellent,17,Bad,14,11
+697,45,Research & Development,4,College,1,Male,Laboratory Technician,Medium,Married,4447,1,Excellent,9,Good,9,0
+698,29,Sales,20,Bachelor,1,Female,Sales Representative,Very High,Married,2157,1,Excellent,3,Better,3,0
+699,35,Sales,18,Bachelor,1,Female,Sales Executive,High,Married,4601,1,Excellent,5,Better,5,1
+700,52,Research & Development,1,College,1,Male,Manager,Very High,Married,17099,2,Excellent,26,Good,9,7
+701,58,Research & Development,2,Bachelor,1,Male,Research Scientist,High,Single,2479,4,Outstanding,7,Better,1,0
+702,53,Sales,2,College,1,Male,Manager,High,Divorced,14852,6,Excellent,22,Best,17,15
+703,30,Sales,8,College,1,Male,Sales Executive,High,Divorced,7264,5,Excellent,10,Best,8,7
+704,38,Sales,10,Bachelor,1,Female,Sales Executive,Very High,Single,5666,1,Excellent,6,Better,5,1
+705,35,Sales,3,Master,1,Male,Sales Executive,Very High,Divorced,7823,6,Excellent,12,Better,10,0
+706,39,Sales,2,Doctor,1,Male,Sales Executive,High,Single,7880,0,Excellent,9,Better,8,0
+707,40,Sales,24,Bachelor,1,Female,Sales Executive,Medium,Single,13194,4,Excellent,22,Good,1,0
+708,47,Research & Development,16,Master,1,Male,Manufacturing Director,High,Divorced,5067,1,Excellent,20,Best,19,2
+709,36,Sales,8,Master,1,Male,Sales Executive,Very High,Divorced,5079,4,Excellent,12,Better,7,0
+710,31,Research & Development,9,College,1,Male,Research Scientist,Low,Single,2321,0,Outstanding,4,Better,3,1
+711,33,Sales,17,Bachelor,1,Male,Manager,High,Single,17444,1,Excellent,10,Better,10,6
+712,29,Research & Development,10,Bachelor,1,Female,Research Scientist,Low,Single,2404,6,Outstanding,3,Better,0,0
+713,33,Research & Development,13,Below College,1,Female,Research Scientist,Very High,Single,3452,3,Excellent,5,Better,3,0
+714,45,Research & Development,1,Master,1,Female,Laboratory Technician,Very High,Divorced,2270,3,Excellent,8,Better,5,0
+715,50,Research & Development,1,College,1,Male,Research Director,Very High,Divorced,17399,9,Outstanding,32,Good,5,1
+716,33,Research & Development,1,Master,1,Female,Healthcare Representative,Medium,Married,5488,1,Excellent,6,Better,6,1
+717,41,Research & Development,9,Bachelor,1,Male,Research Director,High,Divorced,19419,2,Excellent,21,Best,18,0
+718,27,Research & Development,16,Master,1,Female,Laboratory Technician,Medium,Married,2811,9,Excellent,4,Better,2,2
+719,45,Research & Development,23,College,1,Male,Laboratory Technician,Low,Married,3633,1,Excellent,9,Better,9,0
+720,47,Sales,4,College,1,Female,Sales Executive,Very High,Single,4163,1,Excellent,9,Better,9,0
+721,30,Research & Development,22,Bachelor,1,Female,Research Scientist,High,Married,2132,4,Excellent,7,Better,5,0
+722,50,Research & Development,24,Bachelor,1,Male,Manufacturing Director,High,Married,13973,3,Excellent,22,Better,12,1
+723,38,Research & Development,10,Below College,1,Male,Research Scientist,High,Married,2684,0,Excellent,3,Good,2,0
+724,46,Research & Development,7,College,1,Male,Manufacturing Director,High,Divorced,10845,6,Excellent,13,Better,8,0
+725,24,Research & Development,17,Below College,1,Female,Manufacturing Director,High,Divorced,4377,1,Excellent,5,Better,4,3
+726,35,Research & Development,14,Master,1,Male,Laboratory Technician,Medium,Divorced,3743,1,Outstanding,5,Bad,4,0
+727,31,Research & Development,1,Below College,1,Female,Manufacturing Director,Low,Married,4148,1,Excellent,4,Better,4,0
+728,18,Research & Development,5,College,1,Male,Research Scientist,Very High,Single,1051,1,Excellent,0,Better,0,0
+729,54,Research & Development,17,Bachelor,1,Female,Manufacturing Director,High,Married,10739,8,Excellent,22,Better,10,0
+730,35,Research & Development,25,Master,1,Female,Healthcare Representative,High,Divorced,10388,1,Excellent,16,Good,16,10
+731,30,Research & Development,8,College,1,Female,Research Director,Low,Married,11416,0,Excellent,9,Good,8,1
+732,20,Research & Development,11,Bachelor,1,Female,Research Scientist,Low,Single,2600,1,Excellent,1,Better,1,0
+733,30,Research & Development,5,Bachelor,1,Female,Laboratory Technician,Medium,Single,2422,0,Excellent,4,Better,3,1
+734,26,Research & Development,2,College,1,Male,Manufacturing Director,Very High,Married,5472,1,Excellent,8,Better,8,1
+735,22,Research & Development,8,Below College,1,Male,Laboratory Technician,Low,Married,2451,1,Excellent,4,Good,4,1
+736,48,Research & Development,6,Bachelor,1,Male,Healthcare Representative,High,Single,4240,2,Excellent,19,Better,2,2
+737,48,Research & Development,4,Master,1,Male,Healthcare Representative,High,Single,10999,7,Excellent,27,Better,15,4
+738,41,Research & Development,7,College,1,Female,Manufacturing Director,High,Single,5003,6,Excellent,8,Better,2,2
+739,39,Research & Development,1,Below College,1,Female,Manufacturing Director,Very High,Married,12742,1,Excellent,21,Better,21,11
+740,27,Research & Development,2,Master,1,Female,Manufacturing Director,Very High,Married,4227,0,Excellent,4,Better,3,2
+741,35,Research & Development,10,Bachelor,1,Male,Laboratory Technician,Very High,Divorced,3917,1,Outstanding,3,Good,3,1
+742,42,Sales,5,College,1,Male,Manager,High,Married,18303,6,Excellent,21,Best,1,0
+743,50,Research & Development,9,Bachelor,1,Male,Laboratory Technician,Very High,Married,2380,4,Excellent,8,Better,1,0
+744,59,Research & Development,2,Bachelor,1,Female,Manufacturing Director,Very High,Single,13726,3,Excellent,30,Better,5,4
+745,37,Research & Development,11,College,1,Female,Healthcare Representative,Medium,Married,4777,5,Excellent,15,Bad,1,0
+746,55,Research & Development,18,Master,1,Male,Healthcare Representative,Medium,Married,6385,3,Excellent,17,Better,8,6
+747,41,Research & Development,7,Below College,1,Female,Research Director,High,Divorced,19973,1,Outstanding,21,Better,21,5
+748,38,Sales,3,Master,1,Male,Sales Executive,Very High,Single,6861,8,Excellent,19,Better,1,0
+749,26,Sales,29,College,1,Male,Sales Executive,Low,Single,4969,8,Excellent,7,Better,2,2
+750,52,Sales,2,Below College,1,Female,Manager,Very High,Married,19845,1,Excellent,33,Better,32,6
+751,44,Sales,28,Bachelor,1,Female,Sales Executive,Very High,Married,13320,3,Excellent,23,Better,12,11
+752,50,Sales,1,Bachelor,1,Female,Sales Executive,High,Married,6347,0,Excellent,19,Better,18,0
+753,36,Research & Development,16,Master,1,Female,Laboratory Technician,Low,Single,2743,1,Excellent,18,Better,17,15
+754,39,Research & Development,22,Bachelor,1,Female,Manufacturing Director,Low,Single,10880,1,Excellent,21,Better,21,2
+755,33,Sales,8,Below College,1,Female,Sales Representative,Very High,Single,2342,0,Excellent,3,Good,2,2
+756,45,Sales,11,College,1,Female,Manager,Very High,Married,17650,3,Excellent,26,Best,9,1
+757,32,Research & Development,29,Master,1,Female,Laboratory Technician,High,Single,4025,9,Excellent,10,Better,8,7
+758,34,Sales,1,Master,1,Male,Sales Executive,Very High,Divorced,9725,0,Excellent,16,Good,15,0
+759,59,Sales,1,College,1,Male,Manager,Very High,Married,11904,3,Excellent,14,Bad,6,0
+760,45,Human Resources,24,Master,1,Male,Human Resources,Medium,Single,2177,1,Excellent,6,Better,6,0
+761,53,Sales,2,Bachelor,1,Female,Sales Executive,Medium,Married,7525,2,Excellent,30,Better,15,6
+762,36,Research & Development,15,Bachelor,1,Male,Laboratory Technician,High,Divorced,4834,7,Excellent,9,Good,1,0
+763,26,Research & Development,2,Bachelor,1,Male,Research Scientist,Low,Married,2042,6,Excellent,6,Better,3,1
+764,34,Sales,10,Master,1,Female,Sales Representative,High,Married,2220,1,Excellent,1,Better,1,0
+765,28,Sales,10,Below College,1,Male,Sales Representative,Medium,Married,1052,1,Outstanding,1,Better,1,0
+766,38,Research & Development,3,Master,1,Male,Research Scientist,High,Married,2821,3,Excellent,8,Better,2,2
+767,50,Research & Development,2,Master,1,Male,Research Director,High,Married,19237,2,Excellent,29,Good,8,7
+768,37,Research & Development,3,Bachelor,1,Female,Healthcare Representative,Medium,Single,4107,3,Excellent,8,Good,4,0
+769,40,Sales,26,Bachelor,1,Male,Sales Executive,Low,Married,8396,1,Excellent,8,Good,7,7
+770,26,Research & Development,1,Below College,1,Female,Research Scientist,High,Divorced,2007,1,Excellent,5,Better,5,1
+771,46,Research & Development,1,Master,1,Male,Research Director,Very High,Divorced,19627,9,Excellent,23,Better,2,2
+772,54,Sales,2,Master,1,Female,Sales Executive,High,Married,10686,6,Excellent,13,Better,9,7
+773,56,Research & Development,9,Bachelor,1,Female,Research Scientist,High,Married,2942,2,Excellent,18,Better,5,0
+774,36,Research & Development,12,Doctor,1,Female,Manufacturing Director,Very High,Single,8858,0,Excellent,15,Good,14,7
+775,55,Research & Development,2,Below College,1,Male,Manager,Low,Single,16756,7,Excellent,31,Best,9,6
+776,43,Sales,25,Bachelor,1,Male,Sales Executive,Very High,Divorced,10798,5,Excellent,18,Better,1,0
+777,20,Sales,9,Bachelor,1,Female,Sales Representative,Very High,Single,2323,1,Excellent,2,Better,2,0
+778,21,Research & Development,10,Bachelor,1,Female,Laboratory Technician,Low,Single,1416,1,Excellent,1,Good,1,1
+779,46,Research & Development,8,Master,1,Female,Research Scientist,Low,Divorced,4615,8,Outstanding,19,Better,16,1
+780,51,Research & Development,4,Master,1,Male,Research Scientist,High,Married,2461,9,Excellent,18,Best,10,2
+781,28,Research & Development,24,College,1,Male,Healthcare Representative,Low,Single,8722,1,Excellent,10,Good,10,1
+782,26,Research & Development,1,College,1,Male,Laboratory Technician,Low,Married,3955,1,Excellent,6,Better,5,1
+783,30,Research & Development,20,Bachelor,1,Male,Manufacturing Director,Low,Married,9957,0,Excellent,7,Good,6,0
+784,41,Research & Development,7,College,1,Female,Research Scientist,High,Married,3376,1,Excellent,10,Better,10,0
+785,38,Research & Development,17,Below College,1,Female,Healthcare Representative,High,Married,8823,0,Excellent,20,Good,19,1
+786,40,Research & Development,20,Master,1,Male,Healthcare Representative,Very High,Married,10322,4,Outstanding,14,Better,11,11
+787,27,Research & Development,8,Doctor,1,Male,Laboratory Technician,High,Married,4621,1,Excellent,3,Better,3,1
+788,55,Research & Development,2,Below College,1,Male,Manufacturing Director,Medium,Married,10976,3,Excellent,23,Better,3,1
+789,28,Research & Development,10,Bachelor,1,Female,Research Scientist,High,Single,3660,3,Excellent,10,Best,8,1
+790,44,Human Resources,1,College,1,Male,Human Resources,Low,Married,10482,9,Excellent,24,Better,20,3
+791,33,Research & Development,5,Bachelor,1,Male,Healthcare Representative,Very High,Divorced,7119,4,Excellent,9,Better,3,1
+792,35,Sales,4,Bachelor,1,Male,Sales Executive,Low,Single,9582,0,Outstanding,9,Better,8,4
+793,33,Research & Development,29,Master,1,Female,Research Scientist,High,Single,4508,1,Outstanding,14,Better,13,3
+794,28,Research & Development,15,College,1,Male,Laboratory Technician,High,Divorced,2207,1,Excellent,4,Good,4,2
+795,34,Research & Development,3,Below College,1,Male,Healthcare Representative,Very High,Single,7756,0,Excellent,7,Good,6,0
+796,37,Sales,10,Master,1,Female,Sales Executive,Very High,Divorced,6694,2,Excellent,8,Better,1,0
+797,25,Research & Development,4,Below College,1,Male,Laboratory Technician,Very High,Married,3691,1,Excellent,7,Best,7,5
+798,26,Research & Development,21,Bachelor,1,Male,Laboratory Technician,High,Divorced,2377,1,Outstanding,1,Good,1,0
+799,33,Research & Development,25,Bachelor,1,Male,Research Scientist,Medium,Single,2313,4,Outstanding,5,Better,2,2
+800,42,Research & Development,2,College,1,Male,Manager,Low,Married,17665,0,Excellent,23,Better,22,13
+801,28,Research & Development,1,Bachelor,1,Male,Laboratory Technician,Medium,Divorced,2596,1,Excellent,1,Better,1,0
+802,50,Sales,1,Master,1,Male,Sales Executive,High,Single,4728,3,Excellent,5,Better,0,0
+803,33,Sales,7,Bachelor,1,Female,Sales Executive,Medium,Married,4302,0,Excellent,4,Better,3,0
+804,34,Research & Development,3,Master,1,Male,Research Scientist,Very High,Married,2979,3,Excellent,6,Better,0,0
+805,48,Research & Development,1,Master,1,Male,Manager,Very High,Single,16885,2,Outstanding,27,Good,5,2
+806,45,Sales,9,Master,1,Female,Sales Executive,High,Married,5593,1,Excellent,15,Better,15,4
+807,52,Research & Development,7,Master,1,Male,Healthcare Representative,Medium,Single,10445,7,Excellent,18,Better,8,4
+808,38,Sales,10,Master,1,Male,Sales Executive,High,Divorced,8740,0,Excellent,9,Better,8,2
+809,29,Research & Development,28,Master,1,Female,Research Scientist,Very High,Divorced,2514,4,Outstanding,11,Better,7,1
+810,28,Research & Development,3,Bachelor,1,Female,Manufacturing Director,Medium,Divorced,7655,0,Excellent,10,Good,9,1
+811,46,Sales,3,Below College,1,Male,Manager,High,Married,17465,3,Excellent,23,Better,12,4
+812,38,Sales,2,College,1,Male,Sales Executive,Medium,Single,7351,7,Excellent,10,Better,1,0
+813,43,Research & Development,27,Bachelor,1,Female,Manufacturing Director,Low,Married,10820,8,Excellent,18,Better,8,0
+814,39,Research & Development,2,Bachelor,1,Male,Healthcare Representative,Very High,Divorced,12169,7,Excellent,21,Better,18,11
+815,40,Research & Development,14,Bachelor,1,Male,Research Director,High,Single,19626,1,Excellent,21,Best,20,4
+816,21,Research & Development,1,Below College,1,Female,Research Scientist,Medium,Single,2070,1,Excellent,2,Best,2,2
+817,39,Research & Development,9,Bachelor,1,Male,Laboratory Technician,Medium,Single,6782,9,Excellent,9,Good,5,0
+818,36,Research & Development,18,Master,1,Male,Manufacturing Director,Very High,Single,7779,2,Outstanding,18,Better,11,0
+819,31,Sales,20,Bachelor,1,Male,Sales Representative,Very High,Married,2791,0,Excellent,3,Better,2,2
+820,28,Research & Development,2,Below College,1,Male,Research Scientist,Medium,Married,3201,0,Excellent,6,Bad,5,0
+821,35,Sales,11,College,1,Male,Sales Executive,Very High,Divorced,4968,1,Excellent,5,Better,5,0
+822,49,Sales,8,Master,1,Male,Sales Executive,Medium,Married,13120,6,Excellent,22,Better,9,2
+823,34,Research & Development,2,College,1,Male,Manufacturing Director,High,Single,4033,2,Excellent,5,Good,3,0
+824,29,Research & Development,10,Bachelor,1,Female,Research Scientist,Medium,Divorced,3291,0,Excellent,8,Good,7,1
+825,42,Research & Development,29,Bachelor,1,Male,Laboratory Technician,Very High,Single,4272,4,Excellent,16,Better,1,0
+826,29,Research & Development,8,Below College,1,Male,Manufacturing Director,Very High,Married,5056,1,Excellent,10,Good,10,1
+827,38,Human Resources,1,Bachelor,1,Male,Human Resources,High,Married,2844,1,Excellent,7,Best,7,5
+828,28,Research & Development,6,Bachelor,1,Male,Research Scientist,High,Divorced,2703,1,Excellent,3,Better,3,0
+829,18,Research & Development,8,Below College,1,Male,Laboratory Technician,High,Single,1904,1,Excellent,0,Better,0,0
+830,33,Sales,9,Master,1,Female,Sales Executive,Low,Single,8224,0,Excellent,6,Better,5,0
+831,41,Research & Development,12,Master,1,Male,Laboratory Technician,Very High,Married,4766,3,Excellent,6,Better,1,0
+832,31,Research & Development,15,Bachelor,1,Male,Laboratory Technician,High,Married,2610,1,Excellent,2,Good,2,2
+833,37,Research & Development,25,College,1,Female,Healthcare Representative,Very High,Divorced,5731,7,Excellent,9,Better,6,1
+834,27,Research & Development,6,Bachelor,1,Male,Research Scientist,High,Married,2539,1,Excellent,4,Better,4,2
+835,34,Sales,9,Below College,1,Female,Sales Executive,High,Married,5714,1,Outstanding,6,Good,6,1
+836,35,Human Resources,8,Master,1,Male,Human Resources,High,Single,4323,1,Excellent,6,Bad,5,1
+837,29,Sales,23,Below College,1,Female,Sales Executive,Low,Married,7336,1,Excellent,11,Bad,11,3
+838,40,Research & Development,9,Master,1,Female,Research Director,High,Single,13499,9,Excellent,20,Good,18,2
+839,42,Sales,12,Bachelor,1,Male,Sales Executive,Low,Single,13758,0,Excellent,22,Good,21,13
+840,42,Sales,4,Master,1,Male,Sales Executive,Low,Single,5155,7,Excellent,9,Best,6,1
+841,35,Research & Development,1,Master,1,Male,Laboratory Technician,High,Married,2258,6,Excellent,10,Better,8,1
+842,24,Research & Development,24,Bachelor,1,Male,Laboratory Technician,Medium,Single,3597,8,Outstanding,6,Better,4,1
+843,28,Research & Development,12,Below College,1,Female,Laboratory Technician,Very High,Married,2515,1,Excellent,1,Good,1,0
+844,26,Research & Development,3,Master,1,Male,Laboratory Technician,Very High,Married,4420,1,Outstanding,8,Better,8,0
+845,30,Sales,10,Bachelor,1,Male,Sales Executive,High,Married,6578,1,Excellent,10,Better,10,1
+846,40,Research & Development,26,College,1,Female,Research Scientist,Very High,Married,4422,3,Excellent,16,Bad,1,0
+847,35,Research & Development,2,Bachelor,1,Male,Manufacturing Director,Medium,Divorced,10274,2,Excellent,15,Best,7,6
+848,34,Research & Development,1,Bachelor,1,Male,Healthcare Representative,Low,Single,5343,0,Outstanding,14,Better,13,4
+849,35,Research & Development,4,Master,1,Male,Laboratory Technician,Very High,Married,2376,1,Excellent,2,Best,2,2
+850,43,Sales,9,Bachelor,1,Female,Sales Executive,High,Single,5346,8,Excellent,7,Good,4,1
+851,32,Sales,2,Below College,1,Female,Sales Representative,Low,Divorced,2827,1,Excellent,1,Better,1,0
+852,56,Research & Development,4,Master,1,Female,Manager,Low,Divorced,19943,4,Excellent,28,Better,5,4
+853,29,Research & Development,6,Below College,1,Female,Laboratory Technician,Very High,Married,3131,1,Excellent,10,Better,10,0
+854,19,Research & Development,9,College,1,Male,Research Scientist,Low,Single,2552,1,Outstanding,1,Better,1,0
+855,45,Research & Development,7,Bachelor,1,Female,Research Scientist,High,Married,4477,4,Excellent,7,Good,3,0
+856,37,Research & Development,1,Bachelor,1,Female,Manufacturing Director,Very High,Married,6474,1,Excellent,14,Good,14,3
+857,20,Research & Development,3,Bachelor,1,Male,Laboratory Technician,High,Single,3033,1,Excellent,2,Good,2,1
+858,44,Research & Development,10,Master,1,Male,Research Scientist,High,Single,2936,1,Excellent,6,Better,6,0
+859,53,Research & Development,7,College,1,Female,Manager,High,Divorced,18606,3,Excellent,26,Better,7,4
+860,29,Research & Development,15,Below College,1,Female,Research Scientist,Very High,Married,2168,0,Excellent,6,Good,5,1
+861,22,Research & Development,3,Master,1,Male,Research Scientist,Very High,Married,2853,0,Excellent,1,Better,0,0
+862,46,Sales,2,Bachelor,1,Female,Manager,Low,Married,17048,8,Outstanding,28,Better,26,15
+863,44,Research & Development,17,Bachelor,1,Male,Research Scientist,High,Single,2290,2,Excellent,6,Better,0,0
+864,33,Human Resources,2,Bachelor,1,Male,Human Resources,High,Married,3600,1,Excellent,5,Better,5,1
+865,41,Research & Development,5,College,1,Male,Research Scientist,Low,Divorced,2107,6,Excellent,5,Bad,1,0
+866,30,Sales,29,Master,1,Male,Sales Executive,Low,Divorced,4115,8,Excellent,8,Better,4,0
+867,40,Sales,2,Master,1,Male,Sales Executive,Medium,Married,4327,5,Excellent,5,Better,0,0
+868,50,Research & Development,2,Bachelor,1,Female,Manager,Low,Married,17856,2,Outstanding,32,Better,2,2
+869,28,Research & Development,19,Master,1,Male,Laboratory Technician,Low,Married,3196,1,Excellent,6,Better,6,3
+870,46,Research & Development,15,College,1,Male,Research Director,Medium,Married,19081,5,Excellent,25,Better,4,0
+871,35,Sales,17,Master,1,Male,Sales Executive,Low,Married,8966,3,Excellent,15,Better,7,1
+872,24,Research & Development,17,College,1,Female,Laboratory Technician,Medium,Married,2210,1,Excellent,1,Bad,1,0
+873,33,Sales,25,Bachelor,1,Female,Sales Executive,High,Married,4539,1,Excellent,10,Good,10,0
+874,36,Research & Development,6,Master,1,Male,Laboratory Technician,High,Divorced,2741,1,Excellent,7,Better,7,1
+875,30,Research & Development,7,Master,1,Male,Laboratory Technician,High,Divorced,3491,1,Excellent,10,Good,10,8
+876,44,Research & Development,29,Master,1,Male,Research Scientist,Very High,Single,4541,1,Outstanding,20,Better,20,13
+877,20,Sales,21,Bachelor,1,Male,Sales Representative,Very High,Single,2678,1,Excellent,2,Better,2,2
+878,46,Research & Development,2,Master,1,Male,Manufacturing Director,Very High,Divorced,7379,2,Excellent,12,Good,6,1
+879,42,Human Resources,2,Doctor,1,Male,Human Resources,Low,Married,6272,7,Excellent,10,Best,4,0
+880,60,Sales,7,Master,1,Male,Sales Executive,Very High,Divorced,5220,0,Excellent,12,Better,11,1
+881,32,Research & Development,13,Bachelor,1,Female,Laboratory Technician,Medium,Married,2743,1,Outstanding,2,Better,2,2
+882,32,Research & Development,2,College,1,Female,Research Scientist,High,Single,4998,4,Excellent,10,Better,8,0
+883,36,Research & Development,1,Bachelor,1,Female,Manufacturing Director,Low,Divorced,10252,2,Outstanding,17,Better,7,7
+884,33,Research & Development,9,Bachelor,1,Male,Research Scientist,Very High,Married,2781,0,Excellent,15,Better,14,4
+885,40,Sales,10,Bachelor,1,Female,Sales Executive,Medium,Divorced,6852,7,Excellent,7,Best,5,1
+886,25,Sales,10,Master,1,Male,Sales Executive,Very High,Single,4950,0,Excellent,5,Better,4,1
+887,30,Research & Development,1,Bachelor,1,Male,Research Scientist,Medium,Married,3579,0,Outstanding,12,Better,11,5
+888,42,Research & Development,26,Doctor,1,Female,Research Director,Low,Married,13191,3,Excellent,20,Better,1,0
+889,35,Sales,8,College,1,Female,Sales Executive,Very High,Married,10377,4,Excellent,16,Good,13,4
+890,27,Research & Development,14,Bachelor,1,Male,Research Scientist,Low,Married,2235,1,Excellent,9,Good,9,6
+891,54,Research & Development,1,Master,1,Female,Manufacturing Director,High,Divorced,10502,7,Excellent,33,Bad,5,1
+892,44,Research & Development,2,Below College,1,Female,Research Scientist,Very High,Married,2011,1,Excellent,10,Better,10,7
+893,19,Research & Development,10,Bachelor,1,Female,Research Scientist,Medium,Single,1859,1,Outstanding,1,Best,1,0
+894,29,Research & Development,1,Bachelor,1,Female,Research Scientist,Very High,Divorced,3760,1,Excellent,3,Better,3,1
+895,54,Research & Development,3,Bachelor,1,Male,Research Director,Very High,Married,17779,3,Excellent,36,Better,10,0
+896,31,Research & Development,11,College,1,Male,Healthcare Representative,Low,Married,6833,1,Excellent,6,Good,6,0
+897,31,Research & Development,24,Bachelor,1,Female,Healthcare Representative,Low,Single,6812,1,Excellent,10,Better,10,1
+898,59,Sales,3,Bachelor,1,Female,Sales Executive,Very High,Single,5171,5,Excellent,13,Better,6,0
+899,43,Research & Development,3,Bachelor,1,Male,Research Director,Very High,Married,19740,3,Excellent,25,Better,8,0
+900,49,Research & Development,4,College,1,Male,Manager,High,Married,18711,2,Excellent,23,Best,1,0
+901,36,Research & Development,3,Bachelor,1,Male,Research Scientist,Medium,Married,3692,1,Excellent,12,Good,11,0
+902,48,Research & Development,2,College,1,Male,Laboratory Technician,Medium,Single,2559,5,Excellent,7,Good,1,0
+903,27,Research & Development,4,College,1,Male,Research Scientist,High,Divorced,2517,1,Excellent,5,Better,5,0
+904,29,Research & Development,7,Bachelor,1,Male,Healthcare Representative,Very High,Divorced,6623,1,Excellent,6,Better,6,1
+905,48,Research & Development,1,Bachelor,1,Male,Research Director,Very High,Single,18265,6,Excellent,25,Best,1,0
+906,29,Research & Development,1,Bachelor,1,Female,Research Director,Very High,Divorced,16124,3,Excellent,9,Good,7,1
+907,34,Research & Development,20,Bachelor,1,Female,Research Scientist,High,Married,2585,0,Excellent,2,Good,1,0
+908,44,Sales,5,Bachelor,1,Male,Manager,Medium,Married,18213,7,Excellent,26,Better,22,3
+909,33,Sales,10,Doctor,1,Male,Sales Executive,High,Divorced,8380,0,Excellent,10,Better,9,0
+910,19,Research & Development,25,Bachelor,1,Female,Research Scientist,Very High,Single,2994,1,Excellent,1,Better,1,0
+911,23,Research & Development,1,College,1,Male,Research Scientist,High,Married,1223,1,Outstanding,1,Better,1,0
+912,25,Sales,24,Below College,1,Male,Sales Representative,Very High,Single,1118,1,Excellent,1,Better,1,1
+913,26,Research & Development,4,College,1,Male,Research Scientist,Very High,Single,2875,1,Outstanding,8,Good,8,2
+914,45,Sales,2,Bachelor,1,Female,Manager,Medium,Single,18824,2,Excellent,26,Better,24,1
+915,55,Research & Development,8,Below College,1,Male,Healthcare Representative,Medium,Divorced,13577,1,Excellent,34,Better,33,15
+916,21,Research & Development,10,College,1,Female,Laboratory Technician,High,Single,2625,1,Outstanding,2,Bad,2,2
+917,46,Sales,4,College,1,Female,Manager,Medium,Married,18789,2,Excellent,26,Better,11,0
+918,34,Sales,2,Bachelor,1,Female,Sales Executive,Low,Single,4538,0,Excellent,4,Better,3,0
+919,51,Sales,9,Bachelor,1,Male,Manager,Medium,Divorced,19847,4,Outstanding,31,Good,29,11
+920,59,Research & Development,18,Master,1,Male,Manufacturing Director,Very High,Single,10512,6,Excellent,25,Good,9,5
+921,34,Research & Development,19,Bachelor,1,Female,Laboratory Technician,Medium,Divorced,4444,4,Excellent,15,Best,11,5
+922,28,Research & Development,1,Master,1,Male,Laboratory Technician,High,Single,2154,0,Excellent,5,Good,4,0
+923,44,Research & Development,4,College,1,Male,Manager,Low,Divorced,19190,1,Excellent,26,Good,25,14
+924,34,Human Resources,11,Bachelor,1,Male,Human Resources,Medium,Married,4490,4,Excellent,14,Best,10,1
+925,35,Research & Development,6,Below College,1,Male,Research Scientist,High,Married,3506,0,Excellent,4,Better,3,2
+926,42,Research & Development,7,Master,1,Female,Research Scientist,Medium,Married,2372,6,Excellent,18,Better,1,0
+927,43,Sales,4,Master,1,Female,Sales Executive,Very High,Single,10231,3,Excellent,23,Best,21,15
+928,36,Research & Development,2,Master,1,Female,Manufacturing Director,Medium,Single,5410,9,Excellent,18,Better,16,5
+929,44,Research & Development,15,Bachelor,1,Female,Healthcare Representative,Very High,Married,7978,1,Excellent,10,Better,10,0
+930,28,Research & Development,2,Bachelor,1,Male,Laboratory Technician,Very High,Married,3867,1,Excellent,2,Better,2,2
+931,51,Research & Development,6,College,1,Female,Laboratory Technician,High,Single,2838,0,Excellent,8,Good,7,7
+932,30,Research & Development,9,College,1,Female,Manufacturing Director,High,Single,4695,7,Excellent,10,Better,8,1
+933,29,Research & Development,7,Bachelor,1,Female,Laboratory Technician,High,Divorced,3339,3,Excellent,10,Better,7,7
+934,28,Research & Development,1,Bachelor,1,Male,Research Scientist,Low,Single,2080,2,Excellent,5,Good,3,1
+935,25,Research & Development,1,Bachelor,1,Female,Research Scientist,Medium,Single,2096,1,Excellent,2,Good,2,2
+936,32,Sales,8,Bachelor,1,Male,Sales Executive,Very High,Married,6209,1,Excellent,10,Best,10,0
+937,45,Research & Development,25,Bachelor,1,Female,Manager,Medium,Single,18061,3,Outstanding,22,Better,0,0
+938,39,Research & Development,13,Master,1,Female,Manager,Medium,Divorced,17123,6,Excellent,21,Better,19,15
+939,58,Research & Development,23,Master,1,Male,Research Scientist,High,Divorced,2372,1,Excellent,2,Better,2,2
+940,32,Research & Development,7,College,1,Male,Laboratory Technician,High,Married,4883,1,Excellent,10,Better,10,1
+941,39,Research & Development,23,Bachelor,1,Male,Research Scientist,Low,Single,3904,0,Excellent,6,Better,5,0
+942,30,Research & Development,6,Bachelor,1,Female,Laboratory Technician,Very High,Married,4627,0,Excellent,10,Better,9,6
+943,36,Research & Development,10,Master,1,Female,Healthcare Representative,High,Married,7094,3,Excellent,10,Better,7,1
+944,46,Human Resources,1,College,1,Female,Human Resources,Low,Single,3423,6,Excellent,10,Best,7,5
+945,28,Research & Development,1,Bachelor,1,Female,Laboratory Technician,Very High,Married,6674,0,Excellent,10,Better,9,7
+946,50,Research & Development,28,Bachelor,1,Female,Research Director,Low,Married,16880,4,Excellent,25,Better,3,1
+947,40,Sales,25,Master,1,Male,Sales Executive,Medium,Single,9094,2,Excellent,9,Better,5,1
+948,52,Sales,5,Bachelor,1,Male,Sales Executive,Medium,Single,8446,9,Excellent,10,Good,8,7
+949,30,Research & Development,17,Master,1,Female,Manager,Low,Married,11916,1,Outstanding,9,Better,9,0
+950,39,Research & Development,18,College,1,Male,Manufacturing Director,High,Single,4534,0,Excellent,9,Better,8,1
+951,31,Sales,2,Master,1,Female,Sales Executive,High,Divorced,9852,1,Excellent,10,Good,10,9
+952,41,Sales,10,College,1,Male,Sales Executive,Medium,Single,6151,1,Excellent,19,Better,19,11
+953,31,Sales,1,Bachelor,1,Female,Sales Representative,Medium,Single,2302,1,Excellent,3,Best,3,2
+954,44,Research & Development,3,Bachelor,1,Male,Laboratory Technician,Low,Married,2362,4,Excellent,10,Best,3,1
+955,42,Research & Development,2,Below College,1,Male,Manager,High,Married,17861,0,Excellent,21,Good,20,2
+956,55,Research & Development,2,College,1,Female,Manager,High,Married,19187,4,Excellent,23,Better,19,9
+957,56,Human Resources,8,Master,1,Male,Manager,Medium,Single,19717,6,Excellent,36,Better,7,7
+958,40,Research & Development,16,College,1,Male,Research Scientist,High,Divorced,3544,9,Excellent,6,Better,4,0
+959,34,Research & Development,9,Bachelor,1,Male,Healthcare Representative,Very High,Divorced,8500,0,Excellent,10,Good,9,1
+960,40,Research & Development,2,Bachelor,1,Male,Research Scientist,Very High,Single,4661,1,Excellent,9,Better,9,8
+961,41,Sales,1,Bachelor,1,Female,Sales Executive,Low,Divorced,4103,0,Excellent,10,Better,9,1
+962,35,Research & Development,4,Master,1,Male,Research Scientist,High,Single,4249,1,Excellent,9,Better,9,1
+963,51,Human Resources,5,Bachelor,1,Male,Manager,Medium,Divorced,14026,1,Excellent,33,Better,33,0
+964,38,Sales,2,College,1,Female,Sales Executive,Low,Divorced,6893,3,Excellent,11,Better,7,1
+965,34,Sales,15,College,1,Female,Sales Executive,Low,Single,6125,1,Excellent,10,Best,10,9
+966,25,Research & Development,19,Below College,1,Male,Laboratory Technician,Very High,Married,3669,3,Excellent,7,Good,3,1
+967,58,Research & Development,7,Master,1,Female,Manufacturing Director,Low,Married,10008,7,Excellent,31,Good,10,5
+968,40,Research & Development,1,Master,1,Male,Laboratory Technician,Medium,Married,2387,3,Outstanding,7,Better,4,0
+969,36,Sales,7,Bachelor,1,Female,Sales Executive,Low,Married,4639,2,Excellent,17,Good,15,6
+970,48,Research & Development,4,Bachelor,1,Male,Manufacturing Director,Very High,Single,7898,1,Excellent,11,Better,10,0
+971,27,Sales,11,Bachelor,1,Female,Sales Representative,Very High,Married,2534,8,Excellent,5,Better,1,0
+972,51,Research & Development,11,College,1,Female,Manufacturing Director,Medium,Single,13142,3,Excellent,29,Good,5,0
+973,18,Research & Development,1,Bachelor,1,Female,Laboratory Technician,Very High,Single,1611,1,Excellent,0,Best,0,0
+974,35,Research & Development,1,Bachelor,1,Female,Laboratory Technician,Very High,Married,5363,0,Excellent,10,Better,9,0
+975,27,Sales,2,Below College,1,Male,Sales Executive,Very High,Single,5071,3,Outstanding,8,Better,6,0
+976,55,Sales,13,Master,1,Male,Sales Executive,High,Single,13695,6,Excellent,24,Good,19,3
+977,56,Research & Development,23,Bachelor,1,Male,Manufacturing Director,Medium,Married,13402,4,Excellent,33,Better,19,15
+978,34,Research & Development,26,Below College,1,Female,Research Scientist,High,Divorced,2029,1,Outstanding,5,Better,5,0
+979,40,Research & Development,2,Below College,1,Female,Healthcare Representative,High,Divorced,6377,5,Outstanding,15,Better,12,11
+980,34,Research & Development,29,Bachelor,1,Male,Laboratory Technician,High,Married,5429,4,Excellent,10,Better,8,7
+981,31,Sales,2,Bachelor,1,Female,Sales Representative,Very High,Single,2785,7,Excellent,3,Best,1,0
+982,35,Sales,18,Master,1,Female,Sales Executive,High,Married,4614,0,Excellent,5,Good,4,3
+983,38,Research & Development,7,Bachelor,1,Male,Research Scientist,High,Divorced,2610,1,Excellent,4,Better,4,0
+984,34,Research & Development,2,Master,1,Female,Healthcare Representative,Very High,Single,6687,1,Excellent,14,Best,14,4
+985,28,Sales,26,Bachelor,1,Male,Sales Executive,Low,Married,4724,1,Excellent,5,Better,5,0
+986,31,Research & Development,22,Master,1,Male,Manufacturing Director,High,Married,6179,1,Excellent,10,Good,10,6
+987,39,Sales,21,Master,1,Male,Sales Executive,Very High,Married,6120,3,Excellent,8,Best,5,1
+988,51,Sales,2,Bachelor,1,Male,Sales Executive,Medium,Married,10596,2,Excellent,14,Better,4,3
+989,41,Research & Development,22,Bachelor,1,Female,Research Scientist,Very High,Divorced,5467,3,Excellent,12,Good,6,3
+990,37,Research & Development,4,Below College,1,Male,Research Scientist,High,Married,2996,7,Excellent,8,Better,6,1
+991,33,Sales,5,Below College,1,Male,Sales Executive,Very High,Married,9998,6,Excellent,8,Best,5,1
+992,32,Sales,2,Below College,1,Male,Sales Executive,Medium,Married,4078,0,Excellent,4,Good,3,1
+993,39,Research & Development,25,College,1,Male,Healthcare Representative,High,Married,10920,3,Outstanding,13,Better,6,0
+994,25,Sales,18,Below College,1,Male,Sales Executive,High,Married,6232,2,Excellent,6,Good,3,1
+995,52,Research & Development,28,College,1,Female,Manufacturing Director,High,Married,13247,2,Excellent,24,Good,5,0
+996,43,Research & Development,6,Bachelor,1,Female,Research Scientist,High,Single,4081,1,Excellent,20,Bad,20,1
+997,27,Sales,10,Bachelor,1,Female,Sales Executive,Very High,Married,5769,1,Excellent,6,Better,6,4
+998,27,Research & Development,17,Master,1,Female,Research Scientist,High,Single,2394,1,Excellent,8,Better,8,7
+999,26,Research & Development,2,Below College,1,Male,Research Scientist,Very High,Single,3904,0,Excellent,5,Better,4,1
+1000,42,Human Resources,10,Bachelor,1,Female,Manager,Low,Married,16799,0,Excellent,21,Better,20,0
+1001,52,Research & Development,8,Master,1,Female,Laboratory Technician,Low,Married,2950,9,Excellent,12,Bad,5,0
+1002,37,Research & Development,11,Bachelor,1,Female,Laboratory Technician,High,Single,3629,4,Excellent,8,Better,3,0
+1003,35,Research & Development,18,College,1,Male,Manufacturing Director,Very High,Single,9362,2,Excellent,10,Better,2,2
+1004,25,Research & Development,1,Bachelor,1,Male,Laboratory Technician,Very High,Married,3229,4,Excellent,7,Good,3,0
+1005,26,Research & Development,7,Bachelor,1,Male,Laboratory Technician,Low,Single,3578,0,Excellent,8,Better,7,0
+1006,29,Human Resources,17,Bachelor,1,Male,Human Resources,Low,Single,7988,1,Excellent,10,Good,10,0
+1007,49,Research & Development,28,College,1,Male,Laboratory Technician,Low,Single,4284,3,Outstanding,20,Better,4,1
+1008,29,Research & Development,14,Below College,1,Female,Healthcare Representative,Very High,Single,7553,0,Excellent,9,Better,8,7
+1009,54,Research & Development,1,Bachelor,1,Female,Research Director,Very High,Single,17328,6,Excellent,29,Good,20,12
+1010,58,Research & Development,1,Bachelor,1,Female,Research Director,Low,Married,19701,3,Outstanding,32,Better,9,1
+1011,55,Research & Development,1,Master,1,Male,Research Director,Very High,Divorced,14732,2,Excellent,31,Best,7,0
+1012,36,Sales,3,Master,1,Female,Sales Executive,Medium,Single,9278,3,Excellent,15,Better,5,0
+1013,31,Sales,1,Master,1,Female,Sales Representative,High,Single,1359,1,Excellent,1,Better,1,0
+1014,30,Sales,7,Master,1,Female,Sales Executive,Low,Divorced,4779,7,Excellent,8,Better,3,0
+1015,31,Research & Development,8,Doctor,1,Female,Research Director,Medium,Single,16422,3,Excellent,9,Best,3,1
+1016,34,Research & Development,1,Master,1,Male,Research Scientist,Low,Divorced,2996,5,Excellent,10,Better,4,1
+1017,31,Research & Development,8,Bachelor,1,Female,Research Scientist,Medium,Single,1261,1,Excellent,1,Best,1,0
+1018,27,Research & Development,11,Below College,1,Male,Laboratory Technician,Low,Married,2099,0,Excellent,6,Best,5,1
+1019,36,Research & Development,4,Master,1,Male,Laboratory Technician,Very High,Single,5810,1,Excellent,10,Good,10,1
+1020,36,Sales,16,Master,1,Female,Sales Executive,Low,Married,5647,4,Excellent,11,Good,3,0
+1021,47,Research & Development,1,Bachelor,1,Male,Research Scientist,Very High,Married,3420,7,Excellent,17,Good,6,1
+1022,25,Sales,9,College,1,Male,Sales Representative,Low,Married,4400,3,Excellent,6,Better,3,2
+1023,37,Research & Development,5,College,1,Male,Laboratory Technician,High,Single,3500,0,Excellent,7,Bad,6,1
+1024,56,Research & Development,1,College,1,Female,Research Scientist,Low,Married,2066,2,Outstanding,5,Best,3,1
+1025,47,Research & Development,2,Master,1,Female,Research Director,High,Married,17169,3,Excellent,26,Best,20,5
+1026,24,Sales,4,Below College,1,Female,Sales Executive,High,Married,4162,1,Excellent,5,Better,5,0
+1027,32,Sales,7,Doctor,1,Male,Sales Executive,Very High,Married,9204,4,Excellent,7,Good,4,0
+1028,34,Research & Development,1,Bachelor,1,Female,Laboratory Technician,Medium,Married,3294,5,Excellent,7,Good,5,0
+1029,41,Research & Development,5,Doctor,1,Male,Research Scientist,High,Married,2127,2,Excellent,7,Good,4,0
+1030,40,Research & Development,9,Master,1,Male,Laboratory Technician,High,Divorced,3975,3,Excellent,11,Best,8,0
+1031,31,Sales,8,College,1,Male,Sales Executive,Very High,Divorced,10793,1,Excellent,13,Better,13,9
+1032,46,Sales,9,Bachelor,1,Male,Sales Executive,Very High,Divorced,10096,4,Excellent,28,Best,7,4
+1033,39,Research & Development,2,Bachelor,1,Female,Laboratory Technician,Low,Single,3646,2,Outstanding,11,Best,1,0
+1034,31,Research & Development,1,Doctor,1,Female,Manufacturing Director,Medium,Single,7446,1,Excellent,10,Better,10,4
+1035,45,Research & Development,20,Bachelor,1,Male,Healthcare Representative,Low,Divorced,10851,2,Excellent,24,Better,7,0
+1036,31,Human Resources,8,College,1,Female,Human Resources,Medium,Single,2109,9,Excellent,8,Better,3,0
+1037,31,Research & Development,2,Bachelor,1,Male,Laboratory Technician,Very High,Married,3722,6,Excellent,7,Bad,2,2
+1038,45,Research & Development,29,Bachelor,1,Male,Manufacturing Director,Very High,Married,9380,4,Excellent,10,Best,3,1
+1039,48,Sales,7,Bachelor,1,Male,Sales Executive,Low,Divorced,5486,4,Excellent,15,Better,2,2
+1040,34,Human Resources,9,Master,1,Female,Human Resources,High,Married,2742,1,Excellent,2,Better,2,2
+1041,40,Research & Development,8,Below College,1,Male,Research Director,Medium,Divorced,13757,2,Excellent,16,Better,9,4
+1042,28,Sales,5,Bachelor,1,Male,Sales Executive,Low,Single,8463,0,Excellent,6,Better,5,1
+1043,44,Research & Development,5,Bachelor,1,Male,Laboratory Technician,High,Single,3162,3,Excellent,7,Better,5,0
+1044,53,Research & Development,2,Bachelor,1,Male,Research Director,Medium,Single,16598,4,Excellent,35,Good,9,8
+1045,49,Research & Development,5,Master,1,Male,Healthcare Representative,High,Married,6651,2,Excellent,20,Good,3,1
+1046,40,Research & Development,2,Bachelor,1,Male,Research Scientist,High,Divorced,2345,2,Excellent,8,Best,3,1
+1047,44,Research & Development,20,Bachelor,1,Male,Research Scientist,Medium,Single,3420,1,Excellent,6,Good,5,1
+1048,33,Sales,7,Bachelor,1,Male,Sales Executive,Low,Married,4373,0,Excellent,5,Better,4,0
+1049,34,Sales,3,Bachelor,1,Male,Sales Executive,Low,Single,4759,3,Excellent,15,Better,13,3
+1050,30,Sales,16,Below College,1,Male,Sales Executive,High,Married,5301,8,Excellent,4,Good,2,2
+1051,42,Research & Development,9,College,1,Female,Laboratory Technician,Very High,Single,3673,1,Excellent,12,Better,12,5
+1052,44,Sales,1,Doctor,1,Female,Sales Executive,High,Married,4768,7,Excellent,11,Good,1,0
+1053,30,Research & Development,7,Bachelor,1,Male,Research Scientist,High,Divorced,1274,1,Excellent,1,Good,1,0
+1054,57,Research & Development,1,College,1,Male,Research Scientist,High,Married,4900,0,Outstanding,13,Good,12,2
+1055,49,Research & Development,7,Master,1,Male,Healthcare Representative,Medium,Divorced,10466,3,Excellent,29,Better,8,0
+1056,34,Research & Development,15,Bachelor,1,Male,Research Director,Low,Divorced,17007,7,Excellent,16,Good,14,6
+1057,28,Sales,1,Bachelor,1,Male,Sales Representative,High,Married,2909,3,Excellent,5,Best,3,1
+1058,29,Sales,13,Bachelor,1,Female,Sales Executive,Medium,Single,5765,5,Excellent,7,Bad,5,0
+1059,34,Sales,24,Master,1,Female,Sales Executive,Medium,Single,4599,0,Outstanding,16,Best,15,10
+1060,35,Sales,7,Below College,1,Male,Sales Representative,High,Married,2404,1,Excellent,1,Better,1,0
+1061,24,Research & Development,9,Bachelor,1,Male,Laboratory Technician,Low,Single,3172,2,Excellent,4,Good,0,0
+1062,24,Sales,13,College,1,Female,Sales Representative,Medium,Married,2033,1,Excellent,1,Better,1,0
+1063,44,Research & Development,2,Below College,1,Male,Manufacturing Director,High,Single,10209,5,Excellent,16,Good,2,2
+1064,29,Sales,19,Bachelor,1,Male,Sales Executive,High,Divorced,8620,1,Excellent,10,Better,10,0
+1065,30,Human Resources,1,Bachelor,1,Male,Human Resources,High,Divorced,2064,0,Outstanding,6,Best,5,1
+1066,55,Research & Development,4,Master,1,Male,Healthcare Representative,High,Married,4035,0,Excellent,4,Better,3,1
+1067,33,Research & Development,4,Master,1,Female,Laboratory Technician,Medium,Married,3838,8,Excellent,8,Better,5,0
+1068,47,Sales,14,Bachelor,1,Female,Sales Executive,High,Married,4591,3,Excellent,11,Good,5,1
+1069,28,Research & Development,2,College,1,Male,Laboratory Technician,Low,Single,2561,7,Excellent,8,Good,0,0
+1070,28,Research & Development,1,Bachelor,1,Male,Research Scientist,High,Divorced,1563,1,Excellent,1,Bad,1,0
+1071,28,Sales,7,Bachelor,1,Male,Sales Executive,Low,Single,4898,0,Excellent,5,Better,4,1
+1072,49,Research & Development,3,College,1,Female,Laboratory Technician,Low,Married,4789,4,Outstanding,10,Better,3,1
+1073,29,Research & Development,2,Below College,1,Female,Laboratory Technician,Medium,Married,3180,0,Excellent,4,Better,3,0
+1074,28,Research & Development,29,Below College,1,Male,Manufacturing Director,Medium,Married,6549,1,Excellent,8,Good,8,1
+1075,33,Research & Development,8,Doctor,1,Male,Healthcare Representative,High,Single,6388,2,Excellent,14,Better,0,0
+1076,32,Research & Development,10,Bachelor,1,Male,Manager,Very High,Single,11244,2,Outstanding,10,Best,5,0
+1077,54,Research & Development,11,Master,1,Female,Manager,Very High,Divorced,16032,3,Outstanding,26,Better,14,1
+1078,29,Research & Development,1,Master,1,Male,Research Scientist,Low,Single,2362,6,Excellent,11,Bad,9,0
+1079,44,Research & Development,28,Bachelor,1,Male,Research Director,Low,Married,16328,3,Excellent,24,Best,20,14
+1080,39,Research & Development,6,Bachelor,1,Female,Manufacturing Director,Medium,Single,8376,4,Excellent,9,Better,2,2
+1081,46,Sales,3,Bachelor,1,Female,Manager,Medium,Married,16606,8,Excellent,23,Best,13,5
+1082,35,Research & Development,16,Bachelor,1,Female,Healthcare Representative,Medium,Single,8606,1,Excellent,11,Bad,11,3
+1083,23,Research & Development,20,Below College,1,Male,Laboratory Technician,High,Single,2272,0,Excellent,5,Better,4,1
+1084,40,Research & Development,9,Master,1,Male,Laboratory Technician,Low,Single,2018,3,Excellent,15,Bad,5,1
+1085,34,Sales,1,Bachelor,1,Male,Sales Executive,High,Married,7083,1,Excellent,10,Better,10,8
+1086,31,Research & Development,3,Bachelor,1,Female,Research Scientist,High,Single,4084,1,Excellent,7,Bad,7,7
+1087,50,Research & Development,22,Doctor,1,Male,Research Director,Very High,Single,14411,1,Excellent,32,Better,32,13
+1088,34,Sales,7,College,1,Male,Sales Representative,High,Married,2308,0,Outstanding,12,Better,11,5
+1089,42,Research & Development,2,Bachelor,1,Male,Laboratory Technician,Medium,Married,4841,4,Excellent,4,Better,1,0
+1090,37,Research & Development,13,Bachelor,1,Male,Research Scientist,Very High,Married,4285,1,Excellent,10,Better,10,3
+1091,29,Research & Development,8,Below College,1,Female,Healthcare Representative,Low,Married,9715,3,Excellent,9,Better,7,0
+1092,33,Research & Development,25,Bachelor,1,Male,Manufacturing Director,Medium,Single,4320,1,Excellent,5,Better,5,0
+1093,45,Research & Development,28,Bachelor,1,Male,Research Scientist,Very High,Married,2132,4,Outstanding,8,Better,5,0
+1094,42,Research & Development,2,Bachelor,1,Male,Healthcare Representative,Very High,Married,10124,2,Excellent,24,Bad,20,13
+1095,40,Sales,9,College,1,Male,Sales Executive,Low,Married,5473,0,Excellent,9,Best,8,7
+1096,33,Research & Development,28,Master,1,Male,Laboratory Technician,High,Married,5207,1,Excellent,15,Better,15,5
+1097,40,Human Resources,6,College,1,Male,Manager,Very High,Single,16437,1,Outstanding,21,Better,21,7
+1098,24,Research & Development,21,College,1,Male,Laboratory Technician,Low,Divorced,2296,0,Excellent,2,Better,1,0
+1099,40,Research & Development,8,College,1,Male,Healthcare Representative,Very High,Divorced,4069,3,Excellent,8,Better,2,2
+1100,45,Research & Development,1,Master,1,Male,Healthcare Representative,Medium,Divorced,7441,1,Excellent,10,Better,10,7
+1101,35,Sales,28,Master,1,Female,Sales Representative,High,Married,2430,0,Outstanding,6,Better,5,4
+1102,32,Research & Development,5,College,1,Female,Research Scientist,Medium,Married,5878,3,Excellent,12,Better,7,2
+1103,36,Sales,2,Master,1,Male,Sales Representative,Very High,Single,2644,3,Outstanding,7,Good,3,1
+1104,48,Sales,16,Master,1,Female,Sales Executive,High,Divorced,6439,8,Excellent,18,Better,8,7
+1105,29,Research & Development,9,Bachelor,1,Male,Research Scientist,High,Married,2451,6,Excellent,5,Good,1,0
+1106,33,Sales,8,Master,1,Male,Sales Executive,Low,Married,6392,2,Excellent,8,Bad,2,2
+1107,30,Sales,1,Bachelor,1,Male,Sales Executive,Low,Married,9714,1,Excellent,10,Better,10,6
+1108,38,Human Resources,10,Master,1,Male,Human Resources,High,Married,6077,3,Excellent,10,Better,6,1
+1109,35,Research & Development,1,Bachelor,1,Male,Laboratory Technician,Low,Single,2450,1,Excellent,3,Better,3,1
+1110,30,Sales,29,Master,1,Male,Sales Executive,Medium,Married,9250,3,Excellent,9,Better,4,1
+1111,35,Research & Development,2,Bachelor,1,Female,Laboratory Technician,Low,Divorced,2074,1,Excellent,1,Better,1,0
+1112,53,Research & Development,2,Doctor,1,Female,Manufacturing Director,Very High,Married,10169,0,Excellent,34,Better,33,1
+1113,38,Research & Development,2,Bachelor,1,Male,Manufacturing Director,Medium,Married,4855,4,Excellent,7,Better,5,1
+1114,32,Research & Development,1,Master,1,Male,Research Scientist,Low,Married,4087,4,Excellent,9,Good,6,1
+1115,48,Research & Development,15,Master,1,Female,Research Scientist,Low,Married,2367,8,Excellent,10,Good,8,7
+1116,34,Research & Development,7,Master,1,Male,Research Scientist,Very High,Single,2972,1,Excellent,1,Bad,1,0
+1117,55,Sales,26,Doctor,1,Male,Manager,Very High,Married,19586,1,Outstanding,36,Better,36,2
+1118,34,Research & Development,1,Master,1,Male,Research Scientist,Very High,Married,5484,9,Excellent,9,Good,2,2
+1119,26,Research & Development,3,Bachelor,1,Female,Research Scientist,Very High,Married,2061,1,Outstanding,1,Better,1,0
+1120,38,Sales,14,Bachelor,1,Male,Sales Executive,Medium,Married,9924,0,Excellent,10,Better,9,7
+1121,38,Sales,16,Bachelor,1,Female,Sales Executive,Medium,Single,4198,2,Excellent,8,Best,3,1
+1122,36,Sales,1,Master,1,Female,Sales Executive,High,Single,6815,6,Excellent,15,Better,1,0
+1123,29,Research & Development,3,Below College,1,Male,Laboratory Technician,Low,Single,4723,1,Excellent,10,Better,10,1
+1124,35,Research & Development,10,Master,1,Female,Healthcare Representative,High,Single,6142,3,Excellent,10,Better,5,0
+1125,39,Sales,6,Bachelor,1,Male,Sales Executive,High,Married,8237,2,Excellent,11,Better,7,7
+1126,29,Research & Development,2,Below College,1,Male,Healthcare Representative,Very High,Divorced,8853,1,Excellent,6,Best,6,1
+1127,50,Sales,9,Bachelor,1,Male,Manager,High,Married,19331,4,Excellent,27,Better,1,0
+1128,23,Research & Development,10,Bachelor,1,Male,Research Scientist,High,Married,2073,2,Excellent,4,Better,2,2
+1129,36,Research & Development,6,Master,1,Male,Laboratory Technician,Low,Married,5562,3,Excellent,9,Better,3,0
+1130,42,Research & Development,9,College,1,Male,Manager,Very High,Single,19613,8,Outstanding,24,Better,1,0
+1131,35,Research & Development,28,Bachelor,1,Male,Laboratory Technician,High,Married,3407,1,Excellent,10,Good,10,6
+1132,34,Research & Development,10,Master,1,Male,Healthcare Representative,High,Married,5063,1,Excellent,8,Good,8,7
+1133,40,Sales,14,College,1,Female,Sales Executive,Low,Married,4639,1,Excellent,5,Better,5,1
+1134,43,Research & Development,27,Bachelor,1,Male,Laboratory Technician,Medium,Divorced,4876,5,Excellent,8,Better,6,0
+1135,35,Research & Development,7,College,1,Male,Laboratory Technician,Very High,Married,2690,1,Excellent,1,Good,1,0
+1136,46,Sales,1,Master,1,Male,Manager,Low,Single,17567,1,Excellent,27,Bad,26,0
+1137,28,Research & Development,24,Bachelor,1,Male,Laboratory Technician,Medium,Married,2408,1,Excellent,1,Better,1,0
+1138,22,Research & Development,26,College,1,Female,Research Scientist,High,Married,2814,1,Excellent,4,Good,4,1
+1139,50,Research & Development,20,Doctor,1,Male,Healthcare Representative,High,Married,11245,2,Excellent,32,Better,30,12
+1140,32,Research & Development,5,Master,1,Female,Research Scientist,Very High,Married,3312,3,Excellent,6,Better,3,0
+1141,44,Research & Development,7,Bachelor,1,Female,Research Director,Very High,Divorced,19049,0,Excellent,23,Good,22,1
+1142,30,Research & Development,7,Bachelor,1,Male,Research Scientist,Medium,Married,2141,1,Excellent,6,Good,6,1
+1143,45,Research & Development,5,Doctor,1,Female,Laboratory Technician,Low,Single,5769,1,Excellent,10,Better,10,1
+1144,45,Sales,26,Bachelor,1,Male,Sales Executive,Low,Married,4385,1,Excellent,10,Better,10,4
+1145,31,Sales,2,Master,1,Male,Sales Executive,Low,Single,5332,7,Excellent,10,Better,5,0
+1146,36,Research & Development,12,Master,1,Female,Manufacturing Director,High,Married,4663,9,Excellent,7,Better,3,1
+1147,34,Research & Development,10,Master,1,Male,Manufacturing Director,Very High,Divorced,4724,1,Excellent,9,Better,9,7
+1148,49,Research & Development,25,Master,1,Female,Laboratory Technician,Low,Married,3211,1,Excellent,10,Good,9,1
+1149,39,Research & Development,10,Doctor,1,Male,Manufacturing Director,Low,Married,5377,2,Excellent,10,Better,7,7
+1150,27,Research & Development,19,Bachelor,1,Male,Laboratory Technician,Low,Divorced,4066,1,Excellent,7,Better,7,0
+1151,35,Research & Development,18,Doctor,1,Male,Research Scientist,Low,Married,5208,1,Excellent,16,Better,16,1
+1152,28,Research & Development,27,Bachelor,1,Female,Manufacturing Director,Low,Divorced,4877,0,Outstanding,6,Good,5,0
+1153,21,Research & Development,5,Below College,1,Male,Research Scientist,Very High,Single,3117,1,Excellent,3,Better,2,2
+1154,18,Sales,3,College,1,Female,Sales Representative,Very High,Single,1569,1,Excellent,0,Best,0,0
+1155,47,Human Resources,26,Master,1,Female,Manager,High,Married,19658,3,Excellent,27,Better,5,1
+1156,39,Research & Development,3,College,1,Male,Laboratory Technician,High,Divorced,3069,0,Excellent,11,Better,10,0
+1157,40,Research & Development,15,Bachelor,1,Female,Manufacturing Director,High,Married,10435,1,Excellent,18,Better,18,14
+1158,35,Research & Development,8,Master,1,Female,Healthcare Representative,High,Married,4148,1,Excellent,15,Better,14,2
+1159,37,Research & Development,19,Bachelor,1,Male,Manufacturing Director,High,Married,5768,3,Excellent,9,Good,4,0
+1160,39,Research & Development,4,Bachelor,1,Female,Manufacturing Director,High,Single,5042,0,Excellent,10,Bad,9,3
+1161,45,Research & Development,2,College,1,Female,Manufacturing Director,Very High,Divorced,5770,1,Excellent,10,Better,10,3
+1162,38,Research & Development,2,College,1,Female,Manufacturing Director,High,Married,7756,3,Excellent,10,Best,5,0
+1163,35,Sales,10,Bachelor,1,Male,Sales Executive,Low,Married,10306,9,Excellent,15,Better,13,6
+1164,37,Research & Development,10,Bachelor,1,Female,Research Scientist,Medium,Married,3936,1,Excellent,8,Bad,8,7
+1165,40,Research & Development,16,Bachelor,1,Female,Manufacturing Director,Very High,Single,7945,6,Excellent,18,Good,4,3
+1166,44,Human Resources,1,Doctor,1,Male,Human Resources,Very High,Married,5743,4,Excellent,14,Better,10,0
+1167,48,Research & Development,4,Doctor,1,Male,Manager,Very High,Married,15202,2,Outstanding,23,Better,2,2
+1168,35,Sales,15,College,1,Male,Sales Executive,Very High,Divorced,5440,6,Excellent,7,Good,2,2
+1169,24,Research & Development,2,Below College,1,Female,Research Scientist,Very High,Single,3760,1,Excellent,6,Better,6,1
+1170,27,Research & Development,8,Bachelor,1,Female,Research Scientist,High,Married,3517,7,Excellent,5,Better,3,0
+1171,27,Research & Development,2,Bachelor,1,Male,Research Scientist,Very High,Single,2580,2,Excellent,6,Good,4,1
+1172,40,Research & Development,7,Bachelor,1,Male,Laboratory Technician,Low,Single,2166,3,Excellent,10,Bad,4,0
+1173,29,Sales,10,Bachelor,1,Male,Sales Executive,High,Single,5869,9,Excellent,8,Better,5,1
+1174,36,Research & Development,5,Master,1,Female,Healthcare Representative,Low,Married,8008,4,Excellent,9,Better,3,0
+1175,25,Research & Development,2,Below College,1,Male,Manufacturing Director,High,Divorced,5206,1,Excellent,7,Better,7,0
+1176,39,Research & Development,12,Bachelor,1,Male,Manufacturing Director,Medium,Married,5295,4,Outstanding,7,Better,5,1
+1177,49,Research & Development,22,Master,1,Female,Research Director,Medium,Married,16413,3,Excellent,27,Better,4,1
+1178,50,Research & Development,17,Doctor,1,Female,Research Director,Low,Divorced,13269,5,Excellent,19,Better,14,1
+1179,20,Sales,2,Bachelor,1,Female,Sales Representative,High,Single,2783,1,Excellent,2,Better,2,2
+1180,34,Research & Development,3,Bachelor,1,Female,Research Scientist,Medium,Divorced,5433,1,Excellent,11,Better,11,7
+1181,36,Research & Development,7,Bachelor,1,Male,Laboratory Technician,Medium,Single,2013,2,Excellent,15,Better,4,1
+1182,49,Research & Development,6,Below College,1,Female,Healthcare Representative,High,Married,13966,2,Excellent,30,Better,15,2
+1183,36,Research & Development,1,Master,1,Female,Manufacturing Director,High,Married,4374,0,Excellent,4,Better,3,1
+1184,36,Research & Development,3,College,1,Male,Healthcare Representative,Low,Divorced,6842,6,Outstanding,13,Better,5,0
+1185,54,Research & Development,22,Doctor,1,Female,Manager,High,Married,17426,3,Outstanding,36,Better,10,4
+1186,43,Research & Development,15,College,1,Male,Research Director,High,Married,17603,1,Outstanding,14,Better,14,6
+1187,35,Sales,12,Master,1,Male,Sales Executive,Very High,Single,4581,3,Outstanding,13,Best,11,6
+1188,38,Research & Development,1,Bachelor,1,Male,Research Scientist,Very High,Married,4735,7,Excellent,19,Best,13,2
+1189,29,Sales,5,Bachelor,1,Male,Sales Executive,Medium,Divorced,4187,1,Excellent,10,Good,10,0
+1190,33,Sales,2,Master,1,Male,Sales Executive,Very High,Divorced,5505,1,Excellent,6,Better,6,0
+1191,32,Research & Development,2,Bachelor,1,Male,Research Scientist,Medium,Divorced,5470,0,Excellent,10,Good,9,1
+1192,31,Sales,5,Master,1,Female,Sales Executive,Very High,Married,5476,1,Excellent,10,Better,10,0
+1193,49,Research & Development,16,Bachelor,1,Female,Laboratory Technician,Low,Divorced,2587,4,Excellent,17,Good,2,2
+1194,38,Research & Development,2,Bachelor,1,Female,Laboratory Technician,Medium,Single,2440,1,Outstanding,4,Better,4,3
+1195,47,Sales,2,Master,1,Female,Manager,Medium,Divorced,15972,6,Excellent,29,Better,3,1
+1196,49,Research & Development,1,Bachelor,1,Male,Manager,High,Single,15379,4,Excellent,23,Better,8,0
+1197,41,Sales,23,College,1,Male,Sales Executive,High,Single,7082,3,Excellent,21,Better,2,0
+1198,20,Sales,9,Below College,1,Male,Sales Representative,Low,Single,2728,1,Excellent,2,Better,2,0
+1199,33,Sales,16,Bachelor,1,Female,Sales Executive,Very High,Divorced,5368,1,Outstanding,7,Better,6,1
+1200,36,Research & Development,26,Master,1,Male,Healthcare Representative,High,Married,5347,6,Excellent,10,Good,3,0
+1201,44,Human Resources,1,Bachelor,1,Female,Human Resources,Very High,Divorced,3195,4,Excellent,8,Better,2,2
+1202,23,Research & Development,8,Below College,1,Male,Laboratory Technician,High,Single,3989,1,Excellent,5,Better,5,1
+1203,38,Research & Development,4,College,1,Female,Laboratory Technician,High,Married,3306,7,Excellent,7,Good,0,0
+1204,53,Research & Development,24,Master,1,Male,Healthcare Representative,Very High,Married,7005,3,Excellent,11,Better,4,1
+1205,48,Sales,7,College,1,Female,Sales Representative,High,Married,2655,2,Excellent,19,Better,9,7
+1206,32,Research & Development,2,Master,1,Male,Laboratory Technician,Medium,Single,1393,1,Excellent,1,Better,1,0
+1207,26,Research & Development,7,Bachelor,1,Male,Laboratory Technician,Very High,Single,2570,1,Outstanding,7,Better,7,5
+1208,55,Research & Development,22,Bachelor,1,Male,Research Scientist,Medium,Divorced,3537,5,Excellent,8,Better,4,1
+1209,34,Research & Development,5,College,1,Male,Laboratory Technician,Very High,Married,3986,1,Excellent,15,Best,15,4
+1210,60,Research & Development,1,Master,1,Male,Healthcare Representative,Very High,Divorced,10883,3,Outstanding,19,Best,1,0
+1211,33,Research & Development,21,Bachelor,1,Male,Laboratory Technician,Medium,Married,2028,1,Excellent,14,Better,14,2
+1212,37,Sales,1,Master,1,Male,Sales Executive,Very High,Divorced,9525,1,Excellent,6,Good,6,1
+1213,34,Research & Development,19,Bachelor,1,Female,Research Scientist,Very High,Married,2929,1,Excellent,10,Better,10,8
+1214,23,Sales,7,Bachelor,1,Male,Sales Representative,Very High,Divorced,2275,1,Outstanding,3,Better,3,0
+1215,44,Research & Development,2,Bachelor,1,Female,Healthcare Representative,Very High,Married,7879,1,Excellent,9,Better,8,6
+1216,35,Research & Development,2,Master,1,Male,Research Scientist,Very High,Single,4930,0,Excellent,6,Best,5,1
+1217,43,Sales,2,Bachelor,1,Male,Sales Executive,Very High,Married,7847,1,Excellent,10,Better,10,8
+1218,24,Research & Development,9,Bachelor,1,Male,Research Scientist,High,Married,4401,1,Excellent,5,Better,5,0
+1219,41,Sales,6,Bachelor,1,Male,Sales Executive,High,Single,9241,1,Excellent,10,Better,10,8
+1220,29,Research & Development,9,Master,1,Female,Laboratory Technician,High,Married,2974,9,Excellent,9,Better,5,1
+1221,36,Sales,2,Master,1,Female,Sales Representative,Very High,Single,4502,3,Excellent,17,Good,13,6
+1222,45,Research & Development,1,Below College,1,Male,Healthcare Representative,High,Married,10748,3,Outstanding,25,Good,23,14
+1223,24,Human Resources,22,Below College,1,Male,Human Resources,High,Married,1555,1,Excellent,1,Better,1,0
+1224,47,Sales,9,Bachelor,1,Male,Sales Executive,High,Married,12936,7,Excellent,25,Bad,23,14
+1225,26,Research & Development,17,Master,1,Male,Laboratory Technician,High,Married,2305,1,Excellent,3,Best,3,0
+1226,45,Research & Development,28,College,1,Female,Research Director,Medium,Single,16704,1,Excellent,21,Better,21,8
+1227,32,Research & Development,10,Bachelor,1,Male,Research Scientist,High,Married,3433,6,Excellent,10,Good,5,1
+1228,31,Research & Development,2,Master,1,Male,Laboratory Technician,High,Married,3477,1,Excellent,6,Best,5,0
+1229,41,Human Resources,4,Bachelor,1,Male,Human Resources,Medium,Married,6430,6,Excellent,10,Better,3,1
+1230,40,Research & Development,8,College,1,Female,Manufacturing Director,Low,Married,6516,2,Excellent,18,Better,1,0
+1231,24,Research & Development,29,Below College,1,Male,Laboratory Technician,Low,Divorced,3907,1,Excellent,6,Best,6,1
+1232,46,Research & Development,13,Master,1,Male,Healthcare Representative,Medium,Single,5562,6,Excellent,19,Better,10,0
+1233,35,Research & Development,27,Master,1,Male,Manufacturing Director,High,Married,6883,2,Excellent,17,Better,7,0
+1234,30,Research & Development,16,Below College,1,Male,Research Scientist,Very High,Married,2862,1,Excellent,10,Good,10,0
+1235,47,Sales,2,Master,1,Male,Sales Executive,Medium,Married,4978,7,Excellent,4,Bad,1,0
+1236,46,Sales,2,Bachelor,1,Male,Sales Executive,Very High,Divorced,10368,4,Excellent,13,Good,10,0
+1237,36,Sales,13,Doctor,1,Male,Sales Executive,Low,Divorced,6134,5,Excellent,16,Better,2,2
+1238,32,Sales,1,College,1,Male,Sales Executive,Medium,Single,6735,6,Excellent,10,Better,0,0
+1239,23,Research & Development,4,Below College,1,Female,Laboratory Technician,Medium,Single,3295,1,Excellent,3,Bad,3,1
+1240,31,Research & Development,24,Below College,1,Female,Manufacturing Director,Very High,Single,5238,2,Outstanding,9,Good,5,1
+1241,39,Research & Development,1,Bachelor,1,Male,Laboratory Technician,Very High,Married,6472,1,Excellent,9,Better,9,5
+1242,32,Sales,19,Bachelor,1,Male,Sales Executive,High,Married,9610,3,Excellent,10,Bad,4,0
+1243,40,Sales,7,Master,1,Male,Manager,Medium,Single,19833,1,Excellent,21,Good,21,12
+1244,45,Human Resources,4,Bachelor,1,Female,Human Resources,High,Married,9756,4,Outstanding,9,Best,5,0
+1245,30,Research & Development,2,Master,1,Female,Research Scientist,Low,Single,4968,0,Excellent,10,Better,9,0
+1246,24,Human Resources,10,Bachelor,1,Male,Human Resources,Very High,Married,2145,0,Excellent,3,Better,2,2
+1247,30,Human Resources,8,Bachelor,1,Female,Human Resources,Very High,Divorced,2180,6,Excellent,6,Good,4,1
+1248,31,Sales,5,Bachelor,1,Male,Sales Executive,High,Married,8346,1,Excellent,6,Better,5,0
+1249,27,Research & Development,8,Bachelor,1,Female,Research Scientist,Very High,Single,3445,1,Excellent,6,Good,6,1
+1250,29,Sales,9,Bachelor,1,Female,Sales Representative,Medium,Single,2760,1,Excellent,2,Better,2,2
+1251,29,Research & Development,1,Bachelor,1,Male,Healthcare Representative,High,Single,6294,8,Excellent,10,Best,3,0
+1252,30,Sales,15,College,1,Male,Sales Executive,Low,Divorced,7140,2,Excellent,12,Better,7,1
+1253,34,Research & Development,2,Master,1,Male,Research Scientist,Very High,Married,2932,0,Excellent,6,Better,5,1
+1254,33,Sales,2,Bachelor,1,Female,Sales Executive,Medium,Single,5147,8,Excellent,13,Good,11,1
+1255,49,Sales,11,Master,1,Female,Sales Executive,Very High,Single,4507,3,Excellent,8,Best,5,0
+1256,33,Sales,16,Bachelor,1,Female,Sales Executive,Low,Single,8564,2,Outstanding,11,Good,0,0
+1257,38,Research & Development,2,College,1,Female,Laboratory Technician,Medium,Married,2468,4,Excellent,9,Good,6,0
+1258,31,Sales,16,Master,1,Male,Sales Executive,High,Married,8161,2,Excellent,10,Better,1,0
+1259,29,Research & Development,4,Bachelor,1,Female,Research Scientist,Low,Divorced,2109,1,Excellent,1,Better,1,0
+1260,30,Research & Development,16,Bachelor,1,Male,Healthcare Representative,High,Married,5294,3,Excellent,10,Better,7,1
+1261,32,Research & Development,5,Master,1,Male,Research Scientist,Medium,Single,2718,2,Excellent,12,Better,7,0
+1262,38,Research & Development,18,Bachelor,1,Male,Healthcare Representative,Very High,Married,5811,3,Excellent,15,Better,1,1
+1263,43,Research & Development,17,Bachelor,1,Male,Research Scientist,High,Married,2437,9,Excellent,6,Better,1,0
+1264,42,Research & Development,12,Bachelor,1,Male,Laboratory Technician,Medium,Divorced,2766,8,Outstanding,7,Good,5,0
+1265,55,Research & Development,2,Bachelor,1,Male,Research Director,Low,Married,19038,8,Excellent,34,Better,1,0
+1266,33,Research & Development,4,Bachelor,1,Male,Research Scientist,Medium,Divorced,3055,5,Excellent,11,Good,9,1
+1267,41,Research & Development,9,Master,1,Male,Laboratory Technician,Low,Divorced,2289,1,Outstanding,5,Better,5,0
+1268,34,Sales,10,Bachelor,1,Male,Sales Executive,High,Divorced,4001,1,Excellent,15,Better,15,0
+1269,53,Research & Development,1,Master,1,Female,Manufacturing Director,High,Married,12965,4,Outstanding,27,Good,3,0
+1270,43,Human Resources,2,Bachelor,1,Male,Human Resources,Very High,Single,3539,0,Excellent,10,Better,9,1
+1271,34,Sales,3,College,1,Female,Sales Executive,Very High,Single,6029,5,Excellent,6,Better,2,2
+1272,21,Sales,7,Below College,1,Male,Sales Representative,Medium,Single,2679,1,Excellent,1,Better,1,1
+1273,38,Research & Development,6,College,1,Female,Laboratory Technician,High,Married,3702,1,Excellent,5,Better,5,0
+1274,22,Research & Development,8,Below College,1,Female,Laboratory Technician,Low,Married,2398,1,Excellent,1,Better,1,0
+1275,31,Sales,29,Master,1,Female,Sales Executive,Very High,Married,5468,1,Excellent,13,Better,12,5
+1276,51,Research & Development,3,Bachelor,1,Female,Manager,High,Married,13116,2,Excellent,15,Better,2,2
+1277,37,Sales,9,College,1,Male,Sales Executive,Medium,Married,4189,1,Excellent,5,Better,5,0
+1278,46,Research & Development,2,Master,1,Male,Research Director,Very High,Divorced,19328,7,Excellent,24,Better,2,2
+1279,36,Research & Development,10,Bachelor,1,Male,Healthcare Representative,Low,Married,8321,7,Excellent,15,Better,12,5
+1280,44,Research & Development,1,College,1,Male,Research Scientist,Medium,Divorced,2342,1,Excellent,6,Good,5,2
+1281,37,Human Resources,8,College,1,Male,Human Resources,Medium,Divorced,4071,2,Excellent,19,Good,10,4
+1282,35,Sales,27,Bachelor,1,Male,Sales Executive,Very High,Single,5813,1,Excellent,10,Better,10,7
+1283,33,Research & Development,8,Master,1,Male,Research Scientist,Low,Married,3143,6,Excellent,14,Better,10,7
+1284,28,Research & Development,1,Bachelor,1,Male,Research Scientist,Very High,Married,2044,1,Excellent,5,Best,5,0
+1285,39,Research & Development,10,Below College,1,Male,Research Director,High,Single,13464,7,Outstanding,9,Better,4,2
+1286,46,Sales,26,College,1,Male,Sales Executive,Medium,Single,7991,8,Excellent,6,Better,2,2
+1287,40,Research & Development,2,College,1,Female,Laboratory Technician,Low,Married,3377,4,Excellent,7,Good,4,0
+1288,42,Research & Development,13,Bachelor,1,Male,Healthcare Representative,Low,Married,5538,5,Excellent,10,Good,0,0
+1289,35,Research & Development,2,College,1,Male,Manufacturing Director,Very High,Divorced,5762,2,Excellent,15,Better,7,1
+1290,38,Human Resources,2,Bachelor,1,Male,Human Resources,Medium,Divorced,2592,5,Excellent,13,Better,11,3
+1291,34,Research & Development,9,Master,1,Male,Laboratory Technician,Low,Married,5346,4,Excellent,11,Good,7,0
+1292,37,Research & Development,10,Master,1,Male,Manufacturing Director,Low,Single,4213,1,Excellent,10,Bad,10,0
+1293,39,Sales,20,Bachelor,1,Male,Sales Executive,Very High,Divorced,4127,2,Excellent,7,Better,2,2
+1294,43,Research & Development,9,Bachelor,1,Male,Research Scientist,High,Single,2438,4,Excellent,7,Good,3,1
+1295,41,Research & Development,5,Bachelor,1,Male,Healthcare Representative,Medium,Single,6870,3,Excellent,11,Bad,3,1
+1296,41,Sales,4,Below College,1,Female,Sales Executive,High,Divorced,10447,0,Excellent,23,Best,22,13
+1297,30,Research & Development,10,Bachelor,1,Female,Manufacturing Director,High,Single,9667,9,Excellent,9,Better,7,0
+1298,26,Human Resources,20,College,1,Female,Human Resources,Medium,Married,2148,0,Excellent,6,Better,5,1
+1299,46,Research & Development,21,College,1,Female,Healthcare Representative,Medium,Married,8926,4,Outstanding,13,Best,9,3
+1300,40,Research & Development,1,Bachelor,1,Female,Healthcare Representative,Very High,Divorced,6513,4,Excellent,12,Better,5,0
+1301,34,Sales,8,College,1,Male,Sales Executive,High,Married,6799,1,Outstanding,10,Better,10,4
+1302,58,Sales,2,Bachelor,1,Male,Manager,Medium,Divorced,16291,4,Outstanding,37,Good,16,14
+1303,35,Research & Development,23,Master,1,Male,Laboratory Technician,High,Married,2705,0,Excellent,6,Best,5,0
+1304,47,Research & Development,4,Bachelor,1,Female,Manufacturing Director,Medium,Divorced,10333,8,Excellent,28,Better,22,14
+1305,40,Research & Development,12,Bachelor,1,Female,Healthcare Representative,Low,Divorced,4448,2,Excellent,15,Better,7,7
+1306,54,Research & Development,7,Master,1,Female,Research Scientist,Very High,Married,6854,4,Excellent,14,Good,7,1
+1307,31,Sales,7,Master,1,Female,Sales Executive,Low,Married,9637,2,Excellent,9,Better,3,2
+1308,28,Research & Development,1,Bachelor,1,Female,Research Scientist,Low,Married,3591,1,Outstanding,3,Better,3,1
+1309,38,Sales,2,Master,1,Female,Sales Representative,Very High,Married,5405,2,Outstanding,20,Good,4,0
+1310,26,Sales,10,Bachelor,1,Male,Sales Executive,Very High,Single,4684,1,Excellent,5,Better,5,1
+1311,58,Research & Development,15,Master,1,Male,Research Director,High,Married,15787,2,Excellent,23,Better,2,2
+1312,18,Research & Development,14,Bachelor,1,Female,Research Scientist,High,Single,1514,1,Excellent,0,Bad,0,0
+1313,31,Human Resources,18,Doctor,1,Male,Human Resources,Low,Married,2956,0,Excellent,2,Better,1,0
+1314,29,Human Resources,13,Bachelor,1,Male,Human Resources,Low,Divorced,2335,4,Excellent,4,Better,2,2
+1315,45,Sales,2,Master,1,Female,Sales Executive,High,Married,5154,4,Outstanding,10,Best,8,5
+1316,36,Research & Development,2,Master,1,Female,Research Scientist,Medium,Married,6962,4,Outstanding,15,Better,1,0
+1317,43,Sales,2,Master,1,Male,Sales Executive,Very High,Married,5675,1,Outstanding,7,Better,7,7
+1318,27,Research & Development,5,College,1,Female,Laboratory Technician,Very High,Single,2379,0,Excellent,6,Good,5,0
+1319,29,Research & Development,20,Below College,1,Male,Laboratory Technician,Very High,Married,3812,1,Excellent,11,Best,11,3
+1320,32,Sales,10,Master,1,Male,Sales Executive,Very High,Single,4648,8,Excellent,4,Best,0,0
+1321,42,Research & Development,10,Master,1,Male,Research Scientist,High,Married,2936,3,Outstanding,10,Good,6,3
+1322,47,Research & Development,9,Master,1,Female,Laboratory Technician,High,Single,2105,4,Excellent,7,Better,2,2
+1323,46,Research & Development,2,College,1,Male,Manufacturing Director,Very High,Divorced,8578,3,Excellent,12,Good,9,4
+1324,28,Human Resources,1,College,1,Male,Human Resources,Very High,Divorced,2706,1,Excellent,3,Better,3,2
+1325,29,Research & Development,29,Below College,1,Male,Healthcare Representative,High,Divorced,6384,8,Excellent,11,Better,7,1
+1326,42,Research & Development,8,Bachelor,1,Male,Laboratory Technician,High,Single,3968,4,Excellent,8,Better,0,0
+1327,32,Sales,2,Master,1,Male,Sales Executive,Medium,Single,9907,7,Excellent,7,Good,2,2
+1328,46,Sales,3,Bachelor,1,Female,Sales Executive,Low,Divorced,13225,2,Excellent,25,Better,19,2
+1329,27,Sales,23,Below College,1,Female,Sales Representative,High,Married,3540,1,Outstanding,9,Better,9,5
+1330,29,Human Resources,6,Below College,1,Male,Human Resources,Medium,Married,2804,1,Excellent,1,Better,1,0
+1331,43,Research & Development,6,Bachelor,1,Female,Manager,High,Married,19392,7,Excellent,21,Better,16,6
+1332,48,Research & Development,10,Bachelor,1,Male,Research Director,Medium,Married,19665,4,Excellent,29,Better,22,12
+1333,29,Research & Development,24,College,1,Male,Research Scientist,Very High,Single,2439,1,Outstanding,1,Good,1,1
+1334,46,Sales,10,Bachelor,1,Female,Sales Executive,Medium,Married,7314,5,Outstanding,14,Better,8,0
+1335,27,Research & Development,15,Bachelor,1,Female,Research Scientist,Low,Married,4774,0,Excellent,8,Good,7,7
+1336,39,Research & Development,19,Master,1,Male,Research Scientist,Very High,Divorced,3902,8,Excellent,7,Better,2,2
+1337,55,Research & Development,2,Master,1,Male,Research Scientist,Very High,Married,2662,8,Outstanding,19,Best,5,0
+1338,28,Sales,3,Bachelor,1,Female,Sales Representative,Medium,Married,2856,1,Excellent,1,Better,1,0
+1339,30,Sales,9,Bachelor,1,Male,Sales Representative,Very High,Single,1081,1,Excellent,1,Good,1,0
+1340,22,Research & Development,7,Below College,1,Male,Research Scientist,Medium,Single,2472,1,Outstanding,1,Better,1,0
+1341,36,Sales,10,Master,1,Female,Sales Executive,High,Married,5673,1,Excellent,10,Better,10,1
+1342,31,Research & Development,20,Bachelor,1,Male,Laboratory Technician,High,Divorced,4197,1,Excellent,10,Better,10,0
+1343,34,Sales,4,Bachelor,1,Male,Sales Executive,Very High,Married,9713,2,Excellent,9,Better,5,1
+1344,29,Research & Development,7,Bachelor,1,Male,Laboratory Technician,Low,Single,2062,3,Excellent,11,Better,3,1
+1345,37,Research & Development,7,Master,1,Male,Research Scientist,Low,Married,4284,5,Outstanding,16,Better,5,0
+1346,35,Research & Development,16,College,1,Female,Manufacturing Director,Medium,Married,4788,0,Excellent,4,Better,3,0
+1347,45,Research & Development,25,College,1,Female,Manufacturing Director,Very High,Married,5906,0,Excellent,10,Good,9,3
+1348,36,Human Resources,2,Below College,1,Male,Human Resources,Very High,Single,3886,1,Outstanding,10,Good,10,0
+1349,40,Research & Development,1,Master,1,Male,Manager,Low,Divorced,16823,2,Excellent,22,Better,19,11
+1350,26,Research & Development,1,College,1,Female,Research Scientist,High,Married,2933,1,Excellent,1,Good,1,1
+1351,27,Sales,2,College,1,Female,Sales Executive,High,Single,6500,0,Excellent,9,Good,8,0
+1352,48,Research & Development,22,Bachelor,1,Female,Manager,Very High,Divorced,17174,3,Excellent,24,Better,22,4
+1353,44,Research & Development,1,Master,1,Male,Healthcare Representative,Low,Married,5033,2,Excellent,10,Better,2,2
+1354,34,Research & Development,16,Master,1,Male,Research Scientist,Low,Married,2307,1,Outstanding,5,Better,5,3
+1355,56,Research & Development,24,College,1,Male,Laboratory Technician,Very High,Single,2587,1,Excellent,5,Better,4,1
+1356,36,Sales,17,College,1,Male,Sales Executive,Medium,Married,5507,2,Excellent,12,Bad,4,1
+1357,41,Sales,8,Bachelor,1,Female,Sales Executive,Medium,Married,4393,5,Outstanding,14,Better,5,1
+1358,42,Research & Development,6,Bachelor,1,Male,Research Director,Low,Married,13348,9,Excellent,18,Best,13,5
+1359,31,Sales,10,College,1,Female,Sales Executive,Very High,Divorced,6583,2,Excellent,8,Better,5,1
+1360,34,Sales,3,Below College,1,Female,Sales Executive,Very High,Married,8103,3,Excellent,9,Good,4,0
+1361,31,Research & Development,4,Bachelor,1,Female,Laboratory Technician,High,Divorced,3978,8,Excellent,4,Good,2,2
+1362,26,Research & Development,6,Bachelor,1,Male,Laboratory Technician,Very High,Married,2544,0,Excellent,8,Better,7,7
+1363,45,Research & Development,1,Master,1,Male,Healthcare Representative,High,Single,5399,4,Excellent,12,Better,4,0
+1364,33,Sales,10,Master,1,Male,Sales Executive,High,Single,5487,1,Excellent,10,Good,10,0
+1365,28,Sales,1,College,1,Male,Sales Executive,Very High,Married,6834,1,Excellent,7,Better,7,0
+1366,29,Sales,24,Bachelor,1,Male,Sales Representative,Low,Single,1091,1,Excellent,1,Better,1,0
+1367,39,Sales,21,Master,1,Female,Sales Executive,High,Married,5736,6,Excellent,10,Better,3,1
+1368,27,Research & Development,2,Master,1,Male,Research Scientist,Medium,Married,2226,1,Excellent,6,Good,5,1
+1369,34,Research & Development,22,Master,1,Male,Research Scientist,Very High,Married,5747,1,Excellent,16,Better,15,6
+1370,28,Sales,13,College,1,Female,Sales Executive,High,Single,9854,3,Excellent,6,Better,2,2
+1371,47,Research & Development,14,Master,1,Male,Research Scientist,Medium,Married,5467,8,Excellent,16,Best,8,1
+1372,56,Sales,11,Doctor,1,Female,Sales Executive,Low,Married,5380,4,Excellent,6,Better,0,0
+1373,39,Research & Development,9,College,1,Male,Manufacturing Director,Low,Married,5151,1,Outstanding,10,Better,10,7
+1374,38,Research & Development,8,Bachelor,1,Female,Research Scientist,Medium,Divorced,2133,1,Excellent,20,Better,20,0
+1375,58,Sales,21,Bachelor,1,Female,Manager,Very High,Married,17875,4,Excellent,29,Good,1,0
+1376,32,Research & Development,5,College,1,Female,Research Scientist,High,Single,2432,3,Excellent,8,Better,4,0
+1377,38,Research & Development,9,College,1,Male,Research Scientist,Very High,Divorced,4771,2,Excellent,10,Best,5,0
+1378,49,Research & Development,2,Below College,1,Male,Research Director,Very High,Married,19161,3,Excellent,28,Better,5,4
+1379,42,Sales,12,Master,1,Male,Sales Executive,Very High,Divorced,5087,3,Excellent,14,Better,0,0
+1380,27,Human Resources,22,Bachelor,1,Female,Human Resources,Medium,Married,2863,1,Excellent,1,Better,1,0
+1381,35,Sales,18,Master,1,Male,Sales Executive,Low,Married,5561,0,Excellent,6,Bad,5,0
+1382,28,Research & Development,16,Bachelor,1,Male,Research Scientist,High,Single,2144,1,Excellent,5,Good,5,1
+1383,31,Research & Development,3,College,1,Male,Research Scientist,Low,Divorced,3065,1,Excellent,4,Best,4,2
+1384,36,Research & Development,9,Master,1,Male,Laboratory Technician,Medium,Married,2810,1,Outstanding,5,Better,5,0
+1385,34,Sales,1,Bachelor,1,Male,Sales Executive,Very High,Single,9888,1,Outstanding,14,Good,14,2
+1386,34,Sales,13,Master,1,Male,Sales Executive,High,Divorced,8628,1,Excellent,9,Good,8,1
+1387,26,Research & Development,1,Bachelor,1,Male,Laboratory Technician,Low,Single,2867,0,Excellent,8,Good,7,7
+1388,29,Research & Development,1,Bachelor,1,Male,Healthcare Representative,Low,Married,5373,0,Excellent,6,Good,5,0
+1389,32,Research & Development,15,Master,1,Female,Healthcare Representative,Very High,Divorced,6667,5,Excellent,9,Better,5,1
+1390,31,Research & Development,1,Bachelor,1,Male,Research Scientist,Low,Married,5003,1,Outstanding,10,Better,10,8
+1391,28,Research & Development,17,Bachelor,1,Male,Laboratory Technician,Very High,Divorced,2367,5,Excellent,6,Good,4,0
+1392,38,Sales,1,Bachelor,1,Male,Sales Representative,Low,Single,2858,4,Excellent,20,Good,1,0
+1393,35,Sales,7,Master,1,Female,Sales Executive,Very High,Married,5204,1,Excellent,10,Better,10,0
+1394,27,Sales,9,Bachelor,1,Male,Sales Executive,Very High,Single,4105,1,Excellent,7,Better,7,0
+1395,32,Research & Development,5,Master,1,Male,Manufacturing Director,Very High,Single,9679,8,Outstanding,8,Better,1,0
+1396,31,Sales,26,Master,1,Male,Sales Executive,Very High,Married,5617,1,Excellent,10,Better,10,0
+1397,53,Sales,24,Master,1,Male,Sales Executive,Low,Single,10448,6,Excellent,15,Good,2,2
+1398,54,Research & Development,9,College,1,Female,Research Scientist,High,Married,2897,3,Excellent,9,Good,4,2
+1399,33,Research & Development,7,College,1,Male,Healthcare Representative,High,Divorced,5968,1,Outstanding,9,Better,9,2
+1400,43,Research & Development,11,Bachelor,1,Male,Healthcare Representative,High,Married,7510,1,Excellent,10,Better,10,0
+1401,38,Human Resources,1,Master,1,Male,Human Resources,Medium,Married,2991,0,Excellent,7,Better,6,1
+1402,55,Human Resources,26,Master,1,Male,Manager,Medium,Married,19636,4,Excellent,35,Better,10,1
+1403,31,Research & Development,2,Below College,1,Female,Laboratory Technician,Very High,Divorced,1129,1,Excellent,1,Better,1,0
+1404,39,Sales,15,Master,1,Male,Sales Executive,Low,Single,13341,0,Excellent,21,Better,20,11
+1405,42,Research & Development,23,College,1,Male,Research Scientist,High,Single,4332,1,Excellent,20,Better,20,3
+1406,31,Research & Development,10,Bachelor,1,Female,Research Director,High,Married,11031,4,Outstanding,13,Best,11,4
+1407,54,Research & Development,10,Bachelor,1,Female,Manufacturing Director,Low,Single,4440,6,Excellent,9,Better,5,1
+1408,24,Research & Development,1,College,1,Male,Healthcare Representative,High,Single,4617,1,Excellent,4,Good,4,1
+1409,23,Research & Development,12,College,1,Male,Laboratory Technician,Very High,Single,2647,1,Excellent,5,Best,5,1
+1410,40,Research & Development,11,Bachelor,1,Female,Laboratory Technician,High,Married,6323,1,Excellent,10,Best,10,9
+1411,40,Sales,2,College,1,Female,Sales Executive,Medium,Married,5677,3,Excellent,15,Better,11,5
+1412,25,Human Resources,2,Bachelor,1,Female,Human Resources,Medium,Married,2187,4,Excellent,6,Better,2,1
+1413,30,Research & Development,1,College,1,Male,Laboratory Technician,Medium,Married,3748,1,Excellent,12,Good,12,1
+1414,25,Research & Development,2,Below College,1,Male,Laboratory Technician,High,Divorced,3977,6,Excellent,7,Good,2,0
+1415,47,Research & Development,25,Bachelor,1,Male,Healthcare Representative,High,Single,8633,2,Outstanding,25,Better,17,12
+1416,33,Research & Development,1,College,1,Male,Laboratory Technician,High,Divorced,2008,1,Excellent,1,Good,1,0
+1417,38,Sales,1,Master,1,Male,Sales Executive,Medium,Married,4440,0,Excellent,16,Better,15,5
+1418,31,Sales,2,College,1,Male,Sales Representative,High,Married,3067,0,Excellent,3,Better,2,1
+1419,38,Research & Development,6,Master,1,Male,Manufacturing Director,High,Married,5321,2,Excellent,10,Better,8,7
+1420,42,Research & Development,18,Master,1,Male,Research Scientist,Low,Divorced,5410,6,Excellent,9,Good,4,1
+1421,41,Research & Development,1,Bachelor,1,Male,Research Scientist,Very High,Married,2782,3,Outstanding,12,Better,5,1
+1422,47,Research & Development,1,Below College,1,Female,Research Director,Medium,Married,11957,0,Excellent,14,Bad,13,5
+1423,35,Research & Development,11,Master,1,Male,Laboratory Technician,High,Married,2660,7,Excellent,5,Better,2,2
+1424,22,Research & Development,1,College,1,Male,Research Scientist,High,Single,3375,0,Excellent,4,Best,3,1
+1425,35,Research & Development,9,Master,1,Male,Research Scientist,High,Single,5098,1,Excellent,10,Better,10,0
+1426,33,Research & Development,15,College,1,Female,Healthcare Representative,Very High,Married,4878,0,Excellent,10,Better,9,8
+1427,32,Research & Development,29,Master,1,Female,Laboratory Technician,Medium,Single,2837,1,Excellent,6,Better,6,4
+1428,40,Research & Development,1,Master,1,Male,Laboratory Technician,Very High,Married,2406,8,Excellent,8,Good,1,0
+1429,32,Sales,1,Master,1,Male,Sales Representative,Medium,Married,2269,0,Excellent,3,Better,2,2
+1430,39,Research & Development,24,Below College,1,Male,Research Scientist,Very High,Single,4108,7,Excellent,18,Better,7,1
+1431,38,Research & Development,10,Bachelor,1,Female,Research Director,High,Married,13206,3,Excellent,20,Better,18,1
+1432,32,Sales,1,Master,1,Female,Sales Executive,Very High,Married,10422,1,Excellent,14,Better,14,5
+1433,37,Research & Development,10,Bachelor,1,Female,Research Director,Very High,Married,13744,1,Outstanding,16,Better,16,6
+1434,25,Sales,8,College,1,Female,Sales Executive,High,Divorced,4907,0,Outstanding,6,Good,5,0
+1435,52,Sales,29,Master,1,Male,Sales Representative,Very High,Divorced,3482,2,Excellent,16,Good,9,0
+1436,44,Research & Development,1,Bachelor,1,Male,Research Scientist,Very High,Single,2436,6,Excellent,6,Better,4,1
+1437,21,Sales,5,Below College,1,Male,Sales Representative,Low,Single,2380,1,Excellent,2,Better,2,1
+1438,39,Research & Development,9,Bachelor,1,Male,Manager,Very High,Single,19431,2,Excellent,21,Good,6,1
+1439,23,Sales,9,Bachelor,1,Male,Sales Representative,Low,Married,1790,1,Excellent,1,Good,1,1
+1440,36,Sales,3,Bachelor,1,Female,Sales Executive,Very High,Married,7644,0,Excellent,10,Better,9,3
+1441,36,Research & Development,4,College,1,Female,Manufacturing Director,Medium,Divorced,5131,7,Excellent,18,Better,4,0
+1442,56,Research & Development,1,Master,1,Male,Healthcare Representative,High,Divorced,6306,1,Outstanding,13,Good,13,1
+1443,29,Research & Development,1,Master,1,Male,Research Scientist,Very High,Married,4787,9,Excellent,4,Best,2,2
+1444,42,Research & Development,2,Bachelor,1,Male,Manager,High,Married,18880,5,Excellent,24,Good,22,4
+1445,56,Research & Development,7,College,1,Male,Laboratory Technician,High,Married,2339,8,Excellent,14,Bad,10,9
+1446,41,Research & Development,28,Master,1,Female,Manufacturing Director,Medium,Married,13570,0,Outstanding,21,Better,20,0
+1447,34,Sales,28,Bachelor,1,Female,Sales Executive,High,Married,6712,1,Outstanding,8,Better,8,1
+1448,36,Sales,15,Master,1,Male,Sales Executive,Very High,Divorced,5406,1,Outstanding,15,Good,15,11
+1449,41,Sales,3,Bachelor,1,Male,Sales Executive,Medium,Divorced,8938,2,Excellent,14,Better,5,0
+1450,32,Research & Development,2,Bachelor,1,Male,Research Scientist,Low,Single,2439,1,Excellent,4,Better,4,1
+1451,35,Human Resources,26,Master,1,Female,Human Resources,Very High,Single,8837,1,Excellent,9,Better,9,1
+1452,38,Sales,10,College,1,Female,Sales Executive,Very High,Married,5343,1,Excellent,10,Better,10,1
+1453,50,Sales,1,Master,1,Male,Sales Executive,High,Divorced,6728,7,Excellent,12,Better,6,0
+1454,36,Sales,11,Master,1,Female,Sales Executive,Very High,Married,6652,4,Excellent,8,Good,6,0
+1455,45,Sales,20,Bachelor,1,Female,Sales Executive,High,Single,4850,8,Excellent,8,Better,5,0
+1456,40,Research & Development,2,Master,1,Male,Research Scientist,High,Single,2809,2,Excellent,8,Better,2,2
+1457,35,Research & Development,18,Master,1,Male,Healthcare Representative,High,Married,5689,1,Excellent,10,Best,10,0
+1458,40,Research & Development,2,Master,1,Female,Research Scientist,High,Married,2001,2,Excellent,20,Better,5,0
+1459,35,Research & Development,1,Master,1,Female,Research Scientist,Very High,Married,2977,1,Excellent,4,Better,4,1
+1460,29,Research & Development,13,College,1,Male,Laboratory Technician,Medium,Married,4025,4,Excellent,10,Better,4,0
+1461,29,Research & Development,28,Master,1,Female,Research Scientist,Low,Single,3785,1,Excellent,5,Bad,5,0
+1462,50,Sales,28,Bachelor,1,Male,Sales Executive,Low,Divorced,10854,4,Excellent,20,Better,3,2
+1463,39,Sales,24,Below College,1,Female,Sales Executive,Very High,Married,12031,0,Excellent,21,Good,20,9
+1464,31,Research & Development,5,Bachelor,1,Male,Manufacturing Director,Low,Single,9936,0,Excellent,10,Better,9,1
+1465,26,Sales,5,Bachelor,1,Female,Sales Representative,High,Single,2966,0,Excellent,5,Better,4,0
+1466,36,Research & Development,23,College,1,Male,Laboratory Technician,Very High,Married,2571,4,Excellent,17,Better,5,0
+1467,39,Research & Development,6,Below College,1,Male,Healthcare Representative,Low,Married,9991,4,Excellent,9,Better,7,1
+1468,27,Research & Development,4,Bachelor,1,Male,Manufacturing Director,Medium,Married,6142,1,Outstanding,6,Better,6,0
+1469,49,Sales,2,Bachelor,1,Male,Sales Executive,Medium,Married,5390,2,Excellent,17,Good,9,0
+1470,34,Research & Development,8,Bachelor,1,Male,Laboratory Technician,High,Married,4404,2,Excellent,6,Best,4,1
