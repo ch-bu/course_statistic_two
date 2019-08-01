@@ -734,3 +734,273 @@ Folgendes passiert in diesem Beispiel: Wir geben uns den Output unseres Datensat
 
 ### Was ist tidyverse?
 
+Tidyverse ist eine Vielzahl an Paketen, welche vor allem von [Hadley Wickam](http://hadley.nz/) entwickelt wurde. Hadley Wickam ist der Chief Data Scientist bei R-Studio und hat sich zur Aufgabe gemacht, die Analyse von Daten in R zu vereinfachen. Alle Pakete haben eine einheitliche Philosophie und arbeiten sehr gut miteinander. Hierdurch kannst du sehr schnell Daten analysieren und verarbeiten. 
+
+Hier ein kurzes Beispiel, welches du am Ende dieser Einheit verstehen wirst:
+
+```R
+human_resources %>% 
+  filter(gender == "Female") %>% 
+  arrange(desc(monthly_income)) %>% 
+  select(id, age, monthly_income, job_satisfaction) %>% 
+  head
+```
+
+```
+# A tibble: 6 x 4
+     id   age monthly_income job_satisfaction
+  <dbl> <dbl>          <dbl> <chr>           
+1   747    41          19973 High            
+2   852    56          19943 Low             
+3   166    50          19926 Medium          
+4   750    52          19845 Very High       
+5  1010    58          19701 Low             
+6  1155    47          19658 High   
+```
+
+Hier haben wir folgendes gemacht: Zunächst haben wir den Datensatz gefiltert, so dass nur Frauen im Datensatz sind. Danach haben wir alle Frauen nach ihrem monatlichen Einkommen absteigend sortiert. Im Anschluss haben wir ein paar Variablen aus dem Datensatz entnommen und nur die ersten Werte dieses Datensatzes angezeigt.
+
+Du siehst, dass die Vokabeln der Funktion genau das tun, was wir uns ausdenken. Du siehst auch, dass wir viel Gebrauch vom Pipe-Operator machen, um die Daten zu analysieren. 
+
+tidyverse umfasst unter anderem folgende Pakete:
+
+* [ggplot2](https://ggplot2.tidyverse.org/): ggplot2 dient der Visualisierung von Daten.
+* [dplyr](https://dplyr.tidyverse.org/): Mit Hilfe von dplyr können wir Daten umstrukturieren.
+* [tidyr](https://tidyr.tidyverse.org/): Mit Hilfe von tidyr können wir Daten bereinigen. 
+
+
+Gehen wir als nächstes die grundlegenden Funktionen durch.
+
+### Count
+
+Mit Hilfe von [count](https://dplyr.tidyverse.org/reference/tally.html) können wir das Aufkommen von nominalskalierten Daten zählen. Beispielsweise: Wie viele Frauen und Männer sind im Datensatz? 
+
+```R
+human_resources %>% 
+  count(gender)
+```
+
+```
+# A tibble: 2 x 2
+  gender     n
+  <chr>  <int>
+1 Female   588
+2 Male     882
+```
+
+Oder: Wie viele Frauen und Männer sind in der jeweiligen Abteilung? 
+
+```R
+human_resources %>% 
+  count(gender, department)
+```
+
+```
+# A tibble: 6 x 3
+  gender department                 n
+  <chr>  <chr>                  <int>
+1 Female Human Resources           20
+2 Female Research & Development   379
+3 Female Sales                    189
+4 Male   Human Resources           43
+5 Male   Research & Development   582
+6 Male   Sales                    257
+```
+
+Oder: Wie werden die Mitarbeiter von ihren Vorgesetzten bewertet? 
+
+```R
+human_resources %>% 
+  count(performance_rating)
+```
+
+```
+# A tibble: 2 x 2
+  performance_rating     n
+  <chr>              <int>
+1 Excellent           1244
+2 Outstanding          226
+```
+
+### arrange
+
+Mit der [arrange Funktion](https://dplyr.tidyverse.org/reference/arrange.html) können wir Daten sortieren. Die Funktion ähnelt der Sortierungsfunktion bei Excel:
+
+![](excel_sortieren.PNG)
+
+Bei Excel weiß man nur nicht immer so recht, was *Markierung erweitern* bedeutet und ob die Sortierung auch geklappt hat. Das gleiche funktioniert durch die `arrange` Funktion folgendermaßen:
+
+```R
+human_resources %>% 
+  arrange(age)
+```
+
+```
+# A tibble: 1,470 x 17
+      id   age department distance_from_h~ education employee_count gender job_role job_satisfaction
+   <dbl> <dbl> <chr>                 <dbl> <chr>              <dbl> <chr>  <chr>    <chr>           
+ 1   297    18 Research ~                3 Bachelor               1 Male   Laborat~ High            
+ 2   302    18 Sales                    10 Bachelor               1 Female Sales R~ High            
+ 3   458    18 Sales                     5 Bachelor               1 Male   Sales R~ Medium          
+ 4   728    18 Research ~                5 College                1 Male   Researc~ Very High       
+ 5   829    18 Research ~                8 Below Co~              1 Male   Laborat~ High            
+ 6   973    18 Research ~                1 Bachelor               1 Female Laborat~ Very High       
+ 7  1154    18 Sales                     3 College                1 Female Sales R~ Very High       
+ 8  1312    18 Research ~               14 Bachelor               1 Female Researc~ High            
+ 9   128    19 Sales                    22 Below Co~              1 Male   Sales R~ High            
+10   150    19 Research ~                3 Below Co~              1 Female Laborat~ Medium          
+# ... with 1,460 more rows, and 8 more variables: marital_status <chr>, monthly_income <dbl>,
+#   num_companies_worked <dbl>, performance_rating <chr>, total_working_years <dbl>, work_life_balance <chr>,
+#   years_at_company <dbl>, years_since_last_promotion <dbl>
+```
+
+In diesem Fall sind die Werte von klein nach groß angeordnet. Wir können dies umdrehen, indem wir den Variablennamen in die Funktion `desc` packen:
+
+```R
+human_resources %>% 
+  arrange(desc(age))
+```
+
+```
+# A tibble: 1,470 x 17
+      id   age department distance_from_h~ education employee_count gender job_role job_satisfaction
+   <dbl> <dbl> <chr>                 <dbl> <chr>              <dbl> <chr>  <chr>    <chr>           
+ 1   412    60 Research ~                7 Bachelor               1 Female Manager  Low             
+ 2   428    60 Sales                    28 Bachelor               1 Female Sales E~ Low             
+ 3   537    60 Sales                    16 Master                 1 Male   Sales E~ Low             
+ 4   880    60 Sales                     7 Master                 1 Male   Sales E~ Very High       
+ 5  1210    60 Research ~                1 Master                 1 Male   Healthc~ Very High       
+ 6     7    59 Research ~                3 Bachelor               1 Female Laborat~ Low             
+ 7    64    59 Sales                    25 Bachelor               1 Female Sales E~ Low             
+ 8    71    59 Sales                     1 Below Co~              1 Female Sales E~ High            
+ 9   106    59 Human Res~                2 Master                 1 Female Manager  Very High       
+10   226    59 Research ~                3 Bachelor               1 Male   Researc~ Very High       
+# ... with 1,460 more rows, and 8 more variables: marital_status <chr>, monthly_income <dbl>,
+#   num_companies_worked <dbl>, performance_rating <chr>, total_working_years <dbl>, work_life_balance <chr>,
+#   years_at_company <dbl>, years_since_last_promotion <dbl>
+```
+
+Nun siehst du, dass die Variable `age` von groß nach klein geordnet ist. Wir können auch mehrere Variablen sortieren:
+
+
+```R
+human_resources %>% 
+  arrange(age, distance_from_home)
+```
+
+```
+# A tibble: 1,470 x 17
+      id   age department distance_from_h~ education employee_count gender job_role job_satisfaction
+   <dbl> <dbl> <chr>                 <dbl> <chr>              <dbl> <chr>  <chr>    <chr>           
+ 1   973    18 Research ~                1 Bachelor               1 Female Laborat~ Very High       
+ 2   297    18 Research ~                3 Bachelor               1 Male   Laborat~ High            
+ 3  1154    18 Sales                     3 College                1 Female Sales R~ Very High       
+ 4   458    18 Sales                     5 Bachelor               1 Male   Sales R~ Medium          
+ 5   728    18 Research ~                5 College                1 Male   Researc~ Very High       
+ 6   829    18 Research ~                8 Below Co~              1 Male   Laborat~ High            
+ 7   302    18 Sales                    10 Bachelor               1 Female Sales R~ High            
+ 8  1312    18 Research ~               14 Bachelor               1 Female Researc~ High            
+ 9   172    19 Sales                     1 Below Co~              1 Female Sales R~ Low             
+10   178    19 Research ~                2 Bachelor               1 Male   Laborat~ Very High       
+# ... with 1,460 more rows, and 8 more variables: marital_status <chr>, monthly_income <dbl>,
+#   num_companies_worked <dbl>, performance_rating <chr>, total_working_years <dbl>, work_life_balance <chr>,
+#   years_at_company <dbl>, years_since_last_promotion <dbl>
+```
+
+Du siehst nun, dass innerhalb eines Alters auch die Variable `distance_from_home` von klein nach groß angeordnet wurde.
+
+### select
+
+Viele Datensätze haben viele Variablen. Manchmal möchten wir den Überblick behalten und uns nur ein paar wenige Variablen ansehen. Hierfür benutzen wir die [select Funktion](https://dplyr.tidyverse.org/reference/select.html).
+
+Selektieren wir beispielsweise aus unserem Datensatz nur die Variblen `id` und `age`:
+
+```R
+human_resources %>% 
+  select(id, age)
+```
+
+```
+# A tibble: 1,470 x 2
+      id   age
+   <dbl> <dbl>
+ 1     1    41
+ 2     2    49
+ 3     3    37
+ 4     4    33
+ 5     5    27
+ 6     6    32
+ 7     7    59
+ 8     8    30
+ 9     9    38
+10    10    36
+# ... with 1,460 more rows
+```
+
+Wir können ebenso manche Variablen aus einem Datensatz entfernen, indem wir ein `-` vor die Variable setzen:
+
+```R
+human_resources %>% 
+  select(id, age, gender) %>%
+  select(-gender)
+```
+
+```
+# A tibble: 1,470 x 2
+      id   age
+   <dbl> <dbl>
+ 1     1    41
+ 2     2    49
+ 3     3    37
+ 4     4    33
+ 5     5    27
+ 6     6    32
+ 7     7    59
+ 8     8    30
+ 9     9    38
+10    10    36
+# ... with 1,460 more rows
+```
+
+Hierdurch wird der gleiche Output generiert. Der Unterschied zum vorherigen Beispiel besteht darin, dass wir zunächst drei Variablen selektieren und danach die dritte Variable wieder aus dem Datensatz entfernen. 
+
+Wir können ebenso mehrere Variablenen, die nebeneinander liegen verbinden, indem wir die erste Variable und die letzte Variable angeben und dazwischen ein `:` setzen:
+
+```R
+human_resources %>% 
+  select(id:education)
+```
+
+```
+# A tibble: 1,470 x 5
+      id   age department             distance_from_home education    
+   <dbl> <dbl> <chr>                               <dbl> <chr>        
+ 1     1    41 Sales                                   1 College      
+ 2     2    49 Research & Development                  8 Below College
+ 3     3    37 Research & Development                  2 College      
+ 4     4    33 Research & Development                  3 Master       
+ 5     5    27 Research & Development                  2 Below College
+ 6     6    32 Research & Development                  2 College      
+ 7     7    59 Research & Development                  3 Bachelor     
+ 8     8    30 Research & Development                 24 Below College
+ 9     9    38 Research & Development                 23 Bachelor     
+10    10    36 Research & Development                 27 Bachelor     
+# ... with 1,460 more rows
+```
+
+Wenn du die Daten so selektieren möchtest, hilft es, zunächst mit `colnames` zu schauen, welche Variablen nebeneinander liegen:
+
+```R
+colnames(human_resources)
+```
+
+```
+[1] "id"                         "age"                        "department"                
+ [4] "distance_from_home"         "education"                  "employee_count"            
+ [7] "gender"                     "job_role"                   "job_satisfaction"          
+[10] "marital_status"             "monthly_income"             "num_companies_worked"      
+[13] "performance_rating"         "total_working_years"        "work_life_balance"         
+[16] "years_at_company"           "years_since_last_promotion"
+```
+
+
