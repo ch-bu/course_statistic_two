@@ -949,7 +949,9 @@ human_resources %>%
 # A tibble: 1,470 x 2
       id   age
    <dbl> <dbl>
- 1     1    41
+ 1 human_resources %>% 
+  filter(gender == "Male") %>% 
+  select(id, gender)    1    41
  2     2    49
  3     3    37
  4     4    33
@@ -1004,3 +1006,275 @@ colnames(human_resources)
 ```
 
 
+### filter
+
+Mit [filter](https://dplyr.tidyverse.org/reference/filter.html) können wir einzelne Reihen filtern. Beispielsweise können wir mit `filter` einen Datensatz um alle Personen filtern, die männlich sind:
+
+```R
+human_resources %>% 
+  filter(gender == "Male") %>% 
+  select(id, gender)
+```
+
+```
+# A tibble: 882 x 2
+      id gender
+   <dbl> <chr> 
+ 1     2 Male  
+ 2     3 Male  
+ 3     5 Male  
+ 4     6 Male  
+ 5     8 Male  
+ 6     9 Male  
+ 7    10 Male  
+ 8    11 Male  
+ 9    13 Male  
+10    14 Male  
+# ... with 872 more rows
+```
+
+> Wenn du nach exakten Werte filterst wie beipsielsweise das Geschlecht, musst du zwei `==` verwenden.
+
+Oder wir filtern den Datensatz um alle Personen, die mindestens 28 Jahre alt sind:
+
+```R
+human_resources %>% 
+  filter(age > 28) %>% 
+  select(id, age)
+```
+
+```
+# A tibble: 1,212 x 2
+      id   age
+   <dbl> <dbl>
+ 1     1    41
+ 2     2    49
+ 3     3    37
+ 4     4    33
+ 5     6    32
+ 6     7    59
+ 7     8    30
+ 8     9    38
+ 9    10    36
+10    11    35
+# ... with 1,202 more rows
+```
+
+Wir können ebenso nach mehreren Werten filtern, indem wir die Filterkritieren mit einem `,` trennen:
+
+```R
+human_resources %>% 
+  filter(gender == "Male", age < 20) %>% 
+  select(id, age, gender)
+# oder
+human_resources %>% 
+  filter(gender == "Male" & age < 20) %>% 
+  select(id, age, gender)
+```
+
+```
+# A tibble: 9 x 3
+     id   age gender
+  <dbl> <dbl> <chr> 
+1   128    19 Male  
+2   178    19 Male  
+3   297    18 Male  
+4   423    19 Male  
+5   458    18 Male  
+6   689    19 Male  
+7   728    18 Male  
+8   829    18 Male  
+9   854    19 Male 
+```
+
+### mutate
+
+Mit [mutate](https://dplyr.tidyverse.org/reference/mutate.html) erstellen wir neue Variablen in einem Datensatz:
+
+```R
+human_resources %>% 
+  mutate(
+    yearly_income = monthly_income * 12
+  ) %>% 
+  select(id, monthly_income, yearly_income)
+```
+
+
+```
+# A tibble: 1,470 x 3
+      id monthly_income yearly_income
+   <dbl>          <dbl>         <dbl>
+ 1     1           5993         71916
+ 2     2           5130         61560
+ 3     3           2090         25080
+ 4     4           2909         34908
+ 5     5           3468         41616
+ 6     6           3068         36816
+ 7     7           2670         32040
+ 8     8           2693         32316
+ 9     9           9526        114312
+10    10           5237         62844
+# ... with 1,460 more rows
+```
+
+Zunächst muss der Name der neuen Variable benannt werden (`yearly_income`). Anschließend folgt ein `=`. Hinter dem `=` kann die neue Variable berechnet werden. Möchte man mehrere neue Variablen einfügen, kann man die Befehle mit einem Komma trennen:
+
+```R
+human_resources %>% 
+  mutate(
+    yearly_income        = monthly_income * 12,
+    salary_above_average = yearly_income > mean(yearly_income)
+  ) %>% 
+  select(id, monthly_income, yearly_income,
+         salary_above_average)
+```
+
+```
+# A tibble: 1,470 x 4
+      id monthly_income yearly_income salary_above_average
+   <dbl>          <dbl>         <dbl> <lgl>               
+ 1     1           5993         71916 FALSE               
+ 2     2           5130         61560 FALSE               
+ 3     3           2090         25080 FALSE               
+ 4     4           2909         34908 FALSE               
+ 5     5           3468         41616 FALSE               
+ 6     6           3068         36816 FALSE               
+ 7     7           2670         32040 FALSE               
+ 8     8           2693         32316 FALSE               
+ 9     9           9526        114312 TRUE                
+10    10           5237         62844 FALSE               
+# ... with 1,460 more rows
+```
+
+## Daten exportieren
+
+Wir werden in diesem Kurs mehrmals Daten bereinigen und verändern und möchten diese Daten anschließend wieder in einer CSV-Datei speichern. Hierfür benutzen wir die [write_csv](https://readr.tidyverse.org/reference/write_delim.html) Funktion. Stell dir vor, wir wählen lediglich drei Variablen aus dem Datensatz aus und filtern die Daten um alle Frauen im Datensatz. Anschließend möchten wir diese Daten in einer CSV-Datei speichern:
+
+```R
+human_resources %>% 
+  filter(gender == "Female") %>% 
+  select(id, age, monthly_income) %>% 
+  write_csv("hr_updated.csv")
+```
+
+Die Funktion `write_csv` hat zwei wichtige Argumente:
+
+```
+write_csv(x, path)
+```
+
+* x steht für den Datensatz, den wir der Funktion überführen
+* path steht für den Dateinamen in denen wir die Datei speichern. Achte darauf, diesen Pfad immer mit Anführungsstrichen `"` zu umrunden.
+
+Wir hätten ebenso das Ergebnis der Berechnung zwischenspeichern und diesen anschließend in die Datei schreiben können. Hierdurch hätten wir allerdings unnötig eine neue Variable erzeugt:
+
+```R
+unnoetige_variable <- human_resources %>% 
+  filter(gender == "Female") %>% 
+  select(id, age, monthly_income) 
+
+write_csv(unnoetige_variable, "hr_updated.csv")
+```
+
+> R speichert die Datei immer in das aktuelle Arbeitsverzeichnis. Dieses kannst du verändern, indem du mit dem Shortcut STRG + Umschalt + H das Arbeitsverzeichnis wechselst. In diesen Ordner wird die Datei anschließend gespeichert.
+
+
+### Weiterführende Informationen
+
+* [Haven - Export von Daten in SPSS](https://haven.tidyverse.org/)
+
+
+
+## Mit Fehlern in R umgehen
+
+Fehler werden passieren, wenn du mit R arbeitest. 
+
+### Beispiel Fehler tidyverse
+
+Stell dir vor, dir gibt R folgenden Fehler aus:
+
+![](error.PNG)
+
+Zunächst ist es wichtig zu erkennen, in welcher Zeile der Fehler auftritt. Der erste Fehler (`Error: unexpected symbol in:`) erscheint nach der Funktion `filter`. Im nächsten Schritt hilft es häufig, die Dokumentation der Funktion anzuschauen. Für alle Probleme, die mit Tidyverse zu tun, haben, hilft es diese direkt zu googlen:
+
+![](filter_google.PNG)
+
+Im Anschluss suchst du dir ein Beispiel, welches ähnlich wie deines ist:
+
+![](example_filter.PNG)
+
+Um den Fehler zu sehen, muss man genau hinschauen. Der Fehler wird erzeugt, da ein `,` nach der ersten Filterbedingung fehlt:
+
+```R
+human_resources %>% 
+  filter(gender == "Male" age < 20) %>%
+  select(id, age, gender) # falsch
+
+human_resources %>% 
+  filter(gender == "Male", age < 20) %>%
+  select(id, age, gender) # richtig
+```
+
+### Generelle Regeln
+
+Fehler können nervenaufreibend sein, insbesondere wenn die Lösung nach Stunden noch nicht zu finden ist. Achte bei Fehler immer auf Folgendes:
+
+* Für fasst alle Fehler gibt es eine Lösung. Irgendeine Person hat sich mit dem Fehler bereits auseinander gesetzt und eine Lösung online gestellt.
+* Google ist dein Freund. Versuche die Fehlermeldung zu kopieren und den Fehler über Google zu suchen. Starte die Suche immer mit einem `r` (damit Google weiß, dass es sich um die Programmiersprache R handelt). 
+* Schaue den Code nochmal genau an. Häufig sind es Kleinigkeiten, die Fehler produzieren (Komma nicht gesetzt, etwas groß geschrieben, was klein geschrieben sein sollte).
+
+### Weiterführende Informationen
+
+* [What can we expect from tidyverse in 2019? - Hadley Wickham (ab 05:18)](https://www.youtube.com/watch?v=Uxdf8evD6pQ)
+
+
+## Modeling Example
+
+> Ziel: Einen Datensatz in R einlesen, betrachten, verändern und in eine CSV-Datei exportieren. Anschließend den Datensatz in Jamovi anschauen. 
+
+```R
+library(tidyverse)
+library(jmv)
+
+human_resources <- read_csv("C:/Users/ChristianEZW/repositories/statistik_2_online_kurs/data/markdown/hr_cleaned.csv")
+
+# Datensatz betrachten
+glimpse(human_resources)
+nrow(human_resources)
+
+human_resources %>% 
+  count(job_satisfaction)
+
+human_resources %>% 
+  count(work_life_balance)
+
+# Mittelwerte berechnen
+mean(human_resources$age)
+human_resources$age %>% mean
+
+mean(human_resources$monthly_income)
+
+# Daten bereinigen
+unhappy_employees <- human_resources %>% 
+  # Nur Mitarbeiter, die eine schlechte Work-Life Balance haben
+  filter(work_life_balance == "Bad") %>% 
+  # Nur die Variablen, id, age, work_life_balance, distance_from_home,
+  # monthly income
+  select(id, age, work_life_balance, distance_from_home,
+         monthly_income)
+
+# Korrelation berechnen
+cor(unhappy_employees$monthly_income, unhappy_employees$age)
+
+
+# Datensatz speichern
+write_csv(unhappy_employees, "human_resources_cleaned.csv")
+
+
+# Deskriptive Statistik
+jmv::descriptives(
+  data = unhappy_employees,
+  vars = vars(age, monthly_income),
+  hist = TRUE,
+  sd = TRUE)
+```
