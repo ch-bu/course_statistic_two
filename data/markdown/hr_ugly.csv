@@ -1,0 +1,1471 @@
+Probandennummer,Ausbildung der Mitarbeiter,"Geschlächt (0 == weiblich, 1 = männlich)",Berufsbezeichnung,Monatliches Einkommen (in Dollar berechnet)
+1,College,1,Sales Executive,5993
+2,Below College,0,Research Scientist,5130
+3,College,0,Laboratory Technician,2090
+4,Master,1,Research Scientist,2909
+5,Below College,0,Laboratory Technician,3468
+6,College,0,Laboratory Technician,3068
+7,Bachelor,1,Laboratory Technician,2670
+8,Below College,0,Laboratory Technician,2693
+9,Bachelor,0,Manufacturing Director,9526
+10,Bachelor,0,Healthcare Representative,5237
+11,Bachelor,0,Laboratory Technician,2426
+12,College,1,Laboratory Technician,4193
+13,Below College,0,Research Scientist,2911
+14,College,0,Laboratory Technician,2661
+15,Bachelor,0,Laboratory Technician,2028
+16,Master,1,Manufacturing Director,9980
+17,College,0,Research Scientist,3298
+18,College,0,Laboratory Technician,2935
+19,Master,1,Manager,15427
+20,Bachelor,0,Research Scientist,3944
+21,College,1,Manufacturing Director,4011
+22,Master,0,Sales Representative,3407
+23,Master,1,Research Director,11994
+24,College,0,Research Scientist,1232
+25,Below College,0,Research Scientist,2960
+26,Bachelor,1,Manager,19094
+27,Below College,1,Research Scientist,3919
+28,Master,0,Sales Executive,6825
+29,Master,1,Healthcare Representative,10248
+30,Master,1,Manager,18947
+31,Bachelor,0,Laboratory Technician,2496
+32,Master,0,Healthcare Representative,6465
+33,College,0,Laboratory Technician,2206
+34,Bachelor,0,Sales Representative,2086
+35,Bachelor,0,Research Scientist,2293
+36,College,1,Research Scientist,2645
+37,College,0,Sales Representative,2683
+38,Bachelor,1,Sales Representative,2014
+39,Master,1,Research Scientist,3419
+40,Bachelor,1,Sales Executive,5376
+41,College,0,Laboratory Technician,1951
+42,Master,1,Laboratory Technician,2341
+43,Bachelor,0,Laboratory Technician,2293
+44,Bachelor,0,Sales Executive,8726
+45,College,1,Laboratory Technician,4011
+46,Bachelor,1,Research Director,19545
+47,Master,0,Sales Executive,4568
+48,College,0,Research Scientist,3022
+49,Master,0,Sales Executive,5772
+50,Below College,0,Laboratory Technician,2269
+51,College,0,Laboratory Technician,5381
+52,Master,0,Laboratory Technician,3441
+53,Doctor,1,Sales Executive,5454
+54,College,0,Healthcare Representative,9884
+55,Bachelor,1,Sales Executive,4157
+56,College,1,Research Director,13458
+57,Doctor,0,Sales Executive,9069
+58,Master,1,Laboratory Technician,4014
+59,Master,0,Laboratory Technician,5915
+60,Master,0,Manufacturing Director,5993
+61,Bachelor,0,Manufacturing Director,6162
+62,Doctor,1,Laboratory Technician,2406
+63,College,1,Research Director,18740
+64,Bachelor,1,Sales Executive,7637
+65,Bachelor,1,Healthcare Representative,10096
+66,Bachelor,1,Manager,14756
+67,Bachelor,0,Manufacturing Director,6499
+68,Bachelor,0,Research Scientist,9724
+69,Bachelor,0,Research Scientist,2194
+70,Bachelor,0,Research Scientist,3388
+71,Below College,1,Sales Executive,5473
+72,Bachelor,0,Research Scientist,2703
+73,Master,0,Research Scientist,2501
+74,Bachelor,0,Research Scientist,6220
+75,Bachelor,1,Laboratory Technician,3038
+76,Master,1,Manufacturing Director,4424
+77,Master,0,Sales Executive,4312
+78,Master,0,Research Director,13245
+79,Master,0,Research Director,13664
+80,College,0,Human Resources,5021
+81,Below College,0,Laboratory Technician,5126
+82,Bachelor,0,Research Scientist,2859
+83,College,0,Sales Executive,10239
+84,Bachelor,1,Research Scientist,5329
+85,College,0,Manufacturing Director,4325
+86,Bachelor,0,Manufacturing Director,7260
+87,Below College,0,Sales Representative,2322
+88,Master,0,Laboratory Technician,2075
+89,Bachelor,0,Healthcare Representative,4152
+90,College,0,Sales Executive,9619
+91,Master,0,Healthcare Representative,13503
+92,Master,0,Sales Executive,5441
+93,College,1,Sales Executive,5209
+94,Bachelor,0,Healthcare Representative,10673
+95,Master,0,Sales Executive,5010
+96,Master,1,Research Director,13549
+97,College,1,Sales Executive,4999
+98,Bachelor,0,Sales Executive,4221
+99,Master,0,Sales Executive,13872
+100,Bachelor,0,Laboratory Technician,2042
+101,Master,0,Human Resources,2073
+102,Below College,0,Research Scientist,2956
+103,Bachelor,1,Laboratory Technician,2926
+104,Master,1,Research Scientist,4809
+105,College,0,Healthcare Representative,5163
+106,Master,1,Manager,18844
+107,Bachelor,1,Research Director,18172
+108,Bachelor,0,Sales Executive,5744
+109,Below College,0,Research Scientist,2889
+110,Bachelor,1,Laboratory Technician,2871
+111,Master,1,Healthcare Representative,7484
+112,Bachelor,0,Laboratory Technician,6074
+113,Bachelor,1,Manager,17328
+114,Below College,0,Laboratory Technician,2774
+115,Master,1,Research Scientist,4505
+116,Bachelor,0,Sales Executive,7428
+117,Bachelor,1,Manager,11631
+118,College,1,Sales Executive,9738
+119,College,1,Laboratory Technician,2835
+120,College,0,Manager,16959
+121,Bachelor,0,Research Scientist,2613
+122,College,0,Sales Executive,6146
+123,Master,1,Research Scientist,4963
+124,Bachelor,0,Research Director,19537
+125,Master,0,Sales Executive,6172
+126,Bachelor,1,Research Scientist,2368
+127,Master,1,Healthcare Representative,10312
+128,Below College,0,Sales Representative,1675
+129,Below College,0,Laboratory Technician,2523
+130,Master,1,Manufacturing Director,6567
+131,Bachelor,1,Research Scientist,4739
+132,Bachelor,1,Sales Executive,9208
+133,Bachelor,1,Sales Executive,4559
+134,Below College,0,Sales Executive,8189
+135,Below College,1,Human Resources,2942
+136,College,0,Manufacturing Director,4941
+137,Master,0,Manufacturing Director,10650
+138,Master,1,Sales Executive,5902
+139,Bachelor,0,Sales Executive,8639
+140,Bachelor,0,Human Resources,6347
+141,Bachelor,1,Laboratory Technician,4200
+142,Bachelor,0,Research Scientist,3452
+143,Doctor,1,Research Scientist,4317
+144,Bachelor,1,Research Scientist,2632
+145,College,0,Sales Executive,4668
+146,Bachelor,1,Research Scientist,3204
+147,Below College,0,Laboratory Technician,2720
+148,Bachelor,0,Manager,17181
+149,Master,0,Laboratory Technician,2238
+150,Below College,1,Laboratory Technician,1483
+151,Bachelor,1,Research Scientist,5605
+152,Doctor,0,Sales Executive,7295
+153,College,0,Sales Representative,2306
+154,Bachelor,0,Laboratory Technician,2348
+155,Bachelor,1,Sales Executive,8998
+156,Below College,0,Manufacturing Director,4319
+157,Master,0,Manufacturing Director,6132
+158,Bachelor,1,Research Scientist,3346
+159,Master,0,Sales Executive,10855
+160,Master,1,Sales Representative,2231
+161,Below College,0,Research Scientist,2323
+162,Bachelor,0,Research Scientist,2024
+163,Bachelor,0,Research Scientist,2713
+164,College,0,Healthcare Representative,9439
+165,Bachelor,0,Research Scientist,2566
+166,Bachelor,1,Manager,19926
+167,Bachelor,0,Research Scientist,2451
+168,Bachelor,1,Sales Executive,9419
+169,Master,1,Sales Executive,8686
+170,Doctor,0,Research Scientist,3038
+171,Bachelor,0,Research Scientist,3058
+172,Below College,1,Sales Representative,2325
+173,College,0,Laboratory Technician,2088
+174,Bachelor,0,Laboratory Technician,3072
+175,College,1,Sales Executive,5006
+176,Bachelor,1,Research Scientist,4257
+177,Bachelor,0,Research Scientist,2500
+178,Bachelor,0,Laboratory Technician,1102
+179,College,1,Sales Executive,10453
+180,College,1,Laboratory Technician,2288
+181,Below College,1,Research Scientist,3929
+182,College,1,Research Scientist,2311
+183,College,1,Sales Representative,3140
+184,Bachelor,0,Laboratory Technician,3690
+185,College,1,Manufacturing Director,4450
+186,Bachelor,1,Research Scientist,2756
+187,Below College,1,Manager,19033
+188,Master,0,Research Director,18722
+189,Below College,0,Manufacturing Director,9547
+190,Bachelor,1,Healthcare Representative,13734
+191,Master,0,Manager,19999
+192,Bachelor,1,Research Scientist,2279
+193,College,0,Manufacturing Director,5916
+194,Bachelor,0,Research Scientist,2089
+195,College,0,Manager,16792
+196,Bachelor,0,Research Scientist,3564
+197,Bachelor,1,Laboratory Technician,4425
+198,College,1,Manufacturing Director,5265
+199,Master,0,Manufacturing Director,6553
+200,Bachelor,0,Manufacturing Director,6261
+201,Below College,0,Manufacturing Director,4298
+202,Master,0,Manufacturing Director,6804
+203,Master,0,Research Scientist,3815
+204,College,0,Laboratory Technician,2741
+205,Below College,0,Healthcare Representative,6673
+206,Bachelor,1,Sales Executive,7639
+207,Bachelor,0,Research Scientist,2328
+208,Below College,1,Laboratory Technician,2153
+209,Doctor,0,Healthcare Representative,4876
+210,Master,0,Healthcare Representative,9396
+211,Master,0,Sales Executive,10400
+212,Below College,0,Manufacturing Director,8474
+213,Bachelor,1,Sales Executive,9981
+214,Master,0,Research Director,12490
+215,Bachelor,1,Research Scientist,2657
+216,Bachelor,1,Manager,13591
+217,Master,1,Sales Executive,6696
+218,Bachelor,0,Research Scientist,2058
+219,Bachelor,1,Sales Executive,8865
+220,Bachelor,1,Sales Executive,5940
+221,College,0,Laboratory Technician,5914
+222,Master,1,Research Scientist,2622
+223,Bachelor,0,Research Director,12185
+224,Bachelor,0,Sales Executive,10609
+225,Master,0,Manufacturing Director,4345
+226,Bachelor,0,Research Scientist,2177
+227,Master,0,Sales Representative,2793
+228,Below College,1,Sales Executive,7918
+229,Bachelor,1,Sales Executive,8789
+230,Below College,0,Research Scientist,2389
+231,Bachelor,1,Laboratory Technician,3212
+232,College,0,Manager,19232
+233,College,0,Human Resources,2267
+234,Master,1,Manager,19517
+235,Bachelor,0,Laboratory Technician,2436
+236,Bachelor,1,Manager,16064
+237,College,1,Laboratory Technician,2707
+238,Master,0,Manager,19068
+239,College,1,Sales Representative,3931
+240,Bachelor,0,Laboratory Technician,3730
+241,Master,1,Laboratory Technician,2232
+242,Master,0,Sales Executive,4465
+243,College,0,Research Scientist,3072
+244,College,0,Research Scientist,3319
+245,Bachelor,0,Manager,19202
+246,Master,0,Research Director,13675
+247,Master,1,Research Scientist,2911
+248,Master,0,Manufacturing Director,5957
+249,College,1,Research Scientist,3920
+250,Master,0,Manufacturing Director,6434
+251,Bachelor,0,Manufacturing Director,10048
+252,Master,1,Healthcare Representative,10938
+253,Bachelor,0,Research Scientist,2340
+254,College,1,Research Scientist,6545
+255,College,0,Sales Executive,6931
+256,Bachelor,1,Manufacturing Director,4898
+257,Bachelor,1,Laboratory Technician,2593
+258,College,0,Research Director,19436
+259,Bachelor,0,Research Scientist,2723
+260,College,0,Laboratory Technician,3479
+261,Bachelor,0,Laboratory Technician,2794
+262,College,0,Sales Executive,5249
+263,Below College,0,Laboratory Technician,2176
+264,Bachelor,1,Manager,16872
+265,Master,0,Laboratory Technician,3485
+266,Bachelor,0,Sales Executive,6644
+267,Bachelor,0,Healthcare Representative,5582
+268,College,0,Healthcare Representative,4000
+269,College,0,Healthcare Representative,13496
+270,Bachelor,0,Laboratory Technician,3210
+271,Bachelor,0,Manager,19045
+272,Master,0,Manager,11849
+273,Bachelor,0,Research Scientist,2070
+274,Master,0,Sales Executive,6502
+275,College,0,Research Scientist,3230
+276,Master,1,Research Director,13603
+277,Bachelor,1,Manager,11996
+278,College,1,Sales Executive,5605
+279,Bachelor,1,Manufacturing Director,6397
+280,Below College,0,Research Director,19144
+281,Master,0,Research Director,17584
+282,Below College,0,Sales Executive,4907
+283,College,0,Sales Executive,4554
+284,College,0,Laboratory Technician,5415
+285,College,0,Healthcare Representative,4741
+286,Bachelor,1,Research Scientist,2115
+287,Bachelor,0,Laboratory Technician,3161
+288,Master,0,Healthcare Representative,5745
+289,Master,0,Laboratory Technician,2373
+290,College,1,Research Scientist,3310
+291,Master,1,Research Director,18665
+292,Bachelor,0,Research Scientist,4485
+293,Bachelor,1,Sales Representative,2789
+294,Master,0,Sales Executive,5828
+295,Bachelor,0,Research Scientist,2326
+296,Bachelor,1,Sales Executive,13525
+297,Bachelor,0,Laboratory Technician,1420
+298,Bachelor,0,Sales Executive,8020
+299,Master,0,Laboratory Technician,3688
+300,Bachelor,0,Manufacturing Director,5482
+301,Master,0,Manager,16015
+302,Bachelor,1,Sales Representative,1200
+303,College,0,Healthcare Representative,5661
+304,Bachelor,0,Sales Executive,6929
+305,Bachelor,0,Healthcare Representative,9613
+306,Master,1,Laboratory Technician,5674
+307,Bachelor,0,Sales Executive,5484
+308,College,1,Research Director,12061
+309,Master,0,Healthcare Representative,5660
+310,Master,0,Research Scientist,4821
+311,Bachelor,0,Human Resources,6410
+312,Bachelor,0,Laboratory Technician,5210
+313,Master,0,Research Scientist,2695
+314,Master,1,Manager,11878
+315,Below College,0,Manager,17068
+316,Master,1,Laboratory Technician,2455
+317,College,1,Healthcare Representative,13964
+318,Master,0,Research Scientist,4941
+319,Bachelor,1,Research Scientist,2478
+320,College,1,Sales Executive,5228
+321,Bachelor,0,Sales Executive,4478
+322,Bachelor,0,Sales Executive,7547
+323,Master,1,Research Scientist,5055
+324,Master,0,Research Scientist,3464
+325,College,1,Research Scientist,5775
+326,College,1,Manufacturing Director,8943
+327,College,0,Manager,19272
+328,College,1,Sales Executive,5238
+329,Bachelor,0,Sales Executive,4682
+330,Doctor,0,Research Director,18300
+331,Master,1,Laboratory Technician,5257
+332,Below College,0,Sales Executive,6349
+333,Master,1,Research Scientist,4869
+334,Bachelor,1,Healthcare Representative,9985
+335,Master,0,Research Scientist,3697
+336,College,0,Sales Executive,7457
+337,Master,0,Laboratory Technician,2119
+338,Doctor,0,Laboratory Technician,3983
+339,Bachelor,1,Sales Executive,6118
+340,Master,1,Sales Executive,6214
+341,College,0,Manufacturing Director,6347
+342,College,0,Research Director,11510
+343,Master,1,Manufacturing Director,7143
+344,Below College,1,Sales Executive,8268
+345,Master,0,Manufacturing Director,8095
+346,Below College,0,Research Scientist,2904
+347,Bachelor,0,Manufacturing Director,6032
+348,Below College,0,Sales Representative,2976
+349,Doctor,1,Research Director,15992
+350,Bachelor,0,Sales Executive,4649
+351,Below College,0,Human Resources,2696
+352,Bachelor,1,Laboratory Technician,2370
+353,Below College,1,Manager,12504
+354,Bachelor,0,Research Scientist,5974
+355,College,1,Sales Executive,4736
+356,Bachelor,0,Sales Executive,5296
+357,Master,0,Healthcare Representative,6781
+358,Below College,1,Sales Representative,2174
+359,Doctor,1,Sales Executive,6653
+360,Master,0,Sales Executive,9699
+361,Master,0,Healthcare Representative,6755
+362,Master,1,Laboratory Technician,2213
+363,College,0,Sales Representative,2610
+364,Bachelor,1,Sales Representative,2851
+365,Bachelor,1,Laboratory Technician,3452
+366,Master,1,Manufacturing Director,5258
+367,Bachelor,0,Sales Executive,9355
+368,Bachelor,0,Healthcare Representative,10496
+369,College,0,Sales Executive,6380
+370,Master,0,Research Scientist,2657
+371,Bachelor,1,Sales Representative,2716
+372,Bachelor,0,Research Scientist,2201
+373,Master,0,Healthcare Representative,6540
+374,College,0,Laboratory Technician,3816
+375,Master,0,Sales Executive,5253
+376,Bachelor,0,Healthcare Representative,10965
+377,College,1,Sales Executive,4936
+378,Bachelor,1,Research Scientist,2543
+379,Bachelor,0,Sales Executive,5304
+380,Bachelor,1,Manager,16659
+381,Master,1,Sales Executive,4260
+382,Below College,0,Sales Representative,2476
+383,Below College,0,Research Scientist,3102
+384,Bachelor,1,Research Scientist,2244
+385,College,0,Sales Executive,7596
+386,Bachelor,0,Research Scientist,2285
+387,Bachelor,1,Laboratory Technician,3034
+388,College,1,Sales Executive,5715
+389,Master,1,Laboratory Technician,2576
+390,Master,0,Manufacturing Director,4197
+391,Bachelor,0,Research Director,14336
+392,Bachelor,1,Laboratory Technician,3448
+393,College,0,Research Director,19406
+394,Master,1,Sales Executive,6538
+395,College,1,Manufacturing Director,4306
+396,Bachelor,0,Laboratory Technician,2258
+397,Master,1,Healthcare Representative,4522
+398,College,1,Sales Executive,4487
+399,Doctor,1,Research Scientist,4449
+400,College,0,Laboratory Technician,2218
+401,Below College,0,Manager,19197
+402,Bachelor,1,Sales Executive,13212
+403,Bachelor,1,Sales Executive,6577
+404,Bachelor,0,Sales Executive,8392
+405,College,0,Laboratory Technician,4558
+406,Bachelor,0,Laboratory Technician,4031
+407,Bachelor,0,Manufacturing Director,7969
+408,College,0,Research Scientist,2654
+409,College,1,Manager,16555
+410,College,1,Research Scientist,4556
+411,Bachelor,1,Manufacturing Director,6091
+412,Bachelor,1,Manager,19566
+413,Bachelor,1,Manufacturing Director,4810
+414,Master,1,Healthcare Representative,4523
+415,Below College,1,Sales Representative,3202
+416,College,1,Sales Representative,2351
+417,College,0,Laboratory Technician,1702
+418,Master,1,Manager,18041
+419,Bachelor,1,Research Scientist,2886
+420,Bachelor,0,Laboratory Technician,2097
+421,Master,0,Research Director,11935
+422,Doctor,1,Research Scientist,2546
+423,College,0,Human Resources,2564
+424,Master,1,Sales Executive,8412
+425,Bachelor,0,Manager,14118
+426,Master,0,Manager,17046
+427,Bachelor,1,Laboratory Technician,2564
+428,Bachelor,1,Sales Executive,10266
+429,College,1,Manufacturing Director,5070
+430,Bachelor,0,Research Director,17861
+431,Bachelor,0,Laboratory Technician,4230
+432,Master,1,Laboratory Technician,3780
+433,Master,0,Research Scientist,2768
+434,Bachelor,1,Sales Executive,9071
+435,Below College,0,Manufacturing Director,10648
+436,Below College,0,Manager,13610
+437,Below College,0,Laboratory Technician,3408
+438,Below College,0,Sales Representative,2983
+439,Bachelor,0,Healthcare Representative,7632
+440,Bachelor,0,Healthcare Representative,9824
+441,Bachelor,1,Human Resources,9950
+442,College,0,Laboratory Technician,2093
+443,Master,0,Sales Executive,9980
+444,Below College,0,Laboratory Technician,3894
+445,Doctor,1,Sales Executive,4051
+446,Doctor,1,Manager,16835
+447,College,0,Sales Executive,6230
+448,Bachelor,0,Sales Executive,4717
+449,Bachelor,1,Manufacturing Director,13237
+450,Below College,1,Laboratory Technician,3755
+451,Below College,0,Sales Executive,6582
+452,Bachelor,0,Manufacturing Director,7406
+453,Bachelor,0,Sales Executive,4805
+454,Master,1,Human Resources,2741
+455,Bachelor,0,Manufacturing Director,4262
+456,Doctor,1,Research Director,16184
+457,Bachelor,0,Manager,11557
+458,Bachelor,0,Sales Representative,1878
+459,Bachelor,0,Sales Executive,10932
+460,Master,1,Healthcare Representative,6811
+461,College,0,Sales Executive,4306
+462,Bachelor,1,Sales Executive,4859
+463,Master,0,Sales Executive,5337
+464,Bachelor,0,Laboratory Technician,2340
+465,Bachelor,1,Manufacturing Director,7491
+466,Below College,1,Healthcare Representative,10527
+467,Doctor,1,Manager,16595
+468,Master,0,Sales Executive,8834
+469,College,0,Research Scientist,5577
+470,Master,0,Sales Executive,4707
+471,Bachelor,0,Sales Representative,2400
+472,Bachelor,1,Healthcare Representative,9824
+473,Master,1,Manufacturing Director,6447
+474,Master,0,Research Director,19502
+475,Bachelor,0,Research Scientist,2725
+476,College,0,Sales Executive,6272
+477,College,0,Laboratory Technician,2127
+478,Bachelor,0,Manager,18200
+479,Below College,0,Sales Representative,2096
+480,Bachelor,1,Laboratory Technician,2886
+481,Master,0,Sales Representative,2033
+482,College,0,Research Scientist,3622
+483,Master,0,Sales Executive,4233
+484,College,0,Laboratory Technician,3681
+485,Master,0,Sales Executive,5460
+486,Master,1,Research Scientist,2187
+487,Bachelor,0,Sales Executive,9602
+488,Bachelor,1,Research Scientist,2836
+489,Master,1,Healthcare Representative,4089
+490,Master,0,Research Director,16627
+491,Below College,1,Research Scientist,2619
+492,Doctor,0,Laboratory Technician,5679
+493,Master,1,Manager,15402
+494,Master,1,Human Resources,5985
+495,Bachelor,1,Sales Representative,2579
+496,Below College,0,Sales Representative,3041
+497,Below College,0,Sales Representative,3447
+498,Master,0,Manager,19513
+499,Below College,0,Research Scientist,2773
+500,Master,0,Sales Executive,7104
+501,Master,1,Research Scientist,6322
+502,Bachelor,1,Research Scientist,2083
+503,Below College,1,Sales Executive,8381
+504,Doctor,0,Research Scientist,2691
+505,Master,1,Sales Executive,4286
+506,Bachelor,1,Laboratory Technician,2659
+507,Bachelor,0,Manufacturing Director,9434
+508,College,1,Sales Executive,5561
+509,Master,0,Research Scientist,6646
+510,Bachelor,0,Healthcare Representative,7725
+511,Master,0,Human Resources,10725
+512,College,0,Manufacturing Director,8847
+513,Master,0,Research Scientist,2045
+514,Below College,0,Research Scientist,1009
+515,Bachelor,0,Research Scientist,3348
+516,Bachelor,0,Laboratory Technician,1281
+517,Bachelor,0,Research Scientist,2819
+518,Bachelor,0,Sales Executive,4851
+519,Master,1,Sales Executive,4028
+520,Master,0,Research Scientist,2720
+521,Below College,0,Sales Executive,8120
+522,Below College,1,Sales Executive,4647
+523,College,0,Research Scientist,4680
+524,Below College,0,Laboratory Technician,3221
+525,Bachelor,1,Healthcare Representative,8621
+526,College,1,Sales Executive,4577
+527,Master,1,Healthcare Representative,4553
+528,Bachelor,0,Sales Executive,5396
+529,College,0,Sales Executive,6796
+530,Master,1,Healthcare Representative,7625
+531,College,1,Manufacturing Director,7412
+532,College,1,Research Director,11159
+533,Master,0,Sales Executive,4960
+534,Master,0,Sales Executive,10475
+535,Bachelor,0,Research Director,14814
+536,Master,0,Manager,19141
+537,Master,0,Sales Executive,5405
+538,College,0,Manufacturing Director,8793
+539,Bachelor,0,Manager,19189
+540,Master,0,Sales Representative,3875
+541,College,1,Research Scientist,2216
+542,Bachelor,1,Research Director,11713
+543,Bachelor,1,Manufacturing Director,7861
+544,Bachelor,0,Laboratory Technician,3708
+545,Bachelor,1,Sales Executive,13770
+546,Doctor,0,Sales Executive,5304
+547,Bachelor,0,Sales Representative,2642
+548,Bachelor,0,Research Scientist,2759
+549,Bachelor,0,Sales Executive,6804
+550,College,1,Healthcare Representative,6142
+551,Below College,0,Laboratory Technician,2500
+552,Bachelor,1,Human Resources,6389
+553,Bachelor,0,Healthcare Representative,11103
+554,Below College,1,Research Scientist,2342
+555,Bachelor,1,Healthcare Representative,6811
+556,Bachelor,0,Sales Representative,2297
+557,Bachelor,0,Laboratory Technician,2450
+558,Master,1,Healthcare Representative,5093
+559,Master,0,Laboratory Technician,5309
+560,Doctor,0,Research Scientist,3057
+561,Doctor,1,Manufacturing Director,5121
+562,Master,0,Manager,16856
+563,Master,0,Research Scientist,2686
+564,Below College,1,Sales Executive,6180
+565,College,0,Sales Representative,6632
+566,Below College,0,Research Scientist,3505
+567,College,1,Sales Executive,6397
+568,Bachelor,0,Sales Executive,6274
+569,Bachelor,0,Manager,19859
+570,Master,0,Sales Executive,7587
+571,Master,0,Research Scientist,4258
+572,College,1,Laboratory Technician,4364
+573,Bachelor,1,Healthcare Representative,4335
+574,Bachelor,0,Sales Executive,5326
+575,Master,1,Research Scientist,3280
+576,Master,1,Manufacturing Director,5485
+577,Below College,0,Sales Executive,4342
+578,Below College,1,Research Scientist,2782
+579,Master,1,Manufacturing Director,5980
+580,Master,1,Research Scientist,4381
+581,Master,1,Sales Representative,2572
+582,Bachelor,0,Laboratory Technician,3833
+583,College,1,Healthcare Representative,4244
+584,College,1,Sales Executive,6500
+585,Bachelor,0,Manager,18430
+586,Bachelor,0,Laboratory Technician,1601
+587,Bachelor,0,Laboratory Technician,2694
+588,Master,1,Laboratory Technician,3149
+589,Bachelor,0,Research Director,17639
+590,College,1,Laboratory Technician,2319
+591,Bachelor,0,Research Director,11691
+592,Bachelor,1,Sales Executive,5324
+593,College,1,Manager,16752
+594,Bachelor,1,Manufacturing Director,5228
+595,College,0,Research Scientist,2700
+596,Master,0,Research Director,19246
+597,Master,1,Research Scientist,2506
+598,College,1,Manufacturing Director,6062
+599,Master,0,Research Scientist,4382
+600,Bachelor,0,Human Resources,2143
+601,Bachelor,1,Manufacturing Director,6162
+602,Master,0,Laboratory Technician,5094
+603,Bachelor,1,Manufacturing Director,6877
+604,Bachelor,1,Research Scientist,2274
+605,Bachelor,0,Manufacturing Director,4434
+606,Bachelor,0,Healthcare Representative,6288
+607,Master,1,Research Scientist,2553
+608,Bachelor,1,Sales Executive,7654
+609,Below College,0,Sales Executive,5160
+610,College,0,Research Director,17159
+611,Below College,0,Research Director,12808
+612,Bachelor,0,Manufacturing Director,10221
+613,Master,1,Sales Executive,4779
+614,College,0,Human Resources,3737
+615,College,1,Research Scientist,2366
+616,Bachelor,0,Research Scientist,1706
+617,Master,1,Manager,16307
+618,Bachelor,0,Healthcare Representative,5933
+619,Below College,0,Research Scientist,3424
+620,Bachelor,0,Sales Executive,4037
+621,Below College,1,Research Scientist,2559
+622,College,0,Sales Executive,6201
+623,Master,0,Sales Executive,4403
+624,Master,0,Research Scientist,3761
+625,College,1,Sales Executive,10934
+626,Bachelor,0,Sales Executive,10761
+627,College,1,Research Scientist,5175
+628,Master,1,Manufacturing Director,13826
+629,Master,0,Sales Executive,6334
+630,College,0,Human Resources,4936
+631,College,0,Manufacturing Director,4775
+632,Master,0,Laboratory Technician,2818
+633,Below College,0,Research Scientist,2515
+634,Bachelor,0,Human Resources,2342
+635,Below College,0,Sales Executive,4194
+636,Bachelor,1,Manufacturing Director,10685
+637,Master,1,Research Scientist,2022
+638,Bachelor,0,Laboratory Technician,2314
+639,Below College,0,Sales Executive,4256
+640,Bachelor,1,Research Scientist,3580
+641,Below College,0,Laboratory Technician,3162
+642,College,0,Sales Executive,6524
+643,Bachelor,0,Sales Representative,2899
+644,Bachelor,1,Laboratory Technician,5231
+645,Master,0,Research Scientist,2356
+646,Bachelor,1,Sales Representative,2800
+647,Bachelor,0,Sales Executive,11836
+648,Bachelor,0,Manufacturing Director,10903
+649,College,1,Sales Representative,2973
+650,Master,1,Research Director,14275
+651,Bachelor,1,Healthcare Representative,5562
+652,College,1,Sales Executive,4537
+653,College,0,Sales Executive,7642
+654,Master,0,Manager,17924
+655,Bachelor,1,Human Resources,5204
+656,College,0,Human Resources,2277
+657,Master,0,Laboratory Technician,2795
+658,Below College,1,Laboratory Technician,2532
+659,College,0,Research Scientist,2559
+660,Master,0,Sales Executive,4908
+661,Below College,0,Laboratory Technician,2380
+662,Bachelor,1,Manufacturing Director,4765
+663,Bachelor,1,Sales Representative,2044
+664,Below College,1,Research Scientist,2693
+665,Below College,0,Healthcare Representative,6586
+666,Master,1,Sales Representative,3294
+667,Below College,1,Manufacturing Director,4171
+668,Master,1,Laboratory Technician,2778
+669,Bachelor,1,Research Scientist,2377
+670,Bachelor,0,Laboratory Technician,2404
+671,Bachelor,1,Research Scientist,2318
+672,Bachelor,0,Laboratory Technician,2008
+673,College,1,Sales Executive,6244
+674,Master,0,Research Scientist,2799
+675,Bachelor,1,Healthcare Representative,10552
+676,Master,0,Sales Representative,2329
+677,Below College,1,Healthcare Representative,4014
+678,College,1,Laboratory Technician,7403
+679,Master,0,Research Scientist,2259
+680,College,1,Sales Executive,6932
+681,Master,0,Research Scientist,4678
+682,Bachelor,1,Research Director,13582
+683,Bachelor,1,Laboratory Technician,2332
+684,College,0,Sales Representative,2413
+685,Master,0,Sales Executive,9705
+686,Bachelor,0,Sales Executive,4294
+687,Bachelor,0,Laboratory Technician,4721
+688,Master,0,Laboratory Technician,2519
+689,Bachelor,0,Sales Representative,2121
+690,Bachelor,0,Laboratory Technician,2973
+691,Bachelor,1,Healthcare Representative,5855
+692,Master,0,Research Scientist,3617
+693,Master,1,Manufacturing Director,6725
+694,Below College,0,Sales Executive,10325
+695,Bachelor,1,Healthcare Representative,6949
+696,Master,0,Sales Executive,10609
+697,College,0,Laboratory Technician,4447
+698,Bachelor,1,Sales Representative,2157
+699,Bachelor,1,Sales Executive,4601
+700,College,0,Manager,17099
+701,Bachelor,0,Research Scientist,2479
+702,College,0,Manager,14852
+703,College,0,Sales Executive,7264
+704,Bachelor,1,Sales Executive,5666
+705,Master,0,Sales Executive,7823
+706,Doctor,0,Sales Executive,7880
+707,Bachelor,1,Sales Executive,13194
+708,Master,0,Manufacturing Director,5067
+709,Master,0,Sales Executive,5079
+710,College,0,Research Scientist,2321
+711,Bachelor,0,Manager,17444
+712,Bachelor,1,Research Scientist,2404
+713,Below College,1,Research Scientist,3452
+714,Master,1,Laboratory Technician,2270
+715,College,0,Research Director,17399
+716,Master,1,Healthcare Representative,5488
+717,Bachelor,0,Research Director,19419
+718,Master,1,Laboratory Technician,2811
+719,College,0,Laboratory Technician,3633
+720,College,1,Sales Executive,4163
+721,Bachelor,1,Research Scientist,2132
+722,Bachelor,0,Manufacturing Director,13973
+723,Below College,0,Research Scientist,2684
+724,College,0,Manufacturing Director,10845
+725,Below College,1,Manufacturing Director,4377
+726,Master,0,Laboratory Technician,3743
+727,Below College,1,Manufacturing Director,4148
+728,College,0,Research Scientist,1051
+729,Bachelor,1,Manufacturing Director,10739
+730,Master,1,Healthcare Representative,10388
+731,College,1,Research Director,11416
+732,Bachelor,1,Research Scientist,2600
+733,Bachelor,1,Laboratory Technician,2422
+734,College,0,Manufacturing Director,5472
+735,Below College,0,Laboratory Technician,2451
+736,Bachelor,0,Healthcare Representative,4240
+737,Master,0,Healthcare Representative,10999
+738,College,1,Manufacturing Director,5003
+739,Below College,1,Manufacturing Director,12742
+740,Master,1,Manufacturing Director,4227
+741,Bachelor,0,Laboratory Technician,3917
+742,College,0,Manager,18303
+743,Bachelor,0,Laboratory Technician,2380
+744,Bachelor,1,Manufacturing Director,13726
+745,College,1,Healthcare Representative,4777
+746,Master,0,Healthcare Representative,6385
+747,Below College,1,Research Director,19973
+748,Master,0,Sales Executive,6861
+749,College,0,Sales Executive,4969
+750,Below College,1,Manager,19845
+751,Bachelor,1,Sales Executive,13320
+752,Bachelor,1,Sales Executive,6347
+753,Master,1,Laboratory Technician,2743
+754,Bachelor,1,Manufacturing Director,10880
+755,Below College,1,Sales Representative,2342
+756,College,1,Manager,17650
+757,Master,1,Laboratory Technician,4025
+758,Master,0,Sales Executive,9725
+759,College,0,Manager,11904
+760,Master,0,Human Resources,2177
+761,Bachelor,1,Sales Executive,7525
+762,Bachelor,0,Laboratory Technician,4834
+763,Bachelor,0,Research Scientist,2042
+764,Master,1,Sales Representative,2220
+765,Below College,0,Sales Representative,1052
+766,Master,0,Research Scientist,2821
+767,Master,0,Research Director,19237
+768,Bachelor,1,Healthcare Representative,4107
+769,Bachelor,0,Sales Executive,8396
+770,Below College,1,Research Scientist,2007
+771,Master,0,Research Director,19627
+772,Master,1,Sales Executive,10686
+773,Bachelor,1,Research Scientist,2942
+774,Doctor,1,Manufacturing Director,8858
+775,Below College,0,Manager,16756
+776,Bachelor,0,Sales Executive,10798
+777,Bachelor,1,Sales Representative,2323
+778,Bachelor,1,Laboratory Technician,1416
+779,Master,1,Research Scientist,4615
+780,Master,0,Research Scientist,2461
+781,College,0,Healthcare Representative,8722
+782,College,0,Laboratory Technician,3955
+783,Bachelor,0,Manufacturing Director,9957
+784,College,1,Research Scientist,3376
+785,Below College,1,Healthcare Representative,8823
+786,Master,0,Healthcare Representative,10322
+787,Doctor,0,Laboratory Technician,4621
+788,Below College,0,Manufacturing Director,10976
+789,Bachelor,1,Research Scientist,3660
+790,College,0,Human Resources,10482
+791,Bachelor,0,Healthcare Representative,7119
+792,Bachelor,0,Sales Executive,9582
+793,Master,1,Research Scientist,4508
+794,College,0,Laboratory Technician,2207
+795,Below College,0,Healthcare Representative,7756
+796,Master,1,Sales Executive,6694
+797,Below College,0,Laboratory Technician,3691
+798,Bachelor,0,Laboratory Technician,2377
+799,Bachelor,0,Research Scientist,2313
+800,College,0,Manager,17665
+801,Bachelor,0,Laboratory Technician,2596
+802,Master,0,Sales Executive,4728
+803,Bachelor,1,Sales Executive,4302
+804,Master,0,Research Scientist,2979
+805,Master,0,Manager,16885
+806,Master,1,Sales Executive,5593
+807,Master,0,Healthcare Representative,10445
+808,Master,0,Sales Executive,8740
+809,Master,1,Research Scientist,2514
+810,Bachelor,1,Manufacturing Director,7655
+811,Below College,0,Manager,17465
+812,College,0,Sales Executive,7351
+813,Bachelor,1,Manufacturing Director,10820
+814,Bachelor,0,Healthcare Representative,12169
+815,Bachelor,0,Research Director,19626
+816,Below College,1,Research Scientist,2070
+817,Bachelor,0,Laboratory Technician,6782
+818,Master,0,Manufacturing Director,7779
+819,Bachelor,0,Sales Representative,2791
+820,Below College,0,Research Scientist,3201
+821,College,0,Sales Executive,4968
+822,Master,0,Sales Executive,13120
+823,College,0,Manufacturing Director,4033
+824,Bachelor,1,Research Scientist,3291
+825,Bachelor,0,Laboratory Technician,4272
+826,Below College,0,Manufacturing Director,5056
+827,Bachelor,0,Human Resources,2844
+828,Bachelor,0,Research Scientist,2703
+829,Below College,0,Laboratory Technician,1904
+830,Master,1,Sales Executive,8224
+831,Master,0,Laboratory Technician,4766
+832,Bachelor,0,Laboratory Technician,2610
+833,College,1,Healthcare Representative,5731
+834,Bachelor,0,Research Scientist,2539
+835,Below College,1,Sales Executive,5714
+836,Master,0,Human Resources,4323
+837,Below College,1,Sales Executive,7336
+838,Master,1,Research Director,13499
+839,Bachelor,0,Sales Executive,13758
+840,Master,0,Sales Executive,5155
+841,Master,0,Laboratory Technician,2258
+842,Bachelor,0,Laboratory Technician,3597
+843,Below College,1,Laboratory Technician,2515
+844,Master,0,Laboratory Technician,4420
+845,Bachelor,0,Sales Executive,6578
+846,College,1,Research Scientist,4422
+847,Bachelor,0,Manufacturing Director,10274
+848,Bachelor,0,Healthcare Representative,5343
+849,Master,0,Laboratory Technician,2376
+850,Bachelor,1,Sales Executive,5346
+851,Below College,1,Sales Representative,2827
+852,Master,1,Manager,19943
+853,Below College,1,Laboratory Technician,3131
+854,College,0,Research Scientist,2552
+855,Bachelor,1,Research Scientist,4477
+856,Bachelor,1,Manufacturing Director,6474
+857,Bachelor,0,Laboratory Technician,3033
+858,Master,0,Research Scientist,2936
+859,College,1,Manager,18606
+860,Below College,1,Research Scientist,2168
+861,Master,0,Research Scientist,2853
+862,Bachelor,1,Manager,17048
+863,Bachelor,0,Research Scientist,2290
+864,Bachelor,0,Human Resources,3600
+865,College,0,Research Scientist,2107
+866,Master,0,Sales Executive,4115
+867,Master,0,Sales Executive,4327
+868,Bachelor,1,Manager,17856
+869,Master,0,Laboratory Technician,3196
+870,College,0,Research Director,19081
+871,Master,0,Sales Executive,8966
+872,College,1,Laboratory Technician,2210
+873,Bachelor,1,Sales Executive,4539
+874,Master,0,Laboratory Technician,2741
+875,Master,0,Laboratory Technician,3491
+876,Master,0,Research Scientist,4541
+877,Bachelor,0,Sales Representative,2678
+878,Master,0,Manufacturing Director,7379
+879,Doctor,0,Human Resources,6272
+880,Master,0,Sales Executive,5220
+881,Bachelor,1,Laboratory Technician,2743
+882,College,1,Research Scientist,4998
+883,Bachelor,1,Manufacturing Director,10252
+884,Bachelor,0,Research Scientist,2781
+885,Bachelor,1,Sales Executive,6852
+886,Master,0,Sales Executive,4950
+887,Bachelor,0,Research Scientist,3579
+888,Doctor,1,Research Director,13191
+889,College,1,Sales Executive,10377
+890,Bachelor,0,Research Scientist,2235
+891,Master,1,Manufacturing Director,10502
+892,Below College,1,Research Scientist,2011
+893,Bachelor,1,Research Scientist,1859
+894,Bachelor,1,Research Scientist,3760
+895,Bachelor,0,Research Director,17779
+896,College,0,Healthcare Representative,6833
+897,Bachelor,1,Healthcare Representative,6812
+898,Bachelor,1,Sales Executive,5171
+899,Bachelor,0,Research Director,19740
+900,College,0,Manager,18711
+901,Bachelor,0,Research Scientist,3692
+902,College,0,Laboratory Technician,2559
+903,College,0,Research Scientist,2517
+904,Bachelor,0,Healthcare Representative,6623
+905,Bachelor,0,Research Director,18265
+906,Bachelor,1,Research Director,16124
+907,Bachelor,1,Research Scientist,2585
+908,Bachelor,0,Manager,18213
+909,Doctor,0,Sales Executive,8380
+910,Bachelor,1,Research Scientist,2994
+911,College,0,Research Scientist,1223
+912,Below College,0,Sales Representative,1118
+913,College,0,Research Scientist,2875
+914,Bachelor,1,Manager,18824
+915,Below College,0,Healthcare Representative,13577
+916,College,1,Laboratory Technician,2625
+917,College,1,Manager,18789
+918,Bachelor,1,Sales Executive,4538
+919,Bachelor,0,Manager,19847
+920,Master,0,Manufacturing Director,10512
+921,Bachelor,1,Laboratory Technician,4444
+922,Master,0,Laboratory Technician,2154
+923,College,0,Manager,19190
+924,Bachelor,0,Human Resources,4490
+925,Below College,0,Research Scientist,3506
+926,Master,1,Research Scientist,2372
+927,Master,1,Sales Executive,10231
+928,Master,1,Manufacturing Director,5410
+929,Bachelor,1,Healthcare Representative,7978
+930,Bachelor,0,Laboratory Technician,3867
+931,College,1,Laboratory Technician,2838
+932,College,1,Manufacturing Director,4695
+933,Bachelor,1,Laboratory Technician,3339
+934,Bachelor,0,Research Scientist,2080
+935,Bachelor,1,Research Scientist,2096
+936,Bachelor,0,Sales Executive,6209
+937,Bachelor,1,Manager,18061
+938,Master,1,Manager,17123
+939,Master,0,Research Scientist,2372
+940,College,0,Laboratory Technician,4883
+941,Bachelor,0,Research Scientist,3904
+942,Bachelor,1,Laboratory Technician,4627
+943,Master,1,Healthcare Representative,7094
+944,College,1,Human Resources,3423
+945,Bachelor,1,Laboratory Technician,6674
+946,Bachelor,1,Research Director,16880
+947,Master,0,Sales Executive,9094
+948,Bachelor,0,Sales Executive,8446
+949,Master,1,Manager,11916
+950,College,0,Manufacturing Director,4534
+951,Master,1,Sales Executive,9852
+952,College,0,Sales Executive,6151
+953,Bachelor,1,Sales Representative,2302
+954,Bachelor,0,Laboratory Technician,2362
+955,Below College,0,Manager,17861
+956,College,1,Manager,19187
+957,Master,0,Manager,19717
+958,College,0,Research Scientist,3544
+959,Bachelor,0,Healthcare Representative,8500
+960,Bachelor,0,Research Scientist,4661
+961,Bachelor,1,Sales Executive,4103
+962,Master,0,Research Scientist,4249
+963,Bachelor,0,Manager,14026
+964,College,1,Sales Executive,6893
+965,College,1,Sales Executive,6125
+966,Below College,0,Laboratory Technician,3669
+967,Master,1,Manufacturing Director,10008
+968,Master,0,Laboratory Technician,2387
+969,Bachelor,1,Sales Executive,4639
+970,Bachelor,0,Manufacturing Director,7898
+971,Bachelor,1,Sales Representative,2534
+972,College,1,Manufacturing Director,13142
+973,Bachelor,1,Laboratory Technician,1611
+974,Bachelor,1,Laboratory Technician,5363
+975,Below College,0,Sales Executive,5071
+976,Master,0,Sales Executive,13695
+977,Bachelor,0,Manufacturing Director,13402
+978,Below College,1,Research Scientist,2029
+979,Below College,1,Healthcare Representative,6377
+980,Bachelor,0,Laboratory Technician,5429
+981,Bachelor,1,Sales Representative,2785
+982,Master,1,Sales Executive,4614
+983,Bachelor,0,Research Scientist,2610
+984,Master,1,Healthcare Representative,6687
+985,Bachelor,0,Sales Executive,4724
+986,Master,0,Manufacturing Director,6179
+987,Master,0,Sales Executive,6120
+988,Bachelor,0,Sales Executive,10596
+989,Bachelor,1,Research Scientist,5467
+990,Below College,0,Research Scientist,2996
+991,Below College,0,Sales Executive,9998
+992,Below College,0,Sales Executive,4078
+993,College,0,Healthcare Representative,10920
+994,Below College,0,Sales Executive,6232
+995,College,1,Manufacturing Director,13247
+996,Bachelor,1,Research Scientist,4081
+997,Bachelor,1,Sales Executive,5769
+998,Master,1,Research Scientist,2394
+999,Below College,0,Research Scientist,3904
+1000,Bachelor,1,Manager,16799
+1001,Master,1,Laboratory Technician,2950
+1002,Bachelor,1,Laboratory Technician,3629
+1003,College,0,Manufacturing Director,9362
+1004,Bachelor,0,Laboratory Technician,3229
+1005,Bachelor,0,Laboratory Technician,3578
+1006,Bachelor,0,Human Resources,7988
+1007,College,0,Laboratory Technician,4284
+1008,Below College,1,Healthcare Representative,7553
+1009,Bachelor,1,Research Director,17328
+1010,Bachelor,1,Research Director,19701
+1011,Master,0,Research Director,14732
+1012,Master,1,Sales Executive,9278
+1013,Master,1,Sales Representative,1359
+1014,Master,1,Sales Executive,4779
+1015,Doctor,1,Research Director,16422
+1016,Master,0,Research Scientist,2996
+1017,Bachelor,1,Research Scientist,1261
+1018,Below College,0,Laboratory Technician,2099
+1019,Master,0,Laboratory Technician,5810
+1020,Master,1,Sales Executive,5647
+1021,Bachelor,0,Research Scientist,3420
+1022,College,0,Sales Representative,4400
+1023,College,0,Laboratory Technician,3500
+1024,College,1,Research Scientist,2066
+1025,Master,1,Research Director,17169
+1026,Below College,1,Sales Executive,4162
+1027,Doctor,0,Sales Executive,9204
+1028,Bachelor,1,Laboratory Technician,3294
+1029,Doctor,0,Research Scientist,2127
+1030,Master,0,Laboratory Technician,3975
+1031,College,0,Sales Executive,10793
+1032,Bachelor,0,Sales Executive,10096
+1033,Bachelor,1,Laboratory Technician,3646
+1034,Doctor,1,Manufacturing Director,7446
+1035,Bachelor,0,Healthcare Representative,10851
+1036,College,1,Human Resources,2109
+1037,Bachelor,0,Laboratory Technician,3722
+1038,Bachelor,0,Manufacturing Director,9380
+1039,Bachelor,0,Sales Executive,5486
+1040,Master,1,Human Resources,2742
+1041,Below College,0,Research Director,13757
+1042,Bachelor,0,Sales Executive,8463
+1043,Bachelor,0,Laboratory Technician,3162
+1044,Bachelor,0,Research Director,16598
+1045,Master,0,Healthcare Representative,6651
+1046,Bachelor,0,Research Scientist,2345
+1047,Bachelor,0,Research Scientist,3420
+1048,Bachelor,0,Sales Executive,4373
+1049,Bachelor,0,Sales Executive,4759
+1050,Below College,0,Sales Executive,5301
+1051,College,1,Laboratory Technician,3673
+1052,Doctor,1,Sales Executive,4768
+1053,Bachelor,0,Research Scientist,1274
+1054,College,0,Research Scientist,4900
+1055,Master,0,Healthcare Representative,10466
+1056,Bachelor,0,Research Director,17007
+1057,Bachelor,0,Sales Representative,2909
+1058,Bachelor,1,Sales Executive,5765
+1059,Master,1,Sales Executive,4599
+1060,Below College,0,Sales Representative,2404
+1061,Bachelor,0,Laboratory Technician,3172
+1062,College,1,Sales Representative,2033
+1063,Below College,0,Manufacturing Director,10209
+1064,Bachelor,0,Sales Executive,8620
+1065,Bachelor,0,Human Resources,2064
+1066,Master,0,Healthcare Representative,4035
+1067,Master,1,Laboratory Technician,3838
+1068,Bachelor,1,Sales Executive,4591
+1069,College,0,Laboratory Technician,2561
+1070,Bachelor,0,Research Scientist,1563
+1071,Bachelor,0,Sales Executive,4898
+1072,College,1,Laboratory Technician,4789
+1073,Below College,1,Laboratory Technician,3180
+1074,Below College,0,Manufacturing Director,6549
+1075,Doctor,0,Healthcare Representative,6388
+1076,Bachelor,0,Manager,11244
+1077,Master,1,Manager,16032
+1078,Master,0,Research Scientist,2362
+1079,Bachelor,0,Research Director,16328
+1080,Bachelor,1,Manufacturing Director,8376
+1081,Bachelor,1,Manager,16606
+1082,Bachelor,1,Healthcare Representative,8606
+1083,Below College,0,Laboratory Technician,2272
+1084,Master,0,Laboratory Technician,2018
+1085,Bachelor,0,Sales Executive,7083
+1086,Bachelor,1,Research Scientist,4084
+1087,Doctor,0,Research Director,14411
+1088,College,0,Sales Representative,2308
+1089,Bachelor,0,Laboratory Technician,4841
+1090,Bachelor,0,Research Scientist,4285
+1091,Below College,1,Healthcare Representative,9715
+1092,Bachelor,0,Manufacturing Director,4320
+1093,Bachelor,0,Research Scientist,2132
+1094,Bachelor,0,Healthcare Representative,10124
+1095,College,0,Sales Executive,5473
+1096,Master,0,Laboratory Technician,5207
+1097,College,0,Manager,16437
+1098,College,0,Laboratory Technician,2296
+1099,College,0,Healthcare Representative,4069
+1100,Master,0,Healthcare Representative,7441
+1101,Master,1,Sales Representative,2430
+1102,College,1,Research Scientist,5878
+1103,Master,0,Sales Representative,2644
+1104,Master,1,Sales Executive,6439
+1105,Bachelor,0,Research Scientist,2451
+1106,Master,0,Sales Executive,6392
+1107,Bachelor,0,Sales Executive,9714
+1108,Master,0,Human Resources,6077
+1109,Bachelor,0,Laboratory Technician,2450
+1110,Master,0,Sales Executive,9250
+1111,Bachelor,1,Laboratory Technician,2074
+1112,Doctor,1,Manufacturing Director,10169
+1113,Bachelor,0,Manufacturing Director,4855
+1114,Master,0,Research Scientist,4087
+1115,Master,1,Research Scientist,2367
+1116,Master,0,Research Scientist,2972
+1117,Doctor,0,Manager,19586
+1118,Master,0,Research Scientist,5484
+1119,Bachelor,1,Research Scientist,2061
+1120,Bachelor,0,Sales Executive,9924
+1121,Bachelor,1,Sales Executive,4198
+1122,Master,1,Sales Executive,6815
+1123,Below College,0,Laboratory Technician,4723
+1124,Master,1,Healthcare Representative,6142
+1125,Bachelor,0,Sales Executive,8237
+1126,Below College,0,Healthcare Representative,8853
+1127,Bachelor,0,Manager,19331
+1128,Bachelor,0,Research Scientist,2073
+1129,Master,0,Laboratory Technician,5562
+1130,College,0,Manager,19613
+1131,Bachelor,0,Laboratory Technician,3407
+1132,Master,0,Healthcare Representative,5063
+1133,College,1,Sales Executive,4639
+1134,Bachelor,0,Laboratory Technician,4876
+1135,College,0,Laboratory Technician,2690
+1136,Master,0,Manager,17567
+1137,Bachelor,0,Laboratory Technician,2408
+1138,College,1,Research Scientist,2814
+1139,Doctor,0,Healthcare Representative,11245
+1140,Master,1,Research Scientist,3312
+1141,Bachelor,1,Research Director,19049
+1142,Bachelor,0,Research Scientist,2141
+1143,Doctor,1,Laboratory Technician,5769
+1144,Bachelor,0,Sales Executive,4385
+1145,Master,0,Sales Executive,5332
+1146,Master,1,Manufacturing Director,4663
+1147,Master,0,Manufacturing Director,4724
+1148,Master,1,Laboratory Technician,3211
+1149,Doctor,0,Manufacturing Director,5377
+1150,Bachelor,0,Laboratory Technician,4066
+1151,Doctor,0,Research Scientist,5208
+1152,Bachelor,1,Manufacturing Director,4877
+1153,Below College,0,Research Scientist,3117
+1154,College,1,Sales Representative,1569
+1155,Master,1,Manager,19658
+1156,College,0,Laboratory Technician,3069
+1157,Bachelor,1,Manufacturing Director,10435
+1158,Master,1,Healthcare Representative,4148
+1159,Bachelor,0,Manufacturing Director,5768
+1160,Bachelor,1,Manufacturing Director,5042
+1161,College,1,Manufacturing Director,5770
+1162,College,1,Manufacturing Director,7756
+1163,Bachelor,0,Sales Executive,10306
+1164,Bachelor,1,Research Scientist,3936
+1165,Bachelor,1,Manufacturing Director,7945
+1166,Doctor,0,Human Resources,5743
+1167,Doctor,0,Manager,15202
+1168,College,0,Sales Executive,5440
+1169,Below College,1,Research Scientist,3760
+1170,Bachelor,1,Research Scientist,3517
+1171,Bachelor,0,Research Scientist,2580
+1172,Bachelor,0,Laboratory Technician,2166
+1173,Bachelor,0,Sales Executive,5869
+1174,Master,1,Healthcare Representative,8008
+1175,Below College,0,Manufacturing Director,5206
+1176,Bachelor,0,Manufacturing Director,5295
+1177,Master,1,Research Director,16413
+1178,Doctor,1,Research Director,13269
+1179,Bachelor,1,Sales Representative,2783
+1180,Bachelor,1,Research Scientist,5433
+1181,Bachelor,0,Laboratory Technician,2013
+1182,Below College,1,Healthcare Representative,13966
+1183,Master,1,Manufacturing Director,4374
+1184,College,0,Healthcare Representative,6842
+1185,Doctor,1,Manager,17426
+1186,College,0,Research Director,17603
+1187,Master,0,Sales Executive,4581
+1188,Bachelor,0,Research Scientist,4735
+1189,Bachelor,0,Sales Executive,4187
+1190,Master,0,Sales Executive,5505
+1191,Bachelor,0,Research Scientist,5470
+1192,Master,1,Sales Executive,5476
+1193,Bachelor,1,Laboratory Technician,2587
+1194,Bachelor,1,Laboratory Technician,2440
+1195,Master,1,Manager,15972
+1196,Bachelor,0,Manager,15379
+1197,College,0,Sales Executive,7082
+1198,Below College,0,Sales Representative,2728
+1199,Bachelor,1,Sales Executive,5368
+1200,Master,0,Healthcare Representative,5347
+1201,Bachelor,1,Human Resources,3195
+1202,Below College,0,Laboratory Technician,3989
+1203,College,1,Laboratory Technician,3306
+1204,Master,0,Healthcare Representative,7005
+1205,College,1,Sales Representative,2655
+1206,Master,0,Laboratory Technician,1393
+1207,Bachelor,0,Laboratory Technician,2570
+1208,Bachelor,0,Research Scientist,3537
+1209,College,0,Laboratory Technician,3986
+1210,Master,0,Healthcare Representative,10883
+1211,Bachelor,0,Laboratory Technician,2028
+1212,Master,0,Sales Executive,9525
+1213,Bachelor,1,Research Scientist,2929
+1214,Bachelor,0,Sales Representative,2275
+1215,Bachelor,1,Healthcare Representative,7879
+1216,Master,0,Research Scientist,4930
+1217,Bachelor,0,Sales Executive,7847
+1218,Bachelor,0,Research Scientist,4401
+1219,Bachelor,0,Sales Executive,9241
+1220,Master,1,Laboratory Technician,2974
+1221,Master,1,Sales Representative,4502
+1222,Below College,0,Healthcare Representative,10748
+1223,Below College,0,Human Resources,1555
+1224,Bachelor,0,Sales Executive,12936
+1225,Master,0,Laboratory Technician,2305
+1226,College,1,Research Director,16704
+1227,Bachelor,0,Research Scientist,3433
+1228,Master,0,Laboratory Technician,3477
+1229,Bachelor,0,Human Resources,6430
+1230,College,1,Manufacturing Director,6516
+1231,Below College,0,Laboratory Technician,3907
+1232,Master,0,Healthcare Representative,5562
+1233,Master,0,Manufacturing Director,6883
+1234,Below College,0,Research Scientist,2862
+1235,Master,0,Sales Executive,4978
+1236,Bachelor,0,Sales Executive,10368
+1237,Doctor,0,Sales Executive,6134
+1238,College,0,Sales Executive,6735
+1239,Below College,1,Laboratory Technician,3295
+1240,Below College,1,Manufacturing Director,5238
+1241,Bachelor,0,Laboratory Technician,6472
+1242,Bachelor,0,Sales Executive,9610
+1243,Master,0,Manager,19833
+1244,Bachelor,1,Human Resources,9756
+1245,Master,1,Research Scientist,4968
+1246,Bachelor,0,Human Resources,2145
+1247,Bachelor,1,Human Resources,2180
+1248,Bachelor,0,Sales Executive,8346
+1249,Bachelor,1,Research Scientist,3445
+1250,Bachelor,1,Sales Representative,2760
+1251,Bachelor,0,Healthcare Representative,6294
+1252,College,0,Sales Executive,7140
+1253,Master,0,Research Scientist,2932
+1254,Bachelor,1,Sales Executive,5147
+1255,Master,1,Sales Executive,4507
+1256,Bachelor,1,Sales Executive,8564
+1257,College,1,Laboratory Technician,2468
+1258,Master,0,Sales Executive,8161
+1259,Bachelor,1,Research Scientist,2109
+1260,Bachelor,0,Healthcare Representative,5294
+1261,Master,0,Research Scientist,2718
+1262,Bachelor,0,Healthcare Representative,5811
+1263,Bachelor,0,Research Scientist,2437
+1264,Bachelor,0,Laboratory Technician,2766
+1265,Bachelor,0,Research Director,19038
+1266,Bachelor,0,Research Scientist,3055
+1267,Master,0,Laboratory Technician,2289
+1268,Bachelor,0,Sales Executive,4001
+1269,Master,1,Manufacturing Director,12965
+1270,Bachelor,0,Human Resources,3539
+1271,College,1,Sales Executive,6029
+1272,Below College,0,Sales Representative,2679
+1273,College,1,Laboratory Technician,3702
+1274,Below College,1,Laboratory Technician,2398
+1275,Master,1,Sales Executive,5468
+1276,Bachelor,1,Manager,13116
+1277,College,0,Sales Executive,4189
+1278,Master,0,Research Director,19328
+1279,Bachelor,0,Healthcare Representative,8321
+1280,College,0,Research Scientist,2342
+1281,College,0,Human Resources,4071
+1282,Bachelor,0,Sales Executive,5813
+1283,Master,0,Research Scientist,3143
+1284,Bachelor,0,Research Scientist,2044
+1285,Below College,0,Research Director,13464
+1286,College,0,Sales Executive,7991
+1287,College,1,Laboratory Technician,3377
+1288,Bachelor,0,Healthcare Representative,5538
+1289,College,0,Manufacturing Director,5762
+1290,Bachelor,0,Human Resources,2592
+1291,Master,0,Laboratory Technician,5346
+1292,Master,0,Manufacturing Director,4213
+1293,Bachelor,0,Sales Executive,4127
+1294,Bachelor,0,Research Scientist,2438
+1295,Bachelor,0,Healthcare Representative,6870
+1296,Below College,1,Sales Executive,10447
+1297,Bachelor,1,Manufacturing Director,9667
+1298,College,1,Human Resources,2148
+1299,College,1,Healthcare Representative,8926
+1300,Bachelor,1,Healthcare Representative,6513
+1301,College,0,Sales Executive,6799
+1302,Bachelor,0,Manager,16291
+1303,Master,0,Laboratory Technician,2705
+1304,Bachelor,1,Manufacturing Director,10333
+1305,Bachelor,1,Healthcare Representative,4448
+1306,Master,1,Research Scientist,6854
+1307,Master,1,Sales Executive,9637
+1308,Bachelor,1,Research Scientist,3591
+1309,Master,1,Sales Representative,5405
+1310,Bachelor,0,Sales Executive,4684
+1311,Master,0,Research Director,15787
+1312,Bachelor,1,Research Scientist,1514
+1313,Doctor,0,Human Resources,2956
+1314,Bachelor,0,Human Resources,2335
+1315,Master,1,Sales Executive,5154
+1316,Master,1,Research Scientist,6962
+1317,Master,0,Sales Executive,5675
+1318,College,1,Laboratory Technician,2379
+1319,Below College,0,Laboratory Technician,3812
+1320,Master,0,Sales Executive,4648
+1321,Master,0,Research Scientist,2936
+1322,Master,1,Laboratory Technician,2105
+1323,College,0,Manufacturing Director,8578
+1324,College,0,Human Resources,2706
+1325,Below College,0,Healthcare Representative,6384
+1326,Bachelor,0,Laboratory Technician,3968
+1327,Master,0,Sales Executive,9907
+1328,Bachelor,1,Sales Executive,13225
+1329,Below College,1,Sales Representative,3540
+1330,Below College,0,Human Resources,2804
+1331,Bachelor,1,Manager,19392
+1332,Bachelor,0,Research Director,19665
+1333,College,0,Research Scientist,2439
+1334,Bachelor,1,Sales Executive,7314
+1335,Bachelor,1,Research Scientist,4774
+1336,Master,0,Research Scientist,3902
+1337,Master,0,Research Scientist,2662
+1338,Bachelor,1,Sales Representative,2856
+1339,Bachelor,0,Sales Representative,1081
+1340,Below College,0,Research Scientist,2472
+1341,Master,1,Sales Executive,5673
+1342,Bachelor,0,Laboratory Technician,4197
+1343,Bachelor,0,Sales Executive,9713
+1344,Bachelor,0,Laboratory Technician,2062
+1345,Master,0,Research Scientist,4284
+1346,College,1,Manufacturing Director,4788
+1347,College,1,Manufacturing Director,5906
+1348,Below College,0,Human Resources,3886
+1349,Master,0,Manager,16823
+1350,College,1,Research Scientist,2933
+1351,College,1,Sales Executive,6500
+1352,Bachelor,1,Manager,17174
+1353,Master,0,Healthcare Representative,5033
+1354,Master,0,Research Scientist,2307
+1355,College,0,Laboratory Technician,2587
+1356,College,0,Sales Executive,5507
+1357,Bachelor,1,Sales Executive,4393
+1358,Bachelor,0,Research Director,13348
+1359,College,1,Sales Executive,6583
+1360,Below College,1,Sales Executive,8103
+1361,Bachelor,1,Laboratory Technician,3978
+1362,Bachelor,0,Laboratory Technician,2544
+1363,Master,0,Healthcare Representative,5399
+1364,Master,0,Sales Executive,5487
+1365,College,0,Sales Executive,6834
+1366,Bachelor,0,Sales Representative,1091
+1367,Master,1,Sales Executive,5736
+1368,Master,0,Research Scientist,2226
+1369,Master,0,Research Scientist,5747
+1370,College,1,Sales Executive,9854
+1371,Master,0,Research Scientist,5467
+1372,Doctor,1,Sales Executive,5380
+1373,College,0,Manufacturing Director,5151
+1374,Bachelor,1,Research Scientist,2133
+1375,Bachelor,1,Manager,17875
+1376,College,1,Research Scientist,2432
+1377,College,0,Research Scientist,4771
+1378,Below College,0,Research Director,19161
+1379,Master,0,Sales Executive,5087
+1380,Bachelor,1,Human Resources,2863
+1381,Master,0,Sales Executive,5561
+1382,Bachelor,0,Research Scientist,2144
+1383,College,0,Research Scientist,3065
+1384,Master,0,Laboratory Technician,2810
+1385,Bachelor,0,Sales Executive,9888
+1386,Master,0,Sales Executive,8628
+1387,Bachelor,0,Laboratory Technician,2867
+1388,Bachelor,0,Healthcare Representative,5373
+1389,Master,1,Healthcare Representative,6667
+1390,Bachelor,0,Research Scientist,5003
+1391,Bachelor,0,Laboratory Technician,2367
+1392,Bachelor,0,Sales Representative,2858
+1393,Master,1,Sales Executive,5204
+1394,Bachelor,0,Sales Executive,4105
+1395,Master,0,Manufacturing Director,9679
+1396,Master,0,Sales Executive,5617
+1397,Master,0,Sales Executive,10448
+1398,College,1,Research Scientist,2897
+1399,College,0,Healthcare Representative,5968
+1400,Bachelor,0,Healthcare Representative,7510
+1401,Master,0,Human Resources,2991
+1402,Master,0,Manager,19636
+1403,Below College,1,Laboratory Technician,1129
+1404,Master,0,Sales Executive,13341
+1405,College,0,Research Scientist,4332
+1406,Bachelor,1,Research Director,11031
+1407,Bachelor,1,Manufacturing Director,4440
+1408,College,0,Healthcare Representative,4617
+1409,College,0,Laboratory Technician,2647
+1410,Bachelor,1,Laboratory Technician,6323
+1411,College,1,Sales Executive,5677
+1412,Bachelor,1,Human Resources,2187
+1413,College,0,Laboratory Technician,3748
+1414,Below College,0,Laboratory Technician,3977
+1415,Bachelor,0,Healthcare Representative,8633
+1416,College,0,Laboratory Technician,2008
+1417,Master,0,Sales Executive,4440
+1418,College,0,Sales Representative,3067
+1419,Master,0,Manufacturing Director,5321
+1420,Master,0,Research Scientist,5410
+1421,Bachelor,0,Research Scientist,2782
+1422,Below College,1,Research Director,11957
+1423,Master,0,Laboratory Technician,2660
+1424,College,0,Research Scientist,3375
+1425,Master,0,Research Scientist,5098
+1426,College,1,Healthcare Representative,4878
+1427,Master,1,Laboratory Technician,2837
+1428,Master,0,Laboratory Technician,2406
+1429,Master,0,Sales Representative,2269
+1430,Below College,0,Research Scientist,4108
+1431,Bachelor,1,Research Director,13206
+1432,Master,1,Sales Executive,10422
+1433,Bachelor,1,Research Director,13744
+1434,College,1,Sales Executive,4907
+1435,Master,0,Sales Representative,3482
+1436,Bachelor,0,Research Scientist,2436
+1437,Below College,0,Sales Representative,2380
+1438,Bachelor,0,Manager,19431
+1439,Bachelor,0,Sales Representative,1790
+1440,Bachelor,1,Sales Executive,7644
+1441,College,1,Manufacturing Director,5131
+1442,Master,0,Healthcare Representative,6306
+1443,Master,0,Research Scientist,4787
+1444,Bachelor,0,Manager,18880
+1445,College,0,Laboratory Technician,2339
+1446,Master,1,Manufacturing Director,13570
+1447,Bachelor,1,Sales Executive,6712
+1448,Master,0,Sales Executive,5406
+1449,Bachelor,0,Sales Executive,8938
+1450,Bachelor,0,Research Scientist,2439
+1451,Master,1,Human Resources,8837
+1452,College,1,Sales Executive,5343
+1453,Master,0,Sales Executive,6728
+1454,Master,1,Sales Executive,6652
+1455,Bachelor,1,Sales Executive,4850
+1456,Master,0,Research Scientist,2809
+1457,Master,0,Healthcare Representative,5689
+1458,Master,1,Research Scientist,2001
+1459,Master,1,Research Scientist,2977
+1460,College,0,Laboratory Technician,4025
+1461,Master,1,Research Scientist,3785
+1462,Bachelor,0,Sales Executive,10854
+1463,Below College,1,Sales Executive,12031
+1464,Bachelor,0,Manufacturing Director,9936
+1465,Bachelor,1,Sales Representative,2966
+1466,College,0,Laboratory Technician,2571
+1467,Below College,0,Healthcare Representative,9991
+1468,Bachelor,0,Manufacturing Director,6142
+1469,Bachelor,0,Sales Executive,5390
+1470,Bachelor,0,Laboratory Technician,4404

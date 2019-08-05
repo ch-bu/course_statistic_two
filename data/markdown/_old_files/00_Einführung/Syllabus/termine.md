@@ -2,7 +2,7 @@
 # Sitzungen
 
 * Einführung
-* Vertiefung R
+* Grundlagen R
 * Vertiefung R
 * Statistische Modelle (Data = Model + Error, Errors, sampling distributions)
 * Statistische Inferenz 1 (PRE, F, SSR, SSE, SSE(A), Sampling Distribution of PRE, Critical Values, )
