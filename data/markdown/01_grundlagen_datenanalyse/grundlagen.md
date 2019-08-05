@@ -1183,8 +1183,6 @@ write_csv(unnoetige_variable, "hr_updated.csv")
 
 * [Haven - Export von Daten in SPSS](https://haven.tidyverse.org/)
 
-
-
 ## Mit Fehlern in R umgehen
 
 Fehler werden passieren, wenn du mit R arbeitest. 
