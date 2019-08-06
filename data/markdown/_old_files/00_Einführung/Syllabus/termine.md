@@ -5,7 +5,7 @@
 * Grundlagen R
 * Vertiefung R
 * Statistische Modelle (Data = Model + Error, Errors, sampling distributions)
-* Statistische Inferenz 1 (PRE, F, SSR, SSE, SSE(A), Sampling Distribution of PRE, Critical Values, )
+* Statistische Inferenz 1 (PRE, F, SSR, SSE, SSE(A), Sampling Distribution of PRE, Critical Values)
 * Statistische INferenz 2 (Statistical Power, STatistical Decisions, Confidenz INtervalle, simple T-Test)
 * Simple regression with single predictor (beta coefficients, t-test of beta coefficient)
 * Multiple regression (redundancy, partial regression coefficients, overall model test, testing predictors)

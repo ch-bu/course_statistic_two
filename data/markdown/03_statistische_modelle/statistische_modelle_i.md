@@ -529,7 +529,7 @@ $$
 
 # Fehler
 
-## Lineare und quadrierte Fehler
+## Quadrierte Fehler
 
 Wir wissen, dass ein Mittelwert nie die tatsächlichen Werte von Personen repräsentiert. Kaum eine Person wird genausoviel monatlich verdienen, wie die durchschnittliche Person in dem Unternehmen. Fehler werden folgendermaßen berechnet:
 
@@ -596,7 +596,7 @@ ggplot(my_sample, aes(x = id, y = data)) +
 Die Quadrierung der Fehler hat gewisse mathematische Vorteile, die wir in diesem Kurs nicht besprechen werden. Ein Grund liegt darin, dass die Wahl des Fehlers entscheidet, welches einfachste Modell den Fehler am stärksten reduziert. Würden wir beispielsweise den Fehler als die lineare Abweichung zwischen dem tatsächlichen Wert und dem vorhergesagtem Wert berechnen, wäre der **Median** das Modell, welches die Fehler maximal reduziert. Nehmen wir den Mittelwert als kompaktes Modell, sind die quadrierten Abweichungen das mathematisch korrekteste Modell (mehr Informationen [hier](https://stats.stackexchange.com/questions/118/why-square-the-difference-instead-of-taking-the-absolute-value-in-standard-devia)).
 
 
-## Aggregierung der Fehler
+## Aggregierung der Fehler (SSE)
 
 Um zu beschreiben, wie hoch die Fehler sowohl in unserem kompakten Modell als auch in unserem erweiterten Modell sind, müssen wir diese Fehler aggregieren. Es gibt hierfür verschiedene Wege, beispielsweise können wir die linearen Fehler summieren. Wir werden in diesem Kurs die Fehler aggregieren, indem die quadrierten Abweichungen der einzelnen Fehler summiert werden.
 
@@ -614,127 +614,300 @@ $$
 
 $Y_i$ entspricht dem tatsächlichen Wert (hier die einzelnen Punkte), $\hat{Y}_i$ entspricht dem Wert, den unser erweitertes Modell hervorsagt. Diese beiden Werte substrahieren wir voneinander und quadrieren diese Differenz (blaue Quadrate). Die Summe dieser Quadrate ergibt SSE oder Sum of Squared Errors.
 
-# Standardisierung des quadrierten Fehlers
+<!-- ## Standardisierung des quadrierten Fehlers (MSE)
 
-Die Aggregierung der Fehler ist abhängig von der Anzahl der Beobachtungspunkte. Beispielsweise ist die Aggregierung des Fehlers von 5 Personen in der Regel deutlich kleiner als die Aggregierung des Fehlers von 20 Personen. Es ist daher sinnvoll, den aggregierten Fehler zu standardisieren, um Fehler miteinander zu vergleichen. Dies schaffen wir, indem wir den aggregierten Fehler durch die Anzahl der Beobachtungspunkte (Probanden) - 1 teilen. Diese Standardisierung des Fehlers nennen wir **Means Squared Error (MSE)**.
+Die Aggregierung der Fehler ist abhängig von der Anzahl der Beobachtungspunkte. Beispielsweise ist die Aggregierung des Fehlers von 5 Personen in der Regel deutlich kleiner als die Aggregierung des Fehlers von 20 Personen. Es ist daher sinnvoll, den aggregierten Fehler zu standardisieren, um Fehler miteinander zu vergleichen. Dies schaffen wir, indem wir den aggregierten Fehler durch die Anzahl der Beobachtungspunkte (Probanden) - p teilen (p steht für die Anzahl der Parameter). Diese Standardisierung des Fehlers nennen wir **Means Squared Error (MSE)**.
 
 $$
-MSE = \frac{SSE}{n - 1} = \frac{\sum_{i = 1}^n (Y_i - b_0)^2}{n - 1}
+MSE = \frac{SSE}{n - p} = \frac{\sum_{i = 1}^n (Y_i - \hat{Y}_i)^2}{n - p}
 $$
 
 Du wirst feststellen, dass MSE nichts anderes ist als die Varianz einer Verteilung: 
 
 $$
-Varianz = s^2 =  \frac{\sum_{i = 1}^n (x_i - \bar{x})^2}{n - 1}
+Varianz = s^2 =  \frac{\sum_{i = 1}^n (x_i - \bar{x})^2}{n - p}
 $$
 
 Dementsprechend ist die Wurzel von MSE nichts anderes als die Standardabweichung der standardisierten Fehler:
 
 $$
-s = \sqrt{MSE} = \sqrt{\frac{\sum_{i = 1}^n (Y_i - b_0)^2}{n - 1}}
+s = \sqrt{MSE} = \sqrt{\frac{\sum_{i = 1}^n (Y_i - b_0)^2}{n - p}}
+$$ -->
+
+
+## PRE revisited
+
+Da wir nun ERROR als die quadrierten Abweichungen zwischen DATA - MODELL definiert haben, sprechen wir ab jetzt nicht mehr von ERROR, sondern von SSE (Sum of Squared Error). Dementsprechend können wir PRE nun folgendermaßen angeben:
+
+$$
+PRE = \frac{SSE(C) - SSE(A)}{SSE(C)}
+$$
+
+Diese Gleichung ist äquivalent zur allgemeineren Gleichung:
+
+$$
+PRE = \frac{ERROR(C) - ERROR(A)}{ERROR(C)}
 $$
 
 
-# R-Übung
+$SSE(C) - SSE(A)$ bezeichnen wir ab jetzt als $SSR$ (Sum of Squared Residuals):
+
+$$
+PRE = \frac{SSR}{SSE(C)}
+$$
+
+
+## R-Übung
 
 > Ziel der Übung: PRE auf Grundlage des eben beschriebenen erweiterten Modells und des kompakten Modells hervorzusagen.
 
-Lade dir für diese Übung den Datensatz von folgendem Link (TODO) herunter. Benenne den Datensatz mit der Variable `intelligence`. 
 
+## Kompaktes und erweitertes Modell
 
-Zunächst laden wir wie immer das Paket tidyverse:
-
-```
-library(tidyverse)
-```
-
-Zu Beginn ist es immer sinnvoll, sich den Datensatz anzuschauen:
-
-```
-glimpse(intelligence)
-```
-
-```
-Observations: 78
-Variables: 7
-$ id                <dbl> 25, 26, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36...
-$ gender            <chr> "male", "male", "male", "male", "male", "male", "male", "male", "male", "male", "male", "male...
-$ age               <dbl> 41, 32, 22, 46, 55, 33, 50, 50, 37, 28, 28, 45, 60, 48, 41, 37, 44, 37, 41, 43, 20, 51, 31, 5...
-$ books_per_year    <dbl> 10, 10, 9, 11, 9, 10, 9, 11, 10, 10, 9, 9, 10, 9, 9, 9, 10, 10, 9, 10, 9, 10, 9, 10, 9, 9, 9,...
-$ intelligence_post <dbl> 82.73580, 142.02978, 79.97794, 82.73580, 88.25152, 88.25152, 89.63045, 91.00938, 92.38831, 95...
-$ group             <dbl> 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, ...
-$ intelligence_pre  <dbl> 82.73580, 142.02978, 74.73800, 74.46222, 87.28627, 84.25262, 85.76944, 88.25152, 89.63045, 83...
-```
-
-Der Datensatz hat 7 Variablen. Uns interessieren die Variablen `intelligence_pre`, `books_per_year` und `age`. Beachte, dass das Modell, welches wir gleich erstellen erst später in diesem Kurs erklärt wird. Bei diesem Modell handelt es sich um ein Regressionsmodell mit zwei Prädiktoren. Dieses erweiterte Modell hatten wir vorhin folgendermaßen beschrieben:
-
+Vergegenwärtigen wir uns erneut unsere beiden Modelle. Das kompakte Modell berechnet das das durschnittliche Einkommen der Mitarbeiter auf Grundlage des Mittelwertes der Stichprobe:
 
 $$
-\hat{Y} = 68.72 + 2.81 * X_1 - 0.02 * X_2
+Y_i = b_0 + e_i
 $$
 
-Das kompakte Modell war:
-
+Der Mittelwert der Stichprobe ist 4474, daher:
 
 $$
-\hat{Y}_i = 94.71
+Y_i = 4474 + e_i
+$$
+
+Unser erweitertes Modell berechnet das durchschnittliche Einkommen auf Grundlage der bisherigen Arbeitsjahre der Person: 
+
+$$
+Y_i = b_0 + b_1*X_1 + e_i
+$$
+
+Wie wir zu dieser Gleichung kommen ist an dieser Stelle noch nicht wichtig (wir kommen in dem Modul lineare Regression darauf zurück). Das Modell hat insgesamt zwei Parameter ($b_0$ und $b_1$) und sieht folgendermaßen aus:
+
+$$
+Y_i = 1184.4 + 473.4*X_1 + e_i
+$$
+
+Arbeitet eine Mitarbeiterin beispielsweise seit 10 Jahren, schätzen wir folgendes monatliches Gehalt auf 5918.4 Dollar:
+
+$$
+\hat{Y}_i = 1184.4 + 473.4*10 = 5918.4
 $$
 
 
-Wie wir das erweiterte Modell berechnen, erfahren wir später im Kurs. Jetzt genügt es zu wissen, dass wir ein erweitertes Modell mit zwei Parametern berechnet haben.
+## PRE berechnen
 
-Im nächsten Schritt möchten wir die quadrierten Abweichungen der tatsächlichen Werte und den geschätzen Werten beider Modelle berechnen:
+Im nächsten Schritt möchten wir PRE berechnen. PRE haben wir als den prozentualen Anteil des Fehlers des kompakten Modells bezeichnet, der durch das erweiterte Modell reduziert wird:
+
+$$
+PRE = \frac{SSE(C) - SSE(A)}{SSE(C)} = \frac{SSR}{SSE(C)}
+$$
+
+
+Schauen wir uns nochmal unsere Stichprobe an:
+
+
+```R
+set.seed(245)
+(my_sample <- sample_n(human_resources, 20) %>% 
+    select(id, total_working_years, monthly_income))
+```
 
 ```
-(errors <- intelligence %>% 
+# A tibble: 20 x 3
+      id total_working_years monthly_income
+   <dbl>               <dbl>          <dbl>
+ 1  1363                  12           5399
+ 2   713                   5           3452
+ 3   344                   7           8268
+ 4   993                  13          10920
+ 5    36                   6           2645
+ 6   420                   9           2097
+ 7  1366                   1           1091
+ 8  1061                   4           3172
+ 9   129                   3           2523
+10   367                   8           9355
+11   681                   8           4678
+12  1280                   6           2342
+13   164                  12           9439
+14    62                  10           2406
+15  1387                   8           2867
+16  1040                   2           2742
+17   560                   6           3057
+18   110                   1           2871
+19   630                   6           4936
+20   880                  12           5220
+```
+
+Mit Hilfe der Funktion `mutate` können wir sowohl den Fehler des erweiterten Modells als auch des kompakten Modells berechnen:
+
+
+```R
+errors <- my_sample %>% 
   mutate(
-    compact       = mean(intelligence_pre),
-    augmented     = predict(model, newdata = .),
-    res_compact   = (compact - intelligence_pre)^2,
-    res_augmented = (augmented - intelligence_pre)^2
+    compact       = mean(monthly_income),
+    augmented     = 1184.4 + 473.4 * total_working_years,
+    res_compact   = (compact - monthly_income)^2,
+    res_augmented = (augmented - monthly_income)^2
+  )
+glimpse(errors)
+```
+
+```
+Variables: 7
+$ id                  <dbl> 1363, 713, 344, 993, 36, 420, 1366, 1061, 129, 367, 681, 1280...
+$ total_working_years <dbl> 12, 5, 7, 13, 6, 9, 1, 4, 3, 8, 8, 6, 12, 10, 8, 2, 6, 1, 6, 12
+$ monthly_income      <dbl> 5399, 3452, 8268, 10920, 2645, 2097, 1091, 3172, 2523, 9355, ...
+$ compact             <dbl> 4474, 4474, 4474, 4474, 4474, 4474, 4474, 4474, 4474, 4474, 4...
+$ augmented           <dbl> 6865.2, 3551.4, 4498.2, 7338.6, 4024.8, 5445.0, 1657.8, 3078....
+$ res_compact         <dbl> 855625, 1044484, 14394436, 41550916, 3345241, 5650129, 114446...
+$ res_augmented       <dbl> 2149742.44, 9880.36, 14211392.04, 12826425.96, 1903848.04, 11...
+```
+
+Du kannst beispielsweise erkennen, dass bei Mitarbeiterin 1363 (erste Zahl), der Fehler im kompakten Modell kleiner ist als im erweiterten Modell. Das kompakte Modell hat einen Fehler von 855625, während das erweiterte Modell einen Fehler von 2149742.44 hat. Die Summe aus `res_compact` und `res_augmented` entspricht nun SSE(C) und SSE(A): 
+
+```R
+(sse_c <- sum(errors$res_compact))   # 152055906
+(sse_a <- sum(errors$res_augmented)) #  94488640
+(ssr <- sse_c - sse_a)               #  57567266
+```
+
+Im nächsten Schritt können wir PRE berechnen:
+
+```R
+(pre <- ssr/sse_c) # 0.3785928
+```
+
+Unser erweitertes Modell reduziert also den Fehler des kompakten Modells um 37.8%. Um nun zu bestimmen, ob diese Reduzierung gut genug ist, um das erweiterte Modell bzw. die Alternativhypothese anzunehmen, müssen wir im nächsten Modul verstehen, wie wir bestimmen können, ob ein Fehler substantiell reduziert wird.
+
+# Statistische Hypothesen
+
+## Typen von Hypothesen
+
+Wir werden im Verlaufe des Kurses verschiedene mathematische Modelle kennen lernen. Bei jedem Modell prüfen wir, ob diese Modelle bzw. die einzelnen Parameter dieser Modelle die Fehler im Vergleich zu einem kompakten Modell substantiell reduzieren. Bevor wir im nächsten Kapitel klären, was dies bedeutet, müssen wir uns noch verschiedene Hypothesen vergegenwärtigen, die wir durch mathematische Modelle beantworten: Zusammenhangshypothesen, Unterschiedshypothesen und Veränderungshypothesen. 
+
+> Wichtig: Jede Hypothesenart wird auf Grundlage des eben beschriebenen Verfahrens (kompaktes vs. erweitertes Modell, PRE) berechnet. Wir differenzieren diese Konzepte im Verlaufe des Kurses nur für die unterschiedlichen Hypothesen weiter aus.
+
+### Zusammenhangshypothesen
+
+Ein Beispiel für eine Zusammenhangshypothese wäre: *Höhere Werte in einem Motivationstest führen zu höheren Werten im Lerntest*, oder *Je größer der Vater, desto größer das Kind*. Zusammenhangshypothesen sind im Bereich des Lehren und Lernens immer wieder wichtig:
+
+* Gibt es einen Zusammenhang zwischen dem akademischen Hintergrund der Eltern und der Intelligenz ihrer Kinder?* Gibt es einen Zusammenhang zwischen der Motivation beim Lernen und dem Abschneiden in Klausuren? 
+* Gibt es einen Zusammenhang zwischen der Zeitstunden an Vorbereitung für eine Klausur und dem Abschneiden in der Klausur?
+
+Wir werden Zusammenhangshypothesen später im Kurs mit Hilfe der linearen Regression testen.
+
+### Unterschiedshypothesen
+
+Ein Beispiel für eine Unterschiedshypothese wäre: *Lernende, die verteilt lernen behalten den Lernstoff nachhaltiger als Lernende, die geblockt lernen*. Unterschiedshypothesen werden meist in experimentellen Studien angewandt, in denen wir Menschen verschiedenen Experimentalgruppen zuordnen:
+
+* Schneiden Lernende, die von sich behaupten, visuelle Lerntypen sind, besser bei visuellen Aufgaben ab, als Lernende, die von sich behaupten, auditive Lerntypen zu sein (nein, siehe [hier](https://www.sciencedirect.com/science/article/pii/S0360131516302482))
+* Haben Lernende aus Finnland ein besseres Leseverständnis als Lernende aus Deutschland und Frankreich?
+* Ist problembasiertes Lernen für das Erlernen von Fertigkeiten wirksamer als direkte Instruktion?
+
+Unterschiedshypothesen lernen wir im Verlauf dieses Kurses im Modul One-Way ANOVA und Factorial ANOVA kennen.
+
+### Veränderungshypothesen
+
+Ein Beispiel für eine Veränderungshypothese wäre: *Mediationstechniken verringern die Aggression*. Veränderungshypothesen untersuchen die Veränderung einer abhängigen Variable (hier Aggression) über die Zeit hinweg:
+
+* Die Anwendung von Retrieval Practice über mehrere Wochen erhöht die Metakognition der Lernenden bezüglich Ihres Verständnisses des Lernstoffs.
+* Das regelmäßige Spielen von Ego-Shootern führt zu einer gesteigerten Aggression bei Jugendlichen.
+
+Veränderungshypothesen lernen wir im Verlaufe dieses Kurses im Modul Messwiederholungsanalyse oder Repeated-Measures ANOVA kennen.
+
+
+## Eigenschaften von Hypothesen
+
+Hypothesen haben immer bestimmte Eigenschaften:
+
+* Allgemeingültigkeit: Wir möchten auf Grundlage der Hypothesen Aussagen über eine Population treffen, nicht über die Stichprobe. Die Schwierigkeit der Inferenzstatistik besteht darin, dass wir die Population nicht kennen und daher Wege finden müssen, Aussagen über die Population zu treffen.
+* Probabilistisch: Mit Hilfe von Hypothesen machen wir Aussagen von Gruppen. Einzelne Personen können nicht dem Muster unserer Hypothese entsprechen, dies widerlegt allerdings nicht die Hypothese. Beispielsweise könnten wir folgende Unterschiedshypothese annehmen: *Lernende, die mehr als 8 Stunden schlafen sind am Morgen konzentrierter als Lernende, die weniger als 8 Stunden schlafen*. Eine Person, die nun unter 8 Stunden schläft und dennoch hoch konzentriert ist, widerlegt diese Hypothese nicht. Diese Person ist eher ein Ausreißer des allgemeinen Musters der Menschen.
+
+
+## Population vs. Stichprobe
+
+In experimentellen Studien können wir nur selten die ganze Population betrachten. Selbst bei Wahlvorhersagen wird nur immer ein kleiner Teil der Population (hier die Gesamtbevölkerung eines Landes) erhoben. Genauso verwenden wir in Studien häufig nur einen kleinen Teil der Population, die Stichprobe. Auf Grundlage dieser Stichprobe versuchen wir allgemeingültige Aussagen über die Population zu treffen (mehr findest du in [Bortz und Schuster (2010, Kapitel 6)](https://www.springer.com/de/book/9783642127694)). 
+
+
+# Modeling Example
+
+## Hintergrund
+
+
+```R
+library(tidyverse)
+library(jmv)
+library(ggthemes)
+
+human_resources <- read_csv("C:/Users/ChristianEZW/repositories/statistik_2_online_kurs/data/markdown/hr_cleaned.csv")
+
+# Stell dir vor, der CEO des Unternehmenes möchte, dass die Mitarbeiter 
+# schneller eine Beförderung als nach 3.5 Jahren erhalten. Viele
+# Mitarbeiter waren unzufrieden und gaben an, dass sie lange auf
+# Ihre Beförderung warten mussten. Der CEO hat daher vor ein paar Jahren
+# ein KPI (Key Performance Indicator) angegeben, in dem er vorgab,
+# dass Mitarbeiter im Schnitt unter 3.5 Jahren eine Beförderung erhalten sollten.
+# Nun soll die Erreichung dieses KPI geprüft werden.
+
+# Unsere Hypothese lautet daher (Unterschiedshypothese):
+#  - Erhalten Mitarbeiter des Unternehmens früher als nach 3.5 Jahren eine Beförderung? 
+#  - AV (abhängige Variable): Jahre seit der letzten Beförderung
+#    UV (unabhängige Variable): 
+#      - Mittelwert der Stichprobe seit der letzten Beförderung
+#      - Angenommener KPI des CEO
+
+# Um die Hypothese zu bearbeiten, befragen wir stellvertretend 50 Mitarbeiter des Unternehmens:
+
+set.seed(22)
+(my_sample <- human_resources %>% 
+  sample_n(50) %>% 
+  select(id, years_since_last_promotion))
+
+# Schauen wir uns ein Balkendiagram an, bei dem wir einsehen können, wie schnell die Mitarbeiter
+# befördert wurden:
+
+ggplot(my_sample, aes(x = years_since_last_promotion)) + 
+  geom_bar(fill = "chocolate2") +
+  labs(
+    title = "Wie lange liegt die letzte Beförderung der Mitarbeiter zurück?",
+    x = "Jahre seit der letzten Beförderung",
+    y = "Häufigkeit"
+  ) +
+  theme_economist()
+
+# Wie lautet der Mittelwert der Stichprobe hinsichtlich der abhängigen Variable
+mean(my_sample$years_since_last_promotion)
+
+# Kompaktes Modell:    Y_i = 3.5
+# Erweitertes Modell:  Y_i = 1.88
+
+# SSEs berechnen
+(errors <- my_sample %>% 
+  mutate(
+    compact_model = 3.5,
+    augmented_model = 1.88,
+    res_compact   = (years_since_last_promotion - compact_model)**2,
+    res_augmented = (years_since_last_promotion - augmented_model)**2
   ))
-``` 
+
+
+(sse_c <- sum(errors$res_compact))  
+(sse_a <- sum(errors$res_augmented))
+(ssr <- sse_c - sse_a)
+
+# PRE berechnen
+(pre <- ssr / sse_c)
+
+# -> Der Mittelwert der Stichprobe reduziert den Fehler des kompakten Modells um 24.3%. Dies gibt uns
+#    Evidenz, dass der KPI errreicht wurde. Wäre PRE bei 0, dann hätten sich die
+#    die Jahre bis zur Beförderung nicht reduziert. Wir haben also erste Evidenz, dass 
+#    das KPI erreicht wurde. Um diese Frage endgültig zu beantworten, müssen wir allerdings 
+#    im nächsten Modull berechnen, ob diese Reduzierung des Fehlers substantiell genug ist,
+#    um vorläufig das erweiterte Modell anzunehmen. 
+
+
+
+
 
 ```
-# A tibble: 78 x 11
-      id gender   age books_per_year intelligence_post group intelligence_pre compact augmented res_compact res_augmented
-   <dbl> <chr>  <dbl>          <dbl>             <dbl> <dbl>            <dbl>   <dbl>     <dbl>       <dbl>         <dbl>
- 1    25 male      41             10              82.7     2             82.7    94.7      96.0       143.          175. 
- 2    26 male      32             10             142.      2            142.     94.7      96.2      2240.         2104. 
- 3     1 male      22              9              80.0     1             74.7    94.7      93.6       399.          354. 
- 4     2 male      46             11              82.7     1             74.5    94.7      98.7       410.          586. 
- 5     3 male      55              9              88.3     1             87.3    94.7      92.9        55.1          31.0
- 6     4 male      33             10              88.3     1             84.3    94.7      96.1       109.          141. 
- 7     5 male      50              9              89.6     1             85.8    94.7      93.0        79.9          51.7
- 8     6 male      50             11              91.0     1             88.3    94.7      98.6        41.7         107. 
- 9     7 male      37             10              92.4     1             89.6    94.7      96.0        25.8          41.2
-10     8 male      28             10              95.1     1             83.4    94.7      96.2       127.          164. 
-# ... with 68 more rows
-```
-
-Du siehst, dass wir nun vier weitere Variablen an den Datensatz angefügt haben. Mit `mutate` haben wir diese Variablen berechnet. Die Variable `res_compact` bezeichnet den quadrierten Fehler des kompakten Modells für jeden Probanden, `res_augmented` bezeichnet den quadrierten Fehler des erweiterten Modells für jeden Probanden. 
-
-Um PRE zu berechnen, müssen wir diese Fehler zunächst aggregieren:
-
-
-$$
-SSE = \sum_{i = 1}^n (Y_i - b_0)^2
-$$
-
-Wir speichern daher unseren neuen Datensatz in einer Variable und berechnen die Summe dieser beiden Variablen:
-
-```
-sum(errors$res_compact)   # 11661.2
-sum(errors$res_augmented) # 11341.38
-```
-
-Zuletzt können wir aus diesen Fehlern PRE berechnen:
-
-```
-(pre <- (11661.2 - 11341.38) / 11661.2) # 0.02742599
-```
-
-Erneut erhalten wir einen Fehler von 2.7%. Das erweiterte Modell ist demnach in der Lage die Fehler des kompakten Modells um 2.7% zu reduzieren. Um nun zu bestimmen, ob diese Reduzierung gut genug ist, um das erweiterte Modell bzw. die Alternativhypothese anzunehmen, müssen wir als nächstes verstehen, wie wir bestimmen können, ob ein Fehler substantiell reduziert wird. Mehr dazu im nächsten Teil.
-
-
- 
