@@ -923,11 +923,11 @@ Um Visualisierungen zu speichern können wir entweder über die Buttons in R-Stu
 
 ### Visualisierungen über die grafische Benutzeroberfläche in R-Studio speichern
 
-![](save_plot_1.png)
+![](save_plot_1.jpg)
 
 Anschließend gibst du den Ordner an, in den du die Visualisierung speichern möchtest. Zudem musst du den Namen der Datei unter `File name:` angeben:
 
-![](save_plot_2.png)
+![](save_plot_2.jpg)
 
 Drucke auf `Save` und die Grafik wird gespeichert.
 

@@ -1,99 +1,165 @@
 # Data = Model + Error
 
-Der ganze Inhalt dieses Kurses lässt sich in einer Gleichung zusammen fassen:
+## Idee
+
+Die deskriptive Statistik dient der Beschreibung von Daten. Durch sie können wir Daten veranschaulichen und übersichtlich darstellen. Die **Inferenzstatistik** dient der Überprüfung von Forschungsfragen und schließlich der Prüfung von Hypothesen: 
+
+* Steigt der Intelligenzquotient über die Schuljahre? 
+* Sind Menschen die Kaugumiikauen aufmerksamer als Menschen, die kein Kaugummi kauen? 
+* Ist der freie Abruf von Wissen lernförderlicher als das wiederholte Lesen des Lernstoffes? 
+
+Solche Forschungsfragen beantworten wir in der Inferenzstatistik durch statistische Modelle. In anderen Worten ist der tatsächliche Wert einer Variable, die wir schätzen möchten (abhängige Variable) immer die Kombination aus dem mathematischen Modell (z.B. Mittelwert) und dem Fehler, den wir mit diesem Modell machen:
 
 $$
 DATA = MODEL + ERROR
 $$
-
-## DATA 
-
-*DATA* sind die Werte, welche wir empirisch erheben. Beispielsweise untersuchen wir, wie gut Lernende in einem Test abschneiden oder wir erheben wie Personen einen Kurs bewerten. In der Statistik wird *DATA* häufig auch als *abhängige Variable* bezeichnet.
-
-Als Beispiel können wir die Intelligenz einer Person nehmen. Der Intelligenzquotient einer Person ist *DATA*, also die Punktzahl der Intelligenz, die wir in einem Test von einer Person erhalten. Unser Ziel ist es, ein mathematisches Modell zu bilden, welches diesen Wert wirklichkeitsgetreu hervorsagt. Solche Modelle werden wir in diesem Kurs ausführlich behandeln.
-
-## MODEL
-
-*MODEL* bezeichnet ein mathematisches Modell, welches wir benutzen, um *DATA* hervorzusagen. In der Regel versuchen wir eine Vielzahl an Daten in einer verständlichen Form zusammen zu fassen. In einem Zeitungsbericht findest du selten lange Tabellen mit allen Daten eines Experiments. Vielmehr werden in der Regel einzelne Kennwerte vermittelt: 70% der Personen stimmten für Politiker X; Menschen haben im Schnitt einen Intelligenzquotienten von 100. Diese Werte sind nichts anderes als statistische Modelle, auch wenn diese sehr einfach sind. Das einfachste statistische Modell ist beispielsweise der Mittelwert einer Variable. Modelle werden wir in diesem Kurs anhand von Gleichungen darstellen. Beispielsweise nehmen wir in folgendem Modell an, dass der Intelligenzquotient jeder Person gleich 100 ist:
-
-$$
-\hat{Y} = 100
-$$
-
-## ERROR
-
-Die Werte, welche unsere Modelle schätzen werden in der Regel nicht DATA entsprechen. Die Abweichungen zwischen dem tatsächlichen Wert (DATA) und dem geschätzem Wert nennen wir ERROR oder auch *Residuum*. Stell dir vor, eine Person hat einen Intelligenzquotienten von 110, wir schätzen allerdings die Intelligenz dieser Person anhand des Mittelwertes auf 100. In diesem Fall hätten wir eine Abweichung von 10 Punkten und dementsprechend einen ERROR von 10 Punkten.
-
-# Ein Beispiel
-
-Stell dir vor, du hast die Intelligenz von 78 Probanden durch einen Intelligenztest erhoben. Jeder Proband hat eine ID erhalten. Hier siehst du die Intelligenzwerte dieser 78 Probanden:
-
-```R
-ggplot(new_data, aes(x = intelligence_pre, y = reorder(id, intelligence_pre))) + 
-  geom_point() +
-  labs(
-    x = "Intelligenz",
-    y = "Probanden-ID",
-    title = "Einzelne Intelligenzwerte der Probanden"
-  ) +
-  theme_light()
-```
-
-![IQ Distribution](./images/intelligence_subjects.png)
-
-Proband 52 beispielsweise (siehe Y-Achse) hat den geringsten Intelligenzquotienten von eta 73, während Proband 26 den höchsten Intelligenzquotienten hat. 
-
-Diese Werte nennen wir **DATA**, da sie die tatsächlichen Werte der Probanden sind.
-
-Wir können **DATA** ebenso in einem Histogram darstellen:
-
-```R
-ggplot(new_data, aes(x = intelligence_pre)) + 
-  geom_histogram(color = "black", fill = "#cccccc", binwidth = 3) +
-  labs(
-    x = "Intelligenz",
-    y = "Häufigkeit",
-    title = "Histogram der Intelligenz der Probanden"
-  )
-```
-![IQ Histogram](./images/intelligence_histogram.png)
-
-Auf der X-Achse siehst du die Intelligenz der Personen, auf der Y-Achse die Häufigkeit dieser Werte.
-
-Wir hatten gerade den Mittelwert als ein einfaches Modell angenommen. Diesen Wert können wir im Histogram abtragen:
-
-```R
-ggplot(new_data, aes(x = intelligence_pre)) + 
-  geom_histogram(color = "black", fill = "#cccccc", binwidth = 3) +
-  geom_vline(
-    xintercept = mean(new_data$intelligence_pre),
-    color = "steelblue",
-    size = 2
-  ) +
-  labs(
-    x = "Intelligenz",
-    y = "Häufigkeit",
-    title = "Histogram der Intelligenz der Probanden"
-  )
-```
-
-![IQ Mean](./images/intelligence_mean.png)
-
-Der Mittelwert wäre nun ein Beispiel für ein **Model**. Anhand des Histograms kannst du bereits erkennen, dass der Mittelwert kein gutes Modell ist, um die einzelnen Werte zu bestimmen. Beispielsweise liegt die Person 26 über 40 Intelligenzpunkte über dem Mittelwert. Ebenso ist die Person mit dem geringsten Intelligenzquotienten über 25 Punkte unter dem Mittelwert. Wenngleich das Modell nicht in der Lage ist, die einzelnen Werte gut hervorzusagen, ist es ein Modell, welches DATA hervorsagt und dabei Fehler macht:
-
-$$
-DATA = MODEL + ERROR
-$$
-
-Der Fehler wäre:
 
 $$
 ERROR = DATA - MODEL
 $$
 
-Schätzen wir daher den Intelligenzquotienten einer Person auf 100 und liegt der Intelligenzquotient dieser Person bei 110, hätten wir einen Fehler von +10.
+Stell dir vor, unser Modell nimmt an, dass jeder Mitarbeiter / jede Mitarbeiterin 5000 Dollar pro Monat verdient. Wir nehmen weiterhin an, dass die Mitarbeiter der Firma unsere Population sind. Da wir selten alle Mitarbeiter befragen können, ziehen wir eine Stichprobe von 20 Perosnen (diese ziehen wir mit der Funktion [sample_n](https://dplyr.tidyverse.org/reference/sample.html)). Nachdem wir die Stichprobe gezogen haben, berechnen wir die Abweichungen der tatsächlichen Werte von den geschätzten Werten:
 
-Wir werden im nächsten Abschnitt **ERROR** genauer bestimmen. Vorab müssen wir nochmal über die Modelle sprechen.
+
+```R
+sample_n(human_resources, 20) %>% 
+  mutate(
+    error = monthly_income - 5000,
+    model = 5000
+  ) %>% 
+  rename(data = monthly_income) %>%
+  select(id, data, error, model)
+```
+
+```
+# A tibble: 20 x 4
+      id  data  error model
+   <dbl> <dbl>  <dbl> <dbl>
+ 1  1458  2001  -2999  5000
+ 2   374  3816  -1184  5000
+ 3   202  6804   1804  5000
+ 4   426 17046  12046  5000
+ 5   239  3931  -1069  5000
+ 6    34  2086  -2914  5000
+ 7  1220  2974  -2026  5000
+ 8   398  4487   -513  5000
+ 9  1066  4035   -965  5000
+10  1070  1563  -3437  5000
+11  1439  1790  -3210  5000
+12   261  2794  -2206  5000
+13  1076 11244   6244  5000
+14   619  3424  -1576  5000
+15   673  6244   1244  5000
+16   866  4115   -885  5000
+17  1301  6799   1799  5000
+18   913  2875  -2125  5000
+19   614  3737  -1263  5000
+20   506  2659  -2341  5000
+```
+
+In dem Output erkennen wir sehr schnell, dass das Modell keinen einzigen DATA-Wert korrekt hervorgesagt hat. Dies erwarten wir allerdings auch nicht, da es immer einen ERROR geben wird, wenn wir mathematische Modelle berechnen, die Frage ist vielmehr, wie groß die Fehler sind, die wir mit diesen Modellen machen.
+
+> Die zentrale Frage dieses Kurses ist, ob ein von uns angenommenes Modell (unsere Alternativhypothese) diese Fehler stärker reduziert als ein einfacheres Modell (unsere Nullhypothese). 
+
+## Data, Modell, Error
+
+### DATA 
+
+*DATA* sind die Werte, welche wir empirisch erheben. Beispielsweise untersuchen wir, wie gut Lernende in einem Test abschneiden oder wir erheben wie Personen einen Kurs bewerten. In der Statistik wird *DATA* häufig auch als [abhängige Variable](https://de.statista.com/statistik/lexikon/definition/15/abhaengige_variable/) bezeichnet.
+
+Als Beispiel können den Verdienst der Mitarbeiter in unserem Unternehmen nehmen. Der reale Verdienst der Mitarbeiter *DATA*. Unser Ziel ist es, ein mathematisches Modell danach zu testen (unsere Alternativhypothese), ob es die Fehler (ERROR) stärker reduziert als ein einfacheres Modell (unsere Nullhypothese).
+
+### MODEL
+
+*MODEL* bezeichnet ein mathematisches Modell, welches wir benutzen, um *DATA* hervorzusagen. In der Regel versuchen wir eine Vielzahl an Daten in einer verständlichen Form zusammen zu fassen. In einem Zeitungsbericht findest du selten lange Tabellen mit allen Daten eines Experiments. Vielmehr werden in der Regel einzelne Kennwerte vermittelt: 70% der Personen stimmten für Politiker X; Menschen haben im Schnitt einen Intelligenzquotienten von 100. Diese Werte sind nichts anderes als statistische Modelle, auch wenn diese sehr einfach sind. Das einfachste statistische Modell ist beispielsweise der Mittelwert einer Variable. Modelle werden wir in diesem Kurs anhand von Gleichungen darstellen. Beispielsweise nehmen wir in folgendem Modell an, dass der monatliche Verdienst der Mitarbeiter imm 5000 Dollar ist:
+
+$$
+\hat{Y} = 5000
+$$
+
+### ERROR
+
+Die Werte, welche unsere Modelle schätzen werden in der Regel nicht DATA entsprechen. Die Abweichungen zwischen dem tatsächlichen Wert (DATA) und dem geschätzem Wert nennen wir ERROR oder auch *Residuum*. Die Mitarbeiterin mit der id 7 beispielsweise hat einen ERROR von -2026 Dollar. Dies bedeutet, dass das Modell das tatsächliche monatliche Gehalt der Person um 2026 überschätzt hat.
+
+```
+# A tibble: 20 x 4
+      id  data  error model
+   <dbl> <dbl>  <dbl> <dbl>
+ 7  1220  2974  -2026  5000
+```
+
+## Ein Beispiel
+
+Stell dir erneut vor, wir ziehen 20 Mitarbeiter aus unserer Population aller Mitarbeiter des Unternehmens. Wir nehmen erneut an, dass das durchschnittliche Einkommen 5000 Dollar beträgt:
+
+```R
+set.seed(245)
+(my_sample <- sample_n(human_resources, 20) %>% 
+  mutate(
+    error = monthly_income - 5000,
+    model       =  5000
+  ) %>% 
+  rename(data = monthly_income) %>%
+  select(id, total_working_years, data, error, model))
+```
+
+```
+# A tibble: 20 x 4
+      id  data error model
+   <dbl> <dbl> <dbl> <dbl>
+ 1  1363  5399   399  5000
+ 2   713  3452 -1548  5000
+ 3   344  8268  3268  5000
+ 4   993 10920  5920  5000
+ 5    36  2645 -2355  5000
+ 6   420  2097 -2903  5000
+ 7  1366  1091 -3909  5000
+ 8  1061  3172 -1828  5000
+ 9   129  2523 -2477  5000
+10   367  9355  4355  5000
+11   681  4678  -322  5000
+12  1280  2342 -2658  5000
+13   164  9439  4439  5000
+14    62  2406 -2594  5000
+15  1387  2867 -2133  5000
+16  1040  2742 -2258  5000
+17   560  3057 -1943  5000
+18   110  2871 -2129  5000
+19   630  4936   -64  5000
+20   880  5220   220  5000
+```
+
+In der folgenden Grafik sehen wir die Abweichungen der einzelnen Punkte:
+
+<!-- ```R
+ggplot(my_sample, aes(x = id, y = data)) + 
+  geom_point() +
+  geom_text(aes(label = id), nudge_x = 25) +
+  geom_hline(yintercept = 5000, color = "steelblue") +
+  geom_segment(
+    aes(x = id,
+        xend = id,
+        y = data,
+        yend = 5000
+    )
+  ) +
+  annotate(
+    "text", x = 1020, y = 9000,
+    hjust = 0,
+    label = "Der Verdienst der Person\n993 wird deutlich unterschätzt"
+  ) +
+  labs(
+    title = "Visualisierung des ERRORS der Stichprobe",
+    subtitle = "Linien zeigen ERROR an, Punkte DATA, der blaue Strich MODELL",
+    x = "ID der Mitarbeiter",
+    y = "Monatliches Einkommen"
+  ) 
+``` -->
+
+![](example_model_error_data.png)
+
+
+Die einzelnen Punkte repräsentieren DATA, also die tatsächlichen Einkommen der Personen. Der blaue horizontale Strich repräsentiert MODELL, unser statistisches Modell. Die vertikalen Striche repräsentieren ERROR, unseren Fehler zwischen den tatsächlichen Werte und dem Modell.
 
 
 # Kurzfrage
@@ -101,7 +167,7 @@ Wir werden im nächsten Abschnitt **ERROR** genauer bestimmen. Vorab müssen wir
 Stell dir folgendes Szenario vor: Du schätzt, wie alt Menschen in Deutschland werden, die im Jahr 2015 geboren sind. Du schätzt, dass Personen, die im Jahr 2015 geboren sind, im Schnitt 86 Jahre alt werden (dein Modell). Nach 105 Jahren liegen Daten zu deiner Schätzung vor. Mareike, welche im Jahr 2015 geboren ist, wurde 84 Jahre alt.
 
 ```
-- question: Wie groß ist der Fehler (ERROR) für Mareike? 
+- question: Wie groß ist der Fehler (ERROR) für Mareike?
   answers:
     - answer: "-2"
       correct: True
@@ -136,49 +202,50 @@ Stell dir folgendes Szenario vor: Du schätzt, wie alt Menschen in Deutschland w
       correct: False
 ```
 
-# Ziele von Modellen
+## Ziele von Modellen
 
 Ein gutes statistisches Modell ist ein Modell, welches die Fehler (ERROR) klein hält und gleichzeitig nicht zu komplex ist. In der Sozialforschung haben wir fast nie Modelle, bei denen wir Fehler von 0 erhalten. Dennoch möchten wir versuchen, diesen Fehler so klein wie möglich zu halten.
 
 Es ist offensichtlich, dass ein einfaches Modell wie der Mittelwert einer Verteilung in der Regel denkbar schlecht ist, um den Fehler klein zu halten. Schauen wir nochmal die Verteilung von gerade eben an:
 
-![IQ Mean](./images/intelligence_mean.png)
+![](example_model_error_data.png)
 
-Offensichtlich brauchen wir mehr Informationen als den Mittelwert, um zu berechnen, wie hoch der Intelligenzquotient einer Person ist. Man könnte sich zum Beispiel vorstellen, dass die Anzahl der gelesenen Bücher pro Jahr ein guter Parameter sind, um die Intelligenz einer Person genauer hervorzusagen.
+Offensichtlich brauchen wir mehr Informationen als den Mittelwert, um zu berechnen, wie viel Geld die Mitarbeiter pro Monat verdienen. Man könnte sich zum Beispiel vorstellen, dass die Anzahl der Arbeitsjahre ein guter Parameter sind, um das monatliche Gehalt der Mitarbeiter genauer hervorzusagen.
 
-# Wie kann der Fehler reduzuiert werden?
+> Statistische Modelle sollten die Fehler so klein wie möglich haben und gleichzeitg so sparsam wie möglich sein, d.h. so wenige Parameter wie nötig umfassen.
+
+## Fehlerreduzierung
 
 Es gibt verschiedene Möglichkeiten, den Fehler bei statistischen Modellen zu reduzieren:
 
-## Qualität der Daten verbessern
+### Qualität der Daten verbessern
 
 Zunächst können wir dafür sorgen, dass die Daten ohne Fehler erhoben und eingetragen wurden. Manche Menschen machen Fehler, wenn sie Daten in Excel-Tabellen eintragen, manchmal ist ein Verfahren aber auch unreliabel und zeigt inkonsistente Werte an. Beispielsweise kann eine Waage unreliabel sein, wenn sie beim gleichen Gewicht schwankende Werte angibt.
 
-## Hinzufügen von mehr Parametern
+### Hinzufügen von mehr Parametern
 
-Je mehr Parameter man in ein statistisches Modell hinzufügt, desto geringer wird der Fehler. Wir könnten bei unserem Modell zur Intelligenz beispielsweise folgende Parameter hinzunehmen:
+Je mehr Parameter man in ein statistisches Modell hinzufügt, desto geringer wird der Fehler. Wir könnten bei unserem Modell, bei welchem wir das monatliche Gehalt der Mitarbeiter schätzen beispielsweise folgende Parameter hinzunehmen:
 
-* die Anzahl der Bücher, die eine Person liest
-* die Intelligenz der Eltern
-* den höchsten akademischen Abschluss einer Person
+* die Anzahl der Berufsjahre. Menschen die länger arbeiten, sollten mehr Geld bekommen
+* die Tätigkeit im Unternehmen. Manager sollten mehr verdienen als Sales Executives.
+* die Ausbildung der Mitarbeiter. Mitarbeiter mit einem Master sollten in der Regel mehr verdienen als Mitarbeiter, die keinen Hochschulabschluss haben.
 
 Mit jedem Paramater reduziert sich der Fehler. Man könnte daher intuitiv annehmen, dass es sinnvoll wäre, möglichst viele Parameter in ein Modell hinzuzunehmen. Dem ist allerdings nicht so.
 
+### Die Gefahr beim Hinzufügen von Parametern
 
-## Die Gefahr beim Hinzufügen von Parametern
+Es ist nicht sinnvoll, Modelle um beliebig viele Parameter zu erweitern, da nicht jeder Parameter die Fehler substantiell verkleinert. Der monatliche Verdienst der Mitarbeiter sollte beispielsweise unabhängig davon sein, welchen Sport die Mitarbeiter in der Freizeit machen. Genausogut sollte der monatliche Verdienst unabhängig von der politischen Orientierung der Mitarbeiter sein.
 
-Ein Modell um unendlich viele Parameter zu erweitern ist nicht sinvoll, da nicht Daten perfekt hervorsagen möchten, sondern wissen möchten, welche Parameter eine Variable substantiell gut erklären. Die Intelligenz der Eltern beispielsweise erklärt die Intelligenz einer Person deutlich besser als die Anzahl der Filme, die eine Person pro Jahr ansieht. 
+> Unser Ziel ist es, so wenige Parameter wie möglich zu verwenden und den Fehler so klein wie möglich zu halten.
 
-> Unser Ziel muss es vielmehr sein, so wenige Parameter wie möglich zu verwenden und den Fehler so klein wie möglich zu halten.
+Als Folge haben wir ein Problem: Einerseits sollen die Fehler klein gehalten werden, andererseits sollen so wenig Parameter wie möglich verwendet werden!? Deine Aufgabe ist es, die richtige **Balance** der beiden Ansprüche zu finden. Für jeden Parameter müssen wir uns daher die Frage stellen, ob der Parameter *gut genug ist*, um den Fehler substantiell zu reduzieren. Beispielsweise haben wir starke Annahmen, dass die Anzahl der Berufsjahre ein guter Parameter sind, um die Fehler im Vergleich zu unserem einfachen Mittelwertmodell substantielle zu reduzieren.
 
-Als Folge haben wir ein Problem: Einerseits sollen die Fehler klein gehalten werden, andererseits sollen so wenig Parameter wie möglich verwendet werden!? Deine Aufgabe ist es, die richtige **Balance** der beiden Ansprüche zu finden. Für jeden Parameter müssen wir uns daher die Frage stellen, ob der Parameter *gut genug ist*, um den Fehler substantiell zu reduzieren. Ein Parameter in unserem Beispiel, der vermutlich den Fehler nicht reduzieren würde, wären die Anzahl der Filme, die eine Person pro Jahr ansieht. Wir haben keine theoretischen Begründungen, weshalb diese Variable den Fehler substantiell reduzieren sollte.
-
-# Kurzfrage
+## Kurzfrage
 
 Stell dir vor, du möchtest ein statistisches Modell erstellen, um die Größe von Personen hervorzusagen. 
 
 ```
-- question: Welche der folgenden Parameter würde den Fehler vermutlich substantiell reduzieren und wären es daher Wert, in das Modell aufgenommen zu werden?
+- question: Welche der folgenden Parameter würden den Fehler vermutlich substantiell reduzieren und wären es daher Wert, in das Modell aufgenommen zu werden?
   hint: Denke nochmal genauer nach. Überlege dir, was ein schlechter Parameter wäre. Sind die vorliegenden Parameter schlecht? 
   answers:
     - answer: Die Größe des Vaters
@@ -189,19 +256,21 @@ Stell dir vor, du möchtest ein statistisches Modell erstellen, um die Größe v
       correct: True
 ```
 
-# Kompaktes und erweitertes Modell
+# Kompakte und erweiterte Modelle
+
+## Zwei Modellarten
 
 Wir hatten gerade gesagt, dass wir den Fehler reduzieren möchten und gleichzeitig Parameter in das Modell aufnehmen möchten, die es wert sind, aufgenommen zu werden, sprich, die den Fehler substantiell reduzieren. Wie können wir allerdings bestimmen, ob ein Parameter nun *gut genug ist*, um aufgenommen zu werden? 
 
-> Um die Güte von Parameter einzuschätzen, vergleichen wir zwei Modelle miteinander, das kompakte Modell (C - compact) und das erweiterte Modell (A - augmented). 
+> Um die Güte von Parameter einzuschätzen, vergleichen wir zwei Modelle miteinander, das kompakte Modell (C - compact) und das erweiterte Modell (A - augmented).
 
-## Das kompakte Modell (C)
+### Das kompakte Modell (C)
 
 Das kompakte Modell ist in der Regel das einfachste Modell, welches wir uns vorstellen können. Wir haben bereits kompakte Modelle kennen gelernt: z.B. den Mittelwert einer Verteilung.
 
 > Das kompakte Model nehmen wir immer als **Referenz**, um heraus zu finden, ob Parameter gut genug sind, um den Fehler substantiell zu reduzieren.
 
-## Das erweiterte Modell (A)
+### Das erweiterte Modell (A)
 
 Das erweiterte Modell hat immer mehr Parameter als das kompakte Modell; daher erweitert. Wir wissen, dass der Fehler eines Modells kleiner wird, je mehr Parameter wir in ein Modell hinzu nehmen. Daher gilt:
 
@@ -210,41 +279,114 @@ ERROR(A) \leq ERROR(C)
 $$
 
 
-# Null- und Alternativhypothese
+## Beispiel kompaktes und erweitertes Modell
+
+Nehmen wir an unser kompaktes Modell schätzt für jeden Mitarbeiter den Mittelwert aller Mitarbeiter des Unternehmens:
+
+<!-- ```R
+mean_income <-  mean(human_resources$monthly_income)
+ggplot(my_sample, aes(x = id, y = data)) + 
+  geom_point() +
+  geom_text(aes(label = id), nudge_x = 25) +
+  geom_hline(yintercept = mean_income, color = "steelblue") +
+  geom_segment(
+    aes(x = id,
+        xend = id,
+        y = data,
+        yend = mean_income
+    )
+  ) +
+  labs(
+    title = "Visualisierung des kompakten Modells mit dem Mittelwert als MODELL",
+    subtitle = "Linien zeigen ERROR an, Punkte DATA, der blaue Strich MODELL",
+    x = "ID der Mitarbeiter",
+    y = "Monatliches Einkommen"
+  ) 
+``` -->
+
+![](compact_modell_example.png)
+
+
+Alternativ vergleichen wir dieses kompakte Modell mit einem Modell, bei dem wir das Einkommen der Mitarbeiter abhängig der Anzahl der Arbeitsjahre der Mitarbeiter vergleichen. Dieses Modell nennen wir erweitertes Modell (an dieser Stelle ist es unerheblich wie dieses Modell berechnet wird, wir kommen im Modul Einfache Regression darauf zurück):
+
+<!-- ```R
+set.seed(245)
+mean_income <-  mean(human_resources$monthly_income)
+(my_sample <- sample_n(human_resources, 20) %>% 
+  mutate(
+    error = monthly_income - mean_income,
+    model       = mean_income
+  ) %>% 
+  rename(data = monthly_income) %>%
+  select(id, total_working_years, data, error, model))
+
+mod <- lm(data ~ total_working_years, data = my_sample)
+my_sample_reg <- my_sample %>% 
+  add_predictions(mod)
+  
+ggplot(my_sample_reg, aes(total_working_years, data)) + 
+  geom_point() +
+  geom_text(aes(label = id), nudge_x = 0.2) +
+  geom_smooth(method = lm, se = FALSE, color = "steelblue") +
+  geom_segment(
+    aes(x = total_working_years,
+        xend = total_working_years,
+        y = pred,
+        yend = data
+    )
+  ) +
+  labs(
+    title = "Visualisierung des erweiterten Modells",
+    subtitle = "Linien zeigen ERROR an, Punkte DATA, der blaue Strich MODELL",
+    x = "Anzahl der Arbeitsjahre",
+    y = "Monatliches Einkommen"
+  ) 
+``` -->
+
+![](example_augmented_modell.png)
+
+Das Modell besagt, dass das monatliche Einkommen mit steigenden Arbeitsjahren steigt. Erneut sind in der Grafik die gleichen Mitarbeiter dargestellt. 
+
+Vergleichen wir die Fehler beider Modelle miteinander:
+
+
+![](errors_modells.png)
+
+Der Fehler des kompakten Modells scheint deutlich höher zu sein, als der Fehler des erweiterten Modells. Dies bedeutet, dass unser erweitertes Modell die Fehler stärker reduzieren kann als das kompakte Modell.
+
+<!-- ```R
+my_sample_reg %>% 
+mutate(
+  error_compact = abs(data - model),
+  error_augmented = abs(data - pred)
+) %>% 
+select(id, error_compact, error_augmented) %>% 
+gather(variable, value, -id) %>% 
+ggplot(aes(x = variable, y = value)) +
+geom_col(aes(fill = variable)) +
+guides(fill = FALSE) +
+labs(
+  title = "Vergleich des Fehles des kompakten und absoluten Modells",
+  subtitle = "Der Fehler des kompakten Modells ist fasst doppelt so groß wie der des erweiterten Modells",
+  x = "Modele",
+  y = "Absolute Summe der Fehler"
+)
+``` -->
+
+
+## Null- und Alternativhypothese
 
 In Statistikbüchern liest man selten von kompakten und erweiterten Modellen. Viel gebräuchlicher sind die Begriffe Null- und Alternativhypothese:
 
 * Nullhypothese = kompaktes Modell
 * Alternativhypothese = erweitertes Modell
 
-Genauer müssten wir sagen, dass die Nullhypothese das Modell ist, bei welchem alle Parameter, die zusätzlich in dem erweiterten Modell sind, auf Null gesetzt werden. Deswegen heißt das kompakte Modell auch Nullyhypothese. Oder anders gesagt gehen wir bei einer Nullhypothese davon aus, dass es keine Unterschiede zwischen Gruppen gibt. Beispielsweise, indem wir annehmen, dass der Intelligenzquotient von Personen immer gleich ist, egal ob Personen ein bestimmtes Training bekommen oder nicht.
-
-
-<!-- Hier ein Beispiel: Meine Nullhypothese ist, dass die Intelligenz von Menschen im Schnitt ist 100:
-
-$$
-Y_i = \beta_{0} + \epsilon_{i} = 100 + \epsilon_{i}
-$$
-
-$$
-Y_i = 100 + \epsilon_{i}
-$$
-
-Meine Alternativehypothese hat einen weiteren Parameter ($\beta_{1}$), nämlich wie stark die Intelligenz der Mutter von 100 abweicht. Der Wert -10 würde zum Beispiel bedeuten, dass die Mutter 10 Intelligenzpunkte weniger hat als 100, also 90 (die Werte sind frei ausgedacht, wie man zu diesen Werten kommt, lernst du später):
-
-$$
-Y_i = \beta_{0} + \beta_{1} * X_1 + \epsilon_{i}
-$$
-
-$$
-Y_i = 100 + 0.8 * X_1 + \epsilon_{i}
-$$
-
-Statt 100 wie bei der Nullyhypothese würde ich nun $100 + 0.8 * -10 = 92$ als Intelligenzquotienten für die Person hervor sagen. -->
+Genauer müssten wir sagen, dass die Nullhypothese das Modell ist, bei welchem alle Parameter, die zusätzlich in dem erweiterten Modell sind, auf Null gesetzt werden. Deswegen heißt das kompakte Modell auch Nullyhypothese. Oder anders gesagt gehen wir bei einer Nullhypothese davon aus, dass es keine Unterschiede zwischen Gruppen gibt. Beispielsweise, indem wir annehmen, dass das monatliche Einkommen der Mitarbeiter unaghängig davon ist, welchen akademischen Abschluss die Mitarbeiter haben.
 
 ## Statistisches Hypothesentesten
 
 Wenn nun mein erweitertes Modell den Fehler des kompakten Modells substantiell minimiert (wir kommen später im Kurs darauf, was das bedeutet), *lehne ich die Nullhypothese zu Gunsten der Alternativhypothese ab*. Ist der Fehler *nicht* substantiell kleiner als in der Nullhypothese, gehe ich weiter von der Nullhypothese aus, sage also, dass die Nullhypothese das beste und sparsamste Modell ist, um meine abhängige Variable hervorzusagen.
+
 
 # Kurzfrage
 
@@ -262,7 +404,9 @@ Wenn nun mein erweitertes Modell den Fehler des kompakten Modells substantiell m
       correct: False
 ```
 
-# PRE berechnen
+# PRE
+
+## PRE berechnen
 
 Um entscheiden zu können, ob die Reduzierung des Fehlers durch das erweiterte Modell groß genug ist, müssen wir einen Weg finden, die Reduzierung des Fehlers zu bestimmen. Wir werden im Verlaufe des Kurses mehrere dieser Wege aufzeichnen: Unter anderem *PRE* und *F*. Zunächst beschäftigen wir uns mit *PRE*.
 
@@ -285,7 +429,7 @@ $$
 PRE = 1 - \frac{ERROR(A)}{ERROR(C)}
 $$
 
-# Beispiel PRE in R
+## Beispiel PRE in R
 
 Nehmen wir an, du entwickest ein kompaktes Modell mit einem Fehler von 30 und ein erweitertes Modell mit einem Fehler von 10. Wie groß wäre die prozentualle Reduzierung des Fehlers abhängig des kompakten Modells?
 
@@ -299,6 +443,7 @@ $$
 # ODER
 (pre <- 1 - (10 / 30)) # 0.6666667
 ```
+
 Mit `pre` geben wir an, dass wir das Ergebnis der Gleichung `(30 - 10) / 30` in einer Variable speichern. Durch die Klammer um den Befehl wird der Output der Variable direkt in R angezeigt. Alternativ können man schreiben:
 
 ```R
@@ -308,12 +453,27 @@ pre # 0.6666667
 
 Das erweiterte Modell reduziert also den Fehler des kompakten Modells um 67% Prozent.
 
-# Übung PRE
+## Übung PRE
 
 Dein kompaktes Modell hat einen Fehler von 80. Dein erweitertes Modell hat einen Fehler von 60. Wie groß ist PRE in diesem Fall? 
 
-TODO: Hier Aufgabenformat für exakte Fragen einfügen. Auf zwei Nachkommastelle runden! 
--> Antwort: .33.
+```
+- question: Dein kompaktes Modell hat einen Fehler von 80. Dein erweitertes Modell hat einen Fehler von 60. Wie groß ist PRE in diesem Fall?  
+  answers:
+    - answer: 0.33
+      hint: Sehr gut. Das ist richtig.
+      correct: True
+    - answer: 0.25
+      hint: Leider nicht. Rechne es nochmal durch.
+      correct: False
+    - answer: -0.25
+      hint: Leider nicht. Rechne es nochmal durch.
+      correct: False
+    - answer: -0.33
+      hint: Leider nicht. Rechne es nochmal durch.
+      correct: False
+```
+
 
 # Werte von PRE
 
@@ -321,9 +481,11 @@ Nicht jedes PRE ist gleich beeindruckend. Nehmen wir an, du erhältst ein PRE vo
 
 Die Werte von PRE können zwischen 0 und 1 annehmen. 1 würde bedeuten, dass das erweiterte Modell alle Fehler des kompakten Modells erklärt. Je höher PRE ist, desto eher sollten wir die zusätzlichen Parameter in ein Modell einfügen, um eine abhängige Variable hervorzusagen. Je kleiner PRE ist, desto eher sollten wir das kompakte Modell behalten.
 
-Nur, ab welchem Wert ist PRE groß genug oder klein genug? Dies hängt von mehreren Faktoren ab. Wenn PRE substantiell durch nur einen Parameter reduziert wird, ist dies besser, als wenn PRE durch mehrere Parameter reduziert wird. Schließlich suchen wir sparsame Modelle mit wenigen Parametern.
+Nur, ab welchem Wert ist PRE groß genug oder klein genug? Dies hängt von mehreren Faktoren ab. Wenn PRE substantiell durch nur einen Parameter reduziert wird, ist dies besser, als wenn PRE durch mehrere Parameter reduziert wird. Schließlich suchen wir sparsame Modelle mit wenigen Parametern. Im nächsten Modul werden wir diese Fragen genauer beantworten.
 
 # Notation
+
+## Glossar
 
 Wir werden in den nächsten Wochen immer wieder statistische Modelle anschauen und analysieren. Um zu wissen, wovon wir sprechen, ist es wichtig, dass wir die Notation der Begriffe vorab definieren:
 
@@ -335,106 +497,41 @@ Wir werden in den nächsten Wochen immer wieder statistische Modelle anschauen u
 * $e_0, e_1, ...$ stehen für die Fehler, die wir aus dem Modell berechnen, welches wir berechnet haben. $e$ wird also immer in Zusammenhang mit $b$ verwendet und nie mit $\beta$.
 * $\epsilon_i$ steht für Fehler der sich ergibt, wenn wir $\beta_i$ kennen. Da sich $\beta$ von $b$ unterscheidet, wird sich auch $e$ von $\epsilon$ unterschieden.
 
-# Ein Beispiel einer Null- und Alternativhypothese mit PRE
+## Beispiele
 
-Nehmen wir an, du möchtest die Intelligenz einer Person auf Grundlage der Anzahl der gelesenen Bücher pro Jahr und dem Alter einer Person hervorsagen.
-
-Da du zwei stetige, das heißt intervallskalierte Werte hast, möchtest du folgendes Modell berechnen:
+Dein kompaktes Modell schätzt das monatliche Einkommen der Mitarbeiter durch den Mittelwert aller Mitarbeiter:
 
 $$
-\hat{Y} = b_0 + b_1 * X_1 + b_2 * X_2
+Y_i = \beta_0 + \epsilon_i
 $$
 
-$X_1$ steht für die Anzahl der Bücher pro Jahr, $X_2$ steht für das Alter einer Person. Der Parameter $b_1$ bedeutet, dass Pro Buch, dass eine Person pro Jahr liest, der Intelligenzquotient um $b_1$ Punkte nach oben oder unten geschätzt wird. $b_2$ bedeutet, dass mit jedem Lebensjahr mehr, die Intelligenz der Person um $b_2$ Punkte nach oben oder unten geschätzt wird.
+Das Modell hat nur einen Parameter ($\beta_0$). Da es sich bei diesem Parameter um den tatsächlichen Mittelwert der Population handelt, schreiben wir $\beta_0$ und nicht $b_0$. $b_0$ würden wir angeben, wenn wir den Wert auf Grundlage der Stichprobe berechnet hätten. Der Fehler $\epsilon_i$ ist der tatsächliche Fehler. Dieser unterscheidet sich von $e_i$, welcher immer in Zusammenhang mit $b$ angegeben wird.
 
-Du erhälst aus diesen beiden Parameter folgendes Modell (wie wir diese Parameter erhalten, wird später erklärt):
-
-$$
-\hat{Y} = 68.72 + 2.81 * X_1 - 0.02 * X_2
-$$
-
-Mit jedem Buch, dass eine Person liest, steigt daher der Intelligenzquotient laut unserem Modell um 2.81 Punkte. Das Alter scheint die Intelligenz weniger zu beeinflussen, da mit jedem Lebensjahr die Intelligenz um -0.02 Punkte sinkt.
-
-## Nullhypothese
-
-Du möchtest nun heraus finden, ob dieses erweiterte Modell oder deine Alternativhypothese besser ist als ein einfacheres Modell, sprich deine Nullhypothese. Als Nullhypothese nimmst du an, dass jede Person den gleichen Intelligenzquotienten hat:
+Ein anderes Beispiel. Stell dir vor, wir **berechnen** ein erweitertes Modell, bei dem wir das monatliche Einkommen der Mitarbeiter in Abhängigkeit der Arbeitsjahre der Mitarbeiter berechnen:
 
 $$
-\hat{Y}_i = b_{0}
+Y = b_0 * X_i + e_i
 $$
 
-Der Mittelwert der Intelligenz der Personen, die du erhebst ist 94.71, also:
+Dieses berechnete Modell unterscheidet sich nun von dem tatsächlichen Modell ($Y = \beta_0 * X_i + \epsilon_i$) darin, dass wir $b_0$ schätzen und dementsprechend ein anderer Fehler ($e_i$) entsteht, als mit $\beta_0$. Zusätzlich hat dieses Modell nun den Parameter $X_i$. Dieser Parameter steht für die Anzahl der Arbeitsjahre der spezifischen Person. Das Modell schätzt nun einen Wert $\hat{Y}_i$:
+
 
 $$
-\hat{Y}_i = 94.71
+\hat{Y} = b_0 * X_i
 $$
 
-## Alternativhypothese
-
-Deine Alternativhypothese besagt, dass die Intelligenz einer Person auf Grundlage der Anzahl der gelesenen Bücher und dem Alter der Person bestimmbar ist:
+Da es sich um eine Schätzung handelt, müssen wir $e_i$ nicht angeben. Der Fehler des Modells für einzelne Personen berechnet sich also aus:
 
 $$
-\hat{Y} = 68.72 + 2.81 * X_1 - 0.02 * X_2
+ERROR = Y_i - \hat{Y}_i
 $$
 
-## Berechnung von PRE
 
-Nehmen wir nun an, dass der Fehler des kompakten Modells bei $149.5$ liegt und der Fehler des erweiterten Modells bei $145.40$ liegt. PRE ist daher:
+# Fehler
 
-$$
-PRE = \frac{149.5 - 145.40}{145.5} = 0.027
-$$
+## Lineare und quadrierte Fehler
 
-Dies entspricht einer Reduzierung des Fehlers um 2.7%. Ist unser erweitertes Modell also substantiell besser den Fehler zu reduzieren als das kompakte Modell? Vermutlich nicht, da der Fehler nur minimal reduziert wird. Im Verlaufe des Kurses werden wir erklären, wie wir eine Entscheidung treffen, ob diese Fehlerreduzierung substantiell genug ist.
-
-# Einfache Modelle mit einem Prädiktor
-
-Beginnen wir mit dem einfachsten Modell, dass wir erstellen können:
-
-$$
-Y_i = b_0 + \epsilon_{i}
-$$
-
-Stell dir erneut vor, du möchtest die Intelligenz einer Person hervorsagen. Da du nicht alle Personen einer Population testen kannst, holst du dir 78 Personen in das Labor und erhebst durch einen Test ihren Intelligenzquotienten. Anschließend berechnest du den Mittelwert dieser Stichprobe und erhältst den Wert $94.71$.
-
-Da wir die Daten aus einer Stichprobe erheben wird dieser Mittelwert nie dem Mittelwert der Population entsprechen. $b$ kann daher nie $\beta$ sein.
-
-Wir erhalten also:
-
-$$
-Y_i = 94.71 + e_i
-$$
-
-Auf Grundlage dieser Formel würden wir für jede Person, die gleiche Intelligenz hervorsagen:
-
-$$
-\hat{Y}_i = b_0
-$$
-
-$$
-\hat{Y}_i = 94.71
-$$
-
-Grafisch können wir uns dieses Modell als eine Line vorstellen, die für jede Person die gleiche Intelligenz annimmt:
-
-```
-ggplot(intelligence, aes(x = reorder(id, intelligence_pre), y = intelligence_pre)) + 
-  geom_hline(yintercept = 94.70, color = "steelblue") +
-  geom_point() +
-  labs(
-    x = "ID der Probanden",
-    y = "Intelligenz",
-    title = "Einzelne Intelligenzwerte der Probanden mit Mittelwert"
-  ) 
-```
-
-![](./images/intelligence_mean_single_values.png)
-
-Auf der X-Achse siehst du die ID der einzelnen Probanden, auf der Y-Achse deren Intelligenzquotienten.
-
-# Lineare und quadrierte Fehler
-
-Wir wissen, dass ein Mittelwert nie die tatsächlichen Werte einer Person repräsentiert. Kaum eine Person wird einen Intelligenzquotienten von 94.71 haben. Die größe des Fehlers können wir auf Grundlage folgender Formel berechnen:
+Wir wissen, dass ein Mittelwert nie die tatsächlichen Werte von Personen repräsentiert. Kaum eine Person wird genausoviel monatlich verdienen, wie die durchschnittliche Person in dem Unternehmen. Fehler werden folgendermaßen berechnet:
 
 $$
 Y_i = b_0 + e_{i}
@@ -452,67 +549,70 @@ $$
 e_{i} = Y_i - \hat{Y}_i
 $$
 
-Stellen wir uns eine Person mit einem Intelligenzquotienten von 102 vor. Der Fehler für diese Person wäre daher:
+Stellen wir uns eine Mitarbeiterin mit einem monatlichen Gehalt von 4000 Dollar vor. Unter der Annahme, das das durchschnittliche Gehalt der Mitarbeiter 6500 Euro beträgt, wäre der Fehler daher:
 
 $$
-e_{i} = 102 - 94.71 = 7.29
+e_{i} = 4000 - 6500 = -1500
 $$
 
-Grafisch können wir uns diese Fehler folgendermaßen vorstellen:
+Betrachten wir erneut die Grafik von vorhin:
 
-<!-- ```
-intelligence %>% 
-  mutate(
-    id = id %>% as.double
-  ) %>% 
-ggplot(aes(x = id, y = intelligence_pre)) + 
-  geom_hline(yintercept = 94.70, color = "steelblue") +
-  geom_segment(
-    aes(x = id,
-        xend = id,
-        y = intelligence_pre,
-        yend = mean(intelligence_pre)
-        )
-  ) +
-  geom_rect(aes(xmin = id,
-                xmax = id + (abs(intelligence_pre - mean(intelligence_pre))),
-                ymin = intelligence_pre,
-                ymax = mean(intelligence_pre),
-                alpha = .1),
-            fill = "#9999ff") +
-  geom_point() +
-  coord_fixed() +
-  labs(
-    x = "ID der Probanden",
-    y = "Intelligenz",
-    title = "Fehler der geschätzen Werte und der tatsächlichen Werte - quadriert"
-  ) 
-
-``` -->
-
-![](./images/intelligence_error_line.png)
+![](compact_modell_example.png)
 
 Der Fehler ist der Abstand zwischen unserem vorhergesagtem Wert (hier die horizontale Linie) und dem tatsächlichen Wert (hier der Punkt in der Grafik). Wir werden später im Kurs den Fehler allerdings nicht mehr durch eine Linie bestimmen, sondern durch die Quadrierung dieses Fehlers:
 
-![](./images/error_squared.png)
 
-Die Quadrierung der Fehler hat gewissen mathematische Vorteile, die wir in diesem Kurs nicht besprechen werden. Ein Grund liegt darin, dass die Wahl des Fehlers entscheidet, welches einfachste Modell den Fehler am stärksten reduziert. Würden wir beispielsweise den Fehler als die lineare Abweichung zwischen dem tatsächlichen Wert und dem vorhergesagtem Wert berechnen, wäre der Median das Modell, welches die Fehler maximal reduziert. Nehmen wir den Mittelwert als einfachtes Modell, sind die quadrierten Abweichungen das mathematisch korrekteste Modell. 
+<!-- ```R
+mean_income <-  mean(human_resources$monthly_income)
+ggplot(my_sample, aes(x = id, y = data)) + 
+  geom_point() +
+  geom_text(aes(label = id), nudge_x = 25) +
+  geom_hline(yintercept = mean_income, color = "steelblue") +
+  geom_segment(
+    aes(x = id,
+        xend = id,
+        y = data,
+        yend = mean_income
+    )
+  ) +
+  geom_rect(aes(xmin = id,
+                xmax = id + (abs(data - mean_income)),
+                ymin = data,
+                ymax = mean_income,
+                alpha = .05),
+            fill = "#9999ff") +
+  guides(alpha = FALSE) +
+  labs(
+    title = "Visualisierung der quadrierten Fehler",
+    subtitle = "Blaue Quadrate kennzeichnen den quadrierten Fehler von DATA - MODELL",
+    x = "ID der Mitarbeiter",
+    y = "Monatliches Einkommen"
+  ) +
+  coord_fixed()
+``` -->
 
-# Aggregierung der Fehler
+![](errors_squared.png)
+
+Die Quadrierung der Fehler hat gewisse mathematische Vorteile, die wir in diesem Kurs nicht besprechen werden. Ein Grund liegt darin, dass die Wahl des Fehlers entscheidet, welches einfachste Modell den Fehler am stärksten reduziert. Würden wir beispielsweise den Fehler als die lineare Abweichung zwischen dem tatsächlichen Wert und dem vorhergesagtem Wert berechnen, wäre der **Median** das Modell, welches die Fehler maximal reduziert. Nehmen wir den Mittelwert als kompaktes Modell, sind die quadrierten Abweichungen das mathematisch korrekteste Modell (mehr Informationen [hier](https://stats.stackexchange.com/questions/118/why-square-the-difference-instead-of-taking-the-absolute-value-in-standard-devia)).
+
+
+## Aggregierung der Fehler
 
 Um zu beschreiben, wie hoch die Fehler sowohl in unserem kompakten Modell als auch in unserem erweiterten Modell sind, müssen wir diese Fehler aggregieren. Es gibt hierfür verschiedene Wege, beispielsweise können wir die linearen Fehler summieren. Wir werden in diesem Kurs die Fehler aggregieren, indem die quadrierten Abweichungen der einzelnen Fehler summiert werden.
 
-Im Bilde gesprochen rechnen wir die Summe der Fläche dieser Quadrate zusammen:
+Im Bilde gesprochen berechnen wir die Summe der Fläche dieser Quadrate:
 
-![](./images/error_squared.png)
+![](errors_squared.png)
 
-Mathematisch ausgesprochen ist die Summe der quadrierten Abweichungen oder **Sum of Squared Errors** (SSE) also:
+
+Mathematisch gesprochen ist die Summe der quadrierten Abweichungen oder **Sum of Squared Errors** (SSE) also:
+
 
 $$
-SSE = \sum_{i = 1}^n (Y_i - b_0)^2
+SSE = \sum_{i = 1}^n (Y_i - \hat{Y}_i)^2
 $$
 
-$Y_i$ entspricht dem tatsächlichen Wert (hier die einzelnen Punkte), $b_0$ entspricht unserem Modell (hier der Mittelwert, blauer Strich). Diese beiden Werte substrahieren wir voneinander und quadrieren diese Differenz (blaue Quadrate). Die Summe dieser Quadrate ergibt SSE oder Sum of Squared Errors.
+$Y_i$ entspricht dem tatsächlichen Wert (hier die einzelnen Punkte), $\hat{Y}_i$ entspricht dem Wert, den unser erweitertes Modell hervorsagt. Diese beiden Werte substrahieren wir voneinander und quadrieren diese Differenz (blaue Quadrate). Die Summe dieser Quadrate ergibt SSE oder Sum of Squared Errors.
 
 # Standardisierung des quadrierten Fehlers
 
