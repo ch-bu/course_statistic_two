@@ -496,6 +496,10 @@ Wir werden in den nächsten Wochen immer wieder statistische Modelle anschauen u
 * $b_0, b_1, ...$ stehen für die Parameter, welche ich auf Grundlage der Daten geschätzt habe. Beispielsweise schätze ich den Mittelwert der Population auf Grundlage des Mittelwerts meiner Stichprobe. $b$ wird immer in Kombination mit $\hat{Y}$ verwendet.
 * $e_0, e_1, ...$ stehen für die Fehler, die wir aus dem Modell berechnen, welches wir berechnet haben. $e$ wird also immer in Zusammenhang mit $b$ verwendet und nie mit $\beta$.
 * $\epsilon_i$ steht für Fehler der sich ergibt, wenn wir $\beta_i$ kennen. Da sich $\beta$ von $b$ unterscheidet, wird sich auch $e$ von $\epsilon$ unterschieden.
+* $\sigma$: Standardabweichung der Population
+* $\mu$: Mittelwert der Population
+* $s$ oder $sd$: Standardabweichung der Stichprobe
+* $\bar{X}$: Mittelwert der Stichprobe
 
 ## Beispiele
 

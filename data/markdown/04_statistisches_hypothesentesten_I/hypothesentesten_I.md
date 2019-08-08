@@ -347,20 +347,27 @@ pnorm(2) - pnorm(0)
 Die gelbe Fläche kennzeichnet die Wahrscheinlichkeit eines z-Wertes größer als 0 und kleiner als 2 zu sein: 47.72%.
 
 
-#  Wahrscheinlichkeiten aus Stichprobenkennwertverteilungen berechnen
+# Wahrscheinlichkeiten und Stichprobenkennwertverteilungen
 
-Stichprobenkennwertverteilungen können uns Auskunft darüber geben, wie wahrscheinlich ein Ereignis ist. Stellen wir uns erneut die Verteilung der Intelligenz von Personen vor. Der Intelligenzquotient in der Population hat immer einen Mittelwert von 100 und eine Standardabweichung von 15. Wie wahrscheinlich ist dann beispielsweise, einen Intelligenzquotienten von über 115 zu haben? Gehen wir das Problem Schritt für Schritt durch:
+##  Ein Beispiel zur Berechnung der Wahrscheinlichkeit aus einer Stichprobenkennwertverteilung
 
-Zunächst berechnen wir den z-Wert dieses Intelligenzquotienten:
+Stichprobenkennwertverteilungen können uns Auskunft darüber geben, wie wahrscheinlich ein bestimmter Kennwert auftritt. Beispielsweise könnten wir uns fragen, wie wahrscheinlich es ist, eine Stichprobe zu erhalten, die im Schnitt mehr als 9000 Dollar monatlich verdient. Da das monatliche Gehalt eine metrisch skaliserte Variable ist, können wir diese Frage anhand einer stetigen Verteilung prüfen. Als stetige Verteilung eignet sich die Standardnormalverteilung, schließlich wissen wir durch das Zentrale Grenztwerttheorem, dass die Verteilung von Stichprobenmittelwerten einer Normalverteilung entsprechen.
+
+Da die Standardnormalverteilung z-Werte als Kennwerte annimmt, müssen wir zunächst den Z-Wert berechnen, der auftritt, wenn der Mittelwert einer Stichprobe 9000 Dollar beträgt:
 
 $$
-z = \frac{115 - 100}{15} = 1
+z = \frac{\bar{X} - \mu}{\sigma} = \frac{9000 - 6502.931}{4707.957} = 0.5303933
 $$
 
-Diesen z-Wert können wir in der Standardnormalverteilung abbilden. 
+$\bar{X}$ steht für den Mittelwert der Stichprobe, $\mu$ für den tatsächlichen Mittelwert der Population für die abhängige Variable und $\sigma$ für die Standardabweichung der abhängigen Variable. 
+
+Ein mittleres Einkommen von 9000 Dollar hat demnach einen z-Wert von 0.5, dies bedeutet, Menschen die 9000 Euro verdienen, verdienen eine halbe Standardabweichung mehr als der Durchschnitt der Mitarbeiter. 
+
+
+Diesen z-Wert können wir in der Standardnormalverteilung abbilden: 
 
 ```
-z_score <- (115 - 100) / 15
+z_score <- (9000 - mean(human_resources$monthly_income)) / sd(human_resources$monthly_income)
 
 ggplot(NULL, aes(x = c(-3, 3))) +
   stat_function(
@@ -375,14 +382,12 @@ ggplot(NULL, aes(x = c(-3, 3))) +
            y = 0.3, label = "z-score der Person mit\neinem IQ von 115")
 ```
 
-![](./images/z_score_intelligence.png)
+![](z_score.png)
 
 
-Wir hatten bereits erklärt, dass die Fläche von Stichprobenkennwertverteilungen immer 1 ist. Dieser Wert ist gleichzeitig die Wahrscheinlichkeit eines Ereignisses. Der blaue Bereich zeigt an, wie wahrscheinlich es ist, einen willkürlichen Intelligenzquotienten zu besitzen. Die Wahrscheinlichkeit liegt bei 100%.
+Aus der Visualisierung können wir bereits erkennen, dass die Wahrscheinlichkeit unter 50% liegt, da die die Fläche rechts vom Mittelwert der Verteilung 50% entspricht und der z-Wert weiter rechts des Mittelwertes liegt. Zeigen wir die Wahrscheinlichkeit grafisch an:
 
-Wie wahrscheinlich ist es, einen Intelligenzquotienten von über 100 zu besitzen? 50%. Warum? Da wir wissen, das die Standardnormalverteilung symmetrisch ist und der Mittelwert der Standardnormalverteilung dem standardisierten Mittelwert der Verteilung der Intelligenz entspricht. Im folgenden Bild sind diese 50% als Fläche dargestellt:
-
-```
+```R
 ggplot(NULL, aes(x = c(-3, 3))) +
   stat_function(
     fun = dnorm,
@@ -393,28 +398,44 @@ ggplot(NULL, aes(x = c(-3, 3))) +
     fun = dnorm,
     geom = "area",
     fill = "#b44682",
-    xlim = c(0, 3)
+    xlim = c(z_score, 3)
   ) +
   labs(
-    title = "Rot dargestellt die Wahrscheinlichkeit einen IQ von über 100 zu haben",
-    x = "Intelligenz als z-Wert",
+    title = "Wahrscheinlichkeit, eine Stichprobe zu ziehen, die über 9000 Euro pro Monat verdient",
+    x = "z-score",
     y = "Dichte"
   )
 ```
 
-![](./images/iq_50_percent.png)
+![](probability_z_score.png)
 
-
-In R können wir diese Wahrscheinlichkeit mit der Funktion [pnorm](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/Normal.html) berechnen:
+Die Wahrscheinlichkeit entspricht 29,8%:
 
 ```R
-pnorm(0, mean = 0, sd = 1) # 0.50
+1 - pnorm(z_score)  # 0.2979196
 ```
 
-Der erste Argument der Funktion ist der Wert auf der x-Achse der Normalverteilung (hier der z-Wert). Das zweite Argument ist der Mittelwert der Verteilung (hier 0). Das dritte Argument ist die Standardabweichung der Verteilung (hier 1). Wir wissen also, dass 50% der Menschen einen Intelligenzquotienten über 100 haben. Wie viele Menschen haben nun einen Intelligenzquotienten von über 115? Schauen wir uns die Verteilung dieser Werte zunächst grafisch an:
+## Wahrscheinlichkeiten und stetige Stichprobenkennwertverteilungen
 
-```
-z_score <- (115 - 100) / 15
+### Die Wahrscheinlichkeit eines einzelnen Ereignisses ist bei stetigen Variablen immer gleich 0
+
+Wie wahrscheinlich ist es, genau 5678,43234343 Dollar pro Monat zu verdienen? Diese Frage muss bei stetigen Verteilungen, in der es unendlich viele Zwischenwerte gibt immer mit 0 beantwortet werden. Einzelne Ereignisse sind so unwahrscheinlich, da stetige Variablen unendlich genau sein können. 
+
+### Wahrscheinlichkeiten sind bei stetigen Variablen das Integral zwischen zwei Werten
+
+Wir können allerdings berechnen, wie wahrscheinlich es ist, mindestens oder höchstens einen bestimmten Kennwert zu erhalten. Genausogut können wir die Wahrscheinlichkeit zwischen zwei Ereignissen berechnen. Mathematisch nehmen wir das Integral einer Funktion über zwei Werte:
+
+
+$$
+P(x_1 \leq x_2) \int_{x_1}^{x_2} f(x) dx
+$$
+
+
+Das Integral entspricht der Wahrscheinlichkeit, da die Fläche der Stichprobenkennwertverteilungen 1 entspricht und für Omega, sprich den gesamten Ereignisraums entspricht. Beispielsweise können wir berechnen wie wahrscheinlich ist es, zwischen 5000 und 6000 Dollar pro Monat zu verdienen?
+
+```R
+z_score_6000 <- (6000 - mean(human_resources$monthly_income)) / sd(human_resources$monthly_income)
+z_score_5000 <- (5000 - mean(human_resources$monthly_income)) / sd(human_resources$monthly_income)
 
 ggplot(NULL, aes(x = c(-3, 3))) +
   stat_function(
@@ -426,72 +447,181 @@ ggplot(NULL, aes(x = c(-3, 3))) +
     fun = dnorm,
     geom = "area",
     fill = "#b44682",
-    xlim = c(1, 3)
+    xlim = c(z_score_5000, z_score_6000)
   ) +
   labs(
-    title = "Wahrscheinlichkeit einen IQ über 15 zu haben",
-    x = "Intelligenz als z-Wert",
-    y = "Dichte"
-  ) +
-  geom_vline(xintercept = z_score,
-             color = "red",
-             size = 2) 
-```
-
-![](./images/iq_above_115.png)
-
-Die rote Fläche kennzeichnet nun die Wahrscheinlichkeit einen Intelligenzquotienten über 115 zu haben. Berechnen wir diese Wahrscheinlichkeit in R:
-
-```R
-1 - pnorm(1, mean = 0, sd = 1) # 0.1586553 -> 15.87%
-```
-
-Warum ziehen wir die Wahrscheinlichkeit von 1 ab? Da pnorm uns immer die Fläche links der Verteilung zurück gibt, in diesem Fall also die blaue Fläche. Da wir wissen, dass die Wahrscheinlichkeit einer Stichprobenkennwertverteilung immer 1 ist, können wir diese Wahrscheinlichkeit von 1 abziehen und erhalten dadurch den Komplement. Nur 15.87% der Menschen haben also einen Intelligenzquotienten von über 115. 
-
-# Generalisierung der Wahrscheinlichkeitsberechnung aus Stichprobenkennwertverteilungen
-
-## Die Wahrscheinlichkeit eines einzelnen Ereignisses ist bei stetigen Variablen immer gleich 0
-
-Wie wahrscheinlich ist es, einen Intelligenzquotienten von 98,564 zu haben? Diese Frage muss bei stetigen Verteilungen wie der Intelligenz, in der es unendlich viele Zwischenwerte gibt immer mit 0 beantwortet werden. Einzelne Ereignisse sind so unwahrscheinlich, da stetige Variablen unendliche genau sein können. Es wird keine zwei Personen geben, die einen Intelligenzquotienten von genau 98,564 haben. Was wir aber berechnen können ist die Wahrscheinlichkeit mindestens höchsten ein Ereignis zu haben, zu berechnen. Genausogut können wir die Wahrscheinlichkeit zwischen zwei Ereignissen berechnen. Beispielsweise, wie wahrscheinlich ist es, einen IQ von über 90 und von unter 105 zu haben? 
-
-
-```
-z_score_90 <- (90 - 100) / 15
-z_score_105 <- (105 - 100) / 15
-
-ggplot(NULL, aes(x = c(-3, 3))) +
-  stat_function(
-    fun = dnorm,
-    geom = "area",
-    fill = "steelblue",
-  ) +
-  stat_function(
-    fun = dnorm,
-    geom = "area",
-    fill = "#b44682",
-    xlim = c(z_score_90, z_score_105)
-  ) +
-  labs(
-    title = "Wahrscheinlichkeit einen IQ über über 90 und unter 105 zu haben",
-    x = "Intelligenz als z-Wert",
+    title = "Wahrscheinlichkeit zwischen 5000 und 6000 Euro pro Monat zu verdienen",
+    x = "Monatlicher Verdienst als z-Wert",
     y = "Dichte"
   ) +
   annotate("text", x = -0.3,
-           y = 0.2, label = "37.8%")
+           y = 0.2, label = "8,3%")
 ```
 
-![](./images/iq_90_105.png)
+![](prob_5000_6000.png)
 
 
-Die Wahrscheinlichkeit einen IQ über 90 und unter 105 zu haben, ist in der Grafik rot dargestellt. Erneut können wir diese Wahrscheinlichkeit in R berechnen:
+$$
+P(5000 \leq 6000) \int_{5000}^{6000} f(x) dx
+$$
+
+
+Ein anderes Beispiel: Wie wahrscheinlich ist es, weniger als 2000 Dollar monatlich zu verdienen?
+
+$$
+P(-\infty \geq 2000) \int_{-\infty}^{2000} f(x) dx
+$$
+
 
 ```R
-pnorm(z_score_105) - pnorm(z_score_90) # 0.3780661
+z_score_2000 <- (2000 - mean(human_resources$monthly_income)) / sd(human_resources$monthly_income)
+
+ggplot(NULL, aes(x = c(-3, 3))) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "#b44682",
+    xlim = c(-3, z_score_2000)
+  ) +
+  labs(
+    title = "Wahrscheinlichkeit weniger als 2000 Dollar monatlich zu verdienen",
+    x = "Monatlicher Verdienst als z-Wert",
+    y = "Dichte"
+  ) 
 ```
 
-# Statistisches Hypothesentesten auf Grundlage von Stichprobenkennwertverteilungen
+![](less_2000.png)
 
 
+```R
+pnorm(z_score_2000) # 0.1694221
+```
 
-# Stichprobenkennwertverteilung von PRE
+Die Wahrscheinlichkeit liegt bei 16,9%.
+
+## Generalisierung der Wahrscheinlichkeitsberechnung aus Stichprobenkennwertverteilungen
+
+
+### Ein Beispiel 
+
+Eine logische Frage, die sich nun ergibt, ist: Warum müssen wir Wahrscheinlichkeiten aus Stichprobenkennewrtverteilungen berechnen? Die Antwort lautet, um Hypothesen zu testen. Stell dir folgendes Szenario vor: Deine Freundin behauptet, dass Mitarbeiter in dem Unternehmen im Schnitt 3000 Dollar verdienen. Du glaubst deiner Freundin nicht und bist dir sicher, dass die Mitarbeiter deutlich mehr als 3000 Dollar pro Monat verdienen. Wie könnt ihr prüfen, wer recht hat? 
+
+Zunächst stellen wir eine Nullhypothese auf. Wir gehen davon aus, dass deine Freundin tatsächlich recht hat. Was würde passieren, wenn deine Freundin falsch läge und das tatsächliche Gehalt deutlich höher liegt? Dann würde der Mittelwert der Stichprobe, die du aus der Population (hier das Unternehmen) erhebst, deutlich höher liegen als 3000 Dollar. Du hättest damit nicht bewiesen, dass deine Freundin recht hat, es wäre allerdings äußerst unwahrscheinlich, dass deine Stichprobe so groß ausfällt, sollte die Nullhypothese stimmen. 
+
+Ihr befragt also 50 Mitarbeiter im Unternehmen nach ihrem monatlichen Gehalt. Folgenden Mittelwert erhaltet ihr:
+
+<!-- ```R
+set.seed(899)
+my_sample <- sample_n(human_resources, 50)
+mean(my_sample$monthly_income) # 6063.02
+```
+
+Eure Stichprobe verdient 6063.02 Dollar im Schnitt monatlich. Versuchen wir all diese Informationen grafisch darzustellen:
+
+```R
+ggplot(NULL, aes(x = c(0, 10000))) +
+  # Nullhypothese
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+    args = list(
+      mean = 3000,
+      sd = sd(human_resources$monthly_income) / sqrt(50)
+    )
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "orange",
+    alpha = .6,
+    args = list(
+      mean = mean(human_resources$monthly_income),
+      sd = sd(human_resources$monthly_income) / sqrt(50)
+    )
+  ) +
+  geom_vline(xintercept = 3000,
+             color = "blue",
+             size = 1) +
+  geom_vline(xintercept = 6063.02,
+             size = 1) +
+  geom_vline(xintercept = mean(human_resources$monthly_income),
+             color = "yellow",
+             size = 1) +
+  annotate("text", x = 3000 - 800,
+           color = "blue",
+           hjust = 0,
+           y = 0.0005, label = "Nullhypothese der Freundin") +
+  annotate("text", x = 6063.02 - 800,
+           color = "black",
+           hjust = 0,
+           y = 0.0005, label = "Mittelwert der Stichprobe") +
+  annotate("text", x = mean(human_resources$monthly_income) - 800,
+           color = "yellow",
+           hjust = 0,
+           y = 0.0004, label = "Mittelwert der Population") +
+  # annotate("segment", x = 3000, xend = mean(human_resources$monthly_income), 
+  #              y = 0.0003, yend = 0.0003, color = "black",
+  #          linetype = 2) +
+  # annotate("segment", x = 6063.02, xend = mean(human_resources$monthly_income), 
+  #          y = 0.00001, yend = 0.00001, color = "grey",
+  #          linetype = 2) +
+  # annotate("rect", xmin = 2000, xmax = 6800, ymin = 0.000005, ymax = 0.000025,
+  #          alpha = .2) +
+  labs(
+    title = "Darstellung der Null- und Alternativhypothese der Freundeswette",
+    x = "Monatlicher Verdienst in Dollar",
+    y = "Dichte"
+  ) 
+``` -->
+
+![](friendsbet.png)
+
+Gelb markiert ist die wirkliche Stichprobenkennwertverteilung. Blau markiert ist die Stichprobenkennwertverteilung hätte deine Freundin recht bzw. würde die Nullhypothese gelten. Die farbigen Striche kennzeichnen die Mittelwerte der Stichprobenkennwertverteilungen bzw. den Mittelwert der Stichprobe. 
+
+
+Wir können aus der Grafik mehrere Informationen entnehmen:
+
+* Sollte deine Freundin recht haben, ist es fasst unmöglich einen so hohen Stichprobenmittelwert zu erhalten. Die Wahrscheinlichkeit geht gar gegen 0, da der schwarze Stichprobenmittelwert nicht einmal die Stichprobenkennwertverteilung der Nullhypothese schneidet. Hätte deine Freundin recht, würden wir vielmehr erwarten, dass die Mittelwerte um den Wert 3000 streuen.
+* Die Fehler in kompakten Modell (sprich der Nullhypothese) sind deutlich größer als in deiner Alternativhypothese, dass das Gehalt größer ist. In anderen Worten, der Abstand der tatsächlichen Werte zu den Werten deines Modells (hier der Mittelwert deiner Stichprobe) sind deutlich kleiner als bei deiner Freundin: $e = Y - \hat{Y}$. Wir können daher davon ausgehen, dass wir ein relativ hohes PRE durch diese beiden Hypothesen erhalten. Dein erweitertes Modell reduziert die Fehler des kompakten Modells deutlich.
+* Der Stichprobenmittelwert entspricht nicht dem Populationsmittelwert. Dies ist allerdings zu erwarten, da wir durch eine Stichprobe immer willkürliche Fluktuationen im Mittelwert erhalten. Genau deswegen haben wir eine Stichprobenkennwertverteilung.
+
+
+### Generalisierung
+
+* Stichprobenkennwertverteilungen (z.B. z-Werte, PRE) dienen der Überprüfung von Hypothesen.
+* Hypothesen umfassen immer eine Null- und eine Alternativhypothese.
+* Die Nullhypothese wird verworfen, wenn das Auftreten eines Kennwertes äußerst unwahrscheinlich ist, unter der Annahme, dass die Nullhypothese gilt.
+* Hypothesen können nicht bestätigt werden, wir lehnen lediglich die Nullhypothese ab oder behalten diese vorläufig.
+* Dass ein Ereignis unwahrscheinlich gegeben einer Nullhypothese ist, bedeutet **nicht**, dass man einen großen Effekt gefunden hat.
+
+> Stichprobenkennwertverteilungen zeigen uns, ob ein Ereignis oder ein Kennwert unwahrscheinlich ist, unter der Annahme, dass die Nullhypothese gilt. Je unwahrscheinlich ein Ereignis unter der Nullhypothese, desto höher ist PRE.
+
+
+# Stichprobenkennwertverteilung PRE
+
+## Analogie z-Wert und PRE
+
+In diesem Modul haben wir bereits viel über die Standardnormalverteilung geredet. Mittelwerte von Stichproben konnten wir durch eine z-Transformation als Kennwert in einer Standardnormalverteilung abtragen. Im nächsten Schritt haben wir heraus gefunden, wie wir die Wahrscheinlichkeit von Ereignissen auf Grundlage dieser Verteilungen bestimmen könnnen. Wir werden am Ende dieser Einheit einen inferenzstatistischen Test (z-Test) kennen lernen, welcher die Standardnormalverteilung zur Überprüfung von Hypothesen verwendet. Nächste Woche werden wir den t-Test kennen lernen, welcher zur Prüfung von Hypothesen eine T-Verteilung annimmt. 
+
+Unklar ist an dieser Stelle vielleicht, inwieweit die der z-Wert mit PRE zusammen hängt? Klären wir nochmal, was diese beiden Kennwerte für eine Bedeutung haben? 
+
+* **z-Wert**: Der z-Wert gibt an, wie viele Standardabweichungen zwei Werte/Mittelwerte auseinander liegen. Er ist demnach ein Maß, um zu überprüfen, ob sich Mittelwerte voneinander unterscheiden. Die Stichprobenkennwertverteilung des z-Wertes nennen wir Standardnormalverteilung bzw. z-Verteilung. 
+* **PRE**: PRE ist ein Kennwert, der angibt, um wie viel Prozent ein erweitertes Modell den Fehler eines kompakten Models reduziert. Die Stichprobenkennwertverteilung von PRE nennen wir PRE-Verteilung.
+
+Die Gemeinsamkeiten sind:
+
+* Für beide Kennwerte können wir Stichprobenkennwertverteilungen generieren.
+* Die Stichprobenkennwertverteilungen nutzen wir, um zu überprüfen, ob ein Ergebniss (z.B. der empirische z-Wert, oder der empirische PRE) einer Studie ungewöhnlich sind, unter der Bedingung, dass wir die Nullhypothese annehmen.
+* Ist ein Ereignis ungewöhnlich unter Annahme der Nullhypothese verwerfen wir die Nullhypothese zu Gunsten der Alternativhypothese (z.B. indem wir nun davon ausgehen, dass das Gehalt der Mitarbeiter größer als 3000 Euro ist)
+
+Unterschiede der beiden Kennwerte sind:
+
+* z-Werte und PRE liefern unterschiedliche Stichprobenkennwertverteilungen. z-Werte liefern eine unimodale Standardnormalverteilung, während PRE-Kennwerte eine rechtsschiefe Verteilung generieren.
+* z-Werte können negativ sein, PRE-Werte sind immer positiv (da wir bei SSR quadrieren, können keine negativen Werte entstehen).
 
