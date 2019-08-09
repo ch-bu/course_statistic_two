@@ -582,8 +582,7 @@ ggplot(NULL, aes(x = c(0, 10000))) +
 
 ![](friendsbet.png)
 
-Gelb markiert ist die wirkliche Stichprobenkennwertverteilung. Blau markiert ist die Stichprobenkennwertverteilung hätte deine Freundin recht bzw. würde die Nullhypothese gelten. Die farbigen Striche kennzeichnen die Mittelwerte der Stichprobenkennwertverteilungen bzw. den Mittelwert der Stichprobe. 
-
+Gelb markiert ist die wirkliche Stichprobenkennwertverteilung. Blau markiert ist die Stichprobenkennwertverteilung hätte deine Freundin recht bzw. würde die Nullhypothese gelten. Die farbigen Striche kennzeichnen die Mittelwerte der Stichprobenkennwertverteilungen bzw. den Mittelwert der Stichprobe.
 
 Wir können aus der Grafik mehrere Informationen entnehmen:
 
@@ -602,26 +601,229 @@ Wir können aus der Grafik mehrere Informationen entnehmen:
 
 > Stichprobenkennwertverteilungen zeigen uns, ob ein Ereignis oder ein Kennwert unwahrscheinlich ist, unter der Annahme, dass die Nullhypothese gilt. Je unwahrscheinlich ein Ereignis unter der Nullhypothese, desto höher ist PRE.
 
-
 # Stichprobenkennwertverteilung PRE
 
 ## Analogie z-Wert und PRE
 
-In diesem Modul haben wir bereits viel über die Standardnormalverteilung geredet. Mittelwerte von Stichproben konnten wir durch eine z-Transformation als Kennwert in einer Standardnormalverteilung abtragen. Im nächsten Schritt haben wir heraus gefunden, wie wir die Wahrscheinlichkeit von Ereignissen auf Grundlage dieser Verteilungen bestimmen könnnen. Wir werden am Ende dieser Einheit einen inferenzstatistischen Test (z-Test) kennen lernen, welcher die Standardnormalverteilung zur Überprüfung von Hypothesen verwendet. Nächste Woche werden wir den t-Test kennen lernen, welcher zur Prüfung von Hypothesen eine T-Verteilung annimmt. 
+In diesem Modul haben wir bereits viel über die Standardnormalverteilung geredet. Mittelwerte von Stichproben konnten wir durch eine z-Transformation als Kennwert in einer Standardnormalverteilung abtragen. Im nächsten Schritt haben wir heraus gefunden, wie wir die Wahrscheinlichkeit von Ereignissen auf Grundlage dieser Verteilungen bestimmen könnnen. Wir werden am Ende dieser Einheit einen inferenzstatistischen Test (z-Test) kennen lernen, welcher die Standardnormalverteilung zur Überprüfung von Hypothesen verwendet. Nächste Woche werden wir den t-Test kennen lernen, welcher zur Prüfung von Hypothesen eine T-Verteilung annimmt.
 
-Unklar ist an dieser Stelle vielleicht, inwieweit die der z-Wert mit PRE zusammen hängt? Klären wir nochmal, was diese beiden Kennwerte für eine Bedeutung haben? 
+Unklar ist an dieser Stelle vielleicht, inwieweit die der z-Wert mit PRE zusammen hängt? Klären wir nochmal, was diese beiden Kennwerte für eine Bedeutung haben?
 
-* **z-Wert**: Der z-Wert gibt an, wie viele Standardabweichungen zwei Werte/Mittelwerte auseinander liegen. Er ist demnach ein Maß, um zu überprüfen, ob sich Mittelwerte voneinander unterscheiden. Die Stichprobenkennwertverteilung des z-Wertes nennen wir Standardnormalverteilung bzw. z-Verteilung. 
+* **z-Wert**: Der z-Wert gibt an, wie viele Standardabweichungen ein Wert vom Mittelwert einer Standardnormalverteilung verteilt liegt. Er ist demnach ein Maß, um zu überprüfen, ob sich Mittelwerte voneinander unterscheiden. Die Stichprobenkennwertverteilung des z-Wertes nennen wir Standardnormalverteilung bzw. z-Verteilung.
 * **PRE**: PRE ist ein Kennwert, der angibt, um wie viel Prozent ein erweitertes Modell den Fehler eines kompakten Models reduziert. Die Stichprobenkennwertverteilung von PRE nennen wir PRE-Verteilung.
 
 Die Gemeinsamkeiten sind:
 
 * Für beide Kennwerte können wir Stichprobenkennwertverteilungen generieren.
 * Die Stichprobenkennwertverteilungen nutzen wir, um zu überprüfen, ob ein Ergebniss (z.B. der empirische z-Wert, oder der empirische PRE) einer Studie ungewöhnlich sind, unter der Bedingung, dass wir die Nullhypothese annehmen.
-* Ist ein Ereignis ungewöhnlich unter Annahme der Nullhypothese verwerfen wir die Nullhypothese zu Gunsten der Alternativhypothese (z.B. indem wir nun davon ausgehen, dass das Gehalt der Mitarbeiter größer als 3000 Euro ist)
+* Ist ein Ereignis ungewöhnlich unter Annahme der Nullhypothese verwerfen wir die Nullhypothese zu Gunsten der Alternativhypothese (z.B. indem wir nun davon ausgehen, dass das Gehalt der Mitarbeiter größer als 3000 Euro ist).
 
 Unterschiede der beiden Kennwerte sind:
 
 * z-Werte und PRE liefern unterschiedliche Stichprobenkennwertverteilungen. z-Werte liefern eine unimodale Standardnormalverteilung, während PRE-Kennwerte eine rechtsschiefe Verteilung generieren.
 * z-Werte können negativ sein, PRE-Werte sind immer positiv (da wir bei SSR quadrieren, können keine negativen Werte entstehen).
 
+## PRE in R simulieren
+
+Gerade haben wir behauptet, dass die Stichprobenkennwertverteilung von PRE rechtsschief ist. In dieser Übung versuchen wir diese Behauptung durch eine Simulation zu belegen. Folgende Schritte müssen wir hierzu umsetzen:
+
+1. Wir müssen sehr viele Stichproben generieren. Stell dir immer vor, wir wiederholen ein Experiment tausende Male. Jede Stichprobe stammt aus der gleichen Popuulation.
+2. Wir müssen für jede dieser Stichprobe das PRE berechnen.
+3. Wir visualisieren diese PREs in einer Stichprobenkennwertverteilung als Dichtefunktion. 
+
+
+Laden wir zunächst den Datensatz erneut:
+
+```R
+library(tidyverse)
+
+human_resources <- read_csv("C:/Users/ChristianEZW/repositories/statistik_2_online_kurs/data/markdown/hr_cleaned.csv")
+```
+
+### Stichproben generieren
+
+Um mehrere Stichproben zu simulieren können wir die Funktion [sample_n](https://dplyr.tidyverse.org/reference/sample.html) verwenden. Wir verwenden die Funktion um 50000 Stichproben aus der Population zu ziehen. Jede Stichprobe umfasst 30 Personen:
+
+
+```R
+samples <- c(1:50000) %>%
+  map(~ sample_n(human_resources, 30))
+```
+
+### PRE berechnen
+
+Im nächsten Schritt berechnen wir das PRE. Hierfür müssen wir ein kompaktes Modell und ein erweitertes Modell aufstellen. Da wir beim statistischen Hypothesentesten immer prüfen, ob ein Ergebnis unwahrscheinlich ist, wenn man die Nullhypothese annimmt, stellen wir folgendes Hypothesenpaar auf:
+
+$$
+\hat{Y}_{compact} = \beta_0 
+$$
+
+$$
+\hat{Y}_{augmented} = b_0 = \bar{X}
+$$
+
+In anderen Worten: Unsere kompaktes Modell besagt, dass wir die $\hat{Y}$ auf Grundlage des Populationsmittelwertes bestimmen. Unser erweitertes Modell besagt, dass $\hat{Y}$ auf Grundlage des Stichprobenmittelwertes hervorgesagt wird.
+
+> Durch die Wahl dieser beiden Modellen entspricht PRE daher den willkürlichen Fluktuationen von PRE, die wir erwarten würden, sollte die Nullhypothese korrekt sein. Hohe PRE-Werte kennzeichnen daher Werte, die wir nicht unwahrscheinlich sind, sollte die Nullhypothese stimmen. Hohe PRE-Werte sind daher ein Indiz dafür, dass das erweiterte Modell vermutlich akkkurater die Wirklichkeit beschreibt als die Nullhypothese, da diese Ereignisse sehr selten vorkommen.
+
+
+Berechnen wir PRE für jede Stichprobe:
+
+```R
+mean_monthly_income <- mean(human_resources$monthly_income)
+
+calc_pre <- function(dataset) {
+  errors <- dataset %>%
+     mutate(
+       compact_model = mean_monthly_income,
+       augmented_model = mean(monthly_income),
+       res_compact   = (monthly_income - compact_model)**2,
+       res_augmented = (monthly_income - augmented_model)**2
+     )
+  
+  sse_c <- sum(errors$res_compact)
+  sse_a <- sum(errors$res_augmented)
+  ssr <- sse_c - sse_a
+  
+  ssr / sse_c
+}
+
+pres <- samples %>% 
+  map_dbl(~ calc_pre(.))
+```
+
+### Dichtefunktion von PRE
+
+Zuletzt können wir diese Kennwerte anhand einer Dichtefunktion darstellen:
+
+```R
+ggplot(NULL, aes(x = pres)) + 
+  geom_density(fill = "steelblue", aes(y=..scaled..)) +
+  scale_x_continuous(limits = c(0, 0.4)) +
+  labs(
+    title = "Stichprobenkennwertverteilung PRE bei N = 50",
+    x = "PRE",
+    y = "Dichte"
+  )
+```
+
+![](pre_sampling_dist.png)
+
+Aus dieser Visualisierung können wir bereits mehrere Informationen entnehmen:
+
+* Es ist sehr wahrscheinlich ein PRE von unter 0.1 zu erhalten, unter der Annahme, dass die Nullyhypothese stimmt.
+* PREs von über 0.2 sind sehr selten, unter der Annahme, dass die Nullhypothese stimmt.
+* Die Fläche der Verteilung entspricht 1.
+
+Analog zur Standardnormalverteilung können wir daher die PRE-Verteilung nutzen, um die Wahrscheinlichkeit bestimmter Kennwerte zu bestimmen. Beispielsweise können wir auf Grundlage der Verteilung berechnen, wie wahrscheinlich es ist, einen PRE von 0.2 oder größer zu erhalten.
+
+# Statistische Entscheidungen
+
+## Kritische Werte
+
+Wir hatten bereits mehrmals erwähnt, dass wir durch PRE erkennen können, ob ein Kennwert unwahrscheinlich ist, unter der Bedingung, dass die Nullhypothese gilt. Wir hatten ebenso gesagt, dass wir die Nullhypothese verwerfen, sobald der Fehler durch das erweiterte Modell **substantiell groß genug** ist. Nun können wir bestimmten, welche Größe wir hiermit meinen. Diese größe nennen wir kritische Werte.
+
+> Als Faustregel: Liegt die Wahrscheinlichkeit für einen Kennwert (z.B. PRE oder z) unter 5%, verwerfen wir die Nullhypothese zu Gunsten der Alternativhypothese. 
+
+
+Die 5%-Hürde ist willkürlich gewählt und stammt von [Jerzy Neyman und Egon Pearson](https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/testing-of-statistical-hypotheses-in-relation-to-probabilities-a-priori/65C6E3D534996282114D4E16FCA3E73C). In der Medizin wird häufig ein Alpha-Niveau von 1% oder geringer angenomme. In der Sozialforschung hat sich ein Alpha-Niveau von 5% etabliert.
+
+
+### Ein Beispiel
+
+Nehmen wir an, du testest ob ein Sales Executves ein höheres monatliches Gehalt bekommt als der Durchschnitt der Mitarbeiter. Hierfür ziehst du zunächst eine Stichprobe von 30 Personen aus der Population:
+
+```
+library(tidyverse)
+
+human_resources <- read_csv("C:/Users/ChristianEZW/repositories/statistik_2_online_kurs/data/markdown/hr_cleaned.csv")
+
+sales <- human_resources %>% 
+  filter(job_role == "Sales Executive") %>% 
+  sample_n(30)
+```
+
+Da du den Mittelwert der Population für deine abhängige Variable kennst, kannst du diesen als verwenden, um den z-Wert deiner Stichprobe zu berechnen:
+
+```R
+(z_value <- (mean(sales$monthly_income) - mean(human_resources$monthly_income)) / 
+  (sd(human_resources$monthly_income) / sqrt(30))) # 1.398174
+```
+
+Der Z-Wert bedeutet, dass Sales Executives ein um 1.39 Standardabweichungen höheres Gehalt bekommen als der Durschschnitt der Bevölkerung. Schauen wir uns diesen Wert in der Stichprobenkennwertverteilung an:
+
+```R
+ggplot(NULL, aes(x = c(-3, 3))) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "#b44682",
+    xlim = c(qnorm(.95), 4)
+  ) +
+  geom_vline(xintercept = z_value,
+             color = "black",
+             size = 1) +
+  labs(
+    title = "z-Wert der Stichprobe Sales Executives mit kritischem Wert",
+    x = "z-score",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(-3, 3))
+```
+
+![](sales.png)
+
+
+Rot markiert ist der kritische Bereich, bei dem wir die Nullhypothese verwerfen würden. Der Übergang vom blauen in den roten Bereich bezeichnen wir als kritischen Wert. Diesen können wir ganz konkret bestimmen:
+
+```R
+qnorm(0.95) # 1.644854
+```
+
+Dies bedeutet, dass wir bei allen z-Werten, die über 1.64 sind die Nullhypothese unter der Annahme unserer Alternativhypothese verwerfen würden.
+
+Auf Grundlage unseres Stichprobenergebnisses (unseres z-Wertes) gehen wir nun weiterhin davon aus, dass die Sales Exekutives nicht wesentlich mehr verdienen als der Durchschnitt der Mitarbeiter, da der z-Wert nicht über dem kritischen Bereich liegt.
+
+> Beachte, dass der z-Wert bei jeder Stichprobe anders ausfallen könnte. 
+
+### Gerichtete vs. ungerichtete Hypothese
+
+Achte darauf, dass wir eine gerichtete Hypothese hatten. Wir sind davon ausgegangen, dass die Sales Executives **mehr verdienen** als der Durschschnitt der Bevölkerung. Hätten wir angenommen, dass die Sales Executives ein unterschiedliches Gehalt, unabhängig der Richtung, von der Population haben, hätten wir das Alpha-Niveau links und rechts der Verteilung aufgeteilt:
+
+```R
+ggplot(NULL, aes(x = c(-3, 3))) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "#b44682",
+    xlim = c(qnorm(.975), 4)
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "#b44682",
+    xlim = c(-4, qnorm(.025))
+  ) +
+  geom_vline(xintercept = z_value,
+             color = "black",
+             size = 1) +
+  labs(
+    title = "z-Wert der Stichprobe Sales Executives mit kritischem Wert",
+    subtitle = "Ungerichtete Hypothese",
+    x = "z-score",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(-3, 3))
+```
+
+![](ungerichtet.png)
