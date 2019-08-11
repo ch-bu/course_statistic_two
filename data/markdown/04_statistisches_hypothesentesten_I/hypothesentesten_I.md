@@ -827,3 +827,251 @@ ggplot(NULL, aes(x = c(-3, 3))) +
 ```
 
 ![](ungerichtet.png)
+
+
+## Statistische Signifikanz
+
+### Definition
+
+Statistische Signifikanz ist ein häufig missverstandenes Konzept in der Statistik. Per Definition bedeutet Signifikanz folgendes:
+
+> Signifikanz bedeutet, dass ein Kennwert gegeben der Nullhypothese sehr unwahrscheinlich ist und zusätzlich den kritischen Kennwert über- oder untersteigt.
+
+Beispielsweise hatten wir angenommen, dass Sales Executives mehr verdienen als der Durschschnitt der Bevölkerung. Unsere Stichprobe ergab folgenden Kennwert:
+
+![](sales.png)
+
+Da der **empirische Kennwert** kleiner als der **kritische Kennwert** ist, ist dieses Ereignis nicht signifikant. Wir schließen daraus, dass Sales Executives nicht mehr als der Durchschnitt der Mitarbeiter verdient. Wäre der empirische Kennwert im roten Bereich, würden wir von einem signifikanten Ergebnis sprechen.
+
+Später werden wir vermehrt Stichprobenkennwertverteilungen kennen lernen, die PRE entsprechen (z.B. die F-Verteilung). Auch hier gilt, dass ein signifikantes Ereignis vorliegt, sobald der empirische Kennwert größer als der kritische Kennwert ist. Stell dir zum Beispiel vor, wir fragen uns, ob ein erweitertes Modell die Fehler des kompakten Modells substantiell reduziert:
+
+![](f_significant.png)
+
+Da der empirische Kennwert größer als der kritische Kennwert ist, sprechen wir von einem signifikanten Ergebnis und lehnen die Nullhypothese zu Gunsten der Alternativhypothese ab. 
+
+### Generalisierung
+
+#### Statistische Signifikanz != praktische Bedeutsamkeit
+
+Statistische Signifikanz ist nicht gleichzusetzen mit der praktischen Bedeutsamkeit. Stell dir beispielsweise vor, dass dein erweitertes Modell mehrere Versuchsgruppen umfasst. Zum Beispiel untersuchst du, ob genügend Schlaf zu einer besseren Lernleistung führt. Eine Gruppe muss eine Woche lang 8 Stunden schlafen, die andere 5 Stunden. Du erhältst nun ein signifikantes Ereignis. Bedeutet dies, dass es besser ist länger als kürzer zu schlafen? Nicht unbedingt. Es könnte sein, dass du zwar ein signifikantes Ereignis bekommst, allerdings die praktische Bedeutsamkeit bzw. der Effekt der Intervention minimal ist. Signifikanz bedeutet nichts anderes als das ein Ereignis gegeben der Nullhypothese unwahrscheinlich ist. Im nächsten Modul lernen wir das Konzept der Effektstärke kennen, 
+welches bessere Aussagen über die praktische Bedeutsamkeit machen kann. 
+
+#### Statistische Signifikanz ist abhängig von der Stichprobengröße
+
+Stell dir vor, eine Freundin behauptet, dass die Mitarbeiter des Unternehmens 5000 Dollar pro Monat verdienen. Du glaubst dem nicht und behauptest, dass die Mitarbeiter mehr verdienen. Ihr befragt willkürlich 50 Mitarbeiter des Unternehmens um deine Alternativhypothese zu testen. Folgende Kennwert erhaltet ihr unter Annahme der Nullhypothese. Rot gekennzeichnet ist der kritische Bereich mit einem Alpha-Niveau von 5%. Blau markiert ist die Nullhypothese. Orange markiert ist deine Alternativhypothese. Der orangene Stich kennzeichnet deinen Stichprobenmittelwert.
+
+![](einkommen_6000.png)
+
+<!-- ```R
+ggplot(NULL, aes(x = c(0, 10000))) +
+  # Nullhypothese
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+    args = list(
+      mean = 5000,
+      sd = sd(human_resources$monthly_income) / sqrt(50)
+    )
+  ) +
+  # Kritischer Bereich 0 Hypothese
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "red",
+    args = list(
+      mean = 5000,
+      sd = sd(human_resources$monthly_income) / sqrt(50)
+    ),
+    xlim = c(qnorm(.95, mean = 5000, 
+                   sd = sd(human_resources$monthly_income) / sqrt(50)), 
+             8000)
+  ) +
+  # Alternativhypothese
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "orange",
+    alpha = .2,
+    args = list(
+      mean = 6000,
+      sd = sd(human_resources$monthly_income) / sqrt(50)
+    )
+  ) +
+  geom_vline(xintercept = 6000,
+             color = "orange",
+             size = 1) +
+  labs(
+    title = paste0("Nullhypothese mittleres Einkommen == 5000,",
+                   "Alternativhypothese mittleres Einkommen == 6000"),
+    x = "Mittleres Einkommen",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(2500, 8000))
+``` -->
+
+Aus der Grafik kannst du schließen, dass dein empirischer Kennwert den kritischen Kennwert nicht übersteigt. Das Ereignis ist daher **nicht signifikant**. Auf Grundlage der Signifkanz würde man darauf schließen, dass die Mitarbeiter nicht mehr als 5000 Euro pro Monat verdienen. Bevor wir voreilig zu diesem Schluss kommen, machen wir einen Trick. Anstatt 50 Mitarbeiter befragt ihr einfach 100 Mitarbeiter. Diesmal sehen eure Kennwertverteilungen folgendermaßen aus:
+
+<!-- ```R
+ggplot(NULL, aes(x = c(0, 10000))) +
+  # Nullhypothese
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+    args = list(
+      mean = 5000,
+      sd = sd(human_resources$monthly_income) / sqrt(100)
+    )
+  ) +
+  # Kritischer Bereich 0 Hypothese
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "red",
+    args = list(
+      mean = 5000,
+      sd = sd(human_resources$monthly_income) / sqrt(100)
+    ),
+    xlim = c(qnorm(.95, mean = 5000, 
+                   sd = sd(human_resources$monthly_income) / sqrt(100)), 
+             8000)
+  ) +
+  # Alternativhypothese
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "orange",
+    alpha = .2,
+    args = list(
+      mean = 6000,
+      sd = sd(human_resources$monthly_income) / sqrt(100)
+    )
+  ) +
+  geom_vline(xintercept = 6000,
+             color = "orange",
+             size = 1) +
+  labs(
+    title = paste0("Nullhypothese mittleres Einkommen == 5000,",
+                   "Alternativhypothese mittleres Einkommen == 6000"),
+    subtitle = "N = 100",
+    x = "Mittleres Einkommen",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(2500, 8000))
+``` -->
+
+
+![](n_100.png)
+
+Plötzlich, mit 100 Befragten ist das Ergebnis signifikant. Dies liegt an der Stichprobengröße:
+
+> Die Signifikanz eines Ereignisses ist abhängig von der Stichprobengröße. Je größer die Stichprobe, desto eher wird ein sigifikantes Ergebnis erreicht.
+
+Dieses Phänomen ist relativ einfach anhand des Standardfehlers der Verteilung zu erklären: 
+
+$$
+SE = \frac{\sigma}{\sqrt{N}}
+$$
+
+Mit einem steigenden N wird die Standardabweichung der Stichprobenkennwertverteilung kleiner. Hierdurch wird die Stichprobenkennwertverteilung steiler. 
+
+> Signifkanz sollte immer in Abhängigkeit der Stichprobengröße, der Power (in den nächsten Kapiteln mehr dazu) und dem zu erwarteten Effekt interpretiert werden. Auf Grundlage eines signifikanten Ereignisses lassen sich keine gülten Schlüsse über die Güte einer Hypothese treffen.
+
+## Die vier Entscheidungsarten von Hypothesen
+
+Beim statistischen Hypothesentesten betreiben wir Wahrscheinlichkeitsrechnung. Beispielsweise wird unserer Stichprobenmittelwert nie dem Populationsmittelwert entsprechen. Hierdurch verändert sich unser Kennwert für jedes Experiment und dadurch teilweise auch die Entscheidung, ob ein Ereignis signifikant ist oder nicht. Wir können dabei zwei Arten von Fehlern machen und zwei korrekte Annahmen treffen:
+
+|                        | Model C korrekt               | Model C nicht korrekt                 |
+|------------------------|-------------------------------|---------------------------------|
+| Model C ablehnen       |  Type I Fehler / Alpha Fehler | Richtige Entscheidung           |
+| Model C nicht ablehnen | Richtige Entscheidung         |  Type II Fehler /   Beta Fehler |
+
+### Type I Fehler / Alpha Fehler
+
+Die Fehler 1. Art (Alpha Fehler) treten auf, wenn die Nullhypothese korrekt ist (z.B. indem wir keinen Unterschied zwischen Experimentalgruppen annehmen), wir uns allerdings auf Grundlage eines signifikanten Ergebnisses für die Alternativhypothese entscheiden. 
+
+In der folgenden Grafik beispielsweise führen alle Kennwerte, die im dunkelblauen Bereich liegen zu einem Fehler der 1. Art.
+
+
+<!-- ```R
+ggplot(NULL, aes(x = c(-3, 5))) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+    alpha = .3,
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+    xlim = c(qnorm(.95), 4)
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "line",
+    linetype = 2,
+    fill = "steelblue",
+    alpha = .5,
+    args = list(
+      mean = 2
+    )
+  ) +
+  labs(
+    title = "Visualisierung des Alpha Fehlers",
+    subtitle = "Entscheidung für die Alternativhypothese obwohl Nullhypothese stimmt",
+    x = "z-score",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(-3, 5))
+``` -->
+
+![](alpha_fehler.png)
+
+
+### Type II Fehler / Beta Fehler
+
+Die Fehler 2. Art (Alpha Fehler) treten auf, wenn die Nullhypothese nicht korrekt ist, wir uns allerdings dennoch für die Nullhypothese entscheiden, da wir kein signifikantes Ergebnis erhalten. 
+
+In der folgenden Grafik beispielsweise führen alle Kennwerte, die im dunkelorangenen Bereich liegen zu einem Fehler der 2. Art.
+
+<!-- ```R
+ggplot(NULL, aes(x = c(-3, 5))) +
+  stat_function(
+    fun = dnorm,
+    geom = "line",
+    linetype = 2,
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "orange",
+    args = list(
+      mean = 2
+    ),
+    xlim = c(-2, qnorm(.95))
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    linetype = 2,
+    fill = "orange",
+    alpha = .3,
+    args = list(
+      mean = 2
+    )
+  ) +
+  labs(
+    title = "Visualisierung des Beta Fehlers",
+    subtitle = "Entscheidung für die Nullhypothese obwohl Nullhypothese nicht korrekt ist",
+    x = "z-score",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(-3, 5))
+``` -->
+
+![](beta_fehler.png)
+
+# Modeling Example - z-Test
+
