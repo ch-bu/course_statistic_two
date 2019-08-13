@@ -45,8 +45,8 @@ ggplot(NULL, aes(x = c(-3, 3))) +
   ) +
   scale_x_continuous(limits = c(-3, 3))
 
-# p_value <- 1 - pnorm(z_value)
-p_value <- 1 - pt(z_value, df = 24)
+p_value <- 1 - pnorm(z_value)
+# p_value <- 1 - pt(z_value, df = 24)
 
 
 jmv::ttestOneS(
@@ -54,3 +54,10 @@ jmv::ttestOneS(
   vars = distance_from_home,
   testValue = 9.2,
   hypothesis = "gt")
+
+
+# Ein z-Test ergab kein siginifkantes Ergebnis, 
+# z(24) = 0.56, p = .29
+
+
+
