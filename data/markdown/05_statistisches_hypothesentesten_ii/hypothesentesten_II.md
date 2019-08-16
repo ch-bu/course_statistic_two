@@ -324,7 +324,7 @@ $$
 8000 - 6500 = 1500
 $$
 
-Manager verdienen also 1500 Dollar mehr als der Rest der Mitarbeiter. Man könnte es dabei belassen, die Effektstärke in Dollar als Mittelwertsunterschied anzugeben. Dies würde allerdings dazu führen, dass diese Mittelwertsunterschiede nicht mehr vergleichbar sind. Stell dir vor, ein ähnliches Experiment wird in einem anderen Land mit einer anderen Währung, z.B. dem Yan, umgesetzt. Ein Vergleich wäre nicht mehr möglich. Cohen's D standardisiert daher diesen Mittelwertsunterschied, indem dieser durch die gepoolte Standardabweichung der Stichproben berechnet wird:
+Manager verdienen also 1500 Dollar mehr als der Rest der Mitarbeiter. Man könnte es dabei belassen, die Effektstärke in Dollar als Mittelwertsunterschied anzugeben. Dies würde allerdings dazu führen, dass diese Mittelwertsunterschiede nicht mehr vergleichbar sind. Stell dir vor, ein ähnliches Experiment wird in einem anderen Land mit einer anderen Währung, z.B. dem Yen, umgesetzt. Ein Vergleich wäre nicht mehr möglich. Cohen's D standardisiert daher diesen Mittelwertsunterschied, indem dieser durch die gepoolte Standardabweichung der Stichproben berechnet wird:
 
 $$
 d = \frac{M_A - M_C}{sd_{pooled}}
@@ -333,7 +333,7 @@ $$
 Die gepoolte Standardabweichung erhalten wir, indem wir beide Standardabweichungen quadrieren, summieren, von 2 abzielen und die Wurzel daraus berechnen:
 
 $$
-sd_{pooled} = \sqrt{\frac{s_1^2 + s_2^2}{2}}
+sd_{pooled} = \sqrt{\frac{sd_1^2 + sd_2^2}{2}}
 $$
 
 Die Effektstärke für unser Experiment lautet daher:
@@ -351,11 +351,120 @@ Allgemein werden Effektstärken als klein, mittel und groß beschrieben. Cohen n
 * $0.5 - 0.8$: mittlerer Effekt
 * $> 0.8$: großer Effekt
 
+Je größer Cohen's d ist, desto weiter liegen die Mittelwerte zweier Verteilungen auseinander.
+
 ### Weitere Informationen
 
 * [Interpreting Cohen's d effect size](https://rpsychologist.com/d3/cohend/)
 
 ## Eta-Quadrat
+
+Zur Berechnung der Effektstärke von F-Verteilungen wird $\eta^2$ (eta-squared) berechnet:
+
+$$
+\eta^2 = \frac{SSR}{SS_{total}]}
+$$
+
+Ausgesprochen bedeutet $\eta^2$ folgendes: $\eta^2$ beschreibt, wie viel Prozent der Varianz in der abhängigen Variable durch das erweiterte Modell erklärt werden kann. $\eta^2$ kann Werte von 0 bis 1 erhalten. 0 bedeutet, dass das erweiterte Modell (mit einem Parameter) keine Varianz in der abhängigen Variable aufklärt und damit sogut wie nutzlos ist. $\eta^2$ von 1 bedeutet, dass das erweiterte Modell die komplette Varianz der abhängigen Variable aufklärt und wir daher keine Fehlervarianz mehr existiert (SSE(A) wäre in diesem Fall 0).
+
+Stell dir vor, du hast eine Stichprobe von 4 Mitarbeitern. Das Gehalt der Mitarbeiter beträgt 1000, 2000, 3000, und 4000 Dollar. Wir nehmen zusätzlich an, dass das Gehalt des Vaters dieser Personen 1100, 2100, 3100 und 4100 Dollar ist. Wir vergleichen als nächstes zwei Modelle: Das kompakte Modell, welches den Mittelwert zur Berechnung der abhängigen Variable annimmt und ein erweitertes Modell, welches eine lineare Regression (mehr dazu nächste Woche) aus dem Gehalt des Vaters berechnet:
+
+<!-- ```R
+my_artificial_sample <- tibble(
+  id = c(1000, 2000, 3000, 4000),
+  income  = c(5000, 6000, 7000, 8000),
+  income_father = c(5100, 5900, 7100, 8100)
+)
+
+model <- lm(income ~ income_father, data = my_artificial_sample)
+
+mean_income <-  mean(my_artificial_sample$income)
+ggplot(my_artificial_sample, aes(x = income_father, y = income)) + 
+  geom_point() +
+  geom_hline(yintercept = mean_income, color = "steelblue") +
+  geom_segment(
+    aes(x = income_father,
+        xend = income_father,
+        y = income,
+        yend = mean_income
+    )
+  ) +
+  geom_rect(aes(xmin = income_father,
+                xmax = income_father + (abs(-21.0957 + 0.9987 * income_father - mean_income)),
+                ymin = 112.8107 + 0.9751 * income_father,
+                ymax = mean_income,
+                alpha = .05),
+            fill = "orange") + 
+  geom_rect(aes(xmin = income_father,
+                xmax = income_father + (abs(income - mean_income)),
+                ymin = income,
+                ymax = mean_income,
+                alpha = .05),
+            fill = "#9999ff") +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  guides(alpha = FALSE) +
+  labs(
+    title = "Visualisierung Eta-Quadrat",
+    x = "Monatliches Einkommen des Vaters",
+    y = "Monatliches Einkommen"
+  ) +
+  coord_fixed()
+``` -->
+
+<!-- ```R
+my_artificial_sample <- tibble(
+id = c(1000, 2000, 3000, 4000),
+income  = c(5000, 6000, 7000, 8000)
+)
+
+mean_income <-  mean(my_artificial_sample$income)
+ggplot(my_artificial_sample, aes(x = id, y = income)) + 
+geom_point() +
+geom_text(aes(label = id), nudge_x = .1) +
+geom_hline(yintercept = mean_income, color = "steelblue") +
+geom_segment(
+  aes(x = id,
+      xend = id,
+      y = income,
+      yend = mean_income
+  )
+) +
+geom_rect(aes(xmin = id,
+              xmax = id + (abs(income - mean_income)),
+              ymin = income,
+              ymax = mean_income,
+              alpha = .05),
+          fill = "#9999ff") +
+guides(alpha = FALSE) +
+labs(
+  title = "Visualisierung der gesamten Fehlervarianz SS_Total",
+  x = "ID der Mitarbeiter",
+  y = "Monatliches Einkommen"
+) +
+coord_fixed()
+``` -->
+
+![](eta_quadrat_ss.png)
+
+Der horizontale vertikale Strich kennzeichnet das kompakte Modell. Die schwarze Linie kennzeichnet das erweiterte Modell. Die blauen Quadrate kennzeichnen $SS_{total}$, die orangenen Quadrate kennzeichnen $SSR$. Eta-Quadrat ist in diesem Fall das Verhältnis der orangenen Quadrate zu den blauen Quadraten. Da die Fläche der Quadrate der beiden Modelle ähnlich ist, erhalten wir ein Eta-Quadrat von $0.99$. Übersetzt können wir demnach sagen, dass Eta-Quadrat angibt, wie genau unser alternatives Modell die abhängigen Werte prognostiziert. Je höher $\eta^2$, desto genauer ist die Vorhersage.
+
+<!-- ```R
+sum_of_squares <- my_artificial_sample %>% 
+  mutate(
+    ss_total = (income - mean(income))^2,
+    ssr      = ((112.8107 + 0.9751 * income_father) - mean(income))^2
+  )
+  
+eta_squared <- sum(sum_of_squares$ssr) / sum(sum_of_squares$ss_total)
+``` -->
+
+## Partielles Eta-Quadrat
+
+$\eta^2$ ist nur eine sinnvolle Effektstärke, wenn das erweiterte Modell nur einen Parameter mehr hat als das kompakte Modell. Ähnlich wie bei der Signifikanz, möchten wir die Effektstärke für *jeden weiteren Parameter* des erweiterten Modells berechnen. Im Unterschied zu $\eta^2$ teilen wir nicht durch $SS_{total}$, sondern durch $SSR + SSE(A)$.
+
+$$
+\eta_p^2 = \frac{SSR}{SSR + SSE(A)}
+$$
 
 # Statistische Power
 
@@ -402,7 +511,7 @@ ggplot(NULL, aes(x = c(-3, 5))) +
 
 ![](signifikanz.png)
 
-In der Grafik siehst du den Bereich signifikanter Ereignisse bei einer z-Verteilung mit einem Alpha-Niveau von 5%. Jeder empirischer z-Wert, der in den dunkelblauen Bereich fällt, führt zu einem signifikanten Ergebnis. Signifikant, da dieses Ereignis unwahrscheinlich ist, wenn die Nullhypothese angenommen wird. Gestrichelt gekennzeichnet siehst du eine spezifische Alternativhypothese. 
+In der Grafik siehst du den Bereich signifikanter Ereignisse bei einer z-Verteilung mit einem Alpha-Niveau von 5%. Jeder empirischer z-Wert, der in den dunkelblauen Bereich fällt, führt zu einem signifikanten Ergebnis. Signifikant, da dieses Ereignis unwahrscheinlich ist, wenn die Nullhypothese angenommen wird. Gestrichelt gekennzeichnet siehst du eine spezifische Alternativhypothese.
 
 
 ### Visualisierung der Power
