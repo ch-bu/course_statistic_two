@@ -253,7 +253,7 @@ Unser empirischer F-Wert ist größer als der kritische F-Wert, daher haben wir 
 
 Zusammenfassend würden wir dieses Ergebnis folgendermaßen in einem Forschungsartikel berichten:
 
-> Das mittlere Einkommen der Mitarbeiter kann signifikant genauer berechnet werden als die willkürliche Annahme eines Einkommens von 6000 Dollar, *F*(1, 27) = 4.57, *p* = .04. 
+> Das mittlere Einkommen der Mitarbeiter kann durch den Mittelwert der Stichprobe signifikant genauer berechnet werden als die willkürliche Annahme eines Einkommens von 6000 Dollar, *F*(1, 27) = 4.57, *p* = .04. 
 
 Jeder F-Test wird gleich aufgebaut:
 
@@ -261,19 +261,218 @@ Jeder F-Test wird gleich aufgebaut:
 * $4.57$: Anschließend wird der F-Wert berichtet.
 * *p* = .04: Danach wird der p-Wert angegeben.
 
+# Effektstärke
+
+## Konzeptuelles Verständnis
+
+Statistische Signifikanz und die Effektstärke einer Intervention werden häufig verwechseln. Statistische Signifikanz sagt uns im Prinzip lediglich, welches statistisches Modell akkurater ist, um unsere abhängige Variable zu bestimmen. Beispielsweise können wir auf Grundlage eines Experiments sagen, dass der Mittelwert als erweitertes Modell die Fehler stärker reduziert als ein willkürliche Prognosse des Gehalts der Mitarbeiter von 6000 Dollar monatlich.
+
+Auf Grundlage der Signifikanz können wir allerdings nicht sagen, **wie groß** dieser Unterschied ist. Es ist durchaus möglich signifikante Ereignisse zu erzielen, ohne, dass ein wesentlicher Unterschied zwischen Gruppen besteht. Beispielsweise ist es mathematisch ohne weiteres möglich zu belegen, dass der Meeresspiegel signifikant steigt, wenn ein Tropfen Regen auf das Meer prasselt. Demnach ist statistische Signifikanz nicht mit der praktischen Bedeutsamkeit einer Intervention gleichzusetzen.
+
+*  [Cohen's d](https://www.statisticshowto.datasciencecentral.com/cohens-d/): Wird zur Bestimmunt der Effektstärke bei einer z und t-Verteilung verwendet.
+* $r$: Wird zur Bestimmung der Effektstärke einer Korrelation verwenden.
+* $\eta^2$: Wird zur Bestimmung der Effektstärke eines F-Testes verwendet
+
+
+## Cohen's d
+
+Stell dir vor, du untersuchst, ob Manager ein signifikant höheres Einkommen erhalten als alle anderen Mitarbeiter. Du erhebst von 40 Managern ihr Gehalt und von 40 regulären Mitarbeitern. Der Mittelwert der Mitarbeiter beträgt 6500 Dollar, der Mittelwert der Manager beträgt 8000 Dollar. Diesen Unterschied können wir anhand einer nicht-z-standardisierte Stichprobenkennwertverteilung visualisieren:
+
+<!-- ```R
+ggplot(NULL, aes(x = c(4000, 8000))) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+    args = list(
+      mean = mean(human_resources$monthly_income),
+      sd = sd(human_resources$monthly_income) / sqrt(40)
+    )
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "orange",
+    alpha = .8,
+    args = list(
+      mean = 8000,
+      sd = sd(human_resources$monthly_income) / sqrt(40)
+    )
+  ) +
+  annotate("segment", x = mean(human_resources$monthly_income), 
+           xend = 8000, y = 0.00053, yend = 0.00053) +
+  labs(
+    title = "Visualisierung Cohen's D",
+    x = "Monatliches Einkommen",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(4000, 10500))
+
+
+cohens_d <- (8000 - mean(human_resources$monthly_income)) / 
+  sd(human_resources$monthly_income)
+``` -->
+
+
+![](cohens_d_1.png)
+
+Die orangene Verteilung kennzeichnet die Stichprobenkennwertverteilung der Alternativhypothese. Die blaue Verteilung kennzeichnet die Stichprobenkennwertverteilung deiner Nullhypothese. 
+
+Um Cohen's D zu bestimmen, berechnen wir zunächst den Mittelwertsunterschied beider Stichproben:
+
+$$
+8000 - 6500 = 1500
+$$
+
+Manager verdienen also 1500 Dollar mehr als der Rest der Mitarbeiter. Man könnte es dabei belassen, die Effektstärke in Dollar als Mittelwertsunterschied anzugeben. Dies würde allerdings dazu führen, dass diese Mittelwertsunterschiede nicht mehr vergleichbar sind. Stell dir vor, ein ähnliches Experiment wird in einem anderen Land mit einer anderen Währung, z.B. dem Yan, umgesetzt. Ein Vergleich wäre nicht mehr möglich. Cohen's D standardisiert daher diesen Mittelwertsunterschied, indem dieser durch die gepoolte Standardabweichung der Stichproben berechnet wird:
+
+$$
+d = \frac{M_A - M_C}{sd_{pooled}}
+$$
+
+Die gepoolte Standardabweichung erhalten wir, indem wir beide Standardabweichungen quadrieren, summieren, von 2 abzielen und die Wurzel daraus berechnen:
+
+$$
+sd_{pooled} = \sqrt{\frac{s_1^2 + s_2^2}{2}}
+$$
+
+Die Effektstärke für unser Experiment lautet daher:
+
+$$
+d = \frac{8000 - 1500}{4707} = 0.32
+$$
+
+### Interpretation von Cohen's d
+
+Allgemein werden Effektstärken als klein, mittel und groß beschrieben. Cohen nimmt folgende Unterscheidung an:
+
+* $0 - 0.2$: kein Effekt
+* $0.2 - 0.5$: kleiner Effekt
+* $0.5 - 0.8$: mittlerer Effekt
+* $> 0.8$: großer Effekt
+
+### Weitere Informationen
+
+* [Interpreting Cohen's d effect size](https://rpsychologist.com/d3/cohend/)
+
+## Eta-Quadrat
+
 # Statistische Power
 
 ## Was ist Power / Teststärke
 
-## Power und Stichprobenkennwertverteilungen
+Bei der Bewertung statistischer Signifikanz gehen wir davon aus, dass die Nullhypothese gilt und geben auf Grundlage dieser Annahme an, ob ein Ereignis äußerst unwahrscheinlich ist. 
+
+Bei der Power oder Teststärke eines inferenzstatistischen Tests gehen wir davon aus, dass die Alternativhypothese gilt und bestimmen, wie wahrscheinlich es ist, ein signifikantes Ergebnis zu erzielen.
+
+### Visualisierung signifkanter Ereignisse
+
+<!-- ```R
+ggplot(NULL, aes(x = c(-3, 5))) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+    alpha = .3,
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+    xlim = c(qnorm(.95), 4)
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "line",
+    linetype = 2,
+    fill = "steelblue",
+    alpha = .5,
+    args = list(
+      mean = 2
+    )
+  ) +
+  labs(
+    title = "Visualisierung signifikanter Ereignisse,",
+    subtitle = "Kritischer Bereich bei Alpha = 5%",
+    x = "z-score",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(-3, 5))
+``` -->
+
+![](signifikanz.png)
+
+In der Grafik siehst du den Bereich signifikanter Ereignisse bei einer z-Verteilung mit einem Alpha-Niveau von 5%. Jeder empirischer z-Wert, der in den dunkelblauen Bereich fällt, führt zu einem signifikanten Ergebnis. Signifikant, da dieses Ereignis unwahrscheinlich ist, wenn die Nullhypothese angenommen wird. Gestrichelt gekennzeichnet siehst du eine spezifische Alternativhypothese. 
+
+
+### Visualisierung der Power
+
+<!-- ```R
+ggplot(NULL, aes(x = c(-3, 5))) +
+  stat_function(
+    fun = dnorm,
+    geom = "line",
+    linetype = 2,
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "orange",
+    alpha = .8,
+    args = list(
+      mean = 2
+    ),
+    xlim = c(qnorm(.95), 5)
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    fill = "steelblue",
+    xlim = c(qnorm(.95), 4)
+  ) +
+  stat_function(
+    fun = dnorm,
+    geom = "area",
+    linetype = 2,
+    fill = "orange",
+    alpha = .2,
+    args = list(
+      mean = 2
+    ),
+    xlim = c(-2, qnorm(.95))
+  ) +
+  labs(
+    title = "Visualisierung der Teststärke einer spezifischen Hypothese",
+    subtitle = "Kritischer Bereich bei Alpha = 5%",
+    x = "z-score",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(-3, 5))
+``` -->
+
+![](power.png)
+
+Orange gekennzeichnet ist die Alternativhypothese. Blau gekennzeichnet ist der kritische Bereich. Dunkelorange gekennzeichnet ist die Teststärke oder statistische Power.
+
+Zur Bestimmung der Power müssen wir die Grafik folgendermaßen lesen: Unter der Annahme, dass unsere Alternativhypothese stimmt, erhalten wir zu 63.9% ein statistisch signifikantes Ergebnis. Unsere Power oder Teststärke liegt daher bei 63,9%.
+
+```R
+1 - pnorm(qnorm(.95), mean = 2) # 0.63876
+```
+
+## Power allgemein
+
+Weshalb benötien wir das Konzept der Power? Wenn wir ein Experiment durchführen, gehen wir in der Regel davon aus, dass unsere Alternativhypothese stimmt. Nicht jede Intervention allerdings 
+
+> TODO: Gleiches gilt für andere Verteilungen. z.B. F
+
+
 
 ## Einflüsse auf die statistische Power
 
-# Effektstärken
+## Beispiel der Berechnung statistischer Power
 
-## Cohen's D
 
-## Eta-Quadrat
 
 # Konfidenzintervalle
 
