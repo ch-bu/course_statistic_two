@@ -828,9 +828,129 @@ Dies entspricht 95,76%. Je mehr Stichproben wir nehmen, desto genauer kommen, de
 
 # One Sample T-Test
 
+## z-Test / F-Test Wiederholung
+
+Auf Grundlage des bisherigen Inhalts dieses Kurses können wir folgende Fragestellung beantworten:
+
+> Unterschiedet sich der Mittelwert einer Variable von einem vorgegebenen Mittelwert?
+
+Beispielsweise:
+
+* Verdienen Manager mehr als 6000 Dollar pro Monat?
+* Verdienen Manager weniger als 18000 Dollar pro Monat?
+* Ist die Distanz zum Arbeitsort seit dem letzten drei Jahren gesunken?
+
+Diese Hypothesen testen folgende beiden Modelle:
+
+Kompaktes Modell:
+
+$$
+Y_i = {vorgegebener Mittelwert} + e_{i}
+$$
+
+Erweitertes Modell:
+
+$$
+Y_i = b_0 + e_{i}
+$$
+
+Um diese Modelle zu testen, haben wir in dem letzten Modul den z-Test kennen gelernt. Bei dem z-Test wird für $b_0$ der empirische z-Wert berechnet und überprüft, ob dieser in den kritischen Bereich der Standardnormalverteilung bzw. z-Verteilung fällt.
+
+Der z-Test wird normalerweise berechnet, wenn die Standardabweichung der abhängigen Variable bekannt ist und die Stichprobengröße über 30 beträgt.
+
+Alternativ können wir anstatt eines z-Tests immer einen F-Test berechnen. Beide Tests führen zu gleichen Ergebnissen. Der Unterschied der beiden Tests liegt in den verschiedenen Stichprobenkennwertverteilungen, die verwendet werden.
+
+## Wiederholung z-Test / F-Test
+
+Im letzten Modul haben wir uns gefragt, ob Manager, signifikant näher am Wohnort wohnen als der Rest der Mitarbeiter. Wir wissen, das die Mitarbeiter im Schnitt eine Distanz von 9.5 Kilometer zum Arbeitsort zurück legen müssen. Ziehen wir zunächst eine Stichprobe von 25 Managern:
+
+```R
+set.seed(25)
+(my_sample <- human_resources %>% 
+  filter(job_role == "Manager") %>% 
+  sample_n(25) %>% 
+  select(id, distance_from_home))
+```
+
+Der Mittelwert der Manager liegt bei 10.24 Kilometer. Unsere Modelle lauten daher:
+
+
+Kompaktes Modell:
+
+$$
+Y_i = 9.2 + e_{i}
+$$
+
+Erweitertes Modell:
+
+$$
+Y_i = 10.24 + e_{i}
+$$
+
+### z-Test
+
+Bei einem z-Test mit einer Stichprobe müssen wir zunächst den empirischen z-Wert der Stichprobe berechnen:
+
+```R
+sd_pop <- human_resources %>% 
+    filter(job_role == "Manager") %>% 
+    {sd(.$distance_from_home)}
+
+z_value <- (mean(my_sample$distance_from_home) - 9.2) / 
+            (sd_pop / sqrt(25)) # 0.6206017
+```
+
+Da wir eine gerichtete Hypothese haben, die annimmt, dass die Manager *näher* am Arbeitsort leben als der Rest der Mitarbeiter beläuft sich die Wahrscheinlichkeit für das empirische Ereignis bei:
+
+```R
+p_value <- pnorm(z_value) # 0.7325692
+```
+
+Das Ergebnis ist daher nicht signifikant und wir gehen von der Nullhypothese aus.
+
+### F-Test
+
+Bei einem F-Test berechnen wir den empirischen F-Wert des Ereignisses:
+
+```R
+mean_sample <- mean(my_sample$distance_from_home) 
+errors <- my_sample %>% 
+    mutate(
+      compact_model = 9.2,
+      augmented_model = mean_sample,
+      res_compact   = (distance_from_home - compact_model)**2,
+      res_augmented = (distance_from_home - augmented_model)**2
+    )
+
+
+(sse_c <- sum(errors$res_compact)) 
+(sse_a <- sum(errors$res_augmented))
+(ssr <- sse_c - sse_a) 
+
+(F <- (ssr / (1 - 0)) / (sse_a / (30 - 1))) # 0.3779886
+```
+
+Die Wahrscheinlichkeit für ein solches Ereignis oder größer beträgt:
+
+
+```R
+(p_ftest <- 1 - pf(F, df1 = 1 - 0, df2 = 25 - 1)) # 0.5444672
+```
+
+Im Vergleich zu unserem z-Test unterscheidet sich diese Wahrscheinlichkeit. Allerdings erst auf den ersten Blick. Da unsere Hypothese gerichtet ist und gerichtete Hypothesen nur bei z-Tests möglich sind, müssen wir die Wahrscheinlichkeit, welche wir durch den F-Test erhalten haben durch zwei Teilen und erhalten somit einen fast identische Wahrscheinlichkeit wie beim z-Test:
+
+```R
+1 - (p_ftest / 2)  # 0.7277664
+#      1 - X, da wir davon ausgehen dass Mitarbeiter, NÄHER am
+#      Arbeitsort leben als andere Mitarbeiter
+p_value            # 0.7325692
+```
+
+Beide Tests führen demnach zu einem ähnlichen Ergebnis.
+
+
 ## T-Verteilung
 
-## Konzeptuelles Verständnis
 
 ## Beispiel T-Test
 

@@ -1084,7 +1084,7 @@ human_resources <- read_csv("C:/Users/ChristianEZW/repositories/statistik_2_onli
 
 # Stell dir vor, du möchtest prüfen, ob Manager näher zum Arbeitsort wohnen
 # als der Rest der Mitarbeiter. Du weißt aus der letzten Mittarbeiterbefragung
-# dass die Mitarbeiter im Durchschnitt 9.2 Kilometer vom Arbeitsort wohnen. 
+# dass die Mitarbeiter im Durchschnitt 9.2 Kilometer vom Arbeitsort wohnen.
 # Gleichzeitig nehmen wir an, du kennst du die Standardabweichung
 # dieser Distanz: 8.11
 # Nun befragst du 25 Manager danach, wie weit sie von ihrem Arbeitsort
@@ -1134,6 +1134,6 @@ testValue = 9.2,
 hypothesis = "gt")
 
 
-# Ein z-Test ergab kein siginifkantes Ergebnis, 
+# Ein z-Test ergab kein signifkantes Ergebnis,
 # z(24) = 0.56, p = .29
 ```
