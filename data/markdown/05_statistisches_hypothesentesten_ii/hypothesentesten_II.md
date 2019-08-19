@@ -269,9 +269,9 @@ Statistische Signifikanz und die Effektstärke einer Intervention werden häufig
 
 Auf Grundlage der Signifikanz können wir allerdings nicht sagen, **wie groß** dieser Unterschied ist. Es ist durchaus möglich signifikante Ereignisse zu erzielen, ohne, dass ein wesentlicher Unterschied zwischen Gruppen besteht. Beispielsweise ist es mathematisch ohne weiteres möglich zu belegen, dass der Meeresspiegel signifikant steigt, wenn ein Tropfen Regen auf das Meer prasselt. Demnach ist statistische Signifikanz nicht mit der praktischen Bedeutsamkeit einer Intervention gleichzusetzen.
 
-*  [Cohen's d](https://www.statisticshowto.datasciencecentral.com/cohens-d/): Wird zur Bestimmunt der Effektstärke bei einer z und t-Verteilung verwendet.
+*  [Cohen's d](https://www.statisticshowto.datasciencecentral.com/cohens-d/): Wird zur Bestimmung der Effektstärke bei einer z und t-Tests verwendet.
 * $r$: Wird zur Bestimmung der Effektstärke einer Korrelation verwenden.
-* $\eta^2$: Wird zur Bestimmung der Effektstärke eines F-Testes verwendet
+* $\eta^2$: Wird zur Bestimmung der Effektstärke eines F-Tests verwendet
 
 
 ## Cohen's d
@@ -316,7 +316,7 @@ cohens_d <- (8000 - mean(human_resources$monthly_income)) /
 
 ![](cohens_d_1.png)
 
-Die orangene Verteilung kennzeichnet die Stichprobenkennwertverteilung der Alternativhypothese. Die blaue Verteilung kennzeichnet die Stichprobenkennwertverteilung deiner Nullhypothese. 
+Die orangene Verteilung kennzeichnet die Stichprobenkennwertverteilung der Alternativhypothese. Die blaue Verteilung kennzeichnet die Stichprobenkennwertverteilung deiner Nullhypothese.
 
 Um Cohen's D zu bestimmen, berechnen wir zunächst den Mittelwertsunterschied beider Stichproben:
 
@@ -362,7 +362,7 @@ Je größer Cohen's d ist, desto weiter liegen die Mittelwerte zweier Verteilung
 Zur Berechnung der Effektstärke von F-Verteilungen wird $\eta^2$ (eta-squared) berechnet:
 
 $$
-\eta^2 = \frac{SSR}{SS_{total}]}
+\eta^2 = \frac{SSR}{SS_{total}}
 $$
 
 Ausgesprochen bedeutet $\eta^2$ folgendes: $\eta^2$ beschreibt, wie viel Prozent der Varianz in der abhängigen Variable durch das erweiterte Modell erklärt werden kann. $\eta^2$ kann Werte von 0 bis 1 erhalten. 0 bedeutet, dass das erweiterte Modell (mit einem Parameter) keine Varianz in der abhängigen Variable aufklärt und damit sogut wie nutzlos ist. $\eta^2$ von 1 bedeutet, dass das erweiterte Modell die komplette Varianz der abhängigen Variable aufklärt und wir daher keine Fehlervarianz mehr existiert (SSE(A) wäre in diesem Fall 0).
@@ -468,13 +468,15 @@ $$
 
 # Statistische Power
 
-## Was ist Power / Teststärke
+## Konzeptuelles Verständnis
 
-Bei der Bewertung statistischer Signifikanz gehen wir davon aus, dass die Nullhypothese gilt und geben auf Grundlage dieser Annahme an, ob ein Ereignis äußerst unwahrscheinlich ist. 
+Bei der Bewertung statistischer Signifikanz gehen wir davon aus, dass die Nullhypothese gilt und geben auf Grundlage dieser Annahme an, ob ein Ereignis äußerst unwahrscheinlich ist.
 
 Bei der Power oder Teststärke eines inferenzstatistischen Tests gehen wir davon aus, dass die Alternativhypothese gilt und bestimmen, wie wahrscheinlich es ist, ein signifikantes Ergebnis zu erzielen.
 
 ### Visualisierung signifkanter Ereignisse
+
+Statistische Power können wir ähnlich wie den Alpha- und den Beta-Fehler grafisch visualisieren. Hier siehst du erneut den Alpha-Fehler (Entscheidung der Alternativhypothese bei Richtigkeit der Nullhypothese):
 
 <!-- ```R
 ggplot(NULL, aes(x = c(-3, 5))) +
@@ -515,6 +517,8 @@ In der Grafik siehst du den Bereich signifikanter Ereignisse bei einer z-Verteil
 
 
 ### Visualisierung der Power
+
+Power wird auf Grundlage der Annahme der Richtigkeit der Alternativhypothese berechnet. Wir gehen davon aus, dass es Parameter eines Modells den Fehler signifikant reduzieren. Daher ist in der folgenden Grafik die Stichprobenkennwertverteilung der Nullhypothese gestrichelt gekennzeichnet und die Stichprobenkennwertverteilung der Alternativhypothese orange dargestellt.
 
 <!-- ```R
 ggplot(NULL, aes(x = c(-3, 5))) +
@@ -561,9 +565,9 @@ ggplot(NULL, aes(x = c(-3, 5))) +
 
 ![](power.png)
 
-Orange gekennzeichnet ist die Alternativhypothese. Blau gekennzeichnet ist der kritische Bereich. Dunkelorange gekennzeichnet ist die Teststärke oder statistische Power.
+Blau gekennzeichnet ist der kritische Bereich, welcher zu einem signifikanten Ergebnis führt. Dunkelorange gekennzeichnet ist die Teststärke oder statistische Power.
 
-Zur Bestimmung der Power müssen wir die Grafik folgendermaßen lesen: Unter der Annahme, dass unsere Alternativhypothese stimmt, erhalten wir zu 63.9% ein statistisch signifikantes Ergebnis. Unsere Power oder Teststärke liegt daher bei 63,9%.
+Zur Bestimmung der Power müssen wir die Grafik folgendermaßen lesen: Unter der Annahme, dass unsere Alternativhypothese stimmt, erhalten wir zu 63.9% ein statistisch signifikantes Ergebnis. Unsere Power oder Teststärke liegt daher bei 63,9%. Der Wert 63,9% ist gleichzusetzen mit der dunkelorangenen Fläche der Stichprobenkennwertverteilung der Alternativhypothese:
 
 ```R
 1 - pnorm(qnorm(.95), mean = 2) # 0.63876
@@ -571,25 +575,256 @@ Zur Bestimmung der Power müssen wir die Grafik folgendermaßen lesen: Unter der
 
 ## Power allgemein
 
-Weshalb benötien wir das Konzept der Power? Wenn wir ein Experiment durchführen, gehen wir in der Regel davon aus, dass unsere Alternativhypothese stimmt. Nicht jede Intervention allerdings 
+Poweranalysen werden häufig vor einem Experiment berechnet, um heraus zu finden, wie groß eine Stichprobe sein muss, um einen bestimmten Effekt zu erzielen (z.B. $d = 0.3$). Eine Power von .8 bedeutet beispielsweise, dass wir die Wahrscheinlichkeit eines signifikanten Ergebnisses bei etwa 80% liegt.
 
-> TODO: Gleiches gilt für andere Verteilungen. z.B. F
+Beispielsweise kannst du mit Hilfe der Software [G-Power](http://www.psychologie.hhu.de/arbeitsgruppen/allgemeine-psychologie-und-arbeitspsychologie/gpower.html) berechnen, dass du bei einem z-Test mit einer Effektstärke von $d = 0.4$ (kleiner Effekt) mindestens 64 Probanden brauchst, um eine Power von 80% zu erhalten. Würdest du lediglich 32 Probanden erheben, sinkt bei der Effektstärke deine Power auf 53.7%. Ob du ein signifikantes Ergebnis erzielst ist daher einem Münzwurf gleichzusetzen.
 
-
+Ähnliche Berechnungen lassen sich ebenso mit dem [pwr Paket](https://www.statmethods.net/stats/power.html) in R berechnen.
 
 ## Einflüsse auf die statistische Power
 
-## Beispiel der Berechnung statistischer Power
+Power ist kein Kriterium eines Experiments, die wir lediglich annehmen, wir können durch unseren Versuchsaufbau die Power eines Experiments verändern. Die wohl beliebteste Methode ist es, die Stichprobengröße zu erhöhen. 
 
+Im folgenden Bild siehst du die Power eines t-Tests (den wir gleich kennen lernen werden). Bei einer Stichprobengröße von 32 Personen und einem $d = 0.3$ erhalten wir eine Power von 53,7%. 
 
+![](power1.png)
+
+Erhöhen wir hingegen die Stichprobengröße auf 64, steigt die Power auf 80% an:
+
+![](power2.png)
+
+Warum? Da ein erhöhtes N die Stichprobenkennwertverteilung verändert. Je größer das N, desto steiler wird die z-Verteilung. Als Folge wird die Fläche $1 - \beta$ größer und die Power steigt.
 
 # Konfidenzintervalle
 
 ## Konzeptuelles Verständnis
 
+Bisher haben wir die statistische Signifikanz bestimmt, indem wir geschaut haben, ob ein empirischer Kennwert (z.B. z) im kritischen Bereich der Nullhypothese liegt. Statistische Signifikanz lässt sich ebenso anhand von Konfidenzintervallen bestimmen.
+
+Ein Konfidenzintervall zeigt uns an, wie unsicher unsere Schätzung eines bestimmten Parameters in einem Modell ist. Beispielsweise umfasst unser erweitertes Modell den Parameter $b_0$. Dieser Parameter ist nie $\beta_0$, da wir lediglich Stichproben aus der Population erheben. Durch Konfidenzintervalle können wir allerdings schätzen, in welchen Bereich $B_0$ wahrscheinlich fallen wird.
+
+In der Regel sprechen wir von einem 95%-tigen Konfidenzintervall. Diese Intervalle definieren wir folgendermaßen:
+
+> Bei einem Konfidenzintervall von 95% liegt der Populationsparameter $B$ in 95 von 100 Fällen innerhalb des Konfidenzintervalls.
+
+Das Konfidenzintervall bestimmt daher **nicht** die Wahrscheinlichkeit, dass $\beta$ innerhalb des Intervalls liegt. Diese Wahrscheinlichkeit ist 0 oder 100%, da $\beta$ entweder im Intervall liegt oder nicht.
+
 ## Konfidenzintervalle berechnen
 
+### Konfidenzintervall z-Test
+
+Konfidenzintervalle lassen sich unterschiedlich berechnen. Auf Grundlage eines z-Tests lassen sich Konfidenzintervalle folgendermaßen bestimmen:
+
+$$
+CI_{upper/lower} = b \pm z * se = b \pm z * \frac{s}{\sqrt{n}}
+$$
+
+* $z$ kennzeichnet den kritischen z-Wert, welcher zu einem signifkanten Ergebnis führt. Bei einer gerichteten Hypothese beispielsweise führt ein empirischer z-Wert über dem kritischem z-WErt zu einem signifikanten Ergebnis.
+* $\frac{s}{\sqrt{n}}$ bzw. $se$ kennzeichnet den Standardfehler, welcher auf Grundlage der Stichprobenstandardabweichung berechnet wird.
+* $b \pm$ bestimmt das obere und untere Ende des Konfidenzintervalls. Anstatt $b$ könnten wir auch den Mittelwert einer Verteilung angeben: $\bar{X}$.
+
+### Konfidenzintervall t-Test
+
+Die Berechnung eines Konfidenzintervalls eines t-Tests ist ähnlich, nur dass wir die T-Verteilung als Stichprobenkennwertverteilung annehmen:
+
+$$
+CI_{upper/lower} = b \pm t * se = b \pm z * \frac{s}{\sqrt{n}}
+$$
+
+### Konfidenzintervall F-Test
+
+Äquivalent berechnen wir das Konfidenzintervalls eines Parameters bei einem F-Test folgendermaßen:
+
+$$
+CI_{upper/lower} = b \pm t * \sqrt{\frac{F_{crit} * MSE}{n}}
+$$
+
+* $MSE$ steht für Mean Squared Errors und bezeichnet die standardisierte Fehlervarianz eines Parameters: $MSE = s^2 = SSE/(n - 1)$. 
+* $F$ steht für den kritischen F-Wert, welcher zu einem signifikanten Ergebnis führt.
+* $n$ steht für die Stichprobengröße.
+
+## Ein Beispiel
+
+Untersuchen wir erneut eine Fragestellung, die wir uns bereits mehrmals gestellt haben. Verdienen Manager mehr Geld monatlich als der Durschschnitt der Bevölkerung?
+
+Zunächst ziehen wir zwei Stichproben: Eine Stichprobe umfasst die 50 Mitarbeiter, die andere Stichprobe umfasst 50 Manager:
+
+```R
+set.seed(25)
+manager <- human_resources %>% 
+    filter(job_role == "Manager") %>% 
+    sample_n(25) %>% 
+    select(id, monthly_income)
+
+set.seed(28)
+mitarbeiter <- human_resources %>% 
+    filter(job_role != "Manager") %>% 
+    sample_n(25) %>% 
+    select(id, monthly_income)
+```
+
+Die zentralen Kennwerte der beiden Stichproben lauten:
+
+```R
+mean_manager <- mean(manager$monthly_income) # 16862.66
+sd_manager <- sd(manager$monthly_income) # 2475.088
+
+mean_mitarbeiter <- mean(mitarbeiter$monthly_income) # 5273.8
+sd_mitarbeiter <- sd(mitarbeiter$monthly_income) # 3719.213
+```
+
+Der Standardfehler beider Stichproben lautet:
+
+```R
+se_manager <- sd_manager / sqrt(50) # 350.0303
+se_mitarbeiter <- sd_mitarbeiter / sqrt(50) # 525.9762
+```
+
+Um das Konfidenzintervall zu berechnen, müssen wir angeben wie groß dieses Konfidenzintervall sein soll. Da wir eine gerichtete Hypothese bei einem Alpha-Niveau von 5% annehmen, können wir ein 90%-tiges Konfidenzintervall berechnen. Hierdurch endet das Konfidenzintervall rechtsseitig an der 5% Grenze:
+
+```R
+z_value <- qnorm(.95) # 1.644854
+```
+
+Als nächstes berechnen wir das 95%-tige Konfidenzintervalle der Stichprobe der Mitarbeiter:
+
+```R
+(ci_upper <- mean_mitarbeiter + z_value * se_mitarbeiter) # 6138.954
+(ci_lower <- mean_mitarbeiter - z_value * se_mitarbeiter) # 4408.646
+```
+
+Das Konfidenzintervall besagt nun, dass in 90 von 100 Fällen der tatsächliche Populationsmittelwert der Variable monatliches Einkommen bei den Mitarbeitern innerhalb dieses Intervalls liegen wird. Jeder empirischer Mittelwert der Manager über 6138.95 führt daher zu einem signifikanten Ergebnis. Der Wert 6139.95 ist daher auch der kritische Wert.
+
+Dies können wir prüfen, indem wir diesen Wert in einen z-Wert umwandeln:
+
+```R
+ci_upper / sd_mitarbeiter # 1.650606
+```
+
+Dieser Wert ist äquivalent zum kritischen z-Wert (mit geringen Rundungsfehlern):
+
+```R
+z_value <- qnorm(.95) # 1.644854
+```
+
+Gleiches gilt für das Konfidenzintervall der Stichprobe der Manager:
+
+```R
+(ci_upper_manager <- mean_manager + z_value * se_manager) # 17438.41
+(ci_lower_manager <- mean_manager - z_value * se_manager) # 16286.91
+```
+
+Der *wahre* Populationsmittelwert der Manager bewegt sich daher ziemlich sicher in dem Bereich zwischen 16286 und 17438 Dollar. Tatsächlich beläuft sich der Populationsmittelwert auf 17181.68 und ist innerhalb des Intervalls.
+
 ## Konfidenzintervalle in R simulieren
+
+> Die R-Befehle dieser Simulation müsst du für den Kurs nicht verstehen. Es genügt, wenn du der Logik folgst.
+
+Ich hatte behauptet, dass der wahre Populationsmittelwert bei einem 95%-tigen Konfidenzintervall in 95 von 100 Fällen innerhalb des Konfidenzintervals liegt. Prüfen wir diese Behauptung als nächstes.
+
+Zunächst ziehen wir 100 Stichproben aus der Population:
+
+```R
+set.seed(124)
+samples <- c(1:100) %>% 
+  map(~ human_resources %>% 
+        sample_n(30))
+```
+
+Als nächstes schreiben wir eine Funktion, mit Hilfe derer, wir die Konfidenzintervalle der Stichproben berechnen:
+
+```R
+conf_function <- function(current_sample) {
+  mean_sample <- mean(current_sample$monthly_income)
+  sd_sample <- sd(current_sample$monthly_income)
+  se_sample <- sd / sqrt(30)
+  z_value <- qnorm(.975)
+  
+  list(
+    conf_upper = mean_sample + z_value * se_sample,
+    conf_lower = mean_sample - z_value * se_sample
+  )
+}
+```
+
+Als nächstes berechnen wir alle Konfidenzintervalle für die 100 Stichproben:
+
+```R
+confis <- samples %>% map_df(~ conf_function(.)) %>% 
+  rownames_to_column(var = "id") %>% 
+  mutate(
+    includes_pop = conf_lower < mean(human_resources$monthly_income) &
+      conf_upper > mean(human_resources$monthly_income)
+  )
+```
+
+```
+# A tibble: 100 x 4
+   id    conf_upper conf_lower includes_pop
+   <chr>      <dbl>      <dbl> <lgl>       
+ 1 1          7818.      4448. TRUE        
+ 2 2          8891.      5522. TRUE        
+ 3 3          8445.      5075. TRUE        
+ 4 4          8744.      5375. TRUE        
+ 5 5          9062.      5692. TRUE        
+ 6 6          8762.      5392. TRUE        
+ 7 7          9486.      6116. TRUE        
+ 8 8          7426.      4056. TRUE        
+ 9 9          8338.      4969. TRUE        
+10 10         8131.      4762. TRUE        
+# ... with 90 more rows
+```
+
+Abschließend visualisieren wir diese Konfidenzintervalle zusammen mit dem wahren Populationsmittelwert:
+
+```R
+ggplot(confis) + 
+  geom_segment(aes(x = conf_lower, xend = conf_upper,
+                   y = id, yend = id, color = includes_pop)) +
+  theme_minimal() +
+  geom_vline(xintercept = mean(human_resources$monthly_income)) +
+  labs(
+    x = "Gehalt der Mitarbeiter",
+    title = "Simulation von 100 Konfidenzintervallen",
+    y = ""
+  ) +
+  theme(
+    axis.text.y = element_blank()
+  )
+```
+
+![](confis.png)
+
+Blau markiert sind alle Konfidenzintervalle, die den Populationsmittelwert umfassen. Rot markiert sind diejenigen Konfidenzintervalle, die den Populationsmittelwert nicht umfassen. In dieser Simulation enthalten 99 von 100 Konfidenzintervalle den wahren Populationsmittelwert. Würden wir anstatt 100 5000 Stichproben erheben, wäre in 95% der Fälle der wahre Populationsmittelwert in den Konfidenzintervallen:
+
+```R
+samples <- c(1:5000) %>% 
+  map(~ human_resources %>% 
+        sample_n(30))
+
+confis <- samples %>% map_df(~ conf_function(.)) %>% 
+  rownames_to_column(var = "id") %>% 
+  mutate(
+    includes_pop = conf_lower < mean(human_resources$monthly_income) &
+      conf_upper > mean(human_resources$monthly_income)
+  )
+
+table(confis$includes_pop)
+```
+
+```
+FALSE  TRUE 
+  212  4788 
+```
+
+Dies ergibt folgende Prozentangaben:
+
+```R
+4788 / (4788 + 212) # 0.9576
+```
+
+Dies entspricht 95,76%. Je mehr Stichproben wir nehmen, desto genauer kommen, desto näher kommen wir auf die 95% ran.
+
 
 # One Sample T-Test
 

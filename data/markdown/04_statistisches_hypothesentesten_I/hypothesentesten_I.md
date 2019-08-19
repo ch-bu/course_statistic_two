@@ -853,8 +853,7 @@ Da der empirische Kennwert größer als der kritische Kennwert ist, sprechen wir
 
 #### Statistische Signifikanz != praktische Bedeutsamkeit
 
-Statistische Signifikanz ist nicht gleichzusetzen mit der praktischen Bedeutsamkeit. Stell dir beispielsweise vor, dass dein erweitertes Modell mehrere Versuchsgruppen umfasst. Zum Beispiel untersuchst du, ob genügend Schlaf zu einer besseren Lernleistung führt. Eine Gruppe muss eine Woche lang 8 Stunden schlafen, die andere 5 Stunden. Du erhältst nun ein signifikantes Ereignis. Bedeutet dies, dass es besser ist länger als kürzer zu schlafen? Nicht unbedingt. Es könnte sein, dass du zwar ein signifikantes Ereignis bekommst, allerdings die praktische Bedeutsamkeit bzw. der Effekt der Intervention minimal ist. Signifikanz bedeutet nichts anderes als das ein Ereignis gegeben der Nullhypothese unwahrscheinlich ist. Im nächsten Modul lernen wir das Konzept der Effektstärke kennen, 
-welches bessere Aussagen über die praktische Bedeutsamkeit machen kann. 
+Statistische Signifikanz ist nicht gleichzusetzen mit der praktischen Bedeutsamkeit. Stell dir beispielsweise vor, dass dein erweitertes Modell mehrere Versuchsgruppen umfasst. Zum Beispiel untersuchst du, ob genügend Schlaf zu einer besseren Lernleistung führt. Eine Gruppe muss eine Woche lang 8 Stunden schlafen, die andere 5 Stunden. Du erhältst nun ein signifikantes Ereignis. Bedeutet dies, dass es besser ist länger als kürzer zu schlafen? Nicht unbedingt. Es könnte sein, dass du zwar ein signifikantes Ereignis bekommst, allerdings die praktische Bedeutsamkeit bzw. der Effekt der Intervention minimal ist. Signifikanz bedeutet nichts anderes als das ein Ereignis gegeben der Nullhypothese unwahrscheinlich ist. Im nächsten Modul lernen wir das Konzept der Effektstärke kennen, welches bessere Aussagen über die praktische Bedeutsamkeit machen kann.
 
 #### Statistische Signifikanz ist abhängig von der Stichprobengröße
 
