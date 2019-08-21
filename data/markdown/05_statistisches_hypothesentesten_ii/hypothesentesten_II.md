@@ -68,7 +68,7 @@ $$
 SSR kennzeichnet daher den quadrierten Abstand der vorhergesagten Werte des kompakten von den vorhergesagten Werten des erweiterten Modells. SSR ist daher kleiner, wenn beide Modelle ähnliche Vorhersagen treffen. Je größer SSR, desto unterschiedlichere Vorhersagen treffen beide Modelle.
 
 $$
-SSR = SSE(C) - SSE(A) = \sum_{i=1}^{n} (\hat{Y_{iC}} - \hat{Y_{iA}})
+SSR = SSE(C) - SSE(A) = \sum_{i=1}^{n} (\hat{Y_{iC}} - \hat{Y_{iA}})^2
 $$
 
 SSE(A) kennzeichnet die Fehler, welche trotz des erweiterten Modells noch übrig bleiben. Je kleiner SSE(A), desto genauer und daher besser ist unser erweitertes Modell. 
@@ -1062,11 +1062,86 @@ Einen solchen Kennwert zu erzielen, ist daher sehr wahrscheinlich (71,1%). Der M
 
 ### Berechnung in Jamovi
 
+Wir werden im Verlaufe des Kurses nicht jeden Test händisch berechnen. Hierfür gibt es Pakete wie beispielsweise Jamovi. Versuchen wir also als nächstes unsere Hypothese in Jamovi zu testen. 
 
+Zunächst müssen wir unseren gereinigten Datensatz in den Ordner daten/export exportieren. 
 
+```R
+# Vorab das richtige Arbeitsverzeichnis bestimmen
+#   Strg + Umschalt + H
+write_csv(my_sample, "data/export/cleaned_data.csv")
+```
 
+Als nächstes liest du den Datensatz in Jamovi ein:
+
+![](dataset_jamovi.png)
+
+Den t-Test für eine Stichprobe findest du unter T-Tests > One Sample T-Test:
+
+![](jamovi_ttest.png)
+
+Im Anschluss gibst du deine abhängige Variable an (hier `distance_from_home`). Zudem musst du für diese Hypothese den Populationsmittelwert angeben, den du mit dem Stichprobenmittelwert vergleichst (9.2). Da deine Hypothese negativ gerichtet ist, gibst du zudem *< Test Value*´an. Damit wird die Fläche auf der linken Seite der Verteilung zur Berechnung der Wahrscheinlichkeit hinzu genommen.
+
+![](jamovi_one_sample.png)
+
+Das Ergebnis deines Tests zeigt an, dass sich die Mittelwerte nicht voneinander unterscheiden, bzw. dass dein erweitertes Modell nicht besser ist als das kompakte Modell:
+
+![](jamovi_result.png)
+
+Das Ergebnis ist fast identisch mit den Werten, die wir vorhin berechnet hatten: *t*(24) = 0.56, *p* = .71. Die kleinen Unterschiede in der Wahrscheinlichkeit ergeben sich durch Rundungsfehler.
+
+Im nächsten Schritt möchten wir das Ergebnis in R einfügen um unsere Hypothese dort zu dokumentieren:
+
+![](jamovi_syntax_mode.png)
+
+Das Ergebnis kopieren wir und fügen es in R ein:
+
+![](jamovi_copy.png)
+
+Achte darauf, dass du den Namen des Datensatzes änderst, ansonsten erhältst du einen Fehler:
+
+![](jamovi_r.png)
 
 ## Äquivalenz zum F-Test
+
+Der t-Test für eine Stichprobe und der F-Test sind eng miteinander verwandt. Schauen wir uns nochmal die Formel zur Berechnung der t-Statistik an:
+
+$$
+t_{n - 1} = \frac{\bar{X} - B_0}{sd / \sqrt{n}} = \frac{\sqrt{n} * (\bar{X} - B_0)}{sd}
+$$
+
+Im Vergleich die Formel zur Berechnung der F-Statistik:
+
+$$
+F = \frac{\sum_{i=1}^{n} (\hat{Y_{iC}} - \hat{Y_{iA}})^2 / (PA - PC)}{SSE(A) / (n-PA)}
+$$
+
+Die Freiheitsgrade dieser Hypothese sind 1 für den Zähler und 24 für den Nenner:
+
+$$
+F = \frac{\sum_{i=1}^{n} (\hat{Y_{iC}} - \hat{Y_{iA}})^2}{SSE(A) / 24}
+$$
+
+Der Nenner ist folglich nichts anderes als die Varianz der abhängigen Variable der Stichprobe:
+
+$$
+F = \frac{\sum_{i=1}^{n} (\hat{Y_{iC}} - \hat{Y_{iA}})^2}{sd^2}
+$$
+
+Den Zähler können wir mathematisch umformulieren, da $\hat{Y_{iC}}$ und $\hat{Y_{iA}}$ nichts anderes ist als die Modelle des kompakten und erweiterten Modells:
+
+$$
+F = \frac{n * (\bar{X} - B_0)^2}{sd^2}
+$$
+
+Daher ist der F-Wert lediglich das Quadrat des t-Wertes bzw. der t-Wert ist die Wurzel aus dem F-Wert:
+
+$$
+\sqrt{F} = t_{n - 1} = \frac{\sqrt{n} * (\bar{X} - B_0)}{sd}
+$$
+
+
+Zum Beweis: Vorhin hatten wir einen F-Wert von 0.3779886 berechnet. Die Wurzel hiervon ist 0.6148078. Jamvoi hat für die t-Statistik 0.59 berechnet. Abgesehen von den Rundungsfehlern ist die Statistik daher gleich.
 
 ## Gerichtete und ungerichtete Hypothesen
 
