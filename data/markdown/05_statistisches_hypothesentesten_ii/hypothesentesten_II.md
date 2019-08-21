@@ -80,7 +80,6 @@ $$
 
 #### Der Zähler
 
-
 $$
 SSR / (PA - PC)
 $$
@@ -823,12 +822,12 @@ Dies ergibt folgende Prozentangaben:
 4788 / (4788 + 212) # 0.9576
 ```
 
-Dies entspricht 95,76%. Je mehr Stichproben wir nehmen, desto genauer kommen, desto näher kommen wir auf die 95% ran.
+Dies entspricht 95,76%. Je mehr Stichproben wir nehmen, desto näher kommen wir an die 95% ran.
 
 
 # One Sample T-Test
 
-## z-Test / F-Test Wiederholung
+## Hypothesen z-Test, F-Test
 
 Auf Grundlage des bisherigen Inhalts dieses Kurses können wir folgende Fragestellung beantworten:
 
@@ -854,15 +853,15 @@ $$
 Y_i = b_0 + e_{i}
 $$
 
-Um diese Modelle zu testen, haben wir in dem letzten Modul den z-Test kennen gelernt. Bei dem z-Test wird für $b_0$ der empirische z-Wert berechnet und überprüft, ob dieser in den kritischen Bereich der Standardnormalverteilung bzw. z-Verteilung fällt.
-
-Der z-Test wird normalerweise berechnet, wenn die Standardabweichung der abhängigen Variable bekannt ist und die Stichprobengröße über 30 beträgt.
+Um diese Modelle zu testen, haben wir in dem letzten Modul den z-Test kennen gelernt. Bei dem z-Test wird für $b_0$ der empirische z-Wert berechnet und überprüft, ob dieser in den kritischen Bereich der Standardnormalverteilung bzw. z-Verteilung fällt. Der z-Test wird normalerweise berechnet, wenn die Standardabweichung der abhängigen Variable bekannt ist und die Stichprobengröße über 30 beträgt.
 
 Alternativ können wir anstatt eines z-Tests immer einen F-Test berechnen. Beide Tests führen zu gleichen Ergebnissen. Der Unterschied der beiden Tests liegt in den verschiedenen Stichprobenkennwertverteilungen, die verwendet werden.
 
-## Wiederholung z-Test / F-Test
+## Äquivalenz z-Test / F-Test
 
-Im letzten Modul haben wir uns gefragt, ob Manager, signifikant näher am Wohnort wohnen als der Rest der Mitarbeiter. Wir wissen, das die Mitarbeiter im Schnitt eine Distanz von 9.5 Kilometer zum Arbeitsort zurück legen müssen. Ziehen wir zunächst eine Stichprobe von 25 Managern:
+> In diesem Abschnitt zeigen wir, dass der z-Test für eine Stichprobe und der F-Test zu gleichen Ergebnissen führen.
+
+Im letzten Modul haben wir uns gefragt, ob Manager, signifikant näher am Wohnort wohnen als der Rest der Mitarbeiter. Wir wissen, das die Mitarbeiter im Schnitt eine Distanz von 9.2 Kilometer zum Arbeitsort zurück legen müssen. Ziehen wir zunächst eine Stichprobe von 25 Managern:
 
 ```R
 set.seed(25)
@@ -889,7 +888,9 @@ $$
 
 ### z-Test
 
-Bei einem z-Test mit einer Stichprobe müssen wir zunächst den empirischen z-Wert der Stichprobe berechnen:
+z-Tests werden genutzt, um Mittelwertsunterschiede zu testen, unter der Bedingung, dass wir die Standardabweichung der Population kennen. In diesem Beispiel nehmen wir an, dass wir diese kennen.
+
+Um auf Grundlage eines z-Tests die Hypothese zu prüfen, müssen wir zunächst den empirischen z-Wert der Stichprobe berechnen:
 
 ```R
 sd_pop <- human_resources %>% 
@@ -900,17 +901,17 @@ z_value <- (mean(my_sample$distance_from_home) - 9.2) /
             (sd_pop / sqrt(25)) # 0.6206017
 ```
 
-Da wir eine gerichtete Hypothese haben, die annimmt, dass die Manager *näher* am Arbeitsort leben als der Rest der Mitarbeiter beläuft sich die Wahrscheinlichkeit für das empirische Ereignis bei:
+Da wir eine gerichtete Hypothese haben, die annimmt, dass die Manager *näher* am Arbeitsort leben als der Rest der Mitarbeiter beläuft sich die Wahrscheinlichkeit für das empirische Ereignis auf:
 
 ```R
 p_value <- pnorm(z_value) # 0.7325692
 ```
 
-Das Ergebnis ist daher nicht signifikant und wir gehen von der Nullhypothese aus.
+Diese Wahrscheinlichkeit umfasst die linke Seite der z-Verteilung, schließlich haben wir eine negativ gerichtete Hypothese. Auf Grundlage der Prozentangabe können wir schließen, dass das Ergebnis nicht signifikant ist und wir gehen von der Nullhypothese aus. Manager wohnen genauso weit von dem Arbeitsort weg wie der Rest der Mitarbeiter.
 
 ### F-Test
 
-Bei einem F-Test berechnen wir den empirischen F-Wert des Ereignisses:
+Ein äquivalentes, jedoch ungewöhnlichs Verfahren, diese Hypothese zu beantworten, ist der F-Test. Bei einem F-Test berechnen wir zunächst den empirischen F-Wert des Parameters (hier $b_0$):
 
 ```R
 mean_sample <- mean(my_sample$distance_from_home) 
@@ -937,7 +938,7 @@ Die Wahrscheinlichkeit für ein solches Ereignis oder größer beträgt:
 (p_ftest <- 1 - pf(F, df1 = 1 - 0, df2 = 25 - 1)) # 0.5444672
 ```
 
-Im Vergleich zu unserem z-Test unterscheidet sich diese Wahrscheinlichkeit. Allerdings erst auf den ersten Blick. Da unsere Hypothese gerichtet ist und gerichtete Hypothesen nur bei z-Tests möglich sind, müssen wir die Wahrscheinlichkeit, welche wir durch den F-Test erhalten haben durch zwei Teilen und erhalten somit einen fast identische Wahrscheinlichkeit wie beim z-Test:
+Im Vergleich zu unserem z-Test unterscheidet sich diese Wahrscheinlichkeit. Allerdings erst auf den ersten Blick. Da unsere Hypothese gerichtet ist und gerichtete Hypothesen nur bei z-Tests möglich sind, müssen wir die Wahrscheinlichkeit, welche wir durch den F-Test erhalten haben durch zwei teilen. Zudem müssen wir die Wahrscheinlichkeit von 1 abziehen, da unsere Hypothese negativ gerichtet ist (**näher am Arbeitsort**). Schließlich erhalten wir eine fast identische Wahrscheinlichkeit wie beim z-Test:
 
 ```R
 1 - (p_ftest / 2)  # 0.7277664
@@ -946,22 +947,130 @@ Im Vergleich zu unserem z-Test unterscheidet sich diese Wahrscheinlichkeit. Alle
 p_value            # 0.7325692
 ```
 
-Beide Tests führen demnach zu einem ähnlichen Ergebnis.
+Wir konnten daher zeigen, dass der z-Test für eine Stichprobe und der F-Test äquivalent zueinander sind und sich nur in der Art der verwendeten Stichprobenkennwertverteilung unterscheiden.
 
 
-## T-Verteilung
+## t-Test für eine Stichprobe
+
+Wir hatten gesagt, dass der z-Test nur für Hypothesen verwendet wird, bei denen wir die Standardverteilung der Population kennen. Meistens ist uns diese Standardverteilung nicht bekannt. In diesen Fällen verwenden wir  einen t-Test. In diesem Modul lernen wir den t-Test für eine Stichprobe kennen, in den nächsten Modulen lernst du zudem den t-Test für zwei unabhängige Stichproben kennen.
+
+Die t-Statistik wird folgendermaßen berechnet:
+
+$$
+t_{n - 1} = \frac{\bar{X} - B_0}{sd / \sqrt{n}} = \frac{\sqrt{n} * (\bar{X} - B_0)}{sd}
+$$
+
+* $\bar{X}$ steht für den Mittelwert der Stichprobe
+* $B_0$ steht für den vorgegebenen Mittelwert des kompakten Modells
+* $sd$ steht für die Standardabweichung der Stichprobe
+* $n$ steht für die Größe der Stichprobe
+
+Der t-Test für eine Stichprobe ist fast identisch zum z-Test für eine Stichprobe:
+
+$$
+z = \frac{\bar{X} - B_0}{sd / \sqrt{n}} = \frac{\sqrt{n} * (\bar{X} - B_0)}{sd}
+$$
+
+Der Unterschied der beiden Formeln liegt zum einen in der unterschiedlichen Standardabweichung. Der z-Test nimmt die Standardabweichung der Population an, der t-Test die Standardabweichung der Stichprobe. Zudem unterscheiden sich beide Tests in der zu Grunde liegenden Verteilung, auf Grundlage derer wir die Hypothese des Mittelwertsunterschieds testen. Hierfür müssen wir als nächstes die t-Verteilung kennen lernen.
+
+## t-Verteilung
+
+Die t-Verteilung ist sehr nah verwandt zur z- oder Standardnormalverteilung. Je größer die Stichprobe, desto stärker nähert sich die t-Verteilung der Standardnormalverteilung an. Hier ein Beispiel. In der folgenden Grafik siehst du eine t-Verteilung mit einem Freiheitsgrad von 10 und eine Standardnormalverteilung:
+
+<!-- ```R
+ggplot(NULL, aes(x = c(-3, 3))) +
+  stat_function(
+    fun = dnorm,
+    geom = "line",
+    color = "black",
+    linetype = 2
+  ) +
+  stat_function(
+    fun = dt,
+    geom = "area",
+    fill = "orange",
+    alpha = .3,
+    args = list(
+      df = 10
+    )
+  ) +
+  labs(
+    title = "Vergleich t-Verteilung und z-Verteilung",
+    x = "t/z Statistik",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(-3.5, 3.5))
+``` -->
+
+![](t_z_distribution.png)
+
+Die gestrichelte Linie kennzeichnet die Standardnormalverteilung, die gelbe Verteilung die t-Verteilung mit einem Freiheitsgrad von 10. Mehrere Dinge werden aus der Grafik deutlich:
+
+* Ein gleicher z-Wert bzw. t-Wert werden unterschiedliche Wahrscheinlichkeiten angeben. Beispielsweise umfasst die Fläche rechts des Kennwertes zwei bei der z-Verteilung 2,3%, während die Fläche bei der t-Verteilung (mit df = 10) 3,7% beträgt. Die Wahl der Verteilung kann daher Einfluss auf die statistische Signifikanz eines Kennwertes haben.
+* Die z-Verteilung ist steiler als die t-Verteilung. Ab einer Stichprobengröße über 40 Personen sind die Verteilungen allerdings praktisch identisch.
+* Die Höhe der Freiheitsgrade ändert das Aussehen der t-Verteilung. Der Freiheitsgrad berechnet sich aus der Stichprobengröße - 1 ($n - 1$). Je höher der Freiheitsgrad, desto stärker nähert sich die t-Verteilung der Standardnormalverteilung an.
+
+Um die Verteilungen besser zu verstehen, kannst du diese [Webseite](https://christian-burkhart.shinyapps.io/T-Distribution/) verwenden.
+
+## Beispiel t-Test für eine Stichprobe
+
+Wiederholen wir unsere Hypothese, die wir bereits durch den z-Test und den F-Test geprüft hatten: Wohnen Manager signifikant näher am Wohnort als der Rest der Mitarbeiter? Wir wissen, dass die Mitarbeiter im Schnitt 9,2 Kilometer vom Wohnort entfernt wohnen. Ziehen wir erneut die gleiche Stichprobe, wie aus dem vorherigen Beispiel:
+
+```R
+set.seed(25)
+(my_sample <- human_resources %>% 
+  filter(job_role == "Manager") %>% 
+  sample_n(25) %>% 
+  select(id, distance_from_home))
+```
+
+Der Mittelwert der Manager liegt bei 10.24 Kilometer. Die Standardabweichung der abhängigen Variable liegt bei 9.297311 (`my_sample$distance_from_home %>% sd`). Unsere Modelle lauten:
+
+Kompaktes Modell:
+
+$$
+Y_i = 9.2 + e_{i}
+$$
+
+Erweitertes Modell:
+
+$$
+Y_i = 10.24 + e_{i}
+$$
+
+Um diese Fragestellung anhand des t-Tests zu prüfen, müssen wir zunächst den t-Wert bestimmen. die Formel lautet:
+
+$$
+t_{n - 1} = \frac{\bar{X} - B_0}{sd / \sqrt{n}} = \frac{\sqrt{n} * (\bar{X} - B_0)}{sd}
+$$
+
+Daraus folgt, dass:
+
+$$
+t_{24} = \frac{10.25 - 9.2}{9.297311 / \sqrt{25}} = 0.5646794
+$$
+
+Die Wahrscheinlichkeit eines solchen Kennwertes unter der Nullhypothese lautet:
+
+```R
+(p_value_t_test <- pt(0.5646794, df = 24)) # 0.7112339
+```
+
+Einen solchen Kennwert zu erzielen, ist daher sehr wahrscheinlich (71,1%). Der Mittelwertsunterschied ist daher nicht signifikant. 
+
+> In einem empirischen Artikel würden wir diese Hypothese folgendermaßen berichten: Ein t-Test für eine Stichprobe ergab keinen signifikanten Unterschied zwischen der Distanz der Manager vom Wohnort im Vergleich zu den restlichen Mitarbeitern, *t*(24) = 0.56, *p* = .71.
+
+### Berechnung in Jamovi
 
 
-## Beispiel T-Test
 
-## Unterschied zu z-Test
+
 
 ## Äquivalenz zum F-Test
-
-## Beispiel in R und Jamovi
 
 ## Gerichtete und ungerichtete Hypothesen
 
 # Modeling Example
 
 
+Mit Effektgröße
