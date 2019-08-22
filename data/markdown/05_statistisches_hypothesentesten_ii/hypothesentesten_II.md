@@ -1080,7 +1080,7 @@ Den t-Test für eine Stichprobe findest du unter T-Tests > One Sample T-Test:
 
 ![](jamovi_ttest.png)
 
-Im Anschluss gibst du deine abhängige Variable an (hier `distance_from_home`). Zudem musst du für diese Hypothese den Populationsmittelwert angeben, den du mit dem Stichprobenmittelwert vergleichst (9.2). Da deine Hypothese negativ gerichtet ist, gibst du zudem *< Test Value*´an. Damit wird die Fläche auf der linken Seite der Verteilung zur Berechnung der Wahrscheinlichkeit hinzu genommen.
+Im Anschluss gibst du deine abhängige Variable an (hier `distance_from_home`). Zudem musst du für diese Hypothese den Populationsmittelwert angeben, den du mit dem Stichprobenmittelwert vergleichst (9.2). Da deine Hypothese negativ gerichtet ist, gibst du zudem *< Test Value* an. Damit wird die Fläche auf der linken Seite der Verteilung zur Berechnung der Wahrscheinlichkeit hinzu genommen.
 
 ![](jamovi_one_sample.png)
 
@@ -1143,7 +1143,103 @@ $$
 
 Zum Beweis: Vorhin hatten wir einen F-Wert von 0.3779886 berechnet. Die Wurzel hiervon ist 0.6148078. Jamvoi hat für die t-Statistik 0.59 berechnet. Abgesehen von den Rundungsfehlern ist die Statistik daher gleich.
 
+> Die t-Statstik ist nur eine besondere Form der F-Statistik. Die Möglichkeiten des t-Tests sind allerdings beschränkt, da durch diesen Test lediglich zwei Mittelwerte miteinander verglichen werden können. Durch F-Tests können wir später weitere Parameter miteinander vergleichen.
+
+
 ## Gerichtete und ungerichtete Hypothesen
+
+In dieser Einheit hatten wir eine Hypothese getestet, bei der wir annahmen, dass Manager **näher** am Arbeitsort wohnen als der Rest der Mitarbeiter. Diese Hypothese hat sich als falsch erwiesen. Es handelt sich bei der Hypothese um eine *gerichtete* Hypothese, da wir die Richtung des Unterschieds formuliert haben. Hätten wir eine ungerichtete Hypothese angenommen, hätten wir gesagt, dass es lediglich einen Unterschied zwischen diesen beiden Gruppen gibt. 
+
+Bei der Überprüfung von Hypothesen durch t-Tests ist es wichtig, zu wissen, ob eine gerichtete Hypothese oder eine ungerichtete Hypothese vorliegt, da dies Auswirkung auf die Signifikanz des Tests hat. 
+
+Schau dir beispielsweise den kritischen Bereich bei einer negativ gerichteten Hypothese an:
+
+<!-- ```R
+ggplot(NULL, aes(x = c(-3, 5))) +
+  stat_function(
+    fun = dt,
+    geom = "area",
+    fill = "steelblue",
+    alpha = .3,
+    args = list(
+      df = 24
+    )
+  ) +
+  stat_function(
+    fun = dt,
+    geom = "area",
+    fill = "steelblue",
+    xlim = c(-4, qnorm(.05)),
+    args = list(
+      df = 24
+    )
+  ) +
+  geom_vline(xintercept = -1.8,
+             color = "black",
+             size = 1) +
+  labs(
+    title = "Gerichtete Hypothese,",
+    subtitle = "Kritischer Bereich bei Alpha = 5%. Der Strich kennzeichnet einen t-Wert von -1.8",
+    x = "t-score",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(-3.5, 3.5))
+``` -->
+
+![](t_test_gerichtet_negativ.png)
+
+Ein t-Wert von -1.8 führt bei dieser Hypothese zu einem signifikanten Ereignis. Würden wir eine ungerichtete Hypothese annehmen, müssten wir bei gleichen Alpha-Niveau, den kritischen Bereich links- und rechtsseitig aufteilen:
+
+<!-- ```R
+ggplot(NULL, aes(x = c(-3, 5))) +
+  stat_function(
+    fun = dt,
+    geom = "area",
+    fill = "steelblue",
+    alpha = .3,
+    args = list(
+      df = 24
+    )
+  ) +
+  stat_function(
+    fun = dt,
+    geom = "area",
+    fill = "steelblue",
+    xlim = c(-4, qnorm(.025)),
+    args = list(
+      df = 24
+    )
+  ) +
+  stat_function(
+    fun = dt,
+    geom = "area",
+    fill = "steelblue",
+    xlim = c(qnorm(.975), 4),
+    args = list(
+      df = 24
+    )
+  ) +
+  geom_vline(xintercept = -1.8,
+             color = "black",
+             size = 1) +
+  labs(
+    title = "Ungerichtete Hypothese,",
+    subtitle = "Kritischer Bereich bei Alpha = 5%. Der Strich kennzeichnet einen t-Wert von -1.8",
+    x = "t-score",
+    y = "Dichte"
+  ) +
+  scale_x_continuous(limits = c(-3.5, 3.5))
+``` -->
+
+![](ungerichtete_hypothese.png)
+
+Diesmal erhalten wir beim gleichen t-Wert kein signifikantes Ergebnis. Die Wahl der Hypothese ist daher teils für die Interpretation des Ergebnisses ausschlagebend.  
+
+In Jamovi gibst du diesen Unterschied folgendermaßen an:
+
+![](jamovi_richtung.png)
+
+Jamovi nimmt immer zuerst ann, dass du eine ungerichtete Hypothese hast. Gerichtete Hypothesen können durch die Buttons *>* oder *<* angegeben werden.
 
 # Modeling Example
 
