@@ -827,7 +827,7 @@ Dies entspricht 95,76%. Je mehr Stichproben wir nehmen, desto näher kommen wir 
 
 # One Sample T-Test
 
-## Hypothesen z-Test, F-Test
+## Modelle z-Test und F-Test bei einer Stichprobe
 
 Auf Grundlage des bisherigen Inhalts dieses Kurses können wir folgende Fragestellung beantworten:
 
