@@ -1050,13 +1050,13 @@ $$
 t_{24} = \frac{10.25 - 9.2}{9.297311 / \sqrt{25}} = 0.5646794
 $$
 
-Die Wahrscheinlichkeit eines solchen Kennwertes unter der Nullhypothese lautet:
+Die Wahrscheinlichkeit eines solchen Kennwertes unter der Nullhypothese ist:
 
 ```R
 (p_value_t_test <- pt(0.5646794, df = 24)) # 0.7112339
 ```
 
-Einen solchen Kennwert zu erzielen, ist daher sehr wahrscheinlich (71,1%). Der Mittelwertsunterschied ist daher nicht signifikant. 
+Einen solchen Kennwert zu erzielen, ist sehr wahrscheinlich (71,1%). Der Mittelwertsunterschied ist daher nicht signifikant.
 
 > In einem empirischen Artikel würden wir diese Hypothese folgendermaßen berichten: Ein t-Test für eine Stichprobe ergab keinen signifikanten Unterschied zwischen der Distanz der Manager vom Wohnort im Vergleich zu den restlichen Mitarbeitern, *t*(24) = 0.56, *p* = .71.
 
@@ -1080,7 +1080,7 @@ Den t-Test für eine Stichprobe findest du unter T-Tests > One Sample T-Test:
 
 ![](jamovi_ttest.png)
 
-Im Anschluss gibst du deine abhängige Variable an (hier `distance_from_home`). Zudem musst du für diese Hypothese den Populationsmittelwert angeben, den du mit dem Stichprobenmittelwert vergleichst (9.2). Da deine Hypothese negativ gerichtet ist, gibst du zudem *< Test Value* an. Damit wird die Fläche auf der linken Seite der Verteilung zur Berechnung der Wahrscheinlichkeit hinzu genommen.
+Im Anschluss gibst du deine abhängige Variable an (hier `distance_from_home`). Zudem musst du für diese Hypothese den Populationsmittelwert angeben, den du mit dem Stichprobenmittelwert vergleichst (9.2). Da deine Hypothese negativ gerichtet ist, gibst du zudem *< Test Value* an. Damit wird die Fläche auf der linken Seite der Verteilung zur Berechnung der Wahrscheinlichkeit verwendet.
 
 ![](jamovi_one_sample.png)
 
@@ -1116,7 +1116,7 @@ $$
 F = \frac{\sum_{i=1}^{n} (\hat{Y_{iC}} - \hat{Y_{iA}})^2 / (PA - PC)}{SSE(A) / (n-PA)}
 $$
 
-Die Freiheitsgrade dieser Hypothese sind 1 für den Zähler und 24 für den Nenner:
+Die Freiheitsgrade dieser Hypothese sind 1 bei einem t-Test mit einer Stichprobe für den Zähler und 24 für den Nenner:
 
 $$
 F = \frac{\sum_{i=1}^{n} (\hat{Y_{iC}} - \hat{Y_{iA}})^2}{SSE(A) / 24}
@@ -1141,16 +1141,16 @@ $$
 $$
 
 
-Zum Beweis: Vorhin hatten wir einen F-Wert von 0.3779886 berechnet. Die Wurzel hiervon ist 0.6148078. Jamvoi hat für die t-Statistik 0.59 berechnet. Abgesehen von den Rundungsfehlern ist die Statistik daher gleich.
+Zum Beweis: Vorhin hatten wir einen F-Wert von 0.3779886 berechnet. Die Wurzel hiervon ist 0.6148078. Jamovi hat für die t-Statistik 0.59 berechnet. Abgesehen von den Rundungsfehlern ist die Statistik daher gleich.
 
 > Die t-Statstik ist nur eine besondere Form der F-Statistik. Die Möglichkeiten des t-Tests sind allerdings beschränkt, da durch diesen Test lediglich zwei Mittelwerte miteinander verglichen werden können. Durch F-Tests können wir später weitere Parameter miteinander vergleichen.
 
 
 ## Gerichtete und ungerichtete Hypothesen
 
-In dieser Einheit hatten wir eine Hypothese getestet, bei der wir annahmen, dass Manager **näher** am Arbeitsort wohnen als der Rest der Mitarbeiter. Diese Hypothese hat sich als falsch erwiesen. Es handelt sich bei der Hypothese um eine *gerichtete* Hypothese, da wir die Richtung des Unterschieds formuliert haben. Hätten wir eine ungerichtete Hypothese angenommen, hätten wir gesagt, dass es lediglich einen Unterschied zwischen diesen beiden Gruppen gibt. 
+In dieser Einheit hatten wir eine Hypothese getestet, bei der wir annahmen, dass Manager **näher** am Arbeitsort wohnen als der Rest der Mitarbeiter. Diese Hypothese hat sich als falsch erwiesen. Es handelt sich bei der Hypothese um eine *gerichtete* Hypothese, da wir die Richtung des Unterschieds formuliert haben. Hätten wir eine ungerichtete Hypothese angenommen, hätten wir gesagt, dass es lediglich einen Unterschied zwischen diesen beiden Gruppen gibt.
 
-Bei der Überprüfung von Hypothesen durch t-Tests ist es wichtig, zu wissen, ob eine gerichtete Hypothese oder eine ungerichtete Hypothese vorliegt, da dies Auswirkung auf die Signifikanz des Tests hat. 
+Bei der Überprüfung von Hypothesen durch t-Tests ist es wichtig, zu wissen, ob eine gerichtete Hypothese oder eine ungerichtete Hypothese vorliegt, da dies Auswirkung auf die Signifikanz des Tests hat.
 
 Schau dir beispielsweise den kritischen Bereich bei einer negativ gerichteten Hypothese an:
 
@@ -1188,7 +1188,7 @@ ggplot(NULL, aes(x = c(-3, 5))) +
 
 ![](t_test_gerichtet_negativ.png)
 
-Ein t-Wert von -1.8 führt bei dieser Hypothese zu einem signifikanten Ereignis. Würden wir eine ungerichtete Hypothese annehmen, müssten wir bei gleichen Alpha-Niveau, den kritischen Bereich links- und rechtsseitig aufteilen:
+Ein t-Wert von -1.8 führt bei dieser Hypothese zu einem signifikanten Ereignis. Würden wir eine ungerichtete Hypothese annehmen, müssten wir bei gleichem Alpha-Niveau, den kritischen Bereich links- und rechtsseitig aufteilen:
 
 <!-- ```R
 ggplot(NULL, aes(x = c(-3, 5))) +
@@ -1239,9 +1239,105 @@ In Jamovi gibst du diesen Unterschied folgendermaßen an:
 
 ![](jamovi_richtung.png)
 
-Jamovi nimmt immer zuerst ann, dass du eine ungerichtete Hypothese hast. Gerichtete Hypothesen können durch die Buttons *>* oder *<* angegeben werden.
+Jamovi nimmt immer zuerst an, dass du eine ungerichtete Hypothese hast. Gerichtete Hypothesen können durch die Buttons *>* oder *<* angegeben werden.
 
 # Modeling Example
 
 
-Mit Effektgröße
+```R
+library(tidyverse)
+library(jmv)
+
+
+human_resources <- read_csv("C:/Users/ChristianEZW/repositories/statistik_2_online_kurs/data/markdown/hr_cleaned.csv")
+
+# Ziel: Sind die Mitarbeiter im Schnitt älter als 30 Jahre?
+set.seed(543)
+my_sample <- human_resources %>% 
+    sample_n(35)
+
+# Mittelwert Alter
+mean(my_sample$age)
+sd(my_sample$age)
+
+# Histogram des Alters der Probanden
+ggplot(my_sample, aes(x = age)) + 
+  geom_histogram(fill = "royalblue1", 
+                 color = "black",
+                 binwidth = 5) +
+  labs(
+    title = "Histogram des Alters der Stichprobe",
+    x = "Alter",
+    y = "Häufigkeit"
+  )
+
+# Boxplot des Alters der Probanen
+ggplot(my_sample, aes(x = 1, y = age, group = 1)) + 
+  geom_boxplot(fill = "royalblue1", 
+                 color = "black", alpha = .2) +
+  geom_jitter() +
+  labs(
+    title = "Boxplot des Alters der Stichprobe",
+    x = "",
+    y = "Alter"
+  ) +
+  theme(
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank()
+  )
+
+# *************** Händische Berechnung ****************************
+# t-Test
+t_value <- (mean(my_sample$age) - 30) / (sd(my_sample$age) / sqrt(35))
+1 - pt(t_value, df = 34)
+cohens_d <- (mean(my_sample$age) - 30) /sd(my_sample$age)
+
+# t-Verteilung
+ggplot(NULL, aes(x = c(-4, 4))) +
+  stat_function(
+    fun = dt,
+    geom = "area",
+    fill = "steelblue",
+    alpha = .3,
+    args = list(
+      df = 34
+    )
+  ) +
+  stat_function(
+    fun = dt,
+    geom = "area",
+    fill = "steelblue",
+    xlim = c(qnorm(.95), 4),
+    args = list(
+      df = 34
+    )
+  ) +
+  geom_vline(xintercept = t_value,
+             color = "black",
+             size = 1) +
+  labs(
+    title = "T-Test für eine Stichprobe",
+    x = "t-score",
+    y = "Dichte"
+  ) 
+
+# *************** Berechnung Jamovi ****************************
+
+# Strg + Umschalt + H
+write_csv(my_sample, "sample_age.csv")
+
+
+# One-Sample t-Test
+# AV (abhängige Variable):   Alter der Mitarbeiter
+# UV (unabhängige Variable): Mittelwert des Alters der Stichprobe
+jmv::ttestOneS(
+  data = my_sample,
+  vars = age,
+  testValue = 30,
+  hypothesis = "gt",
+  effectSize = TRUE,
+  desc = TRUE)
+
+# Die Mitarbeiter sind signifikant älter als 30 Jahre, 
+# t(34), p < .001, d = 0.88 (großer Effekt).
+```
