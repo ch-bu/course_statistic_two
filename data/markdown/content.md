@@ -41,7 +41,7 @@ new_data %>%
 
 Spacing Effekt (https://osf.io/kehv9/, https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0182986)
 * How Much Mightier is the Pen than the Keyboard for Note-taking? A Replication and Extension of Mueller and Oppenheimer (2014): https://osf.io/dyga5/; https://scholar.google.de/scholar?hl=de&as_sdt=0%2C5&q=How+Much+Mightier+is+the+Pen+than+the+Keyboard+for+Note-taking&btnG=
-* 
+* https://osf.io/pfeg4/: An Efficacy Study of Interleaved Mathematics Practice
 
 Cronbach's Alpha berechnen
 

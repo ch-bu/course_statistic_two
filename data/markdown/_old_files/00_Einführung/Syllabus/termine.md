@@ -4,10 +4,10 @@
 * Einführung
 * Grundlagen R
 * Vertiefung R
-* Statistische Modelle (Data = Model + Error, Errors, sampling distributions)
-* Statistische Inferenz 1 (PRE, F, SSR, SSE, SSE(A), Sampling Distribution of PRE, Critical Values)
-* Statistische INferenz 2 (Statistical Power, STatistical Decisions, Confidenz INtervalle, simple T-Test)
-* Simple regression with single predictor (beta coefficients, t-test of beta coefficient)
+* Statistische Modelle 
+* Statistische Inferenz 1 
+* Statistische INferenz 2 
+* Simple regression with single predictor 
 * Multiple regression (redundancy, partial regression coefficients, overall model test, testing predictors)
 * One-Way ANOVA (contrast-coded predictors, two-group t-test, three levels, orthongonal contrasts, other contrast codes)
 * Factorial ANOVA ()
@@ -39,4 +39,3 @@
 ## Datensätze
 
 * Ein zentraler Datensatz für die statistischen Tests. Immer der Gleiche, selber schreiben
-* 
