@@ -844,7 +844,7 @@ Diese Hypothesen testen folgende beiden Modelle:
 Kompaktes Modell:
 
 $$
-Y_i = {vorgegebener Mittelwert} + e_{i}
+Y_i = B_0 + e_{i}
 $$
 
 Erweitertes Modell:
