@@ -1,3 +1,8 @@
+## TODO 
+
+* qt, pnorm ... ausführlich erklären
+* Weiterführende Links einfügen
+
 
 # Dataset for first chapters
 

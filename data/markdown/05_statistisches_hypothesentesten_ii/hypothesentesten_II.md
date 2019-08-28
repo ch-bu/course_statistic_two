@@ -62,7 +62,7 @@ In der statistischen Literatur spricht bei $PA - PC$ und $n - PA$ von Freiheitsg
 F wird häufig nicht anhand von PRE berechnet, sondern durch die SSR und SSE(A), welche wir bereits kennen gelernt haben:
 
 $$
-F = \frac{SSR / (PA - PC)}{SSE(A) / (n-PA)}
+F = \frac{SSR / (PA - PC)}{SSE(A) / (n-PA)} = \frac{MSR}{MSE}
 $$
 
 SSR kennzeichnet daher den quadrierten Abstand der vorhergesagten Werte des kompakten von den vorhergesagten Werten des erweiterten Modells. SSR ist daher kleiner, wenn beide Modelle ähnliche Vorhersagen treffen. Je größer SSR, desto unterschiedlichere Vorhersagen treffen beide Modelle.

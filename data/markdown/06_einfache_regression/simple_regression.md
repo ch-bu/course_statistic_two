@@ -1,4 +1,4 @@
-# Modelle
+# Das zwei-Parameter Modell
 
 ## Fragestellungen der einfachen linearen Regression
 
@@ -376,7 +376,7 @@ Für PRE ergibt sich dann:
 (pre <- ssr / sse_c) # 0.4604691
 ```
 
-Der F-Wert ist folgendermaßen:
+Der F-Wert ist folgerichtig:
 
 
 $$
@@ -385,7 +385,7 @@ $$
 
 * $PC$: Das kompakte Modell hat einen Parameter $b_0$.
 * $PA$: Das erweiterte Modell hat zwei Parameter: $b_1$ und $b_1$.
-* $n$: Insgesamt gibt es 1470 Personen in dem Datensatz.
+* $n$: Insgesamt gibt es 40 Personen in dem Datensatz.
 
 
 ```R
@@ -415,6 +415,8 @@ sqrt(pre) # 0.6785788
 
 ## t-Test
 
+### t-Wert auf Grundlage von F berechnen
+
 Da der Freiheitsgrad unseres F-Tests 1 ist, können wir genausogut einen t-Test rechnen, um unsere Hypothese zu prüfen. Unser Ergebnis des F-Tests war:
 
 | Source      |     SS     | df | MS        | F     | p      | PRE / $R^2$  |
@@ -422,8 +424,6 @@ Da der Freiheitsgrad unseres F-Tests 1 ist, können wir genausogut einen t-Test 
 | Reduction   |  483549631 |  1 | 483549631 | 32.43 | < .001 | 0.46 |
 | Error       |  566574246 | 38 | 14909849  |       |        |      |
 | Total Error | 1050123877 | 39 |           |       |        |      |
-
-### t-Wert auf Grundlage von F berechnen
 
 Wir wissen, dass der t-Wert nichts anderes ist als die Wurzel des F-Wertes, daher können wir sagen, dass:
 
@@ -445,7 +445,7 @@ $$
 t_{40 - 2} = \frac{469.56 - 0}{se} 
 $$
 
-Wir benötigen allerdings noch den Standardfehler ($se$), welcher anders berechnet wird als bei dem kompakten Modell. Der Standardfehler der einfachen linearen Regression gibt den mittleren Abstand der einzelnen Punkte von der Regressionsliege an. Je kleiner der Standardfehler ist, desto näher liegen die Punkte an der Regressionslinie (mehr Informationen [hier](https://www.statisticshowto.datasciencecentral.com/find-standard-error-regression-slope/)).
+Wir benötigen allerdings noch den Standardfehler ($se$), welcher anders berechnet wird als bei dem kompakten Modell. Der Standardfehler der einfachen linearen Regression gibt den mittleren Abstand der einzelnen Punkte von der Regressionsgeraden an. Je kleiner der Standardfehler ist, desto näher liegen die Punkte an der Regressionsgeraden (mehr Informationen [hier](https://www.statisticshowto.datasciencecentral.com/find-standard-error-regression-slope/)).
 
 Die Formel hierzu lautet:
 
@@ -494,19 +494,329 @@ Die Ergebnisse können wir erneut in einer Tabelle darstellen:
 | Intercept           |  1022.52 |       |      |        |
 | total_working_years |  469.56  | 82.45 | 5.69 |< .001  |
 
-Wir könnten die gleiche Berechnung für den Intercept durchführen, dieser Interessiert uns allerdings weniger.
+Wir könnten die gleiche Berechnung für den Intercept durchführen, dieser interessiert uns allerdings weniger.
+
+## Konfidenzintervalle für Beta-1
+
+Ähnlich wie bei einem t-Test für eine Stichprobe können wir für den Steigungskoeffizienten $b_1$ ein Konfidenzintervall berechnen. Die Berechnung ist leicht unterschiedlich:
+
+$$
+CI_{upper/lower} = b_1 \pm \sqrt{\frac{F_{crit} * MSE}{(n - 1) * s^2_x}}
+$$
+
+* $MSE$: Dies ist der Nenner der Formel des F-Tests: $F = \frac{SSR / (PA - PC)}{SSE(A) / (n-PA)} = \frac{MSR}{MSE}$:  $14909849$
+* $s^2_x$: Die Varianz der abhängigen Variable (hier Anzahl der Arbeitsjahre).
+* $b_1$: Der Steigungskoeffizient der abhängigen Variable $X_1$.
+* $n$: Die Anzahl der Untersuchungsobjekte.
+* $F_{crit}$: Der kritische F-Wert, welcher zu einem signifikanten Ergebnis führt. Diesen kann man mit der Funktion `qf` berechnen: `qf(0.95, df1 = 1, df2 = 38)` $= 4.098172$.
+
+```R
+(ci_upper <- 469.5602 + sqrt((4.098172 * 14909849) / 
+                             ((40 - 1) * var(my_sample$total_working_years)))) # 636.4779
+
+(ci_lower <- 469.5602 - sqrt((4.098172 * 14909849) / 
+                               ((40 - 1) * var(my_sample$total_working_years)))) # 302.6425
+```
+
+Dies bedeutet, dass in 95 von 100 Fällen der wahre Steigungskoeffizient der Population sich in diesem Bereich befinden wird:
+
+$$
+302.64 \leq \beta_1 \leq 636.48
+$$
 
 
 ## Jamovi
 
+Diese händischen Berechnungen werden in der Praxis selten durchgeführt, dafür gibt es Statistiksoftwares. Für die gleichen Berechnungen in Jamovi musst du zunächst den Datensatz als CSV-Datei vorliegen haben. Da wir in diesem Beispiel eine Stichprobe aus einer Population gezogen haben, müssen wir diesen zunächst exportieren:
+
+```R
+write_csv(my_sample, "linear_regression_data.csv")
+```
+
+Achte darauf, dass du vorab das Arbeitsverzeichnis (Strg + Umschalt + H in R-Studio) definierst, damit du weißt, in welchem Ordner die csv-Datei gespeichert wird. 
+
+Anschließend lädst du den Datensatz in Jamovi:
+
+![](jamovi1.png)
+
+Im nächsten Schritt klickst du auf *Regression -> Linear Regression*:
+
+![](jamovi2.png)
+
+
+Als nächstes definierst du die abhängige und unabhängige Variable:
+
+![](jamovi3.png)
+
+Füge zudem den ANOVA-Test und die Konfidenzintervalle hinzu:
+
+![](jamovi4.png)
+
+Im Output erkennst du nun die gleichen Werte, die wir händisch berechnet haben:
+
+![](jamovi5.png)
+
+Zuletzt kopierst du die Syntax und fügst diese in R ein:
+
+![](jamovi6.png)
+
+Achte darauf, dass du den Namen des Datensatzes anpasst:
+
+![](jamovi7.png)
+
 ## SPSS
 
-## Einfache Regression berichten
+Das Prinzip ist in SPSS sehr ähnlich: 
 
-> Bei Berichten einer einfachen linearen Regression wird PRE als $R^2$ berichtet.
+Füge zunächst den Datensatz als CSV-Datei ein:
 
-## Konfidenzintervalle beta
+![](spss1.png)
 
-## Beispiel
+Klicke anschließend auf *Analysieren -> Regression -> Linear*:
+
+![](spss2.png)
+
+Füge die abhängige und unabhängige Variable ein:
+
+![](spss3.png)
+
+Füge die Konfidenzintervalle hinzu:
+
+![](spss4.png)
+
+
+Klicke auf Ok. Im Anschluss erhältst du den Output:
+
+![](spss5.png)
+
+### In R berechnen
+
+Genausogut kannst du die einfache lineare Regression direkt in R durch die `lm` Funktion und die [summary Funktion](https://www.rdocumentation.org/packages/base/versions/3.6.1/topics/summary) berechnen:
+
+```R
+lm(monthly_income ~ total_working_years, data = my_sample) %>% 
+  summary
+```
+
+Links der Tilde `~` schreibst die abhängige Variable auf, rechts der Tilde die abhängige Variable. Der Output ist ein wenig schwerer zu lesen als in Jamovi aber liefert die gleichen Ergebnisse:
+
+```
+Call:
+lm(formula = monthly_income ~ total_working_years, data = my_sample)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-7494.2 -2301.8  -431.4  2297.2  8535.7 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+(Intercept)          1022.52    1294.93   0.790    0.435    
+total_working_years   469.56      82.45   5.695 1.49e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 3861 on 38 degrees of freedom
+Multiple R-squared:  0.4605,	Adjusted R-squared:  0.4463 
+F-statistic: 32.43 on 1 and 38 DF,  p-value: 1.493e-06
+```
+
+## Einfache lineare Regression berichten
+
+In einem Forschungsartikel möchtest du das Ergebnis deiner Hypothese nun berichten. Folgendes würdest du schreiben:
+
+> Zur Überprüfung der Hypothese wurde eine einfache lineare Regression mit dem monatlichen Gehalt der Mitarbeiter als abhängige Variable und der Anzahl der Arbeitsjahre der Mitarbeiter berechnet. Wir fanden eine signifikante Korrelation, *F*(1, 48) = 32.43, *p* < .001, $R^2$ = .46. Je länger Mitarbeiter arbeiten, desto mehr Gehalt verdienen sie monatlich.
+
+Mehr Informationen:
+
+* [Simple linear regression in SPSS (Ende der PDF)](https://www.sheffield.ac.uk/polopoly_fs/1.531434!/file/MASH_simple_linear_regression_SPSS.pdf)
+* [Simple Linear Regression (Ende der PDF)](http://www.open.ac.uk/socialsciences/spsstutorial/files/tutorials/simple-linear-regression.pdf)
 
 # Modeling Example
+
+## Modeling Example
+
+In diesem Beispiel untersuchen wir, ob es einen Zusammenhang zwischen der Freiheit in Ländern und dem Glück der Bevölkerung gibt. Den Datensatz hierfür findest du [hier](TODO). Laden wir zunächst den Datensatz in R:
+
+```R
+world_happiness <- read_csv("world_happiness.csv")
+glimpse(world_happiness, width = 50)
+```
+
+```
+Observations: 155
+Variables: 12
+$ Country                       <chr> "Norway...
+$ Happiness.Rank                <dbl> 1, 2, 3...
+$ Happiness.Score               <dbl> 7.537, ...
+$ Whisker.high                  <dbl> 7.59444...
+$ Whisker.low                   <dbl> 7.47955...
+$ Economy..GDP.per.Capita.      <dbl> 1.61646...
+$ Family                        <dbl> 1.53352...
+$ Health..Life.Expectancy.      <dbl> 0.79666...
+$ Freedom                       <dbl> 0.63542...
+$ Generosity                    <dbl> 0.36201...
+$ Trust..Government.Corruption. <dbl> 0.31596...
+$ Dystopia.Residual             <dbl> 2.27702...
+```
+
+Die Variablennamen sind nicht ganz sauber. Machen wir sie daher mit janitor sauber:
+
+```R
+world_happiness <- world_happiness %>% 
+  clean_names()
+
+glimpse(world_happiness, width = 50)
+```
+
+```
+Observations: 155
+Variables: 12
+$ country                     <chr> "Norway",...
+$ happiness_rank              <dbl> 1, 2, 3, ...
+$ happiness_score             <dbl> 7.537, 7....
+$ whisker_high                <dbl> 7.594445,...
+$ whisker_low                 <dbl> 7.479556,...
+$ economy_gdp_per_capita      <dbl> 1.616463,...
+$ family                      <dbl> 1.533524,...
+$ health_life_expectancy      <dbl> 0.7966665...
+$ freedom                     <dbl> 0.6354226...
+$ generosity                  <dbl> 0.3620122...
+$ trust_government_corruption <dbl> 0.3159638...
+$ dystopia_residual           <dbl> 2.277027,...
+```
+
+Uns interessieren nun die Variablen `happiness_score` und `freedom`. Unsere Hypothese besagt, dass Menschen die mehr Freiheit haben glücklicher sind. Zunächst ist es hilfreich einen Visualisierung dieser Beziehung durch ein Streudiagram anzuzeigen:
+
+```R
+ggplot(world_happiness, aes(x = freedom, y = happiness_score)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(
+    title = "Streudiagramm Glück ~ Freiheit",
+    x = "Freiheit",
+    y = "Glück"
+  )
+```
+
+![](steudiagram.png)
+
+Berechnen wir zudem den Korrelationskoeffizienten der beiden Variablen:
+
+```R
+cor(world_happiness$freedom, world_happiness$happiness_score) # 0.5701372
+```
+
+Es handelt sich um eine moderate Korrelation von $.57$. Die Korrelation zeigt uns, dass je freier Menschen sind, desto glücklicher sind sie. Die Augenscheinvalidität reicht allerdings nicht aus, um unsere Hypothese zu testen. Hierfür müssen wir den Regressionskoeffizienten auf Signifikanz prüfen.
+
+Exporiteren wir daher den gereinigten Datensatz als CSV-Datei und laden wir den Datensatz daher in Jamovi:
+
+```R
+write_csv(world_happiness, "world_happiness_cleaned.csv")
+```
+
+Diese Datei speichere ich im Ordner daten/cleaned:
+
+```
+|   protocol.docx: Protokoll der Untersuchung (Störungen, Besonderheiten)
+|   variablen.docx: Ein Dokument der Variablennamen
+|
+|___daten
+|   |___rohdaten: 
+|       |  world_happiness.csv
+|   |___export: Export der gereinigten Daten für SPSS Jamovi
+|   |___cleaned
+|       |   world_happiness_cleaned.csv
+```
+
+![](modeling1.png)
+
+Tatsächlich, die Korrelation ist signifikant, das heißt wir verwerfen die Nullhypothese, dass es keine Korrelation der beiden Variablen gibt und gehen davon aus, dass Menschen glücklicher sind, je mehr Freiheit sie haben. Das Ergebnis berichten wir anschließend:
+
+> Eine einfache lineare Regression ergab einen signifikanten Zusammenhang zwischen der erfahrenden Freiheit der Bürger und ihrem empfundenen Glück, *F*(1, 153) = 73.7, *p* < .001, 95% CI [3.31, 5.39] $R^2$ = .33. Je mehr Freiheit Menschen erfahren, desto glücklicher sind sie.
+
+Um später das Ergebnis nicht zu verlieren, speichere ich den Output von Jamovi der Datei `analyse/hypothese_einfache_lineare_regression.R`, welche für diese Hypothese angelegt wurde:
+
+```
+|   protocol.docx: Protokoll der Untersuchung (Störungen, Besonderheiten)
+|   variablen.docx: Ein Dokument der Variablennamen
+|
+|___daten
+|
+|___analyse
+|   |   data_cleaning.R
+|   |   hypothese_einfache_lineare_regression.R:
+|
+|___manuskript
+|
+|___administration
+```
+ 
+
+```R
+library(tidyverse)
+library(janitor)
+library(jmv)
+
+# Datensatz einlesen
+world_happiness <- read_csv("data/cleaned/world_happiness_cleaned.csv")
+
+# ************************* Explorative Analyse ******************************
+# Streudiagram Freiheit ~ Happiness
+ggplot(world_happiness, aes(x = freedom, y = happiness_score)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) + 
+  labs(
+    title = "Streudiagramm Glück ~ Freiheit",
+    x = "Freiheit",
+    y = "Glück"
+  )
+
+
+# *****************************************************************************
+# Hypothese: Je freier Menschen sind, desto glücklicher sind sie.
+# Methode: Einfache lineare Regression
+# AV: happiness_score (intervalskaliert)
+# UV: freedom (intervallskaliert)
+jmv::linReg(
+  data = world_happiness,
+  dep = happiness_score,
+  covs = freedom,
+  blocks = list(
+    list(
+      "freedom")),
+  refLevels = list(),
+  anova = TRUE,
+  ci = TRUE)
+
+#
+#  Model Fit Measures          
+#  ─────────────────────────── 
+#    Model    R        R²      
+#  ─────────────────────────── 
+#        1    0.570    0.325   
+#  ─────────────────────────── 
+# 
+#
+#
+#  Omnibus ANOVA Test                                                      
+#  ─────────────────────────────────────────────────────────────────────── 
+#                 Sum of Squares    df     Mean Square    F       p        
+#  ─────────────────────────────────────────────────────────────────────── 
+#    freedom                64.1      1         64.059    73.7    < .001   
+#    Residuals             133.0    153          0.869                     
+#  ─────────────────────────────────────────────────────────────────────── 
+#    Note. Type 3 sum of squares
+# 
+#
+#
+#  Model Coefficients                                                      
+#  ─────────────────────────────────────────────────────────────────────── 
+#    Predictor    Estimate    SE       Lower    Upper    t        p        
+#  ─────────────────────────────────────────────────────────────────────── 
+#    Intercept        3.60    0.218     3.17     4.03    16.49    < .001   
+#    freedom          4.30    0.501     3.31     5.29     8.58    < .001   
+#  ─────────────────────────────────────────────────────────────────────── 
+# 
+#
+```
+
