@@ -506,7 +506,7 @@ $$
 
 * $MSE$: Dies ist der Nenner der Formel des F-Tests: $F = \frac{SSR / (PA - PC)}{SSE(A) / (n-PA)} = \frac{MSR}{MSE}$:  $14909849$
 * $s^2_x$: Die Varianz der abhängigen Variable (hier Anzahl der Arbeitsjahre).
-* $b_1$: Der Steigungskoeffizient der abhängigen Variable $X_1$.
+* $b_1$: Der Steigungskoeffizient der unabhängigen Variable $X_1$.
 * $n$: Die Anzahl der Untersuchungsobjekte.
 * $F_{crit}$: Der kritische F-Wert, welcher zu einem signifikanten Ergebnis führt. Diesen kann man mit der Funktion `qf` berechnen: `qf(0.95, df1 = 1, df2 = 38)` $= 4.098172$.
 

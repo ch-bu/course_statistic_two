@@ -533,7 +533,7 @@ errors <- student_data %>%
 |-------------|:----------:|---: |-----------|-------|--------|------|
 | studytime   |  10.6075   |  1  | 10.6075   | 0.58  | 0.447  | 0.00 |
 | Error       |  7185.053  | 393 | 18.28258  |       |        |      |
-| Total Error |  7195.66   | 395 |           |       |        |      |
+| Total Error |  7195.66   | 394 |           |       |        |      |
 
 Wir können auf Grundlage dieses Ergebnisses sagen, dass der Parameter `studytime` den Fehler nicht substantiell reduziert und daher nicht signifikant ist. Der Parameter reduziert den Fehler nicht mehr als ein willkürlicher Parameter, den wir einfach so ein das Modell hinzunehmen.
 
@@ -577,7 +577,7 @@ errors <- student_data %>%
 |-------------|:----------:|---: |-----------|-------|--------|------|
 | failures    |  1005.724  |  1  | 1005.724  | 55.01 | < .001 | 0.12 |
 | Error       |  7185.053  | 393 | 18.28258  |       |        |      |
-| Total Error |  8190.777  | 395 |           |       |        |      |
+| Total Error |  8190.777  | 394 |           |       |        |      |
 
 
 ### Bericht aller Ergebnisse
@@ -590,8 +590,170 @@ Abschließend können wir alle Ergebnisse in einer Tabelle zusammen fassen:
 | studytime   |  10.6075   |  1  | 10.6075   | 0.58  | 0.447  | 0.00 |
 | failures    |  1005.724  |  1  | 1005.724  | 55.01 | < .001 | 0.12 |
 | Error       |  7185.053  | 393 | 18.28258  |       |        |      |
-| Total Error |  8190.777  | 395 |           |       |        |      |
-
+| Total Error |  8190.777  | 394 |           |       |        |      |
 
 Wir können also sagen, dass die Variable `failures` zu einer signifikanten Reduzierung des Fehlers führt und daher einen starken Beitrag macht, die Mathematikleistung der SuS zu erklären. nteressanterweise trägt die Variable `studytime` nicht zur Erklärung der Mathematikleistung bei. Wie viel Zeit SuS in das Lernen investieren, scheint daher keinen Einfluss auf deren Note zu haben. Man könnte sich im nächsten Schritt überlegen, welche anderen Variablen hilfreich wären, um die Mathematikleistung von SuS zu erklären. Was wir allerdings aus den Daten erkennen können, ist, dass das Vorwissen, welches in gewisser Weise durch die Variable `failures` abgedeckt ist, einen großen Einfluss auf zukünftiges Wissen hat. Dies ist ein Befund, den man immer wieder in der pädagogischen Psychologie findet.
 
+## Konfidenzintervalle
+
+Erneut können wir die Signifkanz unserer Parameter durch Konfidenzintervalle testen. Die Berechnung ist genau gleich wie bei der einfachen Regression:
+
+$$
+CI_{upper/lower} = b_{i} \pm \sqrt{\frac{F_{crit} * MSE}{(n - 1) * s^2_x * (1 - R^2)}}
+$$
+
+* $MSE$: Dies ist der Nenner der Formel des F-Tests: $F = \frac{SSR / (PA - PC)}{SSE(A) / (n-PA)} = \frac{MSR}{MSE}$
+* $s^2_x$: Die Varianz der unabhängigen Variable (hier Lernzeit - Studytime).
+* $b_i$: Der Steigungskoeffizient der unabhängigen Variable $X_i$.
+* $n$: Die Anzahl der Untersuchungsobjekte.
+* $F_{crit}$: Der kritische F-Wert, welcher zu einem signifikanten Ergebnis führt. Diesen kann in unserem Fall mit der Funktion `qf` berechnen: `qf(0.95, df1 = 1, df2 = 393)` $= 3.865229$.
+* $R^2$: PRE, welches durch den Parameter aufgeklärt wird.
+
+Zur Berechnung hilft uns unsere Tabelle:
+
+| Source      |     SS     | df  | MS        | F     | p      | PRE / $R^2$  |
+|-------------|:----------:|---: |-----------|-------|--------|------|
+| Regression  |  1084.856  |  2  | 542.43    | 29.59 | < .001 | 0.13 |
+| studytime   |  10.6075   |  1  | 10.6075   | 0.58  | 0.447  | 0.00 |
+| failures    |  1005.724  |  1  | 1005.724  | 55.01 | < .001 | 0.12 |
+| Error       |  7185.053  | 393 | 18.28258  |       |        |      |
+| Total Error |  8190.777  | 394 |           |       |        |      |
+
+### Konfidenzintervall des Parameters Studytime
+
+```R
+(ci_upper <- 0.1985 + sqrt((3.865229 * 18.28258) / 
+                           ((395 - 1) * var(student_data$studytime) * (1 - 0.00)))) # 0.7031286
+
+(ci_lower <- 0.1985 - sqrt((3.865229 * 18.28258) / 
+                           ((395 - 1) * var(student_data$studytime)*  (1 - 0.00)))) # -0.3061286
+```
+
+Dies bedeutet, dass in 95 von 100 Fällen der wahre Steigungskoeffizient der Population sich in diesem Bereich befinden wird:
+
+$$
+-0.36 \leq \beta_1 \leq 0.70
+$$
+
+Da der Konfidenzintervall die 0 umschließt, wissen wir, dass es sich um ein nicht-signifikantes Ereignis handelt.
+
+### Konfienzintervall des Parameters Failures
+
+Die gleiche Berechnung können wir für den Parameter failures aufstellen:
+
+```R
+(ci_upper <- -2.1815 + sqrt((3.865229  * 18.28258) / 
+                           ((395 - 1) * var(student_data$failures) * (1 - 0.12)))) # -1.574417
+
+(ci_lower <- -2.1815 - sqrt((3.865229 * 18.28258) / 
+                           ((395 - 1) * var(student_data$failures) * (1 - 0.12)))) # -2.788583
+```
+
+$$
+-2.79 \leq \beta_1 \leq -1.57
+$$
+
+In 95 von 100 Fällen in denen wir demnach Konfidenzintervalle berechnen, wird sich der wahre Konfidenzintervall in diesem Bereich befinden. Wir sind demnach zuversichtlich, dass der Steigungskoeffizient der Variable failure demnach nicht 0 entspricht und daher dazu beiträgt, die Mathematikleistung der SuS zu erklären.
+
+# Computer-basierte Berechnung
+
+## Jamovi
+
+Um die multiple lineare Regression in Jamovi zu berechnen, müssen wir zunächst den Datensatz als CSV-Datei einlesen:
+
+![](jamovi1.png)
+
+Anschließend kliegst du auf Regression -> Linear Regression:
+
+![](jamovi2.png)
+
+Gebe nun die abhängige und unabhängie Variable an:
+
+![](jamovi3.png)
+
+Lass dir zudem das adjustierte $R^2$, die Konfidenzintervalle und den ANOVA-Test ausgeben:
+
+![](jamovi4.png)
+
+Anhand der Ergebnisse siehst du, dass wir die gleichen Ergebnisse behalten, die wir händisch berechnet haben:
+
+![](jamovi5.png)
+
+| Source      |     SS     | df  | MS        | F     | p      | PRE / $R^2$  |
+|-------------|:----------:|---: |-----------|-------|--------|------|
+| Regression  |  1084.856  |  2  | 542.43    | 29.59 | < .001 | 0.13 |
+| studytime   |  10.6075   |  1  | 10.6075   | 0.58  | 0.447  | 0.00 |
+| failures    |  1005.724  |  1  | 1005.724  | 55.01 | < .001 | 0.12 |
+| Error       |  7185.053  | 393 | 18.28258  |       |        |      |
+| Total Error |  8190.777  | 394 |           |       |        |      |
+
+
+Zwar berechnet Jamovi einen t-Test für die Regressionskoeffizienten, du hast aber bereits gesehen, wie du die F-Werte in T-Werte umwandeln kannst. Für die Interpretation der Ergebnisse ist dieser Unterschied unerheblich.
+
+Im nächsten Schritt kopierst du den R-Code:
+
+![](jamovi6.png)
+
+Diesen fügst du nun in R ein und änderst die Bezeichnung des Datensatzes:
+
+![](jamovi7.png)
+
+Achte darauf, dass du das Verfahren durch Kommentare dokumentierst, so dass du später weißt, was du gerechnet hast.
+
+## SPSS
+
+In SPSS importierst du zunächst die CSV-Datei:
+
+![](spss1.png)
+
+Anschließend wählst du Regression -> Linear aus:
+
+![](spss2.png)
+
+Im Anschluss bestimsmt du die abhängige und die unabhängigen Variablen:
+
+![](spss3.png)
+
+Unter Statistiken füge die Konfidenzintervalle hinzu:
+
+![](spss4.png)
+
+Drucke ok. Du erhältst nun folgenden Output:
+
+![](spss5.png)
+
+Verglichen mit dem Output von Jamovi sind die Daten identisch:
+
+![](jamovi5.png)
+
+Lediglich der ANOVA-Test unterscheidet sich (zweite Tabelle in SPSS). Dieser beschreibt das erste Modell, welches wir in diesem Modul gerechnet hatten:
+
+$$
+\begin{aligned}
+MODEL\ A = Y_i &= \beta_0 + \beta_1 * X_1 + \beta_2 * X_2 + \epsilon_i \\
+MODEL\ C = Y_i &= B_0 + \epsilon_i
+\end{aligned}
+$$
+
+
+| Source      |     SS     | df | MS        | F     | p      | PRE / $R^2$  |
+|-------------|:----------:|---:|-----------|-------|--------|------|
+| Reduction   |  1084.856  |  2  | 542.43   | 29.59 | < .001 | 0.13 |
+| Error       |  7185.053  | 392 | 18.33    |       |        |      |
+| Total Error |  8269.909  | 394 |          |       |        |      |
+
+In Jamovi können wir uns diesen auch ausgeben lassen: Model Fit -> Overall Model Test -> F test:
+
+![](jamovi8.png)
+
+## R
+
+In R können wir die gleiche Berechnung durch die Funktion `lm` durchführen:
+
+![](r1.png)
+
+## Multiple Regression berichten
+
+Wenn wir unser Ergebnis nun ein einem Artikel berichten möchten, können wir dies folgendermaßen tun:
+
+> Es wurde eine multiple Regression mit der Mathematikleistung als abhängige Variable und der Durchfallquote sowie der Lernzeit als unabhängige Variable berechnet. Die Regression ergab einen signifikanten Effekt der beiden Prädiktoren, *F*(2, 392) = 29.59, *p* < .001, R^2 = .13. Die Untersuchung der einzelnen Prädiktoren ergab, dass der Prädiktor Durchfallquote einen signifikanten Effekt auf die Mathematikleistung der Schüler\*innen hat, *F*(1, 392) = 54.87, *p* < .001, was darauf hindeutet, dass die Durchfallquote die Mathematikleistung der Schüler\*innen negativ beeinflusst. Für den Prädiktor Lernzeit ergab sich kein signifikanter Effekt, *F*(1, 392) = 0.58, *p* = .48, was darauf hindeutet, dass die Mathematikleistung nicht von der Lernzeit beeeinflusst wird.
