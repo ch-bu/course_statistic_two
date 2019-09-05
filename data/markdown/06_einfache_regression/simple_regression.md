@@ -384,7 +384,7 @@ F = \frac{SSR / (PA - PC)}{SSE(A) / (n - PA)}
 $$
 
 * $PC$: Das kompakte Modell hat einen Parameter $b_0$.
-* $PA$: Das erweiterte Modell hat zwei Parameter: $b_1$ und $b_1$.
+* $PA$: Das erweiterte Modell hat zwei Parameter: $b_0$ und $b_1$.
 * $n$: Insgesamt gibt es 40 Personen in dem Datensatz.
 
 
@@ -496,7 +496,7 @@ Die Ergebnisse können wir erneut in einer Tabelle darstellen:
 
 Wir könnten die gleiche Berechnung für den Intercept durchführen, dieser interessiert uns allerdings weniger.
 
-## Konfidenzintervalle für Beta-1
+## Konfidenzintervalle für Beta_1
 
 Ähnlich wie bei einem t-Test für eine Stichprobe können wir für den Steigungskoeffizienten $b_1$ ein Konfidenzintervall berechnen. Die Berechnung ist leicht unterschiedlich:
 
@@ -589,7 +589,7 @@ Klicke auf Ok. Im Anschluss erhältst du den Output:
 
 ![](spss5.png)
 
-### In R berechnen
+## R
 
 Genausogut kannst du die einfache lineare Regression direkt in R durch die `lm` Funktion und die [summary Funktion](https://www.rdocumentation.org/packages/base/versions/3.6.1/topics/summary) berechnen:
 

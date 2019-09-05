@@ -1,21 +1,20 @@
 
 # Sitzungen
 
-* Einführung
-* Grundlagen R
-* Vertiefung R
-* Statistische Modelle 
-* Statistische Inferenz 1 
-* Statistische INferenz 2 
-* Simple regression with single predictor 
-* Multiple regression (redundancy, partial regression coefficients, overall model test, testing predictors)
-* One-Way ANOVA (contrast-coded predictors, two-group t-test, three levels, orthongonal contrasts, other contrast codes)
-* Factorial ANOVA ()
-* ANCOVA (Homogenity, Moderation, Mediation)
-* Repeated Measures ANOVA ()
-* Offene Fragen
-* Klausur
-
+0. Einführung
+1. Grundlagen R
+2. Vertiefung R
+3. Statistische Modelle 
+4. Statistische Inferenz 1 
+5. Statistische INferenz 2 
+6. Simple regression
+7. Multiple regression (redundancy, partial regression coefficients, overall model test, testing predictors)
+8. One-Way ANOVA (contrast-coded predictors, two-group t-test, three levels, orthongonal contrasts, other contrast codes)
+9. Factorial ANOVA (Mediation)
+10. ANCOVA (Homogenity, Moderation, Mediation)
+11. Repeated Measures ANOVA ()
+12. Offene Fragen
+13. Klausur
 
 ## Projekte
 

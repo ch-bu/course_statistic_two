@@ -160,14 +160,14 @@ lm(deviations_height_by_height_father ~ deviations_foot_father_by_height_father,
 
 Dies entspricht des linearen Regressionsmodels:
 
-$
+$$
 \hat{Y}_i = 0 + (-1.41)* X_{i1} 
-$
+$$
 
 Wenn wir nun das Modell für unsere multiple Regression betrachten, sehen wir, dass der Regressionskoeffizient in diesem Modell gleich dem partiellen Regressionsmodell der multiplen Regression ist. 
 
-$
+$$
 \hat{Y}_i = -106.144 + 1.58 * X_{i1} + (-0.14) * X_{i2}
-$
+$$
 
 Wir haben also für die Körpergröße des Vaters kontrolliert und den restlichen Einfluss des Prädiktors Fußlänge des Vaters auf die Körpergröße einer Person berechnet. 
