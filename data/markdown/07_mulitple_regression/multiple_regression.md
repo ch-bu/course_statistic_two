@@ -475,13 +475,13 @@ Unsere übliche Tabelle lautet daher:
 |-------------|:----------:|---:|-----------|-------|--------|------|
 | Reduction   |  1084.856  |  2  | 542.43   | 29.59 | < .001 | 0.13 |
 | Error       |  7185.053  | 392 | 18.33    |       |        |      |
-| Total Error |  8269.909  | 395 |          |       |        |      |
+| Total Error |  8269.909  | 394 |          |       |        |      |
 
 ### Probleme des allgemeinen Modells
 
-Ein solcher Test ist allerdings nich sonderlich hilfreich, da wir auf Grundlage des Ergebnisses nicht hervorsagen können, inwieweit die **einzelnen** Parameter die Fehler substantiell reduzieren. Auf Grundlage des Ergebnisses können wir lediglich sagen, dass das Hinzufügen **beider** Parameter, den Fehler substantiell reduziert. Wir wissen jedoch nicht, ob beide oder nur einer dieser Parameter für diese Fehlerreduktion zuständig ist? 
+Ein solcher Test ist allerdings nicht sonderlich hilfreich, da wir auf Grundlage des Ergebnisses nicht hervorsagen können, inwieweit die **einzelnen** Parameter die Fehler substantiell reduzieren. Auf Grundlage des Ergebnisses können wir lediglich sagen, dass das Hinzufügen **beider** Parameter, den Fehler substantiell reduziert. Wir wissen jedoch nicht, ob beide oder nur einer dieser Parameter für diese Fehlerreduktion zuständig ist?
 
-Als Faustregel: Sobald der Freiheitsgrad des Zählers über 1 ist, können wir das Ergebnis nur schwer interpretieren, da mehrere Parameter für die Reduktion des Fehlers ausschlagbend sein können. Wir müssen daher einen Weg finden, den Freiheitsgrad auf 1 zu setzen, um eine Interpretation zu ermöglichen und das erweiterte und kompakte Modell so einzugrenzen, dass sich diese nur in einem Parameter unterscheiden. 
+Als Faustregel: Sobald der Freiheitsgrad des Zählers über 1 ist, können wir das Ergebnis nur schwer interpretieren, da mehrere Parameter für die Reduktion des Fehlers ausschlagbend sein können. Wir müssen daher einen Weg finden, den Freiheitsgrad auf 1 zu setzen, um eine Interpretation zu ermöglichen und das erweiterte und kompakte Modell so einzugrenzen, dass sich diese nur in einem Parameter unterscheiden.
 
 ## Einzelne Prädiktoren testen
 
@@ -592,7 +592,7 @@ Abschließend können wir alle Ergebnisse in einer Tabelle zusammen fassen:
 | Error       |  7185.053  | 393 | 18.28258  |       |        |      |
 | Total Error |  8190.777  | 394 |           |       |        |      |
 
-Wir können also sagen, dass die Variable `failures` zu einer signifikanten Reduzierung des Fehlers führt und daher einen starken Beitrag macht, die Mathematikleistung der SuS zu erklären. nteressanterweise trägt die Variable `studytime` nicht zur Erklärung der Mathematikleistung bei. Wie viel Zeit SuS in das Lernen investieren, scheint daher keinen Einfluss auf deren Note zu haben. Man könnte sich im nächsten Schritt überlegen, welche anderen Variablen hilfreich wären, um die Mathematikleistung von SuS zu erklären. Was wir allerdings aus den Daten erkennen können, ist, dass das Vorwissen, welches in gewisser Weise durch die Variable `failures` abgedeckt ist, einen großen Einfluss auf zukünftiges Wissen hat. Dies ist ein Befund, den man immer wieder in der pädagogischen Psychologie findet.
+Wir können also sagen, dass die Variable `failures` zu einer signifikanten Reduzierung des Fehlers führt und daher einen starken Beitrag macht, die Mathematikleistung der SuS zu erklären. Interessanterweise trägt die Variable `studytime` nicht zur Erklärung der Mathematikleistung bei. Wie viel Zeit SuS in das Lernen investieren, scheint daher keinen Einfluss auf deren Note zu haben. Man könnte sich im nächsten Schritt überlegen, welche anderen Variablen hilfreich wären, um die Mathematikleistung von SuS zu erklären. Was wir allerdings aus den Daten erkennen können, ist, dass das Vorwissen, welches in gewisser Weise durch die Variable `failures` abgedeckt ist, einen großen Einfluss auf zukünftiges Wissen hat. Dies ist ein Befund, den man immer wieder in der pädagogischen Psychologie findet.
 
 ## Konfidenzintervalle
 
@@ -757,3 +757,213 @@ In R können wir die gleiche Berechnung durch die Funktion `lm` durchführen:
 Wenn wir unser Ergebnis nun ein einem Artikel berichten möchten, können wir dies folgendermaßen tun:
 
 > Es wurde eine multiple Regression mit der Mathematikleistung als abhängige Variable und der Durchfallquote sowie der Lernzeit als unabhängige Variable berechnet. Die Regression ergab einen signifikanten Effekt der beiden Prädiktoren, *F*(2, 392) = 29.59, *p* < .001, R^2 = .13. Die Untersuchung der einzelnen Prädiktoren ergab, dass der Prädiktor Durchfallquote einen signifikanten Effekt auf die Mathematikleistung der Schüler\*innen hat, *F*(1, 392) = 54.87, *p* < .001, was darauf hindeutet, dass die Durchfallquote die Mathematikleistung der Schüler\*innen negativ beeinflusst. Für den Prädiktor Lernzeit ergab sich kein signifikanter Effekt, *F*(1, 392) = 0.58, *p* = .48, was darauf hindeutet, dass die Mathematikleistung nicht von der Lernzeit beeeinflusst wird.
+
+# Interpretation der multiplen Regression
+
+## Kausale Aussagen
+
+Wir hatten die partiellen Regressionskoeffizienten als die Veränderung in der abhängigen Variable beschrieben, die auftreten, wenn wir für alle anderen Prädiktoren kontrollieren. Diese Tatsache bedeutet allerdings **nicht**, dass die abhängige Variable durch die unabhängige Variable verändert wird. Die multiple Regression beschreibt lediglich die Daten. Beispielsweise können wir auf Grundlage der multiplen Regression nicht behaupten, dass eine höhere Durchfallquote zu einer schlechteren Mathematikleistung führt; selbst wenn der Regressionskoeffizient negativ ist. 
+
+[Hier](https://tylervigen.com/spurious-correlations) findest du eine Webseite, die mehrere irrsinnige kausale Aussagen zweier Variablen veranschaulicht. Beispielsweise gibt es einen nachweisbaren negativen Zusammenhang zwischen der Verkauf von Eis in einer Stadt und den Selbstmorden in einer Stadt. Führt weniger Eiskaufen kaufen daher zu Selbstmord? Nein. Der Grund liegt vielmehr in einer dritten Variable, der Temperatur. Die Temperatur wiederum könnte auf die Stimmung von Personen wirken, da es im Winter weniger Licht gibt.
+
+Wir werden im nächsten Modul allerdings ein Design / ein Modell kennen lernen, auf Grund dessen wir kausale Aussagen treffen können. Diese Designs sind fast immer Experimente, bei denen wir eine Variable bewusst manipulieren, um ihren Effekt zu bestimmen.
+
+## Wichtigkeit der Prädiktoren
+
+Ein häufiger Fehler in der Interpretation einer multiplen Regression liegt darin, dass die Stärke der Prädiktoren falsch interpretiert wird. Schauen wir uns dazu erneut unser Modell an:
+
+$$
+\hat{Y}_i = 10.74 - 2.18 * X_{i1} + 0.19 * X_{i2} +  e_i 
+$$
+
+Der Regressionskoeffizient des Durchfallens $b_1$ liegt bei $-2.18$. Der Regressionskoeffizient der Lernzeit $b_2$ liegt bei 0.19. Mehr Durchfallen führt daher zu einer schlechteren Mathemleistung, mehr Lernen zu einer leicht besseren, allerdings ist dieser Prädiktor nicht signifikant. 
+
+Es wäre nun inkorrekt zu behaupten, dass die Durchfallquote einen stärkeren Einfluss auf die Mathematikleistung hat als die Lernzeit. Hättest du aus irgendwelchen Gründen beispielsweise die Variable `failures` durch 1000 geteilt, wäre der Regressionskoeffizient $b_1$ tausendfach kleiner. Der Beitrag auf die abhängige Variable hingegen bliebe gleich.
+
+Häufig werden die Variablen daher z-standardisiert, um ihre Interpretation zu ermöglichen. Auch dieses Vorgehen ist nicht empfehlenswert, da diese von der Streuung der Variable abhängig sind. Zudem löst die Standardisierung nicht das Problem der Redundaz. Die Stärke der Regressionskoeffizienten sind daher mit Vorsicht zu genießen und sollten nicht überinterpretiert werden.
+
+# Modeling
+
+## Modeling
+
+```R
+library(tidyverse)
+library(jmv)
+library(hrbrthemes)
+library(ggthemes)
+
+student_data <- read_csv("student_data.csv")
+
+# Fragestellung: Hat der Alkoholkonsum und die Pendelstrecke
+#                von Schüler*innen einen Einfluss auf deren
+#                Lernzeit
+
+# studytime - weekly study time (numeric: 1 - <2 hours, 2 - 2 to 5 hours, 
+#                                3 - 5 to 10 hours, or 4 - >10 hours)
+# traveltime - home to school travel time (numeric: 1 - <15 min., 
+#              2 - 15 to 30 min., 3 - 30 min. to 1 hour, or 4 - >1 hour)
+# Walc - weekend alcohol consumption (numeric: from 1 - very low to 5 - very high)
+
+
+# Deskriptive Statistik *******************************************************
+jmv::descriptives(
+  data = student_data,
+  vars = vars(traveltime, studytime, Walc),
+  sd = TRUE)
+#
+#  Descriptives                                              
+#  ───────────────────────────────────────────────────────── 
+#                          traveltime    studytime    Walc   
+#  ───────────────────────────────────────────────────────── 
+#    N                            395          395     395   
+#    Missing                        0            0       0   
+#    Mean                        1.45         2.04    2.29   
+#    Median                         1            2       2   
+#    Standard deviation         0.698        0.839    1.29   
+#    Minimum                        1            1       1   
+#    Maximum                        4            4       5   
+#  ───────────────────────────────────────────────────────── 
+# 
+#
+
+student_data %>% 
+  select(studytime, Walc, traveltime) %>% 
+  gather(variable, value) %>% 
+  group_by(variable) %>% 
+  summarise(
+    mean = mean(value),
+    sd   = sd(value),
+    median = median(value),
+    minimun = min(value),
+    maximum = max(value),
+    n = n()
+  )
+# A tibble: 3 x 7
+# variable      mean    sd median minimun maximum     n
+# <chr>         <dbl> <dbl>  <dbl>   <dbl>   <dbl> <int>
+# 1 studytime   2.04 0.839      2       1       4   395
+# 2 traveltime  1.45 0.698      1       1       4   395
+# 3 Walc        2.29 1.29       2       1       5   395
+
+
+# Barplots ********************************************************************
+student_data %>% 
+  select(studytime, Walc, traveltime) %>% 
+  gather(variable, value) %>% 
+  ggplot(aes(x = value)) +
+  geom_bar(aes(fill = variable), color = "black") +
+  guides(fill = FALSE) +
+  facet_wrap(~ variable, scales = "free_x") +
+  labs(
+    title = "Balkendiagramme der drei Variablen",
+    x = "Ausprägung",
+    y = "Häufigkeit"
+  )
+
+# Boxplots ********************************************************************
+student_data %>% 
+  select(studytime, Walc, traveltime) %>% 
+  gather(variable, value) %>% 
+  ggplot(aes(x = variable, y = value)) +
+  geom_jitter() +
+  geom_boxplot(alpha = .7, aes(fill = variable)) +
+  guides(fill = FALSE) +
+  facet_wrap(~ variable, scales = "free_x") +
+  labs(
+    title = "Boxplots der drei Variablen",
+    x = "Variable",
+    y = "Wert"
+  )
+
+# Streudiagram der beiden Variablen Walc + traveltime *************************
+# mit der abhängigen Variable studytime
+student_data %>% 
+  select(studytime, Walc, traveltime) %>% 
+  gather(variable, value, -studytime) %>% 
+  ggplot(aes(x = value, y = studytime)) +
+  geom_jitter() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~ variable)  +
+  labs(
+    title = paste0("Streudiagramme der abhängigen Variablen ",
+                   "wöchentlicher Alkoholkonsum bzw. der Pendelstrecke\n",
+                   "der SuS und der Lernzeit der SuS"),
+    x = "unabhängige Variable",
+    y = "Lernzeit"
+  )
+
+
+# Korrelation der unabhängigen und abhängigen *********************************
+# Variable
+cor(student_data$studytime, student_data$Walc)
+cor(student_data$studytime, student_data$traveltime)
+cor(student_data$Walc, student_data$traveltime)
+
+
+
+# Multiple Regression *********************************************************
+# AV: studytime
+# UV: Walc + traveltime
+
+jmv::linReg(
+  data = student_data,
+  dep = studytime,
+  covs = vars(traveltime, Walc),
+  blocks = list(
+    list(
+      "traveltime",
+      "Walc")),
+  refLevels = list(),
+  modelTest = TRUE,
+  anova = TRUE)
+
+#  Model Fit Measures                                           
+#  ──────────────────────────────────────────────────────────── 
+#    Model    R        R²        F       df1    df2    p        
+#  ──────────────────────────────────────────────────────────── 
+#        1    0.263    0.0690    14.5      2    392    < .001   
+#  ──────────────────────────────────────────────────────────── 
+# 
+#
+#
+#  Omnibus ANOVA Test                                                        
+#  ───────────────────────────────────────────────────────────────────────── 
+#                  Sum of Squares    df     Mean Square    F        p        
+#  ───────────────────────────────────────────────────────────────────────── 
+#    traveltime              1.26      1          1.264     1.92     0.167   
+#    Walc                   16.31      1         16.311    24.75    < .001   
+#    Residuals             258.37    392          0.659                      
+#  ───────────────────────────────────────────────────────────────────────── 
+#    Note. Type 3 sum of squares
+# 
+#
+#
+#  Model Coefficients                                      
+#  ─────────────────────────────────────────────────────── 
+#    Predictor     Estimate    SE        t        p        
+#  ─────────────────────────────────────────────────────── 
+#    Intercept       2.5194    0.1128    22.34    < .001   
+#    traveltime     -0.0819    0.0592    -1.38     0.167   
+#    Walc           -0.1594    0.0320    -4.97    < .001   
+#  ─────────────────────────────────────────────────────── 
+# 
+
+
+# In R
+lm(studytime ~ Walc + traveltime, data = student_data) %>% 
+  summary
+
+
+# Um den Einfluss des Alkoholkonsums und der Pendelzeit der SuS auf
+# die Lernzeit der SuS zu untersuchen, wurde eine multiple Regression
+# berechnet. Die multiple Regression ergab einen signifikanten Effekt 
+# der beiden Prädiktoren, *F*(2, 392) = 14.5, *p* < .001, R^2 = .06. 
+# Die Untersuchung der einzelnen Prädiktoren ergab, dass der Prädiktor 
+# Alkoholkonsum einen signifikanten Effekt auf die Lernzeit der 
+# SuS hatte, *F*(1, 392) = 24.75, *p* < .001, 
+# was darauf hindeutet, dass wochenentlicher Alkoholkonsum zu einer
+# Reduzierung der Lernzeit bei SuS führt. Für den Prädiktor 
+# Pendelzeit ergab sich kein signifikanter Effekt, 
+# *F*(1, 392) = 1.92, *p* = .17, was darauf hindeutet, dass 
+# die Pendelzeit keinen Einfluss auf die Lernzeit der SuS hat.
+```
