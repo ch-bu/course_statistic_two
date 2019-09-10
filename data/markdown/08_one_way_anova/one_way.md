@@ -164,21 +164,279 @@ $$
 \hat{Y} = 2.3778 + 0.1563 * X_1
 $$
 
-Der Grund liegt darin, dass bei diesem Beispiel andere Kontraste verwendet wurden. Wir müssen daher im nächsten Schritt die Kontraste ändern, so dass $\sum_k \lambda_k = 0$  gilt. In R können wir Kontaste ändern, indem wir eine Matrix definieren und den Kontrasten des Faktors zuweisen:
+Der Grund liegt darin, dass bei diesem Beispiel andere Kontraste verwendet wurden. Wir müssen daher im nächsten Schritt die Kontraste ändern, so dass $\sum_k \lambda_k = 0$  gilt. In R können wir Kontaste ändern, indem wir eine Matrix definieren und den Kontrasten des Faktors zuweisen.
+
+Im ersten Schritt erstellen wir eine Matrix. Eine Matrix kannst du dir wie ein Dataframe vorstellen, nur dass es keine Bezeichnung der Variablen gibt:
 
 ```r
+(contrast_matrix <- matrix(c(1, -1), ncol = 1))
+```
 
 ```
+     [,1]
+[1,]    1
+[2,]   -1
+```
+
+Diese Matrix weißen wir den Kontrasten des Faktors zu:
+
+```r
+contrasts(student_selected$address) <- contrast_matrix
+contrasts(student_selected$address)
+```
+
+```
+  [,1]
+R    1
+U   -1
+```
+
+Wenn wir nun das Modell erneut aufstellen, erhalten wir die gleichen Koeffizienten:
+
+```r
+lm(Walc ~ address, data = student_selected)
+```
+
+```
+Call:
+lm(formula = Walc ~ address, data = student_selected)
+
+Coefficients:
+(Intercept)     address1  
+     2.3778       0.1563
+```
+
+Im Vergleich:
+
+$$
+\hat{Y} = 2.3778 + 0.1563 * X_1
+$$
+
+In der Praxis werden wir Kontraste selten anhand von Matrizen berechnen. Für das Verständnis, wie in R Modelle erstellt werden, ist es allerdings hilfreich zu wissen, wie R Kontraste im Hintergrund speichert. Entscheidend ist, dass du weißt, welche Levels den Faktoren zugeordnet sind, um später Kontraste definieren zu können.
 
 ## Interpretation der Betagewichte
 
-## Beispiel
+Was bedeuten allerdings die Koeffizienten dieses Modells?
+
+$$
+\hat{Y} = 2.3778 + 0.1563 * X_1
+$$
+
+Bei der einfachen und multiplen Regression konnten wir sagen, dass eine Erhöhung von $X_1$ beispielsweise $\hat{Y}$ um $b_1$ Werte steigern oder senken lässt. Diese Interpretation gelingt allerdings nicht bei kategorialen Prädiktoren.
+
+Nehmen wir ein Beispiel. Berechnen wir zunächst den vorhergesagten Wert $\hat{Y}$ einer Schülerin, die aus dem ländlichen Bereich kommt (das Kontrastgewicht nimmt hierfür den Wert 1 an):
+
+```r
+2.3778 + 0.1563 * 1 # 2.5341
+```
+
+Weiterhin berechnen wir $\hat{Y}$ für eine Schülerin, die aus der Stadt kommt:
+
+```r
+2.3778 + 0.1563 * (-1) # 2.2215
+```
+
+Diese Einzelwerte sind nichts anderes als die beiden Mittelwerte der Gruppen:
+
+```r
+student_selected %>% 
+  group_by(address) %>% 
+  summarise(mean = mean(Walc))
+```
+
+```
+# A tibble: 2 x 2
+  address  mean
+  <fct>   <dbl>
+1 R        2.53
+2 U        2.22
+```
+
+Der Intercept $b_0$ ($2.3778$) nun ist - bei einem Modell mit einem Prädiktor - definiert als der Wert, wenn $b_1 = 0$ gilt. Wenn daher die Kontrastgewichte zu den Mittelwerten der einzelnen Gruppen führen, ist der Intercept nichts anderes als der Mittelwert der Mittelwerte beider Gruppen.
+
+```r
+(2.5341 + 2.2215)  / 2 # 2.3778
+```
 
 # Kontraste
 
 ## Konzeptuelle Einführung
 
+Wir haben bereits Kontraste bei Modellen kennen gelernt, mit denen wir den Unterschied zwischen zwei Gruppen testen können. Häufig hingegen haben wir allerdings mehr als zwei Gruppen, beispielsweise wenn wir drei verschiedene instruktionale Methoden testen möchten. Während wir bei zwei Gruppen die Kontrastgewichte immer mit -1 und 1 definieren können, sind die Kontrastgewichte bei mehreren Gruppen ein wenig komplexer.
+
+In diesem Teil wirst du zunächst orthogonale Kontraste kennen lernen, die wir häufig verwenden, um Hypothesen bei mehreren Gruppen zu testen. Im nächsten Teil lernst du nicht-orthogonale Kontraste kennen, die eine bestimmte wichtige Eigenschaft der orthogonalen Kontraste nicht besitzen.
+
 ## Orthogonale Kontraste
+
+> In diesem Teil erstellen wir ein Modell mit drei Prädiktoren bzw. vier Gruppen. Die Berechnungen dienen dem Aufstellung des Modells. Wichtig für dich ist vor allem, dass du verstehst, was orthogonale Kontraste sind und wie diese berechnet werden. Später werden wir in der Anwendung der Verfahren nicht erneut diese einzelnen Schritte händisch berechnen, sondern sie durch ein Computerprogramm übernehmen lassen.
+
+Unsere erste Bedingung für Kontraste lautete:
+
+$$
+\sum_k \lambda_k = 0
+$$
+
+
+## Zwei Prädiktoren
+
+Den Kontrast, der bei zwei Gruppen diese Bedingung erfüllt, können wir uns folgendermaßen darstellen:
+
+|        | Rural | Urban |
+|--------|:-----:|------:|
+| $\lambda_{1}$ |   1   |    -1 |
+
+
+Wir bezeichnen den Kontrast mit dem Lambda-Symbol $\lambda_{1}$. Bei zwei Gruppen können wir lediglich einen Kontrast aufstellen. Kontraste sind im Grunde nichts anderes als spezifische Hypothesen, die wir testen, indem wir sie als Prädiktor definieren. Beispielsweise können wir die Tabelle in folgendes Modell übersetzen:
+
+$$
+\begin{aligned}
+\hat{Y} &= b_0 + b_1 * (1) \\
+\hat{Y} &= b_0 + b_1 * (-1)
+\end{aligned}
+$$
+
+Indem wir den Einfluss des Regressionskoeffizienten $b_1$ testen, prüfen wir quasi, ob es einen Unterschied zwischen beiden Gruppen gibt. Da es zwei Gruppen sind, genügen uns $2-1 = 1$ Prädiktoren.
+
+### Drei Prädiktoren
+
+Haben wir drei Gruppen, benötigen wir eine andere Kontrastkodierung und immer noch $k-1$ Prädiktoren. Beispielsweise benötigen wir zwei Kontraste, wenn wir drei Gruppen in unser Modell aufnehmen möchten. Hier ein Beispiel:
+
+|        | Gruppe1 | Gruppe2 | Gruppe3 |
+|--------|:-------:|--------:|---------|
+| $\lambda_{1}$ |    -2   |       1 | 1       |
+|$\lambda_{2}$| 0       | -1      | 1       |
+
+Oder im Modell ausgedrückt:
+
+$$
+\begin{aligned}
+\hat{Y} &= b_0 + b_1 * (-2) + b_2 * (0) \\
+\hat{Y} &= b_0 + b_1 * (1)  + b_2 * (-1) \\
+\hat{Y} &= b_0 + b_1 * (1) + b_2 * (1)
+\end{aligned}
+$$
+
+Anhand des ersten Regressionskoeffizienten $b_1$ testen wir die Hypothese, ob sich der Mittelwert von Gruppe 2 sowie Gruppe 3 vom Mittelwert der Gruppe 1 unterscheidet. Anhand des zweiten Regressionskoeffizienten $b_2$ testen wir, ob sich der Mittelwert der Gruppe 2 vom Mittelwert der Gruppe 3 unterscheidet.
+
+### Zweite Regel
+
+Orthogonale Kontraste müssen neben folgender Regel $\sum_k \lambda_k = 0$ zusätzlich diese Regel erfüllen:
+
+$$
+\sum_k \lambda_{1} * \lambda_{2} = 0
+$$
+
+Das Produkt der einzelnen Lambdagewichte sollte 0 ergeben. Unsere beiden Kontraste von oben wären nach dieser Definition orthogonal:
+
+```r
+(-2) * 0 + 1 * (-1) + 1 * 1 # 0
+```
+
+Folgende Kontraste wären nicht orthogonal:
+
+|        | Gruppe1 | Gruppe2 | Gruppe3 |
+|--------|:-------:|--------:|---------|
+| $\lambda_{1}$ |    -1   |       0 | 1       |
+|$\lambda_{2}$| 0       | -1      | 1       |
+
+Da:
+
+```r
+(-1) * 0 + 0 * (-1) + 1 * 1 # 1
+```
+
+Die Orthogonalität der Kontraste ist wichtig, da die Regressionskoeffizienten ansonsten nicht die Mittelwertsunterschiede unserer spezifischer Hypothesen testen.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Wenn wir nun mehrere Gruppen haben, benötigen wir für jede Hypothese 
+
+
+
+
+Wir hatten gerade ein Modell aufgestellt, anhand dessen wir den Unterschied zwischen zwei Gruppen testen konnte. Beispielsweise, ob SuS auf dem Land mehr Alkohol am Wochenende trinken als SuS aus der Stadt. Wir können ebenso Modelle aufbauen, bei denen wir testen, ob es zwischen **mehreren** Gruppen Unterschiede gibt. Dies versuchen wir in diesem Beispiel.
+
+Der Datensatz enthält eine Variable mit dem Namen `reason`. Unter `reason` ist der Grund kodiert, weshalb die Eltern ihre Kinder auf die einzelnen Schulen schicken. Folgende Gründe gibt es:
+
+* close to 'home'
+* school 'reputation'
+* 'course' preference
+* 'other'
+
+> Wir versuchen im nächsten Schritt ein Modell auf Grundlage dieser Gruppen zu erstellen, welches wir später benutzen können, um spezifische Hypothesen zu testen. Als abhängige Variable verwenden wir die Variable `health`. Wir möchten daher später untersuchen, ob der Grund für die Wahl eine Schule zu besuchen einen Effekt auf die Gesundheit der SuS hat (achte allerdings darauf, dass es sich hier um ein quasi-experimentelles Design handelt, da die Gruppen nicht zufällig zugeordnet wurden).
+
+### Schritt 1: Variable in Faktor umwandeln
+
+Schauen wir uns zunächst an, welche Gründe häufig auftreten:
+
+```r
+student_data %>% count(reason)
+```
+
+```
+# A tibble: 4 x 2
+  reason         n
+  <chr>      <int>
+1 course       145
+2 home         109
+3 other         36
+4 reputation   105
+```
+
+Die Variable `reason` ist als `char` gespeichert (r`student_data$reason`). Wir müssen sie daher in einen Faktor umwandeln, um die Levels für den Faktor zu bestimmen:
+
+```r
+student_data <- student_data %>%
+  mutate(
+    reason = as.factor(reason) %>% 
+      fct_relevel("course", "home", "reputation", "other")
+  )
+levels(student_data$reason)
+```
+
+```
+[1] "course"     "home"       "reputation" "other" 
+```
+
+### Schritt 2: Kontrastegewichte bestimmen
+
+Um zu unserem Modell zu gelangen, müssen wir im nächsten Schritt die Kontrastgewichte bestimmen. Schauen wir uns hierfür zunächst an, welche Kontraste im Hintergrund bereits aufgestellt hat:
+
+```r
+contrasts(student_data$reason)
+```
+
+```
+           home reputation other
+course        0          0     0
+home          1          0     0
+reputation    0          1     0
+other         0          0     1
+```
+
+Diese Matrix ist bereits etwas komplizierter. Wir wissen, dass bei vier Gruppen $k-1$, also 3 Prädiktoren in das Modell aufgenommen werden. Diese erkennst du anhand der **Reihen** des Outputs. In dieser *Dummykodierung* berechnet sich der Mittelwert der Gruppe course daher, indem alle Prädiktoren auf 0 gesetzt werden. Wir möchten allerdings keine *Dummykodierung* verwenden, sondern sicherstellen, dass unsere Kontraste unserer Formel $\sum_k \lambda_k = 0$ entsprechen:
+
+```
+           home reputation other
+course        -1          0     1
+home          1          -     0
+reputation    0          1     0
+other         0          0     1
+```
 
 ## Nicht-orthogonale Kontraste
 
