@@ -1,0 +1,807 @@
+<h1 id="model">Model</h1>
+<h2 id="datensatz">Datensatz</h2>
+<p>Ab dieser Woche verwenden wir einen neuen Datensatz, welcher verschiedene demografische und schulrelevante Daten von Schüler*innen aus Portugal erfasst. Es handelt sich dabei um echte Daten, die von <a href="https://repositorium.sdum.uminho.pt/handle/1822/8024">Paulo Cortez</a> erhoben wurden und <a href="https://www.kaggle.com/uciml/student-alcohol-consumption/">Kaggle</a> herunter geladen werden können. Ingsesamt wurden die Daten von 395 Schüler*innen erhoben. Der Artikel zum Datensatz kann <a href="https://repositorium.sdum.uminho.pt/bitstream/1822/8024/1/student.pdf">hier</a> gefunden werden. In den nächsten Wochen untersuchen wir, wodurch die Mathematikleistung dieser Schüler beeinflusst wird.</p>
+<p>Der Datensatz hat den Namen <code>student_data</code> und kann <a href="TODO">hier</a> herunter geladen werden. Die Variablen des Datensatzes sind:</p>
+<ol type="1">
+<li>school - student’s school (binary: ‘GP’ - Gabriel Pereira or ‘MS’ - Mousinho da Silveira)</li>
+<li>sex - student’s sex (binary: ‘F’ - female or ‘M’ - male)</li>
+<li>age - student’s age (numeric: from 15 to 22)</li>
+<li>address - student’s home address type (binary: ‘U’ - urban or ‘R’ - rural)</li>
+<li>famsize - family size (binary: ‘LE3’ - less or equal to 3 or ‘GT3’ - greater than 3)</li>
+<li>Pstatus - parent’s cohabitation status (binary: ‘T’ - living together or ‘A’ - apart)</li>
+<li>Medu - mother’s education (numeric: 0 - none, 1 - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)</li>
+<li>Fedu - father’s education (numeric: 0 - none, 1 - primary education (4th grade), 2 – 5th to 9th grade, 3 – secondary education or 4 – higher education)</li>
+<li>Mjob - mother’s job (nominal: ‘teacher’, ‘health’ care related, civil ‘services’ (e.g. administrative or police), ‘at_home’ or ‘other’)</li>
+<li>Fjob - father’s job (nominal: ‘teacher’, ‘health’ care related, civil ‘services’ (e.g. administrative or police), ‘at_home’ or ‘other’)</li>
+<li>reason - reason to choose this school (nominal: close to ‘home’, school ‘reputation’, ‘course’ preference or ‘other’)</li>
+<li>guardian - student’s guardian (nominal: ‘mother’, ‘father’ or ‘other’)</li>
+<li>traveltime - home to school travel time (numeric: 1 - &lt;15 min., 2 - 15 to 30 min., 3 - 30 min. to 1 hour, or 4 - &gt;1 hour)</li>
+<li>studytime - weekly study time (numeric: 1 - &lt;2 hours, 2 - 2 to 5 hours, 3 - 5 to 10 hours, or 4 - &gt;10 hours)</li>
+<li>failures - number of past class failures (numeric: n if 1&lt;=n&lt;3, else 4)</li>
+<li>schoolsup - extra educational support (binary: yes or no)</li>
+<li>famsup - family educational support (binary: yes or no)</li>
+<li>paid - extra paid classes within the course subject (Math or Portuguese) (binary: yes or no)</li>
+<li>activities - extra-curricular activities (binary: yes or no)</li>
+<li>nursery - attended nursery school (binary: yes or no)</li>
+<li>higher - wants to take higher education (binary: yes or no)</li>
+<li>internet - Internet access at home (binary: yes or no)</li>
+<li>romantic - with a romantic relationship (binary: yes or no)</li>
+<li>famrel - quality of family relationships (numeric: from 1 - very bad to 5 - excellent)</li>
+<li>freetime - free time after school (numeric: from 1 - very low to 5 - very high)</li>
+<li>goout - going out with friends (numeric: from 1 - very low to 5 - very high)</li>
+<li>Dalc - workday alcohol consumption (numeric: from 1 - very low to 5 - very high)</li>
+<li>Walc - weekend alcohol consumption (numeric: from 1 - very low to 5 - very high)</li>
+<li>health - current health status (numeric: from 1 - very bad to 5 - very good)</li>
+<li>absences - number of school absences (numeric: from 0 to 93)</li>
+<li>G1 - first period grade mathematics (numeric: from 0 to 20)</li>
+<li>G2 - second period grade mathematics (numeric: from 0 to 20)</li>
+<li>G3 - final grade mathematics (numeric: from 0 to 20, output target)</li>
+</ol>
+<p>In dieser Woche werden wir uns im besonderen mit den Variablen G3, failures und studytime beschäftigen.</p>
+<h2 id="das-modell">Das Modell</h2>
+<p>Im letzten Modul haben wir uns das zwei-parameter Modell angeschaut, bei dem sowohl die abhängige als auch die unabhängige Variable intervallskaliert war:</p>
+<p><br /><span class="math display"><em>Y</em><sub><em>i</em></sub> = <em>β</em><sub>0</sub> + <em>β</em><sub>1</sub> * <em>X</em><sub><em>i</em>1</sub> + <em>ϵ</em><sub><em>i</em></sub></span><br /></p>
+<p>Beispielsweise könnten wir auf Grundlage des einfachen Regressionsmodells fragen, ob die Lernzeit von Schülern einen Einfluss auf deren Mathematikleistung hat. Eine andere Fragestellung wäre, ob die Anzahl der Fächer in denen ein*e Schüler*in durchgefallen ist,einen Einfluss auf die Mathematikleistung hat? Um beide Fragestellungen zu beantworten, könnten wir zwei einfache Regressionsmodelle berechnen. Wir werden allerdings in diesem Modul lernen, beide Fragestellungen anhand der multiplen Regression zu testen, indem wir mehrere Prädiktoren in unser Modell hinzunehmen:</p>
+<p><br /><span class="math display"><em>Y</em><sub><em>i</em></sub> = <em>β</em><sub>0</sub> + <em>β</em><sub>1</sub> * <em>X</em><sub><em>i</em>1</sub> + <em>β</em><sub>2</sub> * <em>X</em><sub><em>i</em>2</sub> + ... + <em>β</em><sub><em>p</em></sub> * <em>X</em><sub><em>i</em>, <em>p</em> − 1</sub> + <em>ϵ</em><sub><em>i</em></sub></span><br /></p>
+<p><span class="math inline"><em>Y</em><sub><em>i</em></sub></span> steht erneut für unsere abhängige Variable und <span class="math inline"><em>ϵ</em><sub><em>i</em></sub></span> steht für die Fehler, welche unser Modell nicht erklären kann. <span class="math inline"><em>X</em><sub><em>i</em><em>j</em></sub></span> steht für die Werte unserer intervallskalierten abhängigen Variablen, beispielsweise die Dauer der Lernzeit einer bestimmten Schülerin. <span class="math inline"><em>β</em><sub><em>j</em></sub></span> steht für die <strong>partiellen Regressionskoeffizienten</strong>. Wir werden später ausführlich darüber reden, weshalb diese Koeffizienten partiell heißen. Fur jetzt genügt es zu wissen, dass diese partiellen Regressionskoeffizienten von den anderen Prädiktoren abhängig sind und sich mit dem Entfernen bzw. Hinzufügen dieser Prädiktoren ändern.</p>
+<p>In diesem Modul werden wir eine multiple Regression mit zwei Prädiktoren berechnen. Das zugehörige Modell sieht folgendermaßen aus:</p>
+<p><br /><span class="math display"><em>Y</em><sub><em>i</em></sub> = <em>β</em><sub>0</sub> + <em>β</em><sub>1</sub> * <em>X</em><sub><em>i</em>1</sub> + <em>β</em><sub>2</sub> * <em>X</em><sub><em>i</em>2</sub> + <em>ϵ</em><sub><em>i</em></sub></span><br /></p>
+<p>Folgende Variablen werden wir in dem Modell untersuchen:</p>
+<ul>
+<li><span class="math inline"><em>Y</em><sub><em>i</em></sub></span> (abhängige Variable) - <code>G3</code>: Die Mathematikleistung der SuS (0 bis 20 Punkte)</li>
+<li><span class="math inline"><em>X</em><sub><em>i</em>1</sub></span> (unabhängige Variable) - <code>failures</code>: Die Anzahl der Fächer, indenen der/die Schüler*in durchgefallen</li>
+<li><span class="math inline"><em>X</em><sub><em>i</em>2</sub></span> (unabhängige Variable) - <code>studytime</code>: Die wöchentliche Zeit, die die SuS auf das Lernen der Mathematik aufwenden</li>
+</ul>
+<p>Während wir uns in der einfachen linearen Regression das Model als eine Linie vorstellen können, können wir uns dieses multiple lineare Regressionsmodell als eine Fläche darstellen.</p>
+<h2 id="bestimmung-der-betagewichte">Bestimmung der Betagewichte</h2>
+<blockquote>
+<p>Die Berechnung der Betagewichte durch Verfahren der linearen Algebra ist nicht prüfungsrelevant</p>
+</blockquote>
+<p>Die Berechnung der Betagewichte ist bei der multiplen Regression deutlich schwieriger als bei der einfachen linearen Regression. Konzeptuell versuchen wir erneut die Betagewichte zu finden, die die quadrierten Abweichungen der realen Werte von den vorhergesagten Werte minimieren:</p>
+<p><br /><span class="math display">$$
+\min {\sum_{i=1}^N{(Y_i - \hat{Y}_i)}^2} 
+$$</span><br /></p>
+<p>Wir können diese Betagewichte erneut durch lineare Algebra berechnen:</p>
+<p><br /><span class="math display">(<em>A</em><sup><em>T</em></sup><em>A</em>)<sup> − 1</sup><em>A</em><sup><em>T</em></sup><em>b</em></span><br /></p>
+<p><span class="math inline"><em>A</em></span> steht für eine Matrix der unabhängigen Variablen (<span class="math inline"><em>X</em><sub>1</sub></span>). <span class="math inline"><em>b</em></span> steht für <span class="math inline"><em>Y</em></span>.</p>
+<p>Zunächst verfassen wir A:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">rows &lt;-<span class="st"> </span><span class="kw">nrow</span>(student_mat)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">A &lt;-<span class="st"> </span><span class="kw">matrix</span>(</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>, rows), </a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  student_mat<span class="op">$</span>failures,</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">  student_mat<span class="op">$</span>studytime), </a>
+<a class="sourceLine" id="cb1-7" data-line-number="7">  <span class="dt">nrow =</span> rows)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">b &lt;-<span class="st"> </span><span class="kw">matrix</span>(student_mat<span class="op">$</span>G3, <span class="dt">nrow =</span> rows)</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="kw">solve</span>(<span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>A) <span class="op">%*%</span><span class="st"> </span><span class="kw">t</span>(A) <span class="op">%*%</span><span class="st"> </span>b</a></code></pre></div>
+<pre><code>           [,1]
+[1,] 10.7401929
+[2,] -2.1815446
+[3,]  0.1984922</code></pre>
+<p>Diese Betagewichte können wir mit Hilfe der Funktion <a href="https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html">lm</a> prüfen:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">lm</span>(G3 <span class="op">~</span><span class="st"> </span>failures <span class="op">+</span><span class="st"> </span>studytime, <span class="dt">data =</span> student_data)</a></code></pre></div>
+<pre><code>
+Call:
+lm(formula = G3 ~ failures + studytime, data = student_mat)
+
+Coefficients:
+(Intercept)     failures    studytime  
+    10.7402      -2.1815       0.1985</code></pre>
+<p>Unser Modell lautet daher:</p>
+<p><br /><span class="math display">$$
+\begin{aligned}
+\hat{Y}_i &amp;= b_0 + b * X_{i1} + b * X_{i2} +  e_i \\
+          &amp;= 10.74 + (-2.18) * X_{i1} + 0.19 * X_{i2} +  e_i \\
+          &amp;= 10.74 - 2.18 * X_{i1} + 0.19 * X_{i2} +  e_i \\
+\end{aligned}
+$$</span><br /></p>
+<h1 id="partielle-regressionskoeffizienten">Partielle Regressionskoeffizienten</h1>
+<h2 id="interpretation-der-prädiktoren">Interpretation der Prädiktoren</h2>
+<p>Unser multiples Regressionsmodell sieht nun folgendermaßen aus:</p>
+<p><br /><span class="math display"><em>Ŷ</em><sub><em>i</em></sub> = 10.74 − 2.18 * <em>X</em><sub><em>i</em>1</sub> + 0.19 * <em>X</em><sub><em>i</em>2</sub> + <em>e</em><sub><em>i</em></sub></span><br /></p>
+<p>Die naheliegende Frage ist, was die Regressionskoeffizienten besagen? Zunächst können wir auf Grundlage des Modells <span class="math inline"><em>Ŷ</em></span> berechnen. Stellen wir uns eine Schülerin vor, die 5 bis 10 Stunden pro Woche lernt und daher für <code>studytime</code> den Wert 3 erhält und die bisher einmal in einem Fach durchgefallen ist:</p>
+<p><br /><span class="math display">$$
+\begin{aligned}
+\hat{Y}_i &amp;= 10.74 - 2.18 * X_{i1} + 0.19 * X_{i2} +  e_i \\
+          &amp;= 10.74 + (-2.18) * 1 + 0.19 * 3 +  e_i \\
+          &amp;= 9.13 +  e_i \\
+\end{aligned}
+$$</span><br /></p>
+<p><span class="math inline"><em>Ŷ</em></span> wäre in diesem Fall 0.13. Wir schätzen, dass die Schülerin 9.13 von 20 möglichen Punkten in der Klausur enthält.</p>
+<p>Wir können die Regressionskoeffizienten zudem einzeln interpretieren. Der Koeffizient der Variable <code>failures</code> ist <span class="math inline"> − 2.18</span>. Dies bedeutet, dass die Mathematiknote mit jedem Durchfallen in einem Fach um 2.8 Punkte absinkt. Schüler, die daher noch nie durchgefallen sind, sollten eine bessere Note erhalten, als Schüler, die bereits ein- oder mehrmals durchgefallen sind. Der Koeffizient der Variable <code>studytime</code> besagt, dass mit jeder weiteren Stufe der Lernzeit, die Mathematikleistung um 0.19 Punkte zunimmt.</p>
+<p>Beide Koeffizienten allerdings sind nur in <strong>Abhängigkeit</strong> des anderen Prädiktors zu interpretieren. Wir würden sagen, dass wir für andere Prädiktoren <strong>kontrollieren</strong>. Daher sprechen wir von <strong>partiellen Regressionskoeffizienten</strong>.</p>
+<h2 id="redundanz-der-prädiktoren">Redundanz der Prädiktoren</h2>
+<p>Sobald Prädiktoren miteinander korrelieren, herrscht eine gewissen Redundanz zwischen diesen. Stell dir ein extremes Beispiel vor. Du möchtest das Gewicht einer Person auf Grundlage der Größe einer Person in Zentimeter und der Größe einer Person in Inch berechnen. Die Größe einer Person in Zentimeter und Inch ist komplett redundant, was sich dadurch zeigen lässt, dass deren Korrelation 1 ist. Der zweite Prädiktor wird daher so gut wie keine weiteren Fehler im Vergleich zum ersten Prädiktor erklären und daher komplett redundant sein.</p>
+<p>Meistens sind Prädiktoren nicht so hoch miteinander korreliert. In unserem Beispiel beläuft sich die Korrelation beider Variablen auf <span class="math inline"> − 0.17</span>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">cor</span>(student_mat<span class="op">$</span>failures, student_mat<span class="op">$</span>studytime) <span class="co"># -0.17356</span></a></code></pre></div>
+<p>Die Folge ist, dass sich die Betagewichte zwischen der einfachen Regression und der multiplen Regression unterscheiden. Hier siehst die Betagewichte mit der Variable <code>studytime</code> als unabhängige Variable bei einer einfachen Regression:</p>
+<p><br /><span class="math display"><em>Ŷ</em><sub><em>i</em></sub> = 9.328 + 0.534 * <em>X</em><sub><em>i</em>1</sub> + <em>e</em><sub><em>i</em></sub></span><br /></p>
+<p><span class="math inline"><em>b</em><sub>1</sub></span> ändert sich allerdings, wenn wir den zweiten Prädiktor hinzunehmen:</p>
+<p><br /><span class="math display"><em>Ŷ</em><sub><em>i</em></sub> = 10.74 − 2.18 * <em>X</em><sub><em>i</em>1</sub> + 0.19 * <em>X</em><sub><em>i</em>2</sub> + <em>e</em><sub><em>i</em></sub></span><br /></p>
+<p>Während <span class="math inline"><em>b</em><sub>1</sub></span> bei der einfachen Regression <span class="math inline">0.53</span> beträgt, beläuft sich <span class="math inline"><em>b</em><sub>1</sub></span> bei der multiplen Regression auf <span class="math inline">0.19</span>. Dies liegt an der Redundanz der beiden Prädiktoren geschuldet. Wären beide Prädiktoren gar nicht miteinander korreliert, wären diesen beiden Regressionskoeffizienten identisch.</p>
+<p>Im nächsten Schritt versuchen wir zu verstehen, weshalb dieser Unterschied besteht und wie dieser zu Stand kommt.</p>
+<h2 id="berechnung-partieller-regressionskoeffizienten">Berechnung partieller Regressionskoeffizienten</h2>
+<p>Das Ziel diesen Abschnitts ist es, die partiellen Regressionskoeffizienten zu berechnen und zu verstehen. Hierfür vergegenwärtigen wir uns erneut unser berechnetes Modell:</p>
+<p><br /><span class="math display"><em>Ŷ</em><sub><em>i</em></sub> = 10.74 − 2.18 * <em>X</em><sub><em>i</em>1</sub> + 0.19 * <em>X</em><sub><em>i</em>2</sub> + <em>e</em><sub><em>i</em></sub></span><br /></p>
+<p>Wir hatten gesagt, dass die Werte <span class="math inline"> − 2.18</span> und <span class="math inline">0.19</span> partielle Regressionskoeffizienten sind. Das bedeutet, dass diese in <em>Abhängigkeit</em> des jeweilig anderen Prädiktors stehen bzw. für den anderen Prädiktor kontrolliert sind.</p>
+<p>Wir werden im nächsten Schritt mehrere Modelle berechnen, die jeweils aufeinander aufbauen. Im letzen einfachen Regressionsmodell werden wir den gleichen Regressionskoeffizienten erhalten wie in der multiplen Regression, mit dem Unterschied, dass wir diesen besser intepretieren können. Die Darstellung dieser Modelle dient dir dazu, die partiellen Regressionskoeffizienten intuitiv zu verstehen.</p>
+<p>Dieser Teil ist inhaltlich komplex, nehm dir daher genug Zeit, ihn zu verstehen.</p>
+<h3 id="model-1-einfaches-model-mit-dem-mittelwert-der-mathematikleistung">Model 1: Einfaches Model mit dem Mittelwert der Mathematikleistung</h3>
+<p>Zunächst erstellen wir uns Modell mit einem Parameter, dem Mittelwert der abhängigen Variable:</p>
+<p><br /><span class="math display">$$
+\begin{aligned}
+Y_{math} &amp;= b_0 + e_i\\
+Y_{math} &amp;= 10.42 + e_i
+\end{aligned}
+$$</span><br /></p>
+<p>Wir können die Gleichung umstellen und zeigen, dass der Fehler durch <span class="math inline"><em>e</em><sub><em>i</em></sub> = <em>Y</em><sub><em>m</em><em>a</em><em>t</em><em>h</em></sub> − 10.42</span> berechnet werden kann. Speichern wir diesen Fehler in einer eigenen Variable:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">(residual_dataframe &lt;-<span class="st"> </span>student_data <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">rownames_to_column</span>(<span class="dt">var =</span> <span class="st">&quot;id&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(id, G3, studytime, failures) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="dt">e_y_math =</span> G3 <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(G3)</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">  ))</a></code></pre></div>
+<pre><code># A tibble: 395 x 5
+   id       G3 studytime failures e_y_math
+   &lt;chr&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1 1         6         2        0   -4.42 
+ 2 2         6         2        0   -4.42 
+ 3 3        10         2        3   -0.415
+ 4 4        15         3        0    4.58 
+ 5 5        10         2        0   -0.415
+ 6 6        15         2        0    4.58 
+ 7 7        11         2        0    0.585
+ 8 8         6         2        0   -4.42 
+ 9 9        19         2        0    8.58 
+10 10       15         2        0    4.58 
+# ... with 385 more rows</code></pre>
+<p>Der Schüler mit der ID 2 beispielsweise, erhält in der Mathematikleistung in Wirklichkeit die Punktzahl 6, wir überschätzen diese Punktzahl allerdings um 4.42 Punkte. Negative Werte bedeuten daher, dass wir die Punktzahl auf Grundlage des einfachen Modells überschätzen, negative Werte bedeuten, dass wir die Punktzahl unterschätzen.</p>
+<h3 id="model-2-einfaches-model-mit-dem-mittelwert-der-durchfallrate">Model 2: Einfaches Model mit dem Mittelwert der Durchfallrate</h3>
+<p>Ein ähnliches Modell stellen wir im nächsten Schritt für die Variable <code>failures</code> auf:</p>
+<p><br /><span class="math display">$$
+\begin{aligned}
+Y_{failures} &amp;= b_0 + e_i\\
+Y_{failures} &amp;= 0.33 + e_i
+\end{aligned}
+$$</span><br /></p>
+<p>Erneut erhalten wir für die Fehler <span class="math inline"><em>e</em><sub><em>i</em></sub> = <em>Y</em><sub><em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub> − 0.33</span> und können diese Daten in unseren Datensatz einfügen:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">(residual_dataframe &lt;-<span class="st"> </span>residual_dataframe <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="dt">e_y_failures =</span> failures <span class="op">-</span><span class="st"> </span><span class="kw">mean</span>(failures)</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">  ))</a></code></pre></div>
+<pre><code># A tibble: 395 x 6
+   id       G3 studytime failures e_y_math e_y_failures
+   &lt;chr&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;
+ 1 1         6         2        0   -4.42        -0.334
+ 2 2         6         2        0   -4.42        -0.334
+ 3 3        10         2        3   -0.415        2.67 
+ 4 4        15         3        0    4.58        -0.334
+ 5 5        10         2        0   -0.415       -0.334
+ 6 6        15         2        0    4.58        -0.334
+ 7 7        11         2        0    0.585       -0.334
+ 8 8         6         2        0   -4.42        -0.334
+ 9 9        19         2        0    8.58        -0.334
+10 10       15         2        0    4.58        -0.334
+# ... with 385 more rows</code></pre>
+<p>Unser Schüler mit der ID 2 ist in Wirklichkeit noch nicht durchgefallen, wir schätzen allerdings seine Durchfallquote auf 0.33 und überschätzen daher seine Durchfallquote.</p>
+<h3 id="model-3-e_y-math-auf-grundlage-von-e_y-failures-regredieren">Model 3: <span class="math inline"><em>e</em><sub><em>y</em> − <em>m</em><em>a</em><em>t</em><em>h</em></sub></span> auf Grundlage von <span class="math inline"><em>e</em><sub><em>y</em> − <em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub></span> regredieren</h3>
+<p>Auf Grundlage dieser beiden Fehlerquellen können wir uns nun fragen, ob ein Schüler, der öfter als gewöhnlich durch ein Fach fliegt auch schlechter als der Durschschnitt in der Mathematik ist? Da der Mittelwert von <span class="math inline"><em>e</em><sub><em>y</em> − <em>m</em><em>a</em><em>t</em><em>h</em></sub></span> und <span class="math inline"><em>e</em><sub><em>y</em> − <em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub></span> 0 beträgt, können wir auf den Intercept verzichten:</p>
+<p><br /><span class="math display"><em>e</em><sub><em>y</em> − <em>m</em><em>a</em><em>t</em><em>h</em></sub> = <em>β</em><sub>1</sub> * <em>e</em><sub><em>y</em> − <em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub></span><br /></p>
+<p>Eine lineare Regression dieser beiden Variablen ergibt:</p>
+<p><br /><span class="math display"><em>e</em><sub><em>y</em> − <em>m</em><em>a</em><em>t</em><em>h</em></sub> =  − 2.22 * <em>e</em><sub><em>y</em> − <em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub></span><br /></p>
+<p>Diese Modell können wir wie folgt interpretieren: Schüler, die öfters als der Durchschnitt durch einen Kurs fliegen, sind ebenso schlechter in der Mathematikleistung als der Durschschnitt. Wäre <span class="math inline"><em>b</em><sub>1</sub></span> positiv, würden wir davon ausgehen, dass Schüler die öfter als der Durschschnitt durch einen Kurs fliegen, <strong>besser</strong> in der Mathematikleistung sind als der Durchschnitt.</p>
+<p>Bei unserem Schüler mit der ID zwei würden wir daher davon ausgehen, dass er 0.07 Punkte besser in der Mathematiknote als der Durchschnitt ist, da er im Schnitt weniger durch die Kurse fällt als seine Klassenkameraden:</p>
+<p><br /><span class="math display"><em>e</em><sub><em>y</em> − <em>m</em><em>a</em><em>t</em><em>h</em></sub> =  − 2.22 * ( − 0.334) = 0.07</span><br /></p>
+<p>Erneut können wir die Fehler dieses Modells berechnen, indem wir die geschätze Abweichung der Mathematiknote vom Mittelwert von der tatsächlichen Abweichung vom Mittelwert berechnen:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">(residual_dataframe &lt;-<span class="st"> </span>residual_dataframe <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">    <span class="dt">e_math_failures =</span> e_y_math <span class="op">-</span><span class="st"> </span>(<span class="op">-</span><span class="fl">2.22</span> <span class="op">*</span><span class="st"> </span>e_y_failures)</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  ))</a></code></pre></div>
+<pre><code># A tibble: 395 x 7
+   id       G3 studytime failures e_y_math e_y_failures e_math_failures
+   &lt;chr&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;           &lt;dbl&gt;
+ 1 1         6         2        0   -4.42        -0.334          -4.49 
+ 2 2         6         2        0   -4.42        -0.334          -4.49 
+ 3 3        10         2        3   -0.415        2.67            0.171
+ 4 4        15         3        0    4.58        -0.334           4.51 
+ 5 5        10         2        0   -0.415       -0.334          -0.489
+ 6 6        15         2        0    4.58        -0.334           4.51 
+ 7 7        11         2        0    0.585       -0.334           0.511
+ 8 8         6         2        0   -4.42        -0.334          -4.49 
+ 9 9        19         2        0    8.58        -0.334           8.51 
+10 10       15         2        0    4.58        -0.334           4.51 
+# ... with 385 more rows</code></pre>
+<p>Wir können <code>e_math_failures</code> nun folgendermaßen interpretieren. Kontrolliert für die Anzahl der Male, die eine Person durch einen Kurs gefallen ist, ist Person X <code>e_math_failures</code> besser oder schlechter als der Durchschnitt.</p>
+<h3 id="model-4-die-lernzeit-auf-grundlage-der-anzahl-der-durchfallquote-regredieren">Model 4: Die Lernzeit auf Grundlage der Anzahl der Durchfallquote regredieren</h3>
+<p>Um zu überprüfen, weshalb nun eine Person eine schlechtere Mathematikleistung als der Durschnitt erhält, wenn wir für die Anzahl der Male, die eine Person durchgefallen ist kontrollieren, können wir die Variable <code>studytime</code> hinzunehmen. Diese ist allerdings mit der Variable <code>failures</code> redundant. Aus diesem Grund müssen wir den Anteil der Lernzeit berechnen, die nicht redundant zu der Male ist, die eine Person durchgefallen ist. Dies können wir schaffen, indem wir die Fehler berchnen, die entstehen, wenn wir die Lernzeit auf Grundlage der Durchfallquote der Personen regredieren:</p>
+<p><br /><span class="math display"><em>Y</em><sub><em>s</em><em>t</em><em>u</em><em>d</em><em>y</em><em>t</em><em>i</em><em>m</em><em>e</em></sub> = <em>b</em><sub>0</sub> + <em>b</em><sub>1</sub> * <em>X</em><sub><em>i</em> − <em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub> + <em>e</em></span><br /></p>
+<p>Hieraus ergibt sich:</p>
+<p><br /><span class="math display"><em>Ŷ</em><sub><em>s</em><em>t</em><em>u</em><em>d</em><em>y</em><em>t</em><em>i</em><em>m</em><em>e</em></sub> = 2.1009 − 0.1959 * <em>X</em><sub><em>i</em> − <em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub></span><br /></p>
+<p>Dieses Modell sagt nun voraus, dass mit jedem Mal, das eine Person durchfällt, die Lernzeit um 0.19 Punkte absinkt. Unsere Person mit der ID beispielsweise hat eine Lernzeit von 2, wir würden allerdings annehmen, dass diese <span class="math inline">2.1 − 0.19 * 0 = 2.1</span> beträgt. Der Fehler beläuft sich daher auf <span class="math inline">2.0 − 2.1 =  − 0.1</span>. Berechnen wir diese Fehler für alle SuS:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">(residual_dataframe &lt;-<span class="st"> </span>residual_dataframe <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">    <span class="dt">e_study_failures =</span> studytime <span class="op">-</span><span class="st"> </span>(<span class="fl">2.1009</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.1959</span> <span class="op">*</span><span class="st"> </span>failures)</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">  ))  </a></code></pre></div>
+<pre><code># A tibble: 395 x 8
+   id       G3 studytime failures e_y_math e_y_failures e_math_failures e_study_failures
+   &lt;chr&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
+ 1 1         6         2        0   -4.42        -0.334          -5.16            -0.101
+ 2 2         6         2        0   -4.42        -0.334          -5.16            -0.101
+ 3 3        10         2        3   -0.415        2.67            5.50             0.487
+ 4 4        15         3        0    4.58        -0.334           3.84             0.899
+ 5 5        10         2        0   -0.415       -0.334          -1.16            -0.101
+ 6 6        15         2        0    4.58        -0.334           3.84            -0.101
+ 7 7        11         2        0    0.585       -0.334          -0.157           -0.101
+ 8 8         6         2        0   -4.42        -0.334          -5.16            -0.101
+ 9 9        19         2        0    8.58        -0.334           7.84            -0.101
+10 10       15         2        0    4.58        -0.334           3.84            -0.101
+# ... with 385 more rows</code></pre>
+<h3 id="model-5-kontrollierte-mathematikleistung-auf-grundlage-der-kontrollierten-lernzeit-regredieren">Model 5: Kontrollierte Mathematikleistung auf Grundlage der kontrollierten Lernzeit regredieren</h3>
+<p>Zuletzt können wir eine einfache Regression aufstellen, in der wir die durchschittliche Mathematikleistung kontrolliert für die Anzahl der Male, die eine Person durchgefallen ist anhand der durchschnittlichen Lernzeit ebenso kontrolliert für die Anzahl der Male die eine Person durchgefallen ist, regredieren:</p>
+<p><br /><span class="math display"><em>e</em><sub><em>m</em><em>a</em><em>t</em><em>h</em> − <em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub> = <em>b</em><sub>0</sub> * <em>e</em><sub><em>s</em><em>t</em><em>u</em><em>d</em><em>y</em> − <em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub></span><br /></p>
+<p>Dies ergibt:</p>
+<p><br /><span class="math display"><em>e</em><sub><em>m</em><em>a</em><em>t</em><em>h</em> − <em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub> = 0.1985 * <em>e</em><sub><em>s</em><em>t</em><em>u</em><em>d</em><em>y</em> − <em>f</em><em>a</em><em>i</em><em>l</em><em>u</em><em>r</em><em>e</em><em>s</em></sub></span><br /></p>
+<p>Verglichen mit unserer multiplen Regression erhalten wir daher den gleichen Regressionskoeffizienten:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">lm</span>(G3 <span class="op">~</span><span class="st"> </span>studytime <span class="op">+</span><span class="st"> </span>failures, <span class="dt">data =</span> student_mat)</a></code></pre></div>
+<pre><code>Call:
+lm(formula = G3 ~ studytime + failures, data = student_mat)
+
+Coefficients:
+(Intercept)    studytime     failures  
+    10.7402       0.1985      -2.1815 </code></pre>
+<p>Wir können daher den Regressionskoeffizienten <span class="math inline"><em>b</em><sub>1</sub></span> folgendermaßen interpretieren:</p>
+<blockquote>
+<p>Für jede Einheit der Variable <code>studytime</code>, die eine Person mehr studiert als für die Anzahl der Male, die die Person durchgefallen ist, zu erwarten ist, schätzen wir, dass die Person 0.1985 Punkte besser in der Mathematik abschneidet als man für die Male erwarten würde, die diese Person durchgefallen ist.</p>
+</blockquote>
+<p>Dieser Satz ist komplex und vermutlich brauch es eine Weile, ihn zu verstehen. Wichtig ist, dass du dir vergegenwärtigst, dass die Regressionskoeffizienten immer in Abhängigkeit der anderen Prädiktoren zu interpretieren sind. Je stärker die Prädiktoren miteinander korrelieren, desto stärker ist diese Abhängigkeit.</p>
+<h1 id="statistische-inferenz">Statistische Inferenz</h1>
+<h2 id="das-gesamte-modell">Das gesamte Modell</h2>
+<p>Um die einzelnen Parameter (<span class="math inline"><em>b</em><sub>0</sub></span>, <span class="math inline"><em>b</em><sub>1</sub></span> und <span class="math inline"><em>b</em><sub>1</sub></span>) in unserer multiplen Regression zu testen, können wir das gleiche Verfahren verwenden, welches wir bereits in den anderen Modulen kennen gelernt haben. (1) Zunächst stellen wir unser erweitertes und kompaktes Modell auf. (2) Anschließend berechnen wir das F für beide Modelle. (3) Zuletzt berechnen wir die Wahrscheinlichkeit für das F unter Annahme der Nullhypothese. (4) Zum Schluss berechnen wir die Effektgröße und berichten unser Ergebnis. Erneut möchten wir prüfen, ob das Hinzufügen von Parametern die Fehler so stark reduziert, dass wir rechtfertigen können, diesen Parameter in das Modell aufzunehmen.</p>
+<p>Beginnen wir mit einem Test, welcher folgende beiden Modelle miteinander vergleicht:</p>
+<p><br /><span class="math display">$$
+\begin{aligned}
+MODEL\ A = Y_i &amp;= \beta_0 + \beta_1 * X_1 + \beta_2 * X_2 + \epsilon_i \\
+MODEL\ C = Y_i &amp;= B_0 + \epsilon_i
+\end{aligned}
+$$</span><br /></p>
+<p>Wir testen demnach, ob die beiden weiteren Parameter Lernzeit und Anzahl der Male, die eine Person durchgefallen ist, die Fehler des einfachen Modells des Mittelwerts substantiell reduziert. Wir gehen daher bei der Nullyhypothese davon aus, dass die weiteren Parameter die abhängige Variable nicht verändern und daher 0 sind:</p>
+<p><br /><span class="math display"><em>H</em><sub>0</sub> : <em>β</em><sub>0</sub> = <em>β</em><sub>1</sub> = <em>β</em><sub>2</sub> = 0</span><br /></p>
+<p>Im nächsten Schritt berechnen wir F analog, wie wir es bisher gemacht haben:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">mean_sample &lt;-<span class="st"> </span><span class="kw">mean</span>(student_data<span class="op">$</span>G3) <span class="co"># Mittelwert der Stichprobe</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">errors &lt;-<span class="st"> </span>student_data <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb16-4" data-line-number="4">    <span class="dt">compact_model =</span> mean_sample,</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">    <span class="dt">augmented_model =</span> <span class="fl">10.7402</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.1985</span> <span class="op">*</span><span class="st"> </span>studytime <span class="op">-</span><span class="st"> </span><span class="fl">2.1815</span> <span class="op">*</span><span class="st"> </span>failures,</a>
+<a class="sourceLine" id="cb16-6" data-line-number="6">    <span class="dt">res_compact   =</span> (G3 <span class="op">-</span><span class="st"> </span>compact_model)<span class="op">**</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">    <span class="dt">res_augmented =</span> (G3 <span class="op">-</span><span class="st"> </span>augmented_model)<span class="op">**</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb16-8" data-line-number="8">  )</a>
+<a class="sourceLine" id="cb16-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb16-10" data-line-number="10">(sse_c &lt;-<span class="st"> </span><span class="kw">sum</span>(errors<span class="op">$</span>res_compact)) <span class="co"># 8269.909</span></a>
+<a class="sourceLine" id="cb16-11" data-line-number="11">(sse_a &lt;-<span class="st"> </span><span class="kw">sum</span>(errors<span class="op">$</span>res_augmented)) <span class="co"># 7185.053</span></a>
+<a class="sourceLine" id="cb16-12" data-line-number="12">(ssr &lt;-<span class="st"> </span>sse_c <span class="op">-</span><span class="st"> </span>sse_a) <span class="co"># 1084.856</span></a>
+<a class="sourceLine" id="cb16-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb16-14" data-line-number="14">(pre &lt;-<span class="st"> </span>ssr <span class="op">/</span><span class="st"> </span>sse_c) <span class="co"># 0.1311812</span></a></code></pre></div>
+<p>Der F-Wert ist daher:</p>
+<p><br /><span class="math display">$$
+F = \frac{SSR / (PA - PC)}{SSE(A) / (n - PA)}
+$$</span><br /></p>
+<ul>
+<li><span class="math inline"><em>P</em><em>C</em></span>: Das kompakte Modell hat einen Parameter <span class="math inline"><em>B</em><sub>0</sub></span>.</li>
+<li><span class="math inline"><em>P</em><em>A</em></span>: Das erweiterte Modell hat drei Parameter: <span class="math inline"><em>b</em><sub>0</sub></span>, <span class="math inline"><em>b</em><sub>1</sub></span> und <span class="math inline"><em>b</em><sub>2</sub></span>.</li>
+<li><span class="math inline"><em>n</em></span>: Insgesamt gibt es 395 Personen in dem Datensatz.</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">(F &lt;-<span class="st"> </span>(ssr <span class="op">/</span><span class="st"> </span>(<span class="dv">3</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) <span class="op">/</span><span class="st"> </span>(sse_a <span class="op">/</span><span class="st"> </span>(<span class="dv">395</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span>))) <span class="co"># 29.59364</span></a></code></pre></div>
+<p>Die Wahrscheinlichkeit für einen solch hohen F-Wert ist deutlich unter dem kritischen Wert:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pf</span>(F, <span class="dt">df1 =</span> <span class="dv">2</span>, <span class="dt">df2 =</span> <span class="dv">395</span> <span class="op">-</span><span class="st"> </span><span class="dv">3</span>) <span class="co">#  1.071809e-12</span></a></code></pre></div>
+<p>Unsere übliche Tabelle lautet daher:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th style="text-align: center;">SS</th>
+<th style="text-align: right;">df</th>
+<th>MS</th>
+<th>F</th>
+<th>p</th>
+<th>PRE / <span class="math inline"><em>R</em><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reduction</td>
+<td style="text-align: center;">1084.856</td>
+<td style="text-align: right;">2</td>
+<td>542.43</td>
+<td>29.59</td>
+<td>&lt; .001</td>
+<td>0.13</td>
+</tr>
+<tr class="even">
+<td>Error</td>
+<td style="text-align: center;">7185.053</td>
+<td style="text-align: right;">392</td>
+<td>18.33</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total Error</td>
+<td style="text-align: center;">8269.909</td>
+<td style="text-align: right;">394</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="probleme-des-allgemeinen-modells">Probleme des allgemeinen Modells</h3>
+<p>Ein solcher Test ist allerdings nicht sonderlich hilfreich, da wir auf Grundlage des Ergebnisses nicht hervorsagen können, inwieweit die <strong>einzelnen</strong> Parameter die Fehler substantiell reduzieren. Auf Grundlage des Ergebnisses können wir lediglich sagen, dass das Hinzufügen <strong>beider</strong> Parameter, den Fehler substantiell reduziert. Wir wissen jedoch nicht, ob beide oder nur einer dieser Parameter für diese Fehlerreduktion zuständig ist?</p>
+<p>Als Faustregel: Sobald der Freiheitsgrad des Zählers über 1 ist, können wir das Ergebnis nur schwer interpretieren, da mehrere Parameter für die Reduktion des Fehlers ausschlagbend sein können. Wir müssen daher einen Weg finden, den Freiheitsgrad auf 1 zu setzen, um eine Interpretation zu ermöglichen und das erweiterte und kompakte Modell so einzugrenzen, dass sich diese nur in einem Parameter unterscheiden.</p>
+<h2 id="einzelne-prädiktoren-testen">Einzelne Prädiktoren testen</h2>
+<h3 id="parameter-studytime">Parameter Studytime</h3>
+<p>Um nun den Beitrag der einzelnen Parameter zu testen, müssen wir alternative Modelle gegeneinander testen. Beginnen wir, indem wir den Beitrag des Parameters <code>studytime</code> testen:</p>
+<p><br /><span class="math display">$$
+\begin{aligned}
+MODEL\ A &amp;= \beta_0 + \beta_{failures} * X_{failures} + \beta_{studytime} * X_{studytime} + \epsilon_i \\
+MODEL\ C &amp;= \beta_0 + \beta_{failures} * X_{failures} + \epsilon_i 
+\end{aligned}
+$$</span><br /></p>
+<p>Du erkennst, dass sich beide Modelle nur in einem Parameter unterschieden. Das kompakte Modell hat zwei Parameter, das erweiterte Modell drei Parameter. Folgende Modelle ergeben sich hieraus:</p>
+<p><br /><span class="math display">$$
+\begin{aligned}
+MODEL\ A &amp;= 10.7402 - 2.1815 * X_{failures} + 0.1985 * X_{studytime} \\
+MODEL\ C &amp;= 11.16 - 2.22 * X_{failures} 
+\end{aligned}
+$$</span><br /></p>
+<p>Der F-Wert ist folgerichtig:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">mean_sample &lt;-<span class="st"> </span><span class="kw">mean</span>(student_data<span class="op">$</span>G3)</a>
+<a class="sourceLine" id="cb19-2" data-line-number="2">errors &lt;-<span class="st"> </span>student_data <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb19-4" data-line-number="4">    <span class="dt">compact_model   =</span> <span class="fl">11.16</span> <span class="op">-</span><span class="st"> </span><span class="fl">2.22</span> <span class="op">*</span><span class="st"> </span>failures,</a>
+<a class="sourceLine" id="cb19-5" data-line-number="5">    <span class="dt">augmented_model =</span> <span class="fl">10.7402</span> <span class="op">-</span><span class="st"> </span><span class="fl">2.1815</span> <span class="op">*</span><span class="st"> </span>failures <span class="op">+</span><span class="st"> </span><span class="fl">0.1985</span> <span class="op">*</span><span class="st"> </span>studytime,</a>
+<a class="sourceLine" id="cb19-6" data-line-number="6">    <span class="dt">res_compact     =</span> (G3 <span class="op">-</span><span class="st"> </span>compact_model)<span class="op">**</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb19-7" data-line-number="7">    <span class="dt">res_augmented   =</span> (G3 <span class="op">-</span><span class="st"> </span>augmented_model)<span class="op">**</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb19-8" data-line-number="8">  )</a>
+<a class="sourceLine" id="cb19-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb19-10" data-line-number="10">(sse_c &lt;-<span class="st"> </span><span class="kw">sum</span>(errors<span class="op">$</span>res_compact)) <span class="co"># 7195.66</span></a>
+<a class="sourceLine" id="cb19-11" data-line-number="11">(sse_a &lt;-<span class="st"> </span><span class="kw">sum</span>(errors<span class="op">$</span>res_augmented)) <span class="co"># 7185.053</span></a>
+<a class="sourceLine" id="cb19-12" data-line-number="12">(ssr &lt;-<span class="st"> </span>sse_c <span class="op">-</span><span class="st"> </span>sse_a) <span class="co"># 10.6075</span></a>
+<a class="sourceLine" id="cb19-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb19-14" data-line-number="14">(pre &lt;-<span class="st"> </span>ssr <span class="op">/</span><span class="st"> </span>sse_c) <span class="co"># 0.001474152</span></a>
+<a class="sourceLine" id="cb19-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb19-16" data-line-number="16">(F &lt;-<span class="st"> </span>(ssr <span class="op">/</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) <span class="op">/</span><span class="st"> </span>(sse_a <span class="op">/</span><span class="st"> </span>(<span class="dv">395</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span>))) <span class="co"># 0.580197</span></a>
+<a class="sourceLine" id="cb19-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb19-18" data-line-number="18"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pf</span>(F, <span class="dt">df1 =</span> <span class="dv">1</span>, <span class="dt">df2 =</span> <span class="dv">395</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span>) <span class="co"># 0.4466919</span></a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th style="text-align: center;">SS</th>
+<th style="text-align: right;">df</th>
+<th>MS</th>
+<th>F</th>
+<th>p</th>
+<th>PRE / <span class="math inline"><em>R</em><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>studytime</td>
+<td style="text-align: center;">10.6075</td>
+<td style="text-align: right;">1</td>
+<td>10.6075</td>
+<td>0.58</td>
+<td>0.447</td>
+<td>0.00</td>
+</tr>
+<tr class="even">
+<td>Error</td>
+<td style="text-align: center;">7185.053</td>
+<td style="text-align: right;">393</td>
+<td>18.28258</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total Error</td>
+<td style="text-align: center;">7195.66</td>
+<td style="text-align: right;">394</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Wir können auf Grundlage dieses Ergebnisses sagen, dass der Parameter <code>studytime</code> den Fehler nicht substantiell reduziert und daher nicht signifikant ist. Der Parameter reduziert den Fehler nicht mehr als ein willkürlicher Parameter, den wir einfach so ein das Modell hinzunehmen.</p>
+<p>Manche Statistikprogramme berichten anstatt des F-Wertes den t-Wert. Wir wissen allerdings mittlerweile, dass der t-Wert nichts anderes ist als die Wurzel des F-Wertes. Wir könnten anstatt F daher t als <span class="math inline">$\sqrt{0.58} = 0.761$</span> berichten.</p>
+<h3 id="parameter-failures">Parameter Failures</h3>
+<p>Das gleiche können wir für den Parameter <code>failures</code> berechnen: Führt das Hinzufügen des Parameters <code>failures</code> zu einer substantiellen Reduzierung des Fehlers im Vergleich zu dem Regressionsmodells, welches diesen Parameter nicht besitzt?</p>
+<p><br /><span class="math display">$$
+\begin{aligned}
+MODEL\ A &amp;= 10.7402 - 2.1815 * X_{failures} + 0.1985 * X_{studytime} \\
+MODEL\ C &amp;= 9.328 + 0.534 * X_{studytime} 
+\end{aligned}
+$$</span><br /></p>
+<p>Hieraus ergibt sich:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">mean_sample &lt;-<span class="st"> </span><span class="kw">mean</span>(student_data<span class="op">$</span>G3)</a>
+<a class="sourceLine" id="cb20-2" data-line-number="2">errors &lt;-<span class="st"> </span>student_data <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">    <span class="dt">compact_model   =</span> <span class="fl">9.328</span> <span class="op">+</span><span class="st"> </span><span class="fl">0.534</span> <span class="op">*</span><span class="st"> </span>studytime,</a>
+<a class="sourceLine" id="cb20-5" data-line-number="5">    <span class="dt">augmented_model =</span> <span class="fl">10.7402</span> <span class="op">-</span><span class="st"> </span><span class="fl">2.1815</span> <span class="op">*</span><span class="st"> </span>failures <span class="op">+</span><span class="st"> </span><span class="fl">0.1985</span> <span class="op">*</span><span class="st"> </span>studytime,</a>
+<a class="sourceLine" id="cb20-6" data-line-number="6">    <span class="dt">res_compact     =</span> (G3 <span class="op">-</span><span class="st"> </span>compact_model)<span class="op">**</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb20-7" data-line-number="7">    <span class="dt">res_augmented   =</span> (G3 <span class="op">-</span><span class="st"> </span>augmented_model)<span class="op">**</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb20-8" data-line-number="8">  )</a>
+<a class="sourceLine" id="cb20-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb20-10" data-line-number="10">(sse_c &lt;-<span class="st"> </span><span class="kw">sum</span>(errors<span class="op">$</span>res_compact)) <span class="co"># 8190.777</span></a>
+<a class="sourceLine" id="cb20-11" data-line-number="11">(sse_a &lt;-<span class="st"> </span><span class="kw">sum</span>(errors<span class="op">$</span>res_augmented)) <span class="co"># 7185.053</span></a>
+<a class="sourceLine" id="cb20-12" data-line-number="12">(ssr &lt;-<span class="st"> </span>sse_c <span class="op">-</span><span class="st"> </span>sse_a) <span class="co"># 1005.724</span></a>
+<a class="sourceLine" id="cb20-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb20-14" data-line-number="14">(pre &lt;-<span class="st"> </span>ssr <span class="op">/</span><span class="st"> </span>sse_c) <span class="co"># 0.1227874</span></a>
+<a class="sourceLine" id="cb20-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb20-16" data-line-number="16">(F &lt;-<span class="st"> </span>(ssr <span class="op">/</span><span class="st"> </span>(<span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)) <span class="op">/</span><span class="st"> </span>(sse_a <span class="op">/</span><span class="st"> </span>(<span class="dv">395</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span>))) <span class="co"># 55.00998</span></a>
+<a class="sourceLine" id="cb20-17" data-line-number="17"></a>
+<a class="sourceLine" id="cb20-18" data-line-number="18"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pf</span>(F, <span class="dt">df1 =</span> <span class="dv">1</span>, <span class="dt">df2 =</span> <span class="dv">395</span> <span class="op">-</span><span class="st"> </span><span class="dv">2</span>) <span class="co"># 7.455148e-13</span></a></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th style="text-align: center;">SS</th>
+<th style="text-align: right;">df</th>
+<th>MS</th>
+<th>F</th>
+<th>p</th>
+<th>PRE / <span class="math inline"><em>R</em><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>failures</td>
+<td style="text-align: center;">1005.724</td>
+<td style="text-align: right;">1</td>
+<td>1005.724</td>
+<td>55.01</td>
+<td>&lt; .001</td>
+<td>0.12</td>
+</tr>
+<tr class="even">
+<td>Error</td>
+<td style="text-align: center;">7185.053</td>
+<td style="text-align: right;">393</td>
+<td>18.28258</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total Error</td>
+<td style="text-align: center;">8190.777</td>
+<td style="text-align: right;">394</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bericht-aller-ergebnisse">Bericht aller Ergebnisse</h3>
+<p>Abschließend können wir alle Ergebnisse in einer Tabelle zusammen fassen:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th style="text-align: center;">SS</th>
+<th style="text-align: right;">df</th>
+<th>MS</th>
+<th>F</th>
+<th>p</th>
+<th>PRE / <span class="math inline"><em>R</em><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Regression</td>
+<td style="text-align: center;">1084.856</td>
+<td style="text-align: right;">2</td>
+<td>542.43</td>
+<td>29.59</td>
+<td>&lt; .001</td>
+<td>0.13</td>
+</tr>
+<tr class="even">
+<td>studytime</td>
+<td style="text-align: center;">10.6075</td>
+<td style="text-align: right;">1</td>
+<td>10.6075</td>
+<td>0.58</td>
+<td>0.447</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<td>failures</td>
+<td style="text-align: center;">1005.724</td>
+<td style="text-align: right;">1</td>
+<td>1005.724</td>
+<td>55.01</td>
+<td>&lt; .001</td>
+<td>0.12</td>
+</tr>
+<tr class="even">
+<td>Error</td>
+<td style="text-align: center;">7185.053</td>
+<td style="text-align: right;">393</td>
+<td>18.28258</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total Error</td>
+<td style="text-align: center;">8190.777</td>
+<td style="text-align: right;">394</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Wir können also sagen, dass die Variable <code>failures</code> zu einer signifikanten Reduzierung des Fehlers führt und daher einen starken Beitrag macht, die Mathematikleistung der SuS zu erklären. Interessanterweise trägt die Variable <code>studytime</code> nicht zur Erklärung der Mathematikleistung bei. Wie viel Zeit SuS in das Lernen investieren, scheint daher keinen Einfluss auf deren Note zu haben. Man könnte sich im nächsten Schritt überlegen, welche anderen Variablen hilfreich wären, um die Mathematikleistung von SuS zu erklären. Was wir allerdings aus den Daten erkennen können, ist, dass das Vorwissen, welches in gewisser Weise durch die Variable <code>failures</code> abgedeckt ist, einen großen Einfluss auf zukünftiges Wissen hat. Dies ist ein Befund, den man immer wieder in der pädagogischen Psychologie findet.</p>
+<h2 id="konfidenzintervalle">Konfidenzintervalle</h2>
+<p>Erneut können wir die Signifkanz unserer Parameter durch Konfidenzintervalle testen. Die Berechnung ist genau gleich wie bei der einfachen Regression:</p>
+<p><br /><span class="math display">$$
+CI_{upper/lower} = b_{i} \pm \sqrt{\frac{F_{crit} * MSE}{(n - 1) * s^2_x * (1 - R^2)}}
+$$</span><br /></p>
+<ul>
+<li><span class="math inline"><em>M</em><em>S</em><em>E</em></span>: Dies ist der Nenner der Formel des F-Tests: <span class="math inline">$F = \frac{SSR / (PA - PC)}{SSE(A) / (n-PA)} = \frac{MSR}{MSE}$</span></li>
+<li><span class="math inline"><em>s</em><sub><em>x</em></sub><sup>2</sup></span>: Die Varianz der unabhängigen Variable (hier Lernzeit - Studytime).</li>
+<li><span class="math inline"><em>b</em><sub><em>i</em></sub></span>: Der Steigungskoeffizient der unabhängigen Variable <span class="math inline"><em>X</em><sub><em>i</em></sub></span>.</li>
+<li><span class="math inline"><em>n</em></span>: Die Anzahl der Untersuchungsobjekte.</li>
+<li><span class="math inline"><em>F</em><sub><em>c</em><em>r</em><em>i</em><em>t</em></sub></span>: Der kritische F-Wert, welcher zu einem signifikanten Ergebnis führt. Diesen kann in unserem Fall mit der Funktion <code>qf</code> berechnen: <code>qf(0.95, df1 = 1, df2 = 393)</code> <span class="math inline"> = 3.865229</span>.</li>
+<li><span class="math inline"><em>R</em><sup>2</sup></span>: PRE, welches durch den Parameter aufgeklärt wird.</li>
+</ul>
+<p>Zur Berechnung hilft uns unsere Tabelle:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th style="text-align: center;">SS</th>
+<th style="text-align: right;">df</th>
+<th>MS</th>
+<th>F</th>
+<th>p</th>
+<th>PRE / <span class="math inline"><em>R</em><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Regression</td>
+<td style="text-align: center;">1084.856</td>
+<td style="text-align: right;">2</td>
+<td>542.43</td>
+<td>29.59</td>
+<td>&lt; .001</td>
+<td>0.13</td>
+</tr>
+<tr class="even">
+<td>studytime</td>
+<td style="text-align: center;">10.6075</td>
+<td style="text-align: right;">1</td>
+<td>10.6075</td>
+<td>0.58</td>
+<td>0.447</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<td>failures</td>
+<td style="text-align: center;">1005.724</td>
+<td style="text-align: right;">1</td>
+<td>1005.724</td>
+<td>55.01</td>
+<td>&lt; .001</td>
+<td>0.12</td>
+</tr>
+<tr class="even">
+<td>Error</td>
+<td style="text-align: center;">7185.053</td>
+<td style="text-align: right;">393</td>
+<td>18.28258</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total Error</td>
+<td style="text-align: center;">8190.777</td>
+<td style="text-align: right;">394</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="konfidenzintervall-des-parameters-studytime">Konfidenzintervall des Parameters Studytime</h3>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">(ci_upper &lt;-<span class="st"> </span><span class="fl">0.1985</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>((<span class="fl">3.865229</span> <span class="op">*</span><span class="st"> </span><span class="fl">18.28258</span>) <span class="op">/</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="st">                           </span>((<span class="dv">395</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">var</span>(student_data<span class="op">$</span>studytime) <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.00</span>)))) <span class="co"># 0.7031286</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4">(ci_lower &lt;-<span class="st"> </span><span class="fl">0.1985</span> <span class="op">-</span><span class="st"> </span><span class="kw">sqrt</span>((<span class="fl">3.865229</span> <span class="op">*</span><span class="st"> </span><span class="fl">18.28258</span>) <span class="op">/</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="st">                           </span>((<span class="dv">395</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">var</span>(student_data<span class="op">$</span>studytime)<span class="op">*</span><span class="st">  </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.00</span>)))) <span class="co"># -0.3061286</span></a></code></pre></div>
+<p>Dies bedeutet, dass in 95 von 100 Fällen der wahre Steigungskoeffizient der Population sich in diesem Bereich befinden wird:</p>
+<p><br /><span class="math display"> − 0.36 ≤ <em>β</em><sub>1</sub> ≤ 0.70</span><br /></p>
+<p>Da der Konfidenzintervall die 0 umschließt, wissen wir, dass es sich um ein nicht-signifikantes Ereignis handelt.</p>
+<h3 id="konfienzintervall-des-parameters-failures">Konfienzintervall des Parameters Failures</h3>
+<p>Die gleiche Berechnung können wir für den Parameter failures aufstellen:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1">(ci_upper &lt;-<span class="st"> </span><span class="fl">-2.1815</span> <span class="op">+</span><span class="st"> </span><span class="kw">sqrt</span>((<span class="fl">3.865229</span>  <span class="op">*</span><span class="st"> </span><span class="fl">18.28258</span>) <span class="op">/</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="st">                           </span>((<span class="dv">395</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">var</span>(student_data<span class="op">$</span>failures) <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.12</span>)))) <span class="co"># -1.574417</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">(ci_lower &lt;-<span class="st"> </span><span class="fl">-2.1815</span> <span class="op">-</span><span class="st"> </span><span class="kw">sqrt</span>((<span class="fl">3.865229</span> <span class="op">*</span><span class="st"> </span><span class="fl">18.28258</span>) <span class="op">/</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb22-5" data-line-number="5"><span class="st">                           </span>((<span class="dv">395</span> <span class="op">-</span><span class="st"> </span><span class="dv">1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">var</span>(student_data<span class="op">$</span>failures) <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.12</span>)))) <span class="co"># -2.788583</span></a></code></pre></div>
+<p><br /><span class="math display"> − 2.79 ≤ <em>β</em><sub>1</sub> ≤  − 1.57</span><br /></p>
+<p>In 95 von 100 Fällen in denen wir demnach Konfidenzintervalle berechnen, wird sich der wahre Konfidenzintervall in diesem Bereich befinden. Wir sind demnach zuversichtlich, dass der Steigungskoeffizient der Variable failure demnach nicht 0 entspricht und daher dazu beiträgt, die Mathematikleistung der SuS zu erklären.</p>
+<h1 id="computer-basierte-berechnung">Computer-basierte Berechnung</h1>
+<h2 id="jamovi">Jamovi</h2>
+<p>Um die multiple lineare Regression in Jamovi zu berechnen, müssen wir zunächst den Datensatz als CSV-Datei einlesen:</p>
+<p><img src="jamovi1.png" /></p>
+<p>Anschließend kliegst du auf Regression -&gt; Linear Regression:</p>
+<p><img src="jamovi2.png" /></p>
+<p>Gebe nun die abhängige und unabhängie Variable an:</p>
+<p><img src="jamovi3.png" /></p>
+<p>Lass dir zudem das adjustierte <span class="math inline"><em>R</em><sup>2</sup></span>, die Konfidenzintervalle und den ANOVA-Test ausgeben:</p>
+<p><img src="jamovi4.png" /></p>
+<p>Anhand der Ergebnisse siehst du, dass wir die gleichen Ergebnisse behalten, die wir händisch berechnet haben:</p>
+<p><img src="jamovi5.png" /></p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th style="text-align: center;">SS</th>
+<th style="text-align: right;">df</th>
+<th>MS</th>
+<th>F</th>
+<th>p</th>
+<th>PRE / <span class="math inline"><em>R</em><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Regression</td>
+<td style="text-align: center;">1084.856</td>
+<td style="text-align: right;">2</td>
+<td>542.43</td>
+<td>29.59</td>
+<td>&lt; .001</td>
+<td>0.13</td>
+</tr>
+<tr class="even">
+<td>studytime</td>
+<td style="text-align: center;">10.6075</td>
+<td style="text-align: right;">1</td>
+<td>10.6075</td>
+<td>0.58</td>
+<td>0.447</td>
+<td>0.00</td>
+</tr>
+<tr class="odd">
+<td>failures</td>
+<td style="text-align: center;">1005.724</td>
+<td style="text-align: right;">1</td>
+<td>1005.724</td>
+<td>55.01</td>
+<td>&lt; .001</td>
+<td>0.12</td>
+</tr>
+<tr class="even">
+<td>Error</td>
+<td style="text-align: center;">7185.053</td>
+<td style="text-align: right;">393</td>
+<td>18.28258</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total Error</td>
+<td style="text-align: center;">8190.777</td>
+<td style="text-align: right;">394</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Zwar berechnet Jamovi einen t-Test für die Regressionskoeffizienten, du hast aber bereits gesehen, wie du die F-Werte in T-Werte umwandeln kannst. Für die Interpretation der Ergebnisse ist dieser Unterschied unerheblich.</p>
+<p>Im nächsten Schritt kopierst du den R-Code:</p>
+<p><img src="jamovi6.png" /></p>
+<p>Diesen fügst du nun in R ein und änderst die Bezeichnung des Datensatzes:</p>
+<p><img src="jamovi7.png" /></p>
+<p>Achte darauf, dass du das Verfahren durch Kommentare dokumentierst, so dass du später weißt, was du gerechnet hast.</p>
+<h2 id="spss">SPSS</h2>
+<p>In SPSS importierst du zunächst die CSV-Datei:</p>
+<p><img src="spss1.png" /></p>
+<p>Anschließend wählst du Regression -&gt; Linear aus:</p>
+<p><img src="spss2.png" /></p>
+<p>Im Anschluss bestimsmt du die abhängige und die unabhängigen Variablen:</p>
+<p><img src="spss3.png" /></p>
+<p>Unter Statistiken füge die Konfidenzintervalle hinzu:</p>
+<p><img src="spss4.png" /></p>
+<p>Drucke ok. Du erhältst nun folgenden Output:</p>
+<p><img src="spss5.png" /></p>
+<p>Verglichen mit dem Output von Jamovi sind die Daten identisch:</p>
+<p><img src="jamovi5.png" /></p>
+<p>Lediglich der ANOVA-Test unterscheidet sich (zweite Tabelle in SPSS). Dieser beschreibt das erste Modell, welches wir in diesem Modul gerechnet hatten:</p>
+<p><br /><span class="math display">$$
+\begin{aligned}
+MODEL\ A = Y_i &amp;= \beta_0 + \beta_1 * X_1 + \beta_2 * X_2 + \epsilon_i \\
+MODEL\ C = Y_i &amp;= B_0 + \epsilon_i
+\end{aligned}
+$$</span><br /></p>
+<table>
+<thead>
+<tr class="header">
+<th>Source</th>
+<th style="text-align: center;">SS</th>
+<th style="text-align: right;">df</th>
+<th>MS</th>
+<th>F</th>
+<th>p</th>
+<th>PRE / <span class="math inline"><em>R</em><sup>2</sup></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reduction</td>
+<td style="text-align: center;">1084.856</td>
+<td style="text-align: right;">2</td>
+<td>542.43</td>
+<td>29.59</td>
+<td>&lt; .001</td>
+<td>0.13</td>
+</tr>
+<tr class="even">
+<td>Error</td>
+<td style="text-align: center;">7185.053</td>
+<td style="text-align: right;">392</td>
+<td>18.33</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total Error</td>
+<td style="text-align: center;">8269.909</td>
+<td style="text-align: right;">394</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>In Jamovi können wir uns diesen auch ausgeben lassen: Model Fit -&gt; Overall Model Test -&gt; F test:</p>
+<p><img src="jamovi8.png" /></p>
+<h2 id="r">R</h2>
+<p>In R können wir die gleiche Berechnung durch die Funktion <code>lm</code> durchführen:</p>
+<p><img src="r1.png" /></p>
+<h2 id="multiple-regression-berichten">Multiple Regression berichten</h2>
+<p>Wenn wir unser Ergebnis nun ein einem Artikel berichten möchten, können wir dies folgendermaßen tun:</p>
+<blockquote>
+<p>Es wurde eine multiple Regression mit der Mathematikleistung als abhängige Variable und der Durchfallquote sowie der Lernzeit als unabhängige Variable berechnet. Die Regression ergab einen signifikanten Effekt der beiden Prädiktoren, <em>F</em>(2, 392) = 29.59, <em>p</em> &lt; .001, R^2 = .13. Die Untersuchung der einzelnen Prädiktoren ergab, dass der Prädiktor Durchfallquote einen signifikanten Effekt auf die Mathematikleistung der Schüler*innen hat, <em>F</em>(1, 392) = 54.87, <em>p</em> &lt; .001, was darauf hindeutet, dass die Durchfallquote die Mathematikleistung der Schüler*innen negativ beeinflusst. Für den Prädiktor Lernzeit ergab sich kein signifikanter Effekt, <em>F</em>(1, 392) = 0.58, <em>p</em> = .48, was darauf hindeutet, dass die Mathematikleistung nicht von der Lernzeit beeeinflusst wird.</p>
+</blockquote>
+<h1 id="interpretation-der-multiplen-regression">Interpretation der multiplen Regression</h1>
+<h2 id="kausale-aussagen">Kausale Aussagen</h2>
+<p>Wir hatten die partiellen Regressionskoeffizienten als die Veränderung in der abhängigen Variable beschrieben, die auftreten, wenn wir für alle anderen Prädiktoren kontrollieren. Diese Tatsache bedeutet allerdings <strong>nicht</strong>, dass die abhängige Variable durch die unabhängige Variable verändert wird. Die multiple Regression beschreibt lediglich die Daten. Beispielsweise können wir auf Grundlage der multiplen Regression nicht behaupten, dass eine höhere Durchfallquote zu einer schlechteren Mathematikleistung führt; selbst wenn der Regressionskoeffizient negativ ist.</p>
+<p><a href="https://tylervigen.com/spurious-correlations">Hier</a> findest du eine Webseite, die mehrere irrsinnige kausale Aussagen zweier Variablen veranschaulicht. Beispielsweise gibt es einen nachweisbaren negativen Zusammenhang zwischen der Verkauf von Eis in einer Stadt und den Selbstmorden in einer Stadt. Führt weniger Eiskaufen kaufen daher zu Selbstmord? Nein. Der Grund liegt vielmehr in einer dritten Variable, der Temperatur. Die Temperatur wiederum könnte auf die Stimmung von Personen wirken, da es im Winter weniger Licht gibt.</p>
+<p>Wir werden im nächsten Modul allerdings ein Design / ein Modell kennen lernen, auf Grund dessen wir kausale Aussagen treffen können. Diese Designs sind fast immer Experimente, bei denen wir eine Variable bewusst manipulieren, um ihren Effekt zu bestimmen.</p>
+<h2 id="wichtigkeit-der-prädiktoren">Wichtigkeit der Prädiktoren</h2>
+<p>Ein häufiger Fehler in der Interpretation einer multiplen Regression liegt darin, dass die Stärke der Prädiktoren falsch interpretiert wird. Schauen wir uns dazu erneut unser Modell an:</p>
+<p><br /><span class="math display"><em>Ŷ</em><sub><em>i</em></sub> = 10.74 − 2.18 * <em>X</em><sub><em>i</em>1</sub> + 0.19 * <em>X</em><sub><em>i</em>2</sub> + <em>e</em><sub><em>i</em></sub></span><br /></p>
+<p>Der Regressionskoeffizient des Durchfallens <span class="math inline"><em>b</em><sub>1</sub></span> liegt bei <span class="math inline"> − 2.18</span>. Der Regressionskoeffizient der Lernzeit <span class="math inline"><em>b</em><sub>2</sub></span> liegt bei 0.19. Mehr Durchfallen führt daher zu einer schlechteren Mathemleistung, mehr Lernen zu einer leicht besseren, allerdings ist dieser Prädiktor nicht signifikant.</p>
+<p>Es wäre nun inkorrekt zu behaupten, dass die Durchfallquote einen stärkeren Einfluss auf die Mathematikleistung hat als die Lernzeit. Hättest du aus irgendwelchen Gründen beispielsweise die Variable <code>failures</code> durch 1000 geteilt, wäre der Regressionskoeffizient <span class="math inline"><em>b</em><sub>1</sub></span> tausendfach kleiner. Der Beitrag auf die abhängige Variable hingegen bliebe gleich.</p>
+<p>Häufig werden die Variablen daher z-standardisiert, um ihre Interpretation zu ermöglichen. Auch dieses Vorgehen ist nicht empfehlenswert, da diese von der Streuung der Variable abhängig sind. Zudem löst die Standardisierung nicht das Problem der Redundaz. Die Stärke der Regressionskoeffizienten sind daher mit Vorsicht zu genießen und sollten nicht überinterpretiert werden.</p>
+<h1 id="modeling">Modeling</h1>
+<h2 id="modeling-1">Modeling</h2>
