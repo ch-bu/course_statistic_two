@@ -318,7 +318,7 @@ $$
 
 Anhand des ersten Regressionskoeffizienten $b_1$ testen wir die Hypothese, ob sich der Mittelwert von Gruppe 2 sowie Gruppe 3 vom Mittelwert der Gruppe 1 unterscheidet. Anhand des zweiten Regressionskoeffizienten $b_2$ testen wir, ob sich der Mittelwert der Gruppe 2 vom Mittelwert der Gruppe 3 unterscheidet.
 
-### Zweite Regel
+### Zweite Regel orthogonaler Kontraste
 
 Orthogonale Kontraste müssen neben folgender Regel $\sum_k \lambda_k = 0$ zusätzlich diese Regel erfüllen:
 
@@ -332,7 +332,7 @@ Das Produkt der einzelnen Lambdagewichte sollte 0 ergeben. Unsere beiden Kontras
 (-2) * 0 + 1 * (-1) + 1 * 1 # 0
 ```
 
-Folgende Kontraste wären nicht orthogonal:
+Folgende Kontraste wären demnach nicht orthogonal:
 
 |        | Gruppe1 | Gruppe2 | Gruppe3 |
 |--------|:-------:|--------:|---------|
@@ -347,6 +347,7 @@ Da:
 
 Die Orthogonalität der Kontraste ist wichtig, da die Regressionskoeffizienten ansonsten nicht die Mittelwertsunterschiede unserer spezifischer Hypothesen testen.
 
+### Orthogonale Kontraste bei vier Gruppen
 
 
 
@@ -355,6 +356,8 @@ Die Orthogonalität der Kontraste ist wichtig, da die Regressionskoeffizienten a
 
 
 
+14:50 - 15:19  Donnerstag
+17:12 -17:49 Donnerstag
 
 
 

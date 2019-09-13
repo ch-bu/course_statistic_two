@@ -8,11 +8,11 @@
 4. Statistische Inferenz 1 
 5. Statistische INferenz 2 
 6. Simple regression
-7. Multiple regression
-8. One-Way ANOVA
+7. Multiple regression (redundancy, partial regression coefficients, overall model test, testing predictors)
+8. One-Way ANOVA (contrast-coded predictors, two-group t-test, three levels, orthongonal contrasts, other contrast codes)
 9. Factorial ANOVA (Mediation)
 10. ANCOVA (Homogenity, Moderation, Mediation)
-11. Repeated Measures ANOVA()
+11. Repeated Measures ANOVA ()
 12. Offene Fragen
 13. Klausur
 
